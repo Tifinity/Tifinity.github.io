@@ -1,0 +1,95 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infinit on Infinit</title>
+    <link>http://tifinity.github.io/</link>
+    <description>Recent content in Infinit on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate>
+    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Posts</title>
+      <link>http://tifinity.github.io/posts/</link>
+      <pubDate>Thu, 16 Apr 2020 11:02:04 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/posts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://tifinity.github.io/about/</link>
+      <pubDate>Sun, 15 Dec 2019 17:52:04 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/about/</guid>
+      <description>&lt;h1 id=&#34;tifinityblog&#34;&gt;Tifinity-Blog&lt;/h1&gt;
+&lt;p&gt;这是一个基于Hugo，部署在GitPage的个人博客网站。&lt;/p&gt;
+&lt;p&gt;这里记录博客站的搭建，维护过程。&lt;/p&gt;
+&lt;h2 id=&#34;heading&#34;&gt;感激不尽&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://wu-kan.github.io/&#34;&gt;wu-kan&lt;/a&gt; 让我第一次接触个人博客站，了解到GithubPages，感谢。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://baixin.io:8000/2016/10/jekyll_tutorials1/&#34;&gt;leopardpan&lt;/a&gt; 早期的博客模板以及教程，感谢。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt; 提供个人网站服务，感谢。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;Hugo&lt;/a&gt; 提供网站框架，感谢。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://themes.gohugo.io/leaveit/&#34;&gt;LeaveIt by 柳志超&lt;/a&gt; 提供博客主题，感谢。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://valine.js.org/&#34;&gt;Valine&lt;/a&gt;和&lt;a href=&#34;https://leancloud.cn/&#34;&gt;LeanCloud&lt;/a&gt; 提供评论系统服务，感谢&lt;/p&gt;
+&lt;h2 id=&#34;heading1&#34;&gt;长路漫漫&lt;/h2&gt;
+&lt;h3 id=&#34;now&#34;&gt;NOW&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;还在起步&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;正在进行博客的搬运工作（持续进行中）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;制作网站图标&lt;a href=&#34;https://realfavicongenerator.net/&#34;&gt;Favicon&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;放自己的背景图&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt;文章中图片与文字对齐&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;20191226&#34;&gt;2019-12-26&lt;/h3&gt;
+&lt;h3 id=&#34;20191219&#34;&gt;2019-12-19&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;确定主题为 柳志超先生 的 &lt;a href=&#34;https://themes.gohugo.io/leaveit/&#34;&gt;LeaveIt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;加入&lt;a href=&#34;https://valine.js.org/quickstart.html&#34;&gt;Valine&lt;/a&gt;评论系统，感谢&lt;a href=&#34;https://www.jianshu.com/p/d8f0c924bc3a&#34;&gt;hugo LeaveIt主题优化一&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;加入不蒜子流量统计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;20191212&#34;&gt;2019-12-12&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;人生没有白走的路，每一步都算数。	——李宗盛&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;重新开始&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;基于Hugo搭建博客站&lt;/p&gt;
+&lt;p&gt;写作应该是一个相对单纯的事情，使用Hugo的人应该更专注于写作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用比较笨的方法自动部署&lt;/p&gt;
+&lt;p&gt;把add，commit，push等写在脚本里强制push。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;20190426&#34;&gt;2019-04-26&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;从&lt;a href=&#34;https://wu-kan.github.io/&#34;&gt;wu-kan&lt;/a&gt;的教程快速启动，搭建基于Jekyll的博客站&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;停止了&lt;/p&gt;
+&lt;p&gt;三分钟热是我最大的缺点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;heading2&#34;&gt;愚者自知&lt;/h2&gt;
+&lt;p&gt;本人写博客的主要作用还是记录自己的学习过程，有缘人观之，同路者共勉。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

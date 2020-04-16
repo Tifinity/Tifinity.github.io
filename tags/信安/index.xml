@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>信安 on Infinit</title>
+    <link>http://tifinity.github.io/tags/%E4%BF%A1%E5%AE%89/</link>
+    <description>Recent content in 信安 on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 24 Dec 2019 14:29:44 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/tags/%E4%BF%A1%E5%AE%89/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>信息安全作业5：网络扫描实验</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
+      <pubDate>Tue, 24 Dec 2019 14:29:44 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
+      <description>信息安全作业5：网络扫描实验 实验目的   掌握网络扫描技术的原理。
+  学会使用 Nmap 扫描工具。
+  实验环境  实验主机操作系统： IP地址：172.18.61.253 目标机操作系统： IP地址： 网络环境：中山大学东校区有线校园网  实验工具 Nmap (Network Mapper，网络映射器) 是一款开放源代码的网络探测和安全审核的工具。其设计目标是快速地扫描大型网络，也可以扫描单个主机。Nmap以新颖的方式使用原始IP报文来发现网络上的主机及其提供的服务，包括其应用程序名称和版本，这些服务运行的操作系统包括版本信息，它们使用什么类型的报文过滤器/防火墙，以及一些其它功能。虽然Nmap通常用于安全审核，也可以利用来做一些日常管理维护的工作，比如查看整个网络的信息，管理服务升级计划，以及监视主机和服务的运行。
+实验过程 主机发现：进行连通性监测，判断目标主机。 假设本地目标IP地址为172.16.1.101，首先确定测试机与目标机物理连接是连通的。
+  关闭目标机的防火墙，分别命令行窗口用Windows命令Ping 172.16.1.101和Nmap命令nmap -sP 172.16.1.101进行测试，记录测试情况。简要说明测试差别。
+在cmd窗口ping：很普通的响应，连接正常。
+使用Nmap，在Nmap上执行nmap -sP 172.16.1.101。参数-sP：用ping扫描判断主机是否存活，只有主机存活，nmap才会继续扫描，一般最好不加，因为有的主机会禁止ping。只返回了MAC地址，没有端口信息 。
+在Nmap上执行nmap 172.16.1.101，可以看到有了一些端口的信息，23是open的，另外三个被防火墙屏蔽。
+  开启目标机的防火墙，重复第一步，结果有什么不同？请说明原因。
+Cmd中还是可以ping通，与第一步相同。
+在Nmap上执行nmap -sP 172.16.1.101，没有端口信息。
+在Nmap上执行nmap 172.16.1.101，部分端口被防火墙屏蔽。
+使用wireshark抓包：
+从23号端口收到ACK/SYN回复，所以Nmap判断其开放；
+其他端口仅有ACK表示收到了发过去的包但没有SYN，收到RST，所以Nmap判断其被屏蔽。
+  测试结果不连通，但实际上是物理连通的，什么原因？
+因为端口被防火墙屏蔽。
+端口扫描是Nmap最基本最核心的功能，用于确定目标主机的TCP/UDP端口的开放情况。
+Nmap通过探测将端口划分为6个状态：
+open：端口是开放的。
+closed：端口是关闭的。
+filtered：端口被防火墙IDS/IPS屏蔽，无法确定其状态。
+unfiltered：端口没有被屏蔽，但是否开放需要进一步确定。
+open|filtered：端口是开放的或被屏蔽，Nmap不能识别。
+closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
+  对目标主机进行TCP端口扫描   使用常规扫描方式：Nmap -sT 172.</description>
+    </item>
+    
+  </channel>
+</rss>

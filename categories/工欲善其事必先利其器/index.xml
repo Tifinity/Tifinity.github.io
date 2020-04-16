@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工欲善其事，必先利其器 on Infinit</title>
+    <link>http://tifinity.github.io/categories/%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/</link>
+    <description>Recent content in 工欲善其事，必先利其器 on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 27 Dec 2019 19:43:39 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/categories/%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scoop-为Windows而生的命令行包管理工具</title>
+      <link>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 27 Dec 2019 19:43:39 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <description>Scoop第一次使用过程 为什么要使用包管理工具？ 首先，在Windows下我们一般怎么安装软件？💢
+ 百度你要安装的软件 找到官网或者一个看起来安全一点的地址 下载一个奇怪的exe 安装到奇怪的地方  仔细想想，我从用Windows开始一直以来都是这样安装软件的，直到开始用Linux的操作系统才对包管理有了模糊的概念，不过也只是停留在“Linux跟Windows安装软件的方法有一点不一样”的阶段。
+ 包管理器又称软件包管理系统，它是在电脑中自动安装、配制、卸载和升级软件包的工具组合，在各种系统软件和应用软件的安装管理中均有广泛应用。——百度百科
+ 我对Windows电脑软件的管理经历了三个阶段：
+ 腾讯电脑管家 手动管理+Windows自带的卸载 发现了Scoop，开始了解包管理工具  Scoop的官方文档上这么写着：
+Scoop试图消除类似的东西：
+ 权限弹出窗口 GUI向导式安装程序 安装大量程序造成的路径污染 安装和卸载程序产生的意外副作用 查找和安装依赖项的需要 需要执行额外的设置步骤才能获得有效的程序  安装配置 首先需要几个环境要求：
+ Windows 版本不低于 Windows 7 PowerShell 3+ .NET Framework 4.5+ 用户名无中文  如果PowerShell和.NET不满足版本要求的话还是得先用百度更新。💔
+# 允许本地脚本执行 set-executionpolicy remotesigned -scope currentuser# 下载安装scoop iex (new-object net.webclient).downloadstring(&amp;#39;https://get.scoop.sh&amp;#39;)现在等待脚本执行完成。🚏
+安装完成后请迫不及待地执行scoop help，看到帮助信息说明安装成功了。
+简单使用 你已经看过了help输出的使用说明，如果以后某个指令想不起来也请执行scoop help。
+   常用命令 含义     search 搜索软件名   install 安装软件   update 更新软件   status 查看软件状态   uninstall 卸载软件   info 查看软件详情   home 打开软件主页    举个🌰：</description>
+    </item>
+    
+    <item>
+      <title>PicGo-图床管理工具</title>
+      <link>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 27 Dec 2019 17:53:45 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <description>PicGo+Github图片管理方案 PicGo使用 PicGo是一个非常好用的开源图床管理工具：Github地址
+我的图床目前是Github，下面就以Github来进行一遍操作。
+在Github上创建一个仓库用来保存图片，然后创建一个token，点击头像-&amp;gt;Setting-&amp;gt;Developer setting-&amp;gt;Personal access tokens-&amp;gt;Generate new token，填写Note，勾选repo，复制保存token，这个 token 只显示一次。
+然后打开PicGo-&amp;gt;图床设置-&amp;gt;Github设置：
+在PicGo设置中开启上传前重命名，可以手动修改图片名，更好的分类管理图片，PicGo会在仓库中按路径存放图片，文件夹不存在会自动创建。
+在Github仓库中能够看到上传的图片。
+从此告别了写一篇博客还要同步操作图床的麻烦。
+修改hosts解决Github图片无法加载问题 如果出现在Github上图片加载不出来，PicGo的相册里也加载不出图片，像下面这样，一般是Github网站的问题。
+第一步，用管理员权限打开文件，C:\Windows\System32\drivers\etc\hosts。
+# 这两行是固定的，直接复制192.30.253.112 github.com192.30.253.119 gist.github.com# 下面的每个人不一样，获取方法如下文199.232.28.133 githubusercontent.com199.232.28.133 assets-cdn.github.com199.232.28.133 raw.githubusercontent.com199.232.28.133 gist.githubusercontent.com199.232.28.133 cloud.githubusercontent.com199.232.28.133 camo.githubusercontent.com第二步，打开IP查询网站，从上面随便复制一个域名输入下图的查询框，点击查询。
+得到你的IP地址，填入hosts里，保存，刷新Github网站，现在可以正确显示图片。</description>
+    </item>
+    
+    <item>
+      <title>Git快速设置</title>
+      <link>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Tue, 24 Dec 2019 14:12:21 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</guid>
+      <description>Git的一些让人方便的设置 # 用户名和邮箱git config --global user.name &amp;lt;your name&amp;gt;git config --global user.email &amp;lt;your_email@example.com&amp;gt;# 解决中文在Git Bash里显示诸如“/202/233/233”的转码问题# core.quotepath 为false的话，就不会对0x80以上的字符进行quote。中文显示正常。git config --global core.quotepath false# 设置commit的默认编辑器git config --global core.editor /usr/bin/vim# 避免每次pull和push时输入用户名和密码git config --global credential.helper store# Windows Git Bash启用http/https协议git config --global credential.helper wincred# 设置大小写敏感，保持Mac/Win/Linux一致性git config --global core.ignorecase false# Windows CRLFgit config --global core.autocrlf true# Linux，Macgit config --global core.autocrlf input</description>
+    </item>
+    
+    <item>
+      <title>希腊字母表</title>
+      <link>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</link>
+      <pubDate>Mon, 23 Dec 2019 18:55:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</guid>
+      <description>希腊字母表    字母名称 国际音标 大写字母 小写字母 字母名称 国际音标 大写字母 小写字母     alpha /&amp;lsquo;ælfə/ Α α nu /nju:/ Ν ν   beta /&amp;lsquo;bi:tə/或 /&amp;lsquo;beɪtə/ Β β xi 希腊 /ksi/；英美 /ˈzaɪ/ 或 /ˈksaɪ/ Ξ ξ   gamma /&amp;lsquo;gæmə/ Γ γ omicron /əuˈmaikrən/或 /ˈɑmɪˌkrɑn/ Ο ο   delta /&amp;lsquo;deltə/ Δ δ pi /paɪ/ Π π   epsilon /&amp;lsquo;epsɪlɒn/ Ε ε rho /rəʊ/ Ρ ρ   zeta /&amp;lsquo;zi:tə/ Ζ ζ sigma /&amp;lsquo;sɪɡmə/ Σ σ ς   eta /&amp;lsquo;i:tə/ Η η tau /tɔ:/ 或 /taʊ/ Τ τ   theta /&amp;lsquo;θi:tə/ Θ θ upsilon /ˈipsilon/或 /ˈʌpsɨlɒn/ Υ υ   iota /aɪ&#39;əʊtə/ Ι ι ℩ phi /faɪ/ Φ φ   kappa /&amp;lsquo;kæpə/ Κ κ chi /kaɪ/ Χ χ   lambda /&amp;lsquo;læmdə/ Λ λ psi /psaɪ/ Ψ ψ   mu /mju:/ Μ μ omega /&amp;lsquo;əʊmɪɡə/或 /oʊ&#39;meɡə/ Ω ω    </description>
+    </item>
+    
+    <item>
+      <title>Markdown转PDF</title>
+      <link>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</link>
+      <pubDate>Sat, 21 Dec 2019 17:39:48 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</guid>
+      <description>Markdown转PDF 使用Pandoc Pandoc被誉为“瑞士军刀”，可以实现很多文本格式的转换。
+建议使用方法：先转docx，再用WPS或者Word输出为PDF，只需要Pandoc，不需要任何其他配置。
+pandoc filename.md -o filename.docxPandoc官网，不过下载速度很慢
+可以使用Python的pip来安装：
+pip install pandoc然后可以在Python中使用Pandoc。
+使用VSCode + MarkdownPDF插件 在VSCode的扩展中搜索 MarkdownPDF 下载即可。
+使用方法为在VSCode中打开.md文件，右键，可以输出为PDF还有一些其它格式。</description>
+    </item>
+    
+    <item>
+      <title>国际语言代码表</title>
+      <link>http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</link>
+      <pubDate>Fri, 20 Dec 2019 18:55:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</guid>
+      <description>   语言代码 语言名称     af 南非语   af-ZA 南非语   ar 阿拉伯语   ar-AE 阿拉伯语(阿联酋)   ar-BH 阿拉伯语(巴林)   ar-DZ 阿拉伯语(阿尔及利亚)   ar-EG 阿拉伯语(埃及)   ar-IQ 阿拉伯语(伊拉克)   ar-JO 阿拉伯语(约旦)   ar-KW 阿拉伯语(科威特)   ar-LB 阿拉伯语(黎巴嫩)   ar-LY 阿拉伯语(利比亚)   ar-MA 阿拉伯语(摩洛哥)   ar-OM 阿拉伯语(阿曼)   ar-QA 阿拉伯语(卡塔尔)   ar-SA 阿拉伯语(沙特阿拉伯)   ar-SY 阿拉伯语(叙利亚)   ar-TN 阿拉伯语(突尼斯)   ar-YE 阿拉伯语(也门)   az 阿塞拜疆语   az-AZ 阿塞拜疆语(拉丁文)   az-AZ 阿塞拜疆语(西里尔文)   be 比利时语   be-BY 比利时语   bg 保加利亚语   bg-BG 保加利亚语   bs-BA 波斯尼亚语(拉丁文，波斯尼亚和黑塞哥维那)   ca 加泰隆语   ca-ES 加泰隆语   cs 捷克语   cs-CZ 捷克语   cy 威尔士语   cy-GB 威尔士语   da 丹麦语   da-DK 丹麦语   de 德语   de-AT 德语(奥地利)   de-CH 德语(瑞士)   de-DE 德语(德国)   de-LI 德语(列支敦士登)   de-LU 德语(卢森堡)   dv 第维埃语   dv-MV 第维埃语   el 希腊语   el-GR 希腊语   en 英语   en-AU 英语(澳大利亚)   en-BZ 英语(伯利兹)   en-CA 英语(加拿大)   en-CB 英语(加勒比海)   en-GB 英语(英国)   en-IE 英语(爱尔兰)   en-JM 英语(牙买加)   en-NZ 英语(新西兰)   en-PH 英语(菲律宾)   en-TT 英语(特立尼达)   en-US 英语(美国)   en-ZA 英语(南非)   en-ZW 英语(津巴布韦)   eo 世界语   es 西班牙语   es-AR 西班牙语(阿根廷)   es-BO 西班牙语(玻利维亚)   es-CL 西班牙语(智利)   es-CO 西班牙语(哥伦比亚)   es-CR 西班牙语(哥斯达黎加)   es-DO 西班牙语(多米尼加共和国)   es-EC 西班牙语(厄瓜多尔)   es-ES 西班牙语(传统)   es-ES 西班牙语(国际)   es-GT 西班牙语(危地马拉)   es-HN 西班牙语(洪都拉斯)   es-MX 西班牙语(墨西哥)   es-NI 西班牙语(尼加拉瓜)   es-PA 西班牙语(巴拿马)   es-PE 西班牙语(秘鲁)   es-PR 西班牙语(波多黎各(美))   es-PY 西班牙语(巴拉圭)   es-SV 西班牙语(萨尔瓦多)   es-UY 西班牙语(乌拉圭)   es-VE 西班牙语(委内瑞拉)   et 爱沙尼亚语   et-EE 爱沙尼亚语   eu 巴士克语   eu-ES 巴士克语   fa 法斯语   fa-IR 法斯语   fi 芬兰语   fi-FI 芬兰语   fo 法罗语   fo-FO 法罗语   fr 法语   fr-BE 法语(比利时)   fr-CA 法语(加拿大)   fr-CH 法语(瑞士)   fr-FR 法语(法国)   fr-LU 法语(卢森堡)   fr-MC 法语(摩纳哥)   gl 加里西亚语   gl-ES 加里西亚语   gu 古吉拉特语   gu-IN 古吉拉特语   he 希伯来语   he-IL 希伯来语   hi 印地语   hi-IN 印地语   hr 克罗地亚语   hr-BA 克罗地亚语(波斯尼亚和黑塞哥维那)   hr-HR 克罗地亚语   hu 匈牙利语   hu-HU 匈牙利语   hy 亚美尼亚语   hy-AM 亚美尼亚语   id 印度尼西亚语   id-ID 印度尼西亚语   is 冰岛语   is-IS 冰岛语   it 意大利语   it-CH 意大利语(瑞士)   it-IT 意大利语(意大利)   ja 日语   ja-JP 日语   ka 格鲁吉亚语   ka-GE 格鲁吉亚语   kk 哈萨克语   kk-KZ 哈萨克语   kn 卡纳拉语   kn-IN 卡纳拉语   ko 朝鲜语   ko-KR 朝鲜语   kok 孔卡尼语   kok-IN 孔卡尼语   ky 吉尔吉斯语   ky-KG 吉尔吉斯语(西里尔文)   lt 立陶宛语   lt-LT 立陶宛语   lv 拉脱维亚语   lv-LV 拉脱维亚语   mi 毛利语   mi-NZ 毛利语   mk 马其顿语   mk-MK 马其顿语(FYROM)   mn 蒙古语   mn-MN 蒙古语(西里尔文)   mr 马拉地语   mr-IN 马拉地语   ms 马来语   ms-BN 马来语(文莱达鲁萨兰)   ms-MY 马来语(马来西亚)   mt 马耳他语   mt-MT 马耳他语   nb 挪威语(伯克梅尔)   nb-NO 挪威语(伯克梅尔)(挪威)   nl 荷兰语   nl-BE 荷兰语(比利时)   nl-NL 荷兰语(荷兰)   nn-NO 挪威语(尼诺斯克)(挪威)   ns 北梭托语   ns-ZA 北梭托语   pa 旁遮普语   pa-IN 旁遮普语   pl 波兰语   pl-PL 波兰语   pt 葡萄牙语   pt-BR 葡萄牙语(巴西)   pt-PT 葡萄牙语(葡萄牙)   qu 克丘亚语   qu-BO 克丘亚语(玻利维亚)   qu-EC 克丘亚语(厄瓜多尔)   qu-PE 克丘亚语(秘鲁)   ro 罗马尼亚语   ro-RO 罗马尼亚语   ru 俄语   ru-RU 俄语   sa 梵文   sa-IN 梵文   se 北萨摩斯语   se-FI 北萨摩斯语(芬兰)   se-FI 斯科特萨摩斯语(芬兰)   se-FI 伊那里萨摩斯语(芬兰)   se-NO 北萨摩斯语(挪威)   se-NO 律勒欧萨摩斯语(挪威)   se-NO 南萨摩斯语(挪威)   se-SE 北萨摩斯语(瑞典)   se-SE 律勒欧萨摩斯语(瑞典)   se-SE 南萨摩斯语(瑞典)   sk 斯洛伐克语   sk-SK 斯洛伐克语   sl 斯洛文尼亚语   sl-SI 斯洛文尼亚语   sq 阿尔巴尼亚语   sq-AL 阿尔巴尼亚语   sr-BA 塞尔维亚语(拉丁文，波斯尼亚和黑塞哥维那)   sr-BA 塞尔维亚语(西里尔文，波斯尼亚和黑塞哥维那)   sr-SP 塞尔维亚(拉丁)   sr-SP 塞尔维亚(西里尔文)   sv 瑞典语   sv-FI 瑞典语(芬兰)   sv-SE 瑞典语   sw 斯瓦希里语   sw-KE 斯瓦希里语   syr 叙利亚语   syr-SY 叙利亚语   ta 泰米尔语   ta-IN 泰米尔语   te 泰卢固语   te-IN 泰卢固语   th 泰语   th-TH 泰语   tl 塔加路语   tl-PH 塔加路语(菲律宾)   tn 茨瓦纳语   tn-ZA 茨瓦纳语   tr 土耳其语   tr-TR 土耳其语   ts 宗加语   tt 鞑靼语   tt-RU 鞑靼语   uk 乌克兰语   uk-UA 乌克兰语   ur 乌都语   ur-PK 乌都语   uz 乌兹别克语   uz-UZ 乌兹别克语(拉丁文)   uz-UZ 乌兹别克语(西里尔文)   vi 越南语   vi-VN 越南语   xh 班图语   xh-ZA 班图语   zh 中文   zh-CN 中文(简体)   zh-HK 中文(香港)   zh-MO 中文(澳门)   zh-SG 中文(新加坡)   zh-TW 中文(繁体)   zu 祖鲁语   zu-ZA 祖鲁语    </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/" />
+  <link rel="next" href="http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/" />
+  <link rel="canonical" href="http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Markdown转PDF | Infinit
+       
+  </title>
+  <meta name="title" content="Markdown转PDF | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Markdown转PDF",
+    "headline" : "Markdown转PDF",
+    "description" : "Markdown转PDF 使用Pandoc Pandoc被誉为“瑞士军刀”，可以实现很多文本格式的转换。\n建议使用方法：先转docx，再用WPS或者Word输出为PDF，只需要Pandoc，不需要任何其他配置。\npandoc filename.md -o filename.docx\rPandoc官网，不过下载速度很慢\n可以使用Python的pip来安装：\npip install pandoc\r然后可以在Python中使用Pandoc。\n使用VSCode \x2b MarkdownPDF插件 在VSCode的扩展中搜索 MarkdownPDF 下载即可。\n使用方法为在VSCode中打开.md文件，右键，可以输出为PDF还有一些其它格式。",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-21 17:39:48 \x2b0800 CST",
+    "dateModified" : "2019-12-21 17:39:48 \x2b0800 CST",
+    "url" : "http:\/\/tifinity.github.io\/2019\/markdown%E8%BD%ACpdf\/",
+    "wordCount" : "21",
+    "keywords" : [ "Markdown","PDF", "Infinit"]
+}
+</script>
+
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Markdown转PDF</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-21 itemprop="datePublished">December 21, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        
+                </span>
+        </div>
+        
+        <div class="post-total">
+             <h5 id="wc" style="font-size: 1rem;text-align: left;">100 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+        </div>
+       
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="markdownpdf">Markdown转PDF</h1>
+<h3 id="pandoc">使用Pandoc</h3>
+<p>Pandoc被誉为“瑞士军刀”，可以实现很多文本格式的转换。</p>
+<p>建议使用方法：先转docx，再用WPS或者Word输出为PDF，只需要Pandoc，不需要任何其他配置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pandoc filename.md -o filename.docx
+</code></pre></div><p><a href="https://www.pandoc.org/">Pandoc官网</a>，不过下载速度很慢</p>
+<p>可以使用Python的pip来安装：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pip install pandoc
+</code></pre></div><p>然后可以在Python中使用Pandoc。</p>
+<h3 id="vscode--markdownpdf">使用VSCode + MarkdownPDF插件</h3>
+<p>在VSCode的扩展中搜索 MarkdownPDF 下载即可。</p>
+<p>使用方法为在VSCode中打开.md文件，右键，可以输出为PDF还有一些其它格式。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/markdown/">
+                    #Markdown</a></span>
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/pdf/">
+                    #PDF</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/" class="prev" rel="prev" title="YAML学习"><i class="iconfont icon-left"></i>&nbsp;YAML学习</a>
+         
+        
+        <a href="http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/" class="next" rel="next" title="希腊字母表">希腊字母表&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
+      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: 'どうぞ',
+      visitor: 'true'
+  });
+</script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

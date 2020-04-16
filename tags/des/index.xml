@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DES on Infinit</title>
+    <link>http://tifinity.github.io/tags/des/</link>
+    <description>Recent content in DES on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 20 Dec 2019 15:11:35 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/tags/des/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>信息安全作业1：DES</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</link>
+      <pubDate>Fri, 20 Dec 2019 15:11:35 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</guid>
+      <description>信息安全与技术作业一：DES算法 1.1算法原理概述 1.1.1介绍 Data Encryption Standard (DES) 是一种典型的对称密钥算法，采用块加密方法，运行速度较慢，但较安全。DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样 64位长度的密文。DES 使用加密密钥定义变换过程，因此算法认为只有持有加密 所用的密钥的用户才能解密密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可 随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖于密钥。DES 算法的基本过程是换位和置换。
+1.1.2 信息空间 DES的信息空间由 {0, 1} 组成的字符串构成，原始明文消息和经过 DES 加密的密文信息是8个字节 (64位) 的分组，密钥也是64位。 ²
+  原始明文消息按 PKCS#5 (RFC 8018) 规范进行字节填充：
+  原始明文消息最后的分组不够8个字节 (64位) 时，在末尾以字节填满，填入的字节取值相同，都是填充的字节数目；
+  原始明文消息刚好分组完全时，在末尾填充8个字节 (即增 加一个完整分组)，每个字节取值都是08。 ²
+  明文分组结构：M = m1m2 … m64 , mi Î{0, 1}, i = 1 .. 64. ² 密文分组结构：C = c1c2 … c64 , ci Î{0, 1}, i = 1 .</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2019/ubuntu-learning/" />
+  <link rel="next" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/" />
+  <link rel="canonical" href="http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Docker学习 | Infinit
+       
+  </title>
+  <meta name="title" content="Docker学习 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Docker学习",
+    "headline" : "Docker学习",
+    "description" : "Docker学习 准备Docker环境 安装Docker：\n  Community Edition CE 社区版\n  Enterprise Edition EE 企业版\n  我们就安装社区版。\n避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见Docker官方文档。\nsudo groupadd docker sudo usermod -aG docker $USER 重启电脑 或者执行 newgrp docker  激活对组的更改。\nDocker是CS架构，与MySQL一样，需要本机启动服务：\nsudo service docker start sudo systemctl start docker 执行docker version检查版本信息。\n镜像 Image 查看本地所有镜像： # 列出本机的所有 image 文件。 docker image ls # 或者 docker images 修改默认仓库： 官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。\n打开\/etc\/default\/docker加上：\nDOCKER_OPTS=\x26#34;--registry-mirror=https:\/\/registry.docker-cn.com\x26#34; 然后重启docker服务\nsudo service docker restart 其他 在默认仓库搜索镜像：\ndocker search \x26lt;name\x26gt; 拉取镜像：",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-17 00:01:28 \x2b0800 CST",
+    "dateModified" : "2019-12-17 00:01:28 \x2b0800 CST",
+    "url" : "http:\/\/tifinity.github.io\/2019\/docker%E5%AD%A6%E4%B9%A0\/",
+    "wordCount" : "221",
+    "keywords" : [ "Docker", "Infinit"]
+}
+</script>
+
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Docker学习</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-17 itemprop="datePublished">December 17, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97/"> 服务计算 </a>
+                        
+                </span>
+        </div>
+        
+        <div class="post-total">
+             <h5 id="wc" style="font-size: 1rem;text-align: left;">300 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+        </div>
+       
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="docker">Docker学习</h1>
+<h2 id="docker1">准备Docker环境</h2>
+<p>安装Docker：</p>
+<ul>
+<li>
+<p>Community Edition CE 社区版</p>
+</li>
+<li>
+<p>Enterprise Edition  EE 企业版</p>
+</li>
+</ul>
+<p>我们就安装社区版。</p>
+<p>避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见<a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">Docker官方文档</a>。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo groupadd docker
+sudo usermod -aG docker $USER
+</code></pre></div><p>重启电脑 或者执行 <code>newgrp docker </code> 激活对组的更改。</p>
+<p>Docker是CS架构，与MySQL一样，需要本机启动服务：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service docker start
+sudo systemctl start docker
+</code></pre></div><p>执行<code>docker  version</code>检查版本信息。</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216145811800.png" alt="image-20191216145811800"></p>
+<h2 id="-image">镜像 Image</h2>
+<h3 id="heading">查看本地所有镜像：</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 列出本机的所有 image 文件。</span>
+docker image ls
+<span style="color:#75715e"># 或者</span>
+docker images
+</code></pre></div><p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216151535379.png" alt="image-20191216151535379"></p>
+<h3 id="heading1">修改默认仓库：</h3>
+<p>官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。</p>
+<p>打开<code>/etc/default/docker</code>加上：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">DOCKER_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--registry-mirror=https://registry.docker-cn.com&#34;</span>
+</code></pre></div><p>然后重启docker服务</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service docker restart
+</code></pre></div><h3 id="heading2">其他</h3>
+<p>在默认仓库搜索镜像：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search &lt;name&gt;
+</code></pre></div><p>拉取镜像：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull &lt;name+tag&gt;
+</code></pre></div><h2 id="-container">容器 Container</h2>
+<p>镜像与容器就像程序与进程。</p>
+<p>运行第一个image，hello-world：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run hello-world
+</code></pre></div><p>Dokcer会在本地目录<code>/var/docker/image</code>查找要运行的镜像文件，如果没有会自动从DockerHub下载。</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216150612578.png" alt="image-20191216150612578"></p>
+<p>hello-world做的事情就是简单输出一些信息，然后就自动中止。</p>
+<p>运行另一个镜像：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># --rm表示容器退出时自动删除，-it会创建一个虚拟终端让你可以在容器内进行操作。</span>
+docker run --rm -it pytorch/pytorch
+</code></pre></div><p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216164147004.png" alt="image-20191216164147004"></p>
+<h3 id="heading3">其他</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 显示运行中的容器</span>
+docker ps
+<span style="color:#75715e"># 显示所有容器（包括中止的）</span>
+docker ps -a
+<span style="color:#75715e"># 重启容器</span>
+docker restart &lt;name&gt;
+<span style="color:#75715e"># 进入正在运行的容器，在容器中使用exit退出</span>
+docker attach &lt;name&gt;
+</code></pre></div><h2 id="-dockerfile">描述文件 Dockerfile</h2>
+<p>Dockerfile就像Makefile。</p>
+<p>这是一个Danjgo后端的Dockerfile。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> python:3.6</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> DATABASE_USERNAME xxx<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> DATABASE_PASSWORD xxx<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> DATABASE_ADDRESS xxx<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> DATABASE_PORT xxx<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> REDIS_HOST xxx<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> REDIS_PORT xxx<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /tifinity/backend</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span> . /tifinity<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r ../requirements.txt<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 9003</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;python3&#34;</span>, <span style="color:#e6db74">&#34;manage.py&#34;</span>, <span style="color:#e6db74">&#34;runserver&#34;</span>,<span style="color:#e6db74">&#34;0.0.0.0:9003&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><ul>
+<li>FROM：一般构建一个image是在一个已有的image上添加层，FROM 后面的参数表示指定基础镜像，可以用scratch来指定空白镜像。</li>
+<li>ENV：设置容器内环境变量。</li>
+<li>ADD：复制文件到工作目录下。</li>
+<li>COPY：同ADD，只是不支持自动下载和解压。</li>
+<li>WORKDIR：指定工作目录。</li>
+<li>VOLUME：设置卷，挂在主机目录。</li>
+<li>RUN：构建镜像时执行的命令。</li>
+<li>EXPOSE：开放给外部的端口。</li>
+<li>ENTRYPOINT：入口点，运行容器时执行的命令。</li>
+<li>CMD：运行容器之后执行的命令。</li>
+</ul>
+<p>执行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># -t参数指定镜像名</span>
+docker build -t test
+</code></pre></div><p>新的test镜像就构建好了。</p>
+<p>目前只会最基础的使用，还在学习中。</p>
+<p><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile官方文档</a></p>
+<h2 id="docker-compose">Docker compose</h2>
+<h3 id="dockercompose">安装docker-compose工具</h3>
+<p>由于墙的存在，crul太慢，所以使用pip方式a安装</p>
+<p>Ubuntu下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install python-pip
+sudo pip install docker-compose
+docker-compose --version
+</code></pre></div><p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216152900453.png" alt="image-20191216152900453"></p>
+<p>docker-compose根据目录下的.yml文件管理多个docker容器之间的关系，组成一个应用。</p>
+<p>比如下面这个mysql+wordpress的例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># test.yml</span>
+mysql:
+    image: mysql:<span style="color:#ae81ff">5.7</span>
+    environment:
+     - MYSQL_ROOT_PASSWORD=tianHAOyuQI361
+     - MYSQL_DATABASE=wordpress
+web:
+    image: wordpress
+    links:
+     - mysql
+    environment:
+     - WORDPRESS_DB_PASSWORD=tianHAOyuQI361
+    ports:
+     - <span style="color:#e6db74">&#34;127.0.0.3:8080:80&#34;</span>
+    working_dir: /var/www/html
+    volumes:
+     - wordpress:/var/www/html
+</code></pre></div><p>启动：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 启动所有服务</span>
+$ docker-compose up
+<span style="color:#75715e"># 关闭所有服务</span>
+$ docker-compose stop
+</code></pre></div><p>IPAddress</p>
+<p>一个基于wordpress的简单博客网站就可以使用了，本地访问。</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191202173258746.png" alt="image-20191202173258746"></p>
+<h2 id="dockerhub">DockerHub</h2>
+<p>与github很像，image文件最常用的仓库，docker pull 下来的image放在 <code>/var/docker/image</code>。</p>
+<h2 id="docker2">Docker存储</h2>
+<p>还需要学习</p>
+<h2 id="docker3">Docker网络</h2>
+<p>还需要学习</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/docker/">
+                    #Docker</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2019/ubuntu-learning/" class="prev" rel="prev" title="Ubuntu学习"><i class="iconfont icon-left"></i>&nbsp;Ubuntu学习</a>
+         
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/" class="next" rel="next" title="服务计算第十二周作业：简单 web 服务与客户端开发实战">服务计算第十二周作业：简单 web 服务与客户端开发实战&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
+      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: 'どうぞ',
+      visitor: 'true'
+  });
+</script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

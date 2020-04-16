@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unity3D on Infinit</title>
+    <link>http://tifinity.github.io/categories/unity3d/</link>
+    <description>Recent content in Unity3D on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 19 Dec 2019 13:02:33 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/categories/unity3d/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unity3D项目十一：简单AR</title>
+      <link>http://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</link>
+      <pubDate>Thu, 19 Dec 2019 13:02:33 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</guid>
+      <description>简单AR学习 作业要求 1、 图片识别与建模
+2、 虚拟按键小游戏
+项目地址 Github
+实现效果 Bilibili
+准备工作 安装Java和AndroidSDK 要导出到安卓手机的话需要进行环境的配置，过程比较麻烦，如果只是在电脑上运行的话不需要进行这一步。
+安装Java：官网
+安装android sdk:一个博客
+使用Vuforia Vuforia官网
+Vuforia官方文档
+在Unity3D中安装Android平台支持 文件-&amp;gt;Build Setting，选择Android，点击切换平台。
+如果没有会有下载按钮，下载安装即可。
+在Unity3D中安装Vuforia支持 文件-&amp;gt;Build Settings-&amp;gt;Android-&amp;gt;切换平台-&amp;gt;PlaySettings-&amp;gt;XR设置
+在这里勾选”支持虚拟现实“，SDKs中添加Vuforia，如果没有下方会有下载按钮，下载安装即可。
+申请密钥 右上角注册-&amp;gt;Develop-&amp;gt;LicenseManager-&amp;gt;Get Development Key，免费开发者每个月可以扫描1000次。
+随便输入一个LicenseName，下面打勾，然后Confirm即可。
+项目就创建好了。
+然后添加数据库用于保存识别图的数据。
+Develop-&amp;gt;Target Manager-&amp;gt;Add Database
+进入创建好的数据库，Add Target添加识别图。
+拍一张照上传，选择Single Image，Width的默认单位是米，我输入的是0.1。识别图就是之后你的摄像头拍到这个东西，就会执行你定义好的操作。
+上传之后会生成识别图的特征点数据包，Vuforia还会为你的识别图打分，星级越高说明识别效果越好。
+以下关于图像星级的说明引用自CSDN的Wonderful_sky师兄，感谢。
+ 图像的星级 我们会注意到将识别图上传到数据库时，target项右侧会有星级显示，星级越高代表识别图的质量越高。你可能会问，何为识别图质量？识别图质量有什么用？答案是，你踩过坑之后就知道了。经试验，影响识别图最主要的因素就是待识别图的对比度，这里应该要极力避免使用有很多连续相同或相似大色块的图片，因为分析识别图特征点的原理是 根据色块边缘 来决定的，色彩变化越丰富，色块边缘、棱角就越多（如果棱角分布均匀且每个色块都很小那就再好不过了），进而特征点就越多，而特征点越多就意味着识别图质量越高。另外，以下三点则是我总结的识别图质量最主要影响的三个方面：
+ 星级越高越容易识别 星级越高识别速度越快 星级越高更不容易出现抖动   下载数据库，Download Database-&amp;gt;Unity Editor，得到一个Unity包，之后用到。
+回到Unity中，Resources-&amp;gt;VuforiaConfiguration，复制之前的License Key粘贴到App License Key中。
+现在鼠标右键-&amp;gt;创建游戏对象，有了Vuforia Engine，创建一个ARCamera和一个ImageTarget。将之前下载的数据库包导入，上图中的Databases属性会变成你的数据库，并且新版本会自动加载，不用再做设置。接下来选中ImageTarget，设置你要是用的识别图，如果自己拍的效果不够好，也可以在网上下载。
+另外，虚拟按钮集成到了ImageTarget-&amp;gt;Advanced里，点击添加虚拟按钮后就会在ImageTarget下生成子对象。
+需要注意的是，虚拟按钮必须放在识别图内，因为虚拟按钮的原理是根据识别图被遮挡的特征点是否在此按钮范围内来判断按钮是否被按下。
+下方两个大的色块是虚拟按钮，而两个小的色块是Plane，用来在运行时提示这里有按钮。
+代码实现 脚本挂在ImageTarget上，先找到子对象中所有按钮，然后根据按钮名字来判断执行什么功能。
+public class ButtonTest : MonoBehaviour, IVirtualButtonEventHandler { private GameObject sphere; void Start() { VirtualButtonBehaviour[] vbs = GetComponentsInChildren&amp;lt;VirtualButtonBehaviour&amp;gt;(); for (int i = 0; i &amp;lt; vbs.</description>
+    </item>
+    
+  </channel>
+</rss>

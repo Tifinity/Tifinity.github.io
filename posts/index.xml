@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Infinit</title>
+    <link>http://tifinity.github.io/posts/</link>
+    <description>Recent content in Posts on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python如何发送邮件</title>
+      <link>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Thu, 16 Apr 2020 11:02:04 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description>Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。
+ 使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。
+提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：
+import sysprint(sys.path)所以Python会找不到模块，出现下面这样的错误：
+ModuleNotFoundError:No module named &amp;#39;email.mime&amp;#39;; &amp;#39;email&amp;#39; is not a package然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。
+第一步，创建邮件并设置邮件信息：
+sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.com&amp;#39;] # 接收者 subject = &amp;#39;Python SMTP 邮件测试&amp;#39;content = &amp;#39;你要发送的邮件内容&amp;#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8 message = MIMEText(content, &amp;#39;plain&amp;#39;, &amp;#39;utf-8&amp;#39;)message[&amp;#39;From&amp;#39;] = Header(sender, &amp;#39;utf-8&amp;#39;)	# 发送者 message[&amp;#39;To&amp;#39;] = Header(receivers[0], &amp;#39;utf-8&amp;#39;)	# 接收者 message[&amp;#39;Subject&amp;#39;] = Header(subject, &amp;#39;utf-8&amp;#39;)	# 主题 第二步，设置第三方SMTP服务：</description>
+    </item>
+    
+    <item>
+      <title>Scoop-为Windows而生的命令行包管理工具</title>
+      <link>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 27 Dec 2019 19:43:39 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <description>Scoop第一次使用过程 为什么要使用包管理工具？ 首先，在Windows下我们一般怎么安装软件？💢
+ 百度你要安装的软件 找到官网或者一个看起来安全一点的地址 下载一个奇怪的exe 安装到奇怪的地方  仔细想想，我从用Windows开始一直以来都是这样安装软件的，直到开始用Linux的操作系统才对包管理有了模糊的概念，不过也只是停留在“Linux跟Windows安装软件的方法有一点不一样”的阶段。
+ 包管理器又称软件包管理系统，它是在电脑中自动安装、配制、卸载和升级软件包的工具组合，在各种系统软件和应用软件的安装管理中均有广泛应用。——百度百科
+ 我对Windows电脑软件的管理经历了三个阶段：
+ 腾讯电脑管家 手动管理+Windows自带的卸载 发现了Scoop，开始了解包管理工具  Scoop的官方文档上这么写着：
+Scoop试图消除类似的东西：
+ 权限弹出窗口 GUI向导式安装程序 安装大量程序造成的路径污染 安装和卸载程序产生的意外副作用 查找和安装依赖项的需要 需要执行额外的设置步骤才能获得有效的程序  安装配置 首先需要几个环境要求：
+ Windows 版本不低于 Windows 7 PowerShell 3+ .NET Framework 4.5+ 用户名无中文  如果PowerShell和.NET不满足版本要求的话还是得先用百度更新。💔
+# 允许本地脚本执行 set-executionpolicy remotesigned -scope currentuser# 下载安装scoop iex (new-object net.webclient).downloadstring(&amp;#39;https://get.scoop.sh&amp;#39;)现在等待脚本执行完成。🚏
+安装完成后请迫不及待地执行scoop help，看到帮助信息说明安装成功了。
+简单使用 你已经看过了help输出的使用说明，如果以后某个指令想不起来也请执行scoop help。
+   常用命令 含义     search 搜索软件名   install 安装软件   update 更新软件   status 查看软件状态   uninstall 卸载软件   info 查看软件详情   home 打开软件主页    举个🌰：</description>
+    </item>
+    
+    <item>
+      <title>PicGo-图床管理工具</title>
+      <link>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 27 Dec 2019 17:53:45 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <description>PicGo+Github图片管理方案 PicGo使用 PicGo是一个非常好用的开源图床管理工具：Github地址
+我的图床目前是Github，下面就以Github来进行一遍操作。
+在Github上创建一个仓库用来保存图片，然后创建一个token，点击头像-&amp;gt;Setting-&amp;gt;Developer setting-&amp;gt;Personal access tokens-&amp;gt;Generate new token，填写Note，勾选repo，复制保存token，这个 token 只显示一次。
+然后打开PicGo-&amp;gt;图床设置-&amp;gt;Github设置：
+在PicGo设置中开启上传前重命名，可以手动修改图片名，更好的分类管理图片，PicGo会在仓库中按路径存放图片，文件夹不存在会自动创建。
+在Github仓库中能够看到上传的图片。
+从此告别了写一篇博客还要同步操作图床的麻烦。
+修改hosts解决Github图片无法加载问题 如果出现在Github上图片加载不出来，PicGo的相册里也加载不出图片，像下面这样，一般是Github网站的问题。
+第一步，用管理员权限打开文件，C:\Windows\System32\drivers\etc\hosts。
+# 这两行是固定的，直接复制192.30.253.112 github.com192.30.253.119 gist.github.com# 下面的每个人不一样，获取方法如下文199.232.28.133 githubusercontent.com199.232.28.133 assets-cdn.github.com199.232.28.133 raw.githubusercontent.com199.232.28.133 gist.githubusercontent.com199.232.28.133 cloud.githubusercontent.com199.232.28.133 camo.githubusercontent.com第二步，打开IP查询网站，从上面随便复制一个域名输入下图的查询框，点击查询。
+得到你的IP地址，填入hosts里，保存，刷新Github网站，现在可以正确显示图片。</description>
+    </item>
+    
+    <item>
+      <title>信息安全作业5：网络扫描实验</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
+      <pubDate>Tue, 24 Dec 2019 14:29:44 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
+      <description>信息安全作业5：网络扫描实验 实验目的   掌握网络扫描技术的原理。
+  学会使用 Nmap 扫描工具。
+  实验环境  实验主机操作系统： IP地址：172.18.61.253 目标机操作系统： IP地址： 网络环境：中山大学东校区有线校园网  实验工具 Nmap (Network Mapper，网络映射器) 是一款开放源代码的网络探测和安全审核的工具。其设计目标是快速地扫描大型网络，也可以扫描单个主机。Nmap以新颖的方式使用原始IP报文来发现网络上的主机及其提供的服务，包括其应用程序名称和版本，这些服务运行的操作系统包括版本信息，它们使用什么类型的报文过滤器/防火墙，以及一些其它功能。虽然Nmap通常用于安全审核，也可以利用来做一些日常管理维护的工作，比如查看整个网络的信息，管理服务升级计划，以及监视主机和服务的运行。
+实验过程 主机发现：进行连通性监测，判断目标主机。 假设本地目标IP地址为172.16.1.101，首先确定测试机与目标机物理连接是连通的。
+  关闭目标机的防火墙，分别命令行窗口用Windows命令Ping 172.16.1.101和Nmap命令nmap -sP 172.16.1.101进行测试，记录测试情况。简要说明测试差别。
+在cmd窗口ping：很普通的响应，连接正常。
+使用Nmap，在Nmap上执行nmap -sP 172.16.1.101。参数-sP：用ping扫描判断主机是否存活，只有主机存活，nmap才会继续扫描，一般最好不加，因为有的主机会禁止ping。只返回了MAC地址，没有端口信息 。
+在Nmap上执行nmap 172.16.1.101，可以看到有了一些端口的信息，23是open的，另外三个被防火墙屏蔽。
+  开启目标机的防火墙，重复第一步，结果有什么不同？请说明原因。
+Cmd中还是可以ping通，与第一步相同。
+在Nmap上执行nmap -sP 172.16.1.101，没有端口信息。
+在Nmap上执行nmap 172.16.1.101，部分端口被防火墙屏蔽。
+使用wireshark抓包：
+从23号端口收到ACK/SYN回复，所以Nmap判断其开放；
+其他端口仅有ACK表示收到了发过去的包但没有SYN，收到RST，所以Nmap判断其被屏蔽。
+  测试结果不连通，但实际上是物理连通的，什么原因？
+因为端口被防火墙屏蔽。
+端口扫描是Nmap最基本最核心的功能，用于确定目标主机的TCP/UDP端口的开放情况。
+Nmap通过探测将端口划分为6个状态：
+open：端口是开放的。
+closed：端口是关闭的。
+filtered：端口被防火墙IDS/IPS屏蔽，无法确定其状态。
+unfiltered：端口没有被屏蔽，但是否开放需要进一步确定。
+open|filtered：端口是开放的或被屏蔽，Nmap不能识别。
+closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
+  对目标主机进行TCP端口扫描   使用常规扫描方式：Nmap -sT 172.</description>
+    </item>
+    
+    <item>
+      <title>Git快速设置</title>
+      <link>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Tue, 24 Dec 2019 14:12:21 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</guid>
+      <description>Git的一些让人方便的设置 # 用户名和邮箱git config --global user.name &amp;lt;your name&amp;gt;git config --global user.email &amp;lt;your_email@example.com&amp;gt;# 解决中文在Git Bash里显示诸如“/202/233/233”的转码问题# core.quotepath 为false的话，就不会对0x80以上的字符进行quote。中文显示正常。git config --global core.quotepath false# 设置commit的默认编辑器git config --global core.editor /usr/bin/vim# 避免每次pull和push时输入用户名和密码git config --global credential.helper store# Windows Git Bash启用http/https协议git config --global credential.helper wincred# 设置大小写敏感，保持Mac/Win/Linux一致性git config --global core.ignorecase false# Windows CRLFgit config --global core.autocrlf true# Linux，Macgit config --global core.autocrlf input</description>
+    </item>
+    
+    <item>
+      <title>希腊字母表</title>
+      <link>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</link>
+      <pubDate>Mon, 23 Dec 2019 18:55:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</guid>
+      <description>希腊字母表    字母名称 国际音标 大写字母 小写字母 字母名称 国际音标 大写字母 小写字母     alpha /&amp;lsquo;ælfə/ Α α nu /nju:/ Ν ν   beta /&amp;lsquo;bi:tə/或 /&amp;lsquo;beɪtə/ Β β xi 希腊 /ksi/；英美 /ˈzaɪ/ 或 /ˈksaɪ/ Ξ ξ   gamma /&amp;lsquo;gæmə/ Γ γ omicron /əuˈmaikrən/或 /ˈɑmɪˌkrɑn/ Ο ο   delta /&amp;lsquo;deltə/ Δ δ pi /paɪ/ Π π   epsilon /&amp;lsquo;epsɪlɒn/ Ε ε rho /rəʊ/ Ρ ρ   zeta /&amp;lsquo;zi:tə/ Ζ ζ sigma /&amp;lsquo;sɪɡmə/ Σ σ ς   eta /&amp;lsquo;i:tə/ Η η tau /tɔ:/ 或 /taʊ/ Τ τ   theta /&amp;lsquo;θi:tə/ Θ θ upsilon /ˈipsilon/或 /ˈʌpsɨlɒn/ Υ υ   iota /aɪ&#39;əʊtə/ Ι ι ℩ phi /faɪ/ Φ φ   kappa /&amp;lsquo;kæpə/ Κ κ chi /kaɪ/ Χ χ   lambda /&amp;lsquo;læmdə/ Λ λ psi /psaɪ/ Ψ ψ   mu /mju:/ Μ μ omega /&amp;lsquo;əʊmɪɡə/或 /oʊ&#39;meɡə/ Ω ω    </description>
+    </item>
+    
+    <item>
+      <title>Markdown转PDF</title>
+      <link>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</link>
+      <pubDate>Sat, 21 Dec 2019 17:39:48 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</guid>
+      <description>Markdown转PDF 使用Pandoc Pandoc被誉为“瑞士军刀”，可以实现很多文本格式的转换。
+建议使用方法：先转docx，再用WPS或者Word输出为PDF，只需要Pandoc，不需要任何其他配置。
+pandoc filename.md -o filename.docxPandoc官网，不过下载速度很慢
+可以使用Python的pip来安装：
+pip install pandoc然后可以在Python中使用Pandoc。
+使用VSCode + MarkdownPDF插件 在VSCode的扩展中搜索 MarkdownPDF 下载即可。
+使用方法为在VSCode中打开.md文件，右键，可以输出为PDF还有一些其它格式。</description>
+    </item>
+    
+    <item>
+      <title>YAML学习</title>
+      <link>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 20 Dec 2019 23:11:18 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
+      <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&#39;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
+在开发的这种语言时，YAML 的意思其实是：&amp;ldquo;Yet Another Markup Language&amp;rdquo;（仍是一种标记语言）。
+YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它实质上是一种通用的数据串行化格式。
+基本语法  大小写敏感 使用缩进表示层级关系 缩进只允许空格 缩进的空格数不重要，只要相同层级的元素左对齐即可 &amp;lsquo;#&amp;lsquo;表示单行注释  数据结构   对象：键值对集合，又称映射/哈希/字典
+# 冒号后的空格不可省略 key: valuekey: {name: TH, money: Infinit}# 复合 key:key1: value1key2: value2  数组：或序列，列表
+- a- b- c  纯量（scalars）：单个不可分割的值，包括：
+ 字符串，布尔，整数，浮点数，Null，时间，日期  boolean: TRUE #true，True都可以 float: 6.8523015e+5 #可以使用科学计数法 int: 0b1010_0111_0100_1010_1110 #二进制表示 null: ~ #使用~表示null string:- 哈哈- &amp;#39;Hello world&amp;#39; #可以使用双引号或者单引号包裹特殊字符 - newlinenewline2 #字符串可以拆成多行，每一行会被转化成一个空格 date:- 2018-02-17 #日期必须使用ISO 8601格式，即yyyy-MM-dd   datetime: - 2018-02-17T15:02:31+08:00</description>
+    </item>
+    
+    <item>
+      <title>人工智能作业4</title>
+      <link>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</link>
+      <pubDate>Fri, 20 Dec 2019 20:56:03 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</guid>
+      <description>人工智能第四次作业 17343105 田皓 EM算法实验内容 算法原理 EM **Expectation-maximization algorithm **期望最大化算法
+a.记录了每次选择的是A还是B
+A硬币出现正面的概率为 $P(A) = \frac{24}{24+6}= 0.80$
+B硬币出现正面的概率为 $P(B) = \frac{9}{9+11}= 0.45$
+b.没有记录每次选择的是A还是B
+假设每次选择的硬币是X（X={A或B}），我们需要根据结果求PA，PB，就要知道X，而要用最大似然来估计X又需要知道PAPB，这是个死循环。
+这个时候就需要使用EM算法，基本思想是：先初始化PA和PB，然后用PA和PB估计X，有了X再计算PA和PB，不断重复直到收敛。
+算法步骤  计算期望（E），利用对隐变量（即硬币是A还是B）的现有估计值，计算AB硬币的正反面次数； 最大化（M），计算新的AB硬币正面概率，与上一次迭代结果比较，若收敛则结束，否则再次执行1。  算法结果 简单地取多组初值进行实验，结果有些许差别。阈值主要影响迭代次数，这个例子比较简单，一般十次迭代就能得到结果。详见data.txt。
+图片分类任务 从官网下载cifar-10数据集。
+作业要求:   明确图片分类任务的基本流程
+将数据集分为训练集和测试集，输入训练集训练模型，用验证集调整参数，估计模型准确率，输入测试集，得到结果，与标签对比得到准确率。
+  清楚数据集的训练集验证集和测试集的划分和用途,简单介绍自己的用 法
+举个例子，我们是老师，程序是学生，那么：
+训练集是课本，学生根据课本里的内容来掌握知识；
+验证集是作业，通过作业我们可以了解学生对知识的掌握情况并调整教学方法；
+测试集是试卷，通过考试检验学生到底掌握的如何。
+验证集不是必须的，划分比例一般为6：2：2，三者本质上无区别，是为了更好的调整模型而存在的，比如防止过拟合。
+  编写 K 近邻算法,SVM 以及简单的两层神经网络分类器各一(多分类分 类器)进行图片分类任务
+见下。
+  根据得到的分类结果(精度)说明和比较各个算法的优越性和局限性, 懂得它们之间的差异
+见下。
+  编写实验报告
+正是本文档。
+  KNN （K最近邻算法） knn是机器学习中最简单的方法之一，对于一个样本，取特征空间中的k个与其最相似的样本，其中数量最多的类别就是该样本的类别。knn不需要估计参数，实际上也不需要训练，测试集的每一张图片都在训练集中找最相似的k个来预测即可。
+算法步骤：
+ 对测试集每一个样本，计算其与训练集所有元素的“距离”； 循环k次，找出前k个距离最小的样本； 在这k个样本中找出最多的类别，作为预测类别； 计算准确率。  算法优点：</description>
+    </item>
+    
+    <item>
+      <title>国际语言代码表</title>
+      <link>http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</link>
+      <pubDate>Fri, 20 Dec 2019 18:55:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</guid>
+      <description>   语言代码 语言名称     af 南非语   af-ZA 南非语   ar 阿拉伯语   ar-AE 阿拉伯语(阿联酋)   ar-BH 阿拉伯语(巴林)   ar-DZ 阿拉伯语(阿尔及利亚)   ar-EG 阿拉伯语(埃及)   ar-IQ 阿拉伯语(伊拉克)   ar-JO 阿拉伯语(约旦)   ar-KW 阿拉伯语(科威特)   ar-LB 阿拉伯语(黎巴嫩)   ar-LY 阿拉伯语(利比亚)   ar-MA 阿拉伯语(摩洛哥)   ar-OM 阿拉伯语(阿曼)   ar-QA 阿拉伯语(卡塔尔)   ar-SA 阿拉伯语(沙特阿拉伯)   ar-SY 阿拉伯语(叙利亚)   ar-TN 阿拉伯语(突尼斯)   ar-YE 阿拉伯语(也门)   az 阿塞拜疆语   az-AZ 阿塞拜疆语(拉丁文)   az-AZ 阿塞拜疆语(西里尔文)   be 比利时语   be-BY 比利时语   bg 保加利亚语   bg-BG 保加利亚语   bs-BA 波斯尼亚语(拉丁文，波斯尼亚和黑塞哥维那)   ca 加泰隆语   ca-ES 加泰隆语   cs 捷克语   cs-CZ 捷克语   cy 威尔士语   cy-GB 威尔士语   da 丹麦语   da-DK 丹麦语   de 德语   de-AT 德语(奥地利)   de-CH 德语(瑞士)   de-DE 德语(德国)   de-LI 德语(列支敦士登)   de-LU 德语(卢森堡)   dv 第维埃语   dv-MV 第维埃语   el 希腊语   el-GR 希腊语   en 英语   en-AU 英语(澳大利亚)   en-BZ 英语(伯利兹)   en-CA 英语(加拿大)   en-CB 英语(加勒比海)   en-GB 英语(英国)   en-IE 英语(爱尔兰)   en-JM 英语(牙买加)   en-NZ 英语(新西兰)   en-PH 英语(菲律宾)   en-TT 英语(特立尼达)   en-US 英语(美国)   en-ZA 英语(南非)   en-ZW 英语(津巴布韦)   eo 世界语   es 西班牙语   es-AR 西班牙语(阿根廷)   es-BO 西班牙语(玻利维亚)   es-CL 西班牙语(智利)   es-CO 西班牙语(哥伦比亚)   es-CR 西班牙语(哥斯达黎加)   es-DO 西班牙语(多米尼加共和国)   es-EC 西班牙语(厄瓜多尔)   es-ES 西班牙语(传统)   es-ES 西班牙语(国际)   es-GT 西班牙语(危地马拉)   es-HN 西班牙语(洪都拉斯)   es-MX 西班牙语(墨西哥)   es-NI 西班牙语(尼加拉瓜)   es-PA 西班牙语(巴拿马)   es-PE 西班牙语(秘鲁)   es-PR 西班牙语(波多黎各(美))   es-PY 西班牙语(巴拉圭)   es-SV 西班牙语(萨尔瓦多)   es-UY 西班牙语(乌拉圭)   es-VE 西班牙语(委内瑞拉)   et 爱沙尼亚语   et-EE 爱沙尼亚语   eu 巴士克语   eu-ES 巴士克语   fa 法斯语   fa-IR 法斯语   fi 芬兰语   fi-FI 芬兰语   fo 法罗语   fo-FO 法罗语   fr 法语   fr-BE 法语(比利时)   fr-CA 法语(加拿大)   fr-CH 法语(瑞士)   fr-FR 法语(法国)   fr-LU 法语(卢森堡)   fr-MC 法语(摩纳哥)   gl 加里西亚语   gl-ES 加里西亚语   gu 古吉拉特语   gu-IN 古吉拉特语   he 希伯来语   he-IL 希伯来语   hi 印地语   hi-IN 印地语   hr 克罗地亚语   hr-BA 克罗地亚语(波斯尼亚和黑塞哥维那)   hr-HR 克罗地亚语   hu 匈牙利语   hu-HU 匈牙利语   hy 亚美尼亚语   hy-AM 亚美尼亚语   id 印度尼西亚语   id-ID 印度尼西亚语   is 冰岛语   is-IS 冰岛语   it 意大利语   it-CH 意大利语(瑞士)   it-IT 意大利语(意大利)   ja 日语   ja-JP 日语   ka 格鲁吉亚语   ka-GE 格鲁吉亚语   kk 哈萨克语   kk-KZ 哈萨克语   kn 卡纳拉语   kn-IN 卡纳拉语   ko 朝鲜语   ko-KR 朝鲜语   kok 孔卡尼语   kok-IN 孔卡尼语   ky 吉尔吉斯语   ky-KG 吉尔吉斯语(西里尔文)   lt 立陶宛语   lt-LT 立陶宛语   lv 拉脱维亚语   lv-LV 拉脱维亚语   mi 毛利语   mi-NZ 毛利语   mk 马其顿语   mk-MK 马其顿语(FYROM)   mn 蒙古语   mn-MN 蒙古语(西里尔文)   mr 马拉地语   mr-IN 马拉地语   ms 马来语   ms-BN 马来语(文莱达鲁萨兰)   ms-MY 马来语(马来西亚)   mt 马耳他语   mt-MT 马耳他语   nb 挪威语(伯克梅尔)   nb-NO 挪威语(伯克梅尔)(挪威)   nl 荷兰语   nl-BE 荷兰语(比利时)   nl-NL 荷兰语(荷兰)   nn-NO 挪威语(尼诺斯克)(挪威)   ns 北梭托语   ns-ZA 北梭托语   pa 旁遮普语   pa-IN 旁遮普语   pl 波兰语   pl-PL 波兰语   pt 葡萄牙语   pt-BR 葡萄牙语(巴西)   pt-PT 葡萄牙语(葡萄牙)   qu 克丘亚语   qu-BO 克丘亚语(玻利维亚)   qu-EC 克丘亚语(厄瓜多尔)   qu-PE 克丘亚语(秘鲁)   ro 罗马尼亚语   ro-RO 罗马尼亚语   ru 俄语   ru-RU 俄语   sa 梵文   sa-IN 梵文   se 北萨摩斯语   se-FI 北萨摩斯语(芬兰)   se-FI 斯科特萨摩斯语(芬兰)   se-FI 伊那里萨摩斯语(芬兰)   se-NO 北萨摩斯语(挪威)   se-NO 律勒欧萨摩斯语(挪威)   se-NO 南萨摩斯语(挪威)   se-SE 北萨摩斯语(瑞典)   se-SE 律勒欧萨摩斯语(瑞典)   se-SE 南萨摩斯语(瑞典)   sk 斯洛伐克语   sk-SK 斯洛伐克语   sl 斯洛文尼亚语   sl-SI 斯洛文尼亚语   sq 阿尔巴尼亚语   sq-AL 阿尔巴尼亚语   sr-BA 塞尔维亚语(拉丁文，波斯尼亚和黑塞哥维那)   sr-BA 塞尔维亚语(西里尔文，波斯尼亚和黑塞哥维那)   sr-SP 塞尔维亚(拉丁)   sr-SP 塞尔维亚(西里尔文)   sv 瑞典语   sv-FI 瑞典语(芬兰)   sv-SE 瑞典语   sw 斯瓦希里语   sw-KE 斯瓦希里语   syr 叙利亚语   syr-SY 叙利亚语   ta 泰米尔语   ta-IN 泰米尔语   te 泰卢固语   te-IN 泰卢固语   th 泰语   th-TH 泰语   tl 塔加路语   tl-PH 塔加路语(菲律宾)   tn 茨瓦纳语   tn-ZA 茨瓦纳语   tr 土耳其语   tr-TR 土耳其语   ts 宗加语   tt 鞑靼语   tt-RU 鞑靼语   uk 乌克兰语   uk-UA 乌克兰语   ur 乌都语   ur-PK 乌都语   uz 乌兹别克语   uz-UZ 乌兹别克语(拉丁文)   uz-UZ 乌兹别克语(西里尔文)   vi 越南语   vi-VN 越南语   xh 班图语   xh-ZA 班图语   zh 中文   zh-CN 中文(简体)   zh-HK 中文(香港)   zh-MO 中文(澳门)   zh-SG 中文(新加坡)   zh-TW 中文(繁体)   zu 祖鲁语   zu-ZA 祖鲁语    </description>
+    </item>
+    
+    <item>
+      <title>信息安全作业1：DES</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</link>
+      <pubDate>Fri, 20 Dec 2019 15:11:35 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</guid>
+      <description>信息安全与技术作业一：DES算法 1.1算法原理概述 1.1.1介绍 Data Encryption Standard (DES) 是一种典型的对称密钥算法，采用块加密方法，运行速度较慢，但较安全。DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样 64位长度的密文。DES 使用加密密钥定义变换过程，因此算法认为只有持有加密 所用的密钥的用户才能解密密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可 随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖于密钥。DES 算法的基本过程是换位和置换。
+1.1.2 信息空间 DES的信息空间由 {0, 1} 组成的字符串构成，原始明文消息和经过 DES 加密的密文信息是8个字节 (64位) 的分组，密钥也是64位。 ²
+  原始明文消息按 PKCS#5 (RFC 8018) 规范进行字节填充：
+  原始明文消息最后的分组不够8个字节 (64位) 时，在末尾以字节填满，填入的字节取值相同，都是填充的字节数目；
+  原始明文消息刚好分组完全时，在末尾填充8个字节 (即增 加一个完整分组)，每个字节取值都是08。 ²
+  明文分组结构：M = m1m2 … m64 , mi Î{0, 1}, i = 1 .. 64. ² 密文分组结构：C = c1c2 … c64 , ci Î{0, 1}, i = 1 .</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目十一：简单AR</title>
+      <link>http://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</link>
+      <pubDate>Thu, 19 Dec 2019 13:02:33 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</guid>
+      <description>简单AR学习 作业要求 1、 图片识别与建模
+2、 虚拟按键小游戏
+项目地址 Github
+实现效果 Bilibili
+准备工作 安装Java和AndroidSDK 要导出到安卓手机的话需要进行环境的配置，过程比较麻烦，如果只是在电脑上运行的话不需要进行这一步。
+安装Java：官网
+安装android sdk:一个博客
+使用Vuforia Vuforia官网
+Vuforia官方文档
+在Unity3D中安装Android平台支持 文件-&amp;gt;Build Setting，选择Android，点击切换平台。
+如果没有会有下载按钮，下载安装即可。
+在Unity3D中安装Vuforia支持 文件-&amp;gt;Build Settings-&amp;gt;Android-&amp;gt;切换平台-&amp;gt;PlaySettings-&amp;gt;XR设置
+在这里勾选”支持虚拟现实“，SDKs中添加Vuforia，如果没有下方会有下载按钮，下载安装即可。
+申请密钥 右上角注册-&amp;gt;Develop-&amp;gt;LicenseManager-&amp;gt;Get Development Key，免费开发者每个月可以扫描1000次。
+随便输入一个LicenseName，下面打勾，然后Confirm即可。
+项目就创建好了。
+然后添加数据库用于保存识别图的数据。
+Develop-&amp;gt;Target Manager-&amp;gt;Add Database
+进入创建好的数据库，Add Target添加识别图。
+拍一张照上传，选择Single Image，Width的默认单位是米，我输入的是0.1。识别图就是之后你的摄像头拍到这个东西，就会执行你定义好的操作。
+上传之后会生成识别图的特征点数据包，Vuforia还会为你的识别图打分，星级越高说明识别效果越好。
+以下关于图像星级的说明引用自CSDN的Wonderful_sky师兄，感谢。
+ 图像的星级 我们会注意到将识别图上传到数据库时，target项右侧会有星级显示，星级越高代表识别图的质量越高。你可能会问，何为识别图质量？识别图质量有什么用？答案是，你踩过坑之后就知道了。经试验，影响识别图最主要的因素就是待识别图的对比度，这里应该要极力避免使用有很多连续相同或相似大色块的图片，因为分析识别图特征点的原理是 根据色块边缘 来决定的，色彩变化越丰富，色块边缘、棱角就越多（如果棱角分布均匀且每个色块都很小那就再好不过了），进而特征点就越多，而特征点越多就意味着识别图质量越高。另外，以下三点则是我总结的识别图质量最主要影响的三个方面：
+ 星级越高越容易识别 星级越高识别速度越快 星级越高更不容易出现抖动   下载数据库，Download Database-&amp;gt;Unity Editor，得到一个Unity包，之后用到。
+回到Unity中，Resources-&amp;gt;VuforiaConfiguration，复制之前的License Key粘贴到App License Key中。
+现在鼠标右键-&amp;gt;创建游戏对象，有了Vuforia Engine，创建一个ARCamera和一个ImageTarget。将之前下载的数据库包导入，上图中的Databases属性会变成你的数据库，并且新版本会自动加载，不用再做设置。接下来选中ImageTarget，设置你要是用的识别图，如果自己拍的效果不够好，也可以在网上下载。
+另外，虚拟按钮集成到了ImageTarget-&amp;gt;Advanced里，点击添加虚拟按钮后就会在ImageTarget下生成子对象。
+需要注意的是，虚拟按钮必须放在识别图内，因为虚拟按钮的原理是根据识别图被遮挡的特征点是否在此按钮范围内来判断按钮是否被按下。
+下方两个大的色块是虚拟按钮，而两个小的色块是Plane，用来在运行时提示这里有按钮。
+代码实现 脚本挂在ImageTarget上，先找到子对象中所有按钮，然后根据按钮名字来判断执行什么功能。
+public class ButtonTest : MonoBehaviour, IVirtualButtonEventHandler { private GameObject sphere; void Start() { VirtualButtonBehaviour[] vbs = GetComponentsInChildren&amp;lt;VirtualButtonBehaviour&amp;gt;(); for (int i = 0; i &amp;lt; vbs.</description>
+    </item>
+    
+    <item>
+      <title>服务计算第九周作业：博客网站API设计</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Wed, 18 Dec 2019 11:48:06 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</guid>
+      <description>服务计算第九周作业：博客网站API设计 作业要求 规范：REST API 设计 Github API v3 overview ；微软 作业：模仿 Github，设计一个博客网站的 API
+API设计 查看网站主页 GET &amp;ldquo;https://myblog&amp;rdquo;
+  Request
+  Header
+Authorization: token     Response 200( application/json )
+{ &amp;#34;ok&amp;#34;: true, &amp;#34;data&amp;#34;: &amp;#34;&amp;#34; }   当前用户 GET &amp;ldquo;https://myblog/user&amp;rdquo;
+  Request
+  Header
+Authorization: token     Response 200( application/json )
+{ &amp;#34;ok&amp;#34;: true, &amp;#34;data&amp;#34;: { &amp;#34;id&amp;#34;: &amp;#34;用户ID&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;用户&amp;#34;, } }   用户身份验证 POST https://myblog.</description>
+    </item>
+    
+    <item>
+      <title>服务计算第七周作业：Agenda</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</link>
+      <pubDate>Wed, 18 Dec 2019 11:46:25 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</guid>
+      <description>服务计算第七周作业：Agenda 文章目录 @[toc]
+概述   安装Cobra cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。
+首先安装被墙的依赖包。
+在$GOPATH/src/golang.org/x目录下，若没有则自行创建，用git clone下载sys和text项目：
+git clone https://github.com/golang/sys git clone https://github.com/golang/text 然后执行：
+go get -v github.com/spf13/cobra/cobra 若成功安装则在 $GOBIN 即 $GOPATH/bin 下出现cobra可执行程序。 然后在命令行中输入cobra:
+[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cWEKKvcf-1571931179495)(image\cobra安装.jpg)]
+出现图中提示信息则安装成功。
+创建程序 使用cobra init命令初始化程序框架，但是发现提示错误：
+Error: required flag(s) &amp;quot;pkg-name&amp;quot; not set 在查看[官方文档][cobragithub]后发现Cobra版本更新后需要增加一个必须参数--pkg-name，就是main函数默认import的包。
+ Updates to the Cobra generator have now decoupled it from the GOPATH. As such --pkg-name is required.
+ 于是我们使用如下命令初始化：
+ 先创建目录进入再初始化，此时不需要[name]参数，即目录  mkdir -p newApp cd newApp cobra init --pkg-name github.</description>
+    </item>
+    
+    <item>
+      <title>服务计算第八周作业：cloudgo</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</link>
+      <pubDate>Wed, 18 Dec 2019 11:37:14 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</guid>
+      <description>处理 web 程序的输入与输出 文章目录 @[toc]
+概述 设计一个 web 小应用，展示静态文件服务、js 请求支持、模板输出、表单处理、Filter 中间件设计等方面的能力。（不需要数据库支持）
+任务要求 编程 web 应用程序 cloudgo-io。 请在项目 README.MD 给出完成任务的证据！
+基本要求
+ 支持静态文件服务 支持简单 js 访问 提交表单，并输出一个表格 对 /unknown 给出开发中的提示，返回码 5xx  完成基本要求 1. 框架选择 首先需要选择一个golang框架来进行开发，看了许多前辈的博客都说iris好，我想既然都没使用过那就随便选一个吧·~·
+目前网上关于iris的教程比较少，主要参考前辈博客和官方文档。
+官方网站给出的安装指令：
+go get -u github.com/kataras/iris 但是因为部分依赖包被墙了，是无法安装成功的，下面给出翻墙之外的方法。
+先找到安装不成功的包，通过在get命令中使用-v参数看到安装的详细过程，看哪个包failed了，或者直接在网上随便找一个iris的程序go run test.go，看报错信息缺少哪个包。
+/*test.go*/ package main import &amp;#34;github.com/kataras/iris&amp;#34; func main() { app := iris.Default() app.Handle(&amp;#34;GET&amp;#34;, &amp;#34;/&amp;#34;, func(ctx iris.Context) { ctx.HTML(&amp;#34;Hello world!&amp;#34;) }) app.Run(iris.Addr(&amp;#34;:8080&amp;#34;)) } 一般golang.org的包是无法访问的，但好在github上都有资源，所以只需要在github上搜索缺少的包手动git clone到golang.org/x目录(没有就自己创建)下即可。
+除此之外github.com下的包也可能缺失，删掉重新go get即可。</description>
+    </item>
+    
+    <item>
+      <title>服务计算第四周作业：开发简单CLI程序</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 18 Dec 2019 11:16:56 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</guid>
+      <description>使用Golang开发Linux命令行使用程序selpg 文章目录 @[toc]
+概述  CLI（Command Line Interface）实用程序是Linux下应用开发的基础。正确的编写命令行程序让应用与操作系统融为一体，通过shell或script使得应用获得最大的灵活性与开发效率。Linux提供了cat、ls、copy等命令与操作系统交互；go语言提供一组实用程序完成从编码、编译、库管理、产品发布全过程支持；容器服务如docker、k8s提供了大量实用程序支撑云服务的开发、部署、监控、访问等管理任务；git、npm等都是大家比较熟悉的工具。尽管操作系统与应用系统服务可视化、图形化，但在开发领域，CLI在编程、调试、运维、管理中提供了图形化程序不可替代的灵活性与效率
+ 原版C语言selpg分析 如何使用  selpg是从文本输入选择页范围的实用程序。该输入可以来自作为最后一个命令行参数指定的文件，在没有给出文件名参数时也可以来自标准输入。selpg 首先处理所有的命令行参数。在扫描了所有的选项参数（也就是那些以连字符为前缀的参数）后，如果 selpg 发现还有一个参数，则它会接受该参数为输入文件的名称并尝试打开它以进行读取。如果没有其它参数，则 selpg 假定输入来自标准输入。
+ 在命令行中输入的指令为如下形式，：
+selpg -sstart_page -eend_page [-lline | -f ] [-d dstFile] filename 我们来看每个参数的含义。
+首先是两个必选参数：
+ -sstartPage：例如-s10，表示从第10页开始打印。 -eendPage：例如-e50，表示打印到50页。  selpg -s10 -e50 .. 然后是可选参数：
+ -llinePerPage ：例如-l72，表示每一页72行，即将输入文件按72行一页分割，默认为72。 -f ：按照换页符来打印，默认一行一页。 -ddstFile：输出文件路径，默认为标准输出，即命令行界面。  如果在检查完上面的参数后发现还有一个参数，即filename，则将其设置为输入文件，否则等待标准输入即命令行输入文件路径。
+一些例子：
+selpg -s1 -e1 input_file 将input_file的第1页打印到屏幕。
+selpg -s10 -e20 input_file &amp;gt;output_file 将input_file的第10页到第20页打印output_file。
+源代码分析 首先定义了一个结构体selpg_args，包含了所有参数。
+struct selpg_args { int start_page; int end_page; char in_filename[BUFSIZ]; int page_len; /* default value, can be overriden by &amp;#34;-l number&amp;#34; on command line */ int page_type; /* &amp;#39;l&amp;#39; for lines-delimited, &amp;#39;f&amp;#39; for form-feed-delimited */ /* default is &amp;#39;l&amp;#39; */ char print_dest[BUFSIZ]; }; process_args函数解析用户的输入，将对应的参数放入参数结构体sa中。以空格分隔的字符串前带有连字符作为标志判断参数，最后如果还有一个参数的话将其设为输入文件，并且检查所有的输入是否符合要求打印错误信息。</description>
+    </item>
+    
+    <item>
+      <title>Go语言使用GoConvey框架进行测试</title>
+      <link>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 18 Dec 2019 11:15:59 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</guid>
+      <description>Go语言使用GoConvey框架进行测试 本周作业为在go-online上完成一个最小堆算法，在完成之后我使用GoConvey进行测试。
+要想写出好的的代码，必须学会测试框架，对于golang，可以使用自带的go test测试，也可以使用其他框架如
+GoConvey，GoStub，GoMock，Monkey，本次我学习使用GoConvey。
+安装GoConvey go get github.com/smartystreets/goconvey 需要等待较长的一段时间，然后查看$GOPATH/src/github.com目录下增加了smartystreets文件夹即可。
+使用GoConvey 将作业代码复制到go工作空间中命名为myheap.go，并且在同一目录下创建myheap_test.go。
+先go build或者go install生成包，不需main主函数。因为要测试的函数需要有返回值，所以简单修改一下作业中的函数，将nodes返回。
+myheap_test.go文件如下：
+package myheap import ( &amp;#34;testing&amp;#34; . &amp;#34;github.com/smartystreets/goconvey/convey&amp;#34; ) func TestInit(t *testing.T) { Convey(&amp;#34;test&amp;#34;, t, func() { nodes := []Node{ Node{3}, Node{6}, Node{9}, Node{1}, Node{2}, Node{5}, Node{8}, Node{4}, Node{7}, } Convey(&amp;#34;Test Init()&amp;#34;, func(){ So(Init(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) nodes = Init(nodes) Convey(&amp;#34;Test Push()&amp;#34;, func(){ So(Push(Node{0}, nodes), ShouldResemble, []Node{ Node{0}, Node{1}, Node{5}, Node{4}, Node{2}, Node{9}, Node{8}, Node{6}, Node{7}, Node{3}, }) }) nodes = Push(Node{0}, nodes) Convey(&amp;#34;Test Pop()&amp;#34;, func(){ So(Pop(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) }) } myheap.</description>
+    </item>
+    
+    <item>
+      <title>服务计算第二周作业：golang环境配置（CentOS7&#43;VSCode）</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</link>
+      <pubDate>Wed, 18 Dec 2019 11:14:56 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</guid>
+      <description>服务计算实验二：golang环境配置（CentOS7+VSCode） github项目
+Linux文件目录结构 在安装golang之前，为了避免许多不必要的错误，一定要分清root用户和你使用图形界面的用户，即你自己取了个名字的用户，以下为了方便称为非root用户。
+进入root用户的命令为su，退出是按Ctrl + D。
+/root就是root用户，系统管理员，超级权限者的主目录，而非root用户的主文件夹是在**/home**下的。
+pwd：查看当前位置
+ /usr：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。
+/etc： 这个目录用来存放所有的系统管理所需要的配置文件和子目录。
+ 详细请看菜鸟教程
+golang环境配置-Linux 安装包下载地址：GO语言中文网 或者 RPM包下载
+Windows直接运行.msi文件即可。
+Linux下
+ 如果下载的是.tar文件，进入文件目录使用命令tar [压缩包文件名]解压，你需要记住解压的位置。如果提示没有权限则在前面加上sudo再运行。 如果下载的是.rpm文件，进入文件目录使用命令rpm -ivh [文件名]会自动安装golang到该目录：/usr/lib/golang，可参见上图Linux文件目录结构。  推荐新手使用.rpm的方式安装，安装目录固定并且会自动设置环境变量，不容易出错。如果想详细了解.tar.gz和.rpm文件的区别，请前往 -&amp;gt; ?。
+[外链图片转存失败(img-OA5sNPSK-1568524694199)(T:\TH\大三上\服务计算\3\image\安装.jpg)]
+安装完成后执行go version查看版本，有类似下图输出则安装成功。
+安装vscode   可以使用snap安装
+sudo snap install --classic code
+  下载.rpm文件安装，如果安装过程中需要什么依赖就到此处搜索下载：?
+  安装命令同go的rpm安装，参看上文。安装完成后可在左上角应用程序-&amp;gt;活动概览找到VSCode
+工作空间 就是自己创建的文件夹，应该被创建成这样：
+一开始只要有bin，pkg，src就行了，src用来放后缀是**.go**的源代码，就想**.cpp**或**.py**，pkg放编译过的包以便再次运行时节约时间，bin用来放可执行文件。每一次编写go语言的项目应该在一个工作空间中进行。
+环境变量 目前我们需要用到的环境变量只有两个，一个是GOPATH，一个是PATH。
+修改环境变量有几种方式：
+ 临时：  export PATH=$PATH:$GOPATH/bin export GOPATH=$HOME/work  永久：需要修改文件，进入对应目录并使用vim [文件名]打开配置文件，把上面的语句添加到文件中。  修改/home/[用户名]/.bashrc，隐藏文件需要使用ls -a才能看到，该方法对单一用户生效。本次建议使用该方法 修改/etc/profile，对所有用户生效，需要root权限。    详细设置可以参看 -&amp;gt; ?</description>
+    </item>
+    
+    <item>
+      <title>服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7）</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</link>
+      <pubDate>Wed, 18 Dec 2019 11:11:38 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</guid>
+      <description>服务计算实验一：安装配置你的私有云（VMware+CentOS7） 实验内容 使用VMware创建虚拟机   下载Linux镜像：从老师给的地址或者其他网址下载Centos操作系统。
+  创建虚拟机：基本操作此处不赘述。
+  再添加一块虚拟网卡  第一块网卡为NAT模式，用于访问外网，第二块网卡为仅主机模式，用于与主机相连。
+开机  安装CentOS系统并配置   按照提示一步步安装
+【注意】创建用户时有两个用户名，以后使用的都是全小写的那个
+  登陆root账户
+su 并输入密码
+【注意】在虚拟机中小键盘默认关闭，输入密码时请不要使用小键盘，以免误认为密码输错
+  开启虚拟网卡
+若配置完网卡无法ping通主机或者升级内核时出现错误，出现以下信息：
+  【注意】可能是因为CentOS的网卡默认是不开启的，需要手动开启
+以下为操作过程：
+  进入网卡的配置文件夹
+cd /etc/sysconfig/network-scripts
+  ls -a 查看所有文件，找到 ifcfg-en33 (或其他网卡名称)
+vi ifcfg-en33 ，按 i 进入插入模式，将文件中的 onboot = no 改成 onboot = yes ，按 ESC，再按 :wq 保存并退出。
+  对 ifcfg-en37（或其他名称，即另一个网卡）也进行同样操作。
+  完成操作后需要重启虚拟机 reboot 或 重启网络 service network restart</description>
+    </item>
+    
+    <item>
+      <title>服务计算第十二周作业：简单 web 服务与客户端开发实战</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</link>
+      <pubDate>Wed, 18 Dec 2019 11:11:38 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</guid>
+      <description>服务计算作业：简单 web 服务与客户端开发实战 作业要求概述 利用 web 客户端调用远端服务是服务开发本实验的重要内容。其中，要点建立 API First 的开发理念，实现前后端分离，使得团队协作变得更有效率。
+作业要求
+开发过程 本次作业我们选择实现见单个人博客网站：项目地址
+以下是本人承担的工作.
+使用Github建立组织 在github创建本次作业的组织Simple-Blog，创建三个仓库：
+ backend：后端 frontend：前端 docs：项目文档  邀请所有组员加入，并在自己的分支下分别进行开发，本地测试无Bug后再发起Marge Request，由创建者Marge。
+参考：建立组织
+设计API { &amp;#34;ArticlePost&amp;#34;: &amp;#34;/openapi101/users/{username}/article&amp;#34;, &amp;#34;ArticleArticleIdGet&amp;#34;:&amp;#34;/openapi101/users/{username}/article/{article_id}&amp;#34;, &amp;#34;CreateComment&amp;#34;:&amp;#34;/openapi101/users/{username}/article/{article_id}/comment&amp;#34;, &amp;#34;GetCommentsOfArticle&amp;#34;:&amp;#34;/openapi101/users/{username}/article/{article_id}/comment&amp;#34;, &amp;#34;AuthSigninPost&amp;#34;:&amp;#34;/openapi101/auth/signin&amp;#34;, &amp;#34;AuthSignupPost&amp;#34;: &amp;#34;/openapi101/auth/signup&amp;#34; } 具体api设计见项目文档中的api.yaml
+Github API v3 overview
+使用API工具生成框架 使用swagger，swagger是一个简单强大的API表达工具，只需要在在线编辑器上用YAML或者JSON写好API，就可以自动生成几乎所有语言框架的API。
+网页左边是编辑器，右边是实时响应的预览界面。
+部分api如下：
+/user/{username}/article/{article_id}: get: summary: get post parameters: - name: username in: path required: true description: user&amp;#39;s name type: string - name: article_id in: path required: true description: article id type: integer responses: 200: description: A post schema: $ref: &amp;#39;#/definitions/Article&amp;#39; 404: description: Not Found swagger的使用教程与yaml编写api的学习参考:Swagger Gitbook</description>
+    </item>
+    
+    <item>
+      <title>Docker学习</title>
+      <link>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 17 Dec 2019 00:01:28 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Docker学习 准备Docker环境 安装Docker：
+  Community Edition CE 社区版
+  Enterprise Edition EE 企业版
+  我们就安装社区版。
+避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见Docker官方文档。
+sudo groupadd docker sudo usermod -aG docker $USER 重启电脑 或者执行 newgrp docker  激活对组的更改。
+Docker是CS架构，与MySQL一样，需要本机启动服务：
+sudo service docker start sudo systemctl start docker 执行docker version检查版本信息。
+镜像 Image 查看本地所有镜像： # 列出本机的所有 image 文件。 docker image ls # 或者 docker images 修改默认仓库： 官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。
+打开/etc/default/docker加上：
+DOCKER_OPTS=&amp;#34;--registry-mirror=https://registry.docker-cn.com&amp;#34; 然后重启docker服务
+sudo service docker restart 其他 在默认仓库搜索镜像：
+docker search &amp;lt;name&amp;gt; 拉取镜像：</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu学习</title>
+      <link>http://tifinity.github.io/2019/ubuntu-learning/</link>
+      <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/ubuntu-learning/</guid>
+      <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt;apt-get update apt-get upgrade这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
+如果你想知道apt-get到底是什么；
+install的软件到底安装到哪去了；
+update和upgrade的区别；
+下载速度慢的时候换源是什么操作；
+可以接着往下看本文。
+1.1 软件包仓库 当你使用apt-get install &amp;lt;package&amp;gt;时，apt先到/etc/apt目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。
+source.list长这样：
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to# newer versions of the distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted## Major bug fix updates produced after the final release of the## distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted每一个仓库表示为：</description>
+    </item>
+    
+    <item>
+      <title>信息安全作业4</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
+      <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
+      <description>信息安全作业4：描述IPSec传输模式下 ESP 报文的装包与拆包过程 IPSec   IP 协议的安全性
+传统的 IP 协议诞生于军用计划，设计之初未考虑太多安全问题，存在很多安全隐患。比如数据明文传输，同在一个集线器的通信可以被互相监听，如果获得交换机权限，所有流经交换机的通信也可以被监听。攻击者即便没有交换机权限，也可以通过中间人攻击窃取用户的通信。
+  IPsec（互联网安全协定）提供了网络层加密方案
+对 IP 协议进行安全加强的迫切需要催生了 IPsec。IPsec 在网络层将每个 IP 分组的内容先加密再传输，即便中途被截获，攻击者由于缺乏解密数据包所必要的密钥而无法获取其中内容。IPsec 对数据进行加密的方式有两种：传输模式和隧道模式。
+ 传输模式只是对 IP 协议报文的有效数据载荷 (payload) 进行了加密，因此需要对原始 IP 报文进行拆装。 隧道模式则是对整个 IP 报文进行加密，就好像整个 IP 报文封装在一个安全的隧道里传输一样，保持了原始 IP 报文的完整性。    ESP协议 ESP（Encapsulating Security Payloads），封装安全载荷协议，IPsec 所支持的两类协议中的一种。该协议能够在数据的传输过程中对数据进行完整性度量，来源认证以及加密，也可防止回放攻击。传输模式，与隧道模式同为IPsec工作的两种方式。与隧道模式不同，当IPsec工作在传输模式时，新的IP头并不会被生成，而是采用原来的IP头，保护的也仅仅是真正传输的数据，而不是整个IP报文。在处理方法上，原来的IP报文会先被解开，再在数据前面加上新的ESP或AH协议头，最后再装回原来的IP头，即原来的IP包被修改过再传输。
+装包过程 在传输模式下，当要发出一个数据包时：
+  在原IP报文末尾添加尾部信息。
+尾部包含三部分：
+ 填充数据：由所选加密算法可能是块加密，那么当最后一块长度不够时就需要进行填充； 填充长度：并且附上填充长度方便解包时找到填充的数据； Next header：则用来标明被加密的数据报文的类型，例如TCP。    将原IP报文以及第1步得到的ESP尾部作为一个整体进行加密，具体的加密算法与密钥由SA给出。
+  为第2步得到的加密数据添加ESP头部。ESP头由两部分组成，SPI和序号。
+  对加密区域和ESP头部做验证，得到一个完整性度量值ICV，并附在ESP报文的尾部；
+  将IP头部附在ESP报文前，得到新的IP报文，发送报文。
+  拆包过程   首先，检查协议类型是50，确定为IPSec包；</description>
+    </item>
+    
+  </channel>
+</rss>

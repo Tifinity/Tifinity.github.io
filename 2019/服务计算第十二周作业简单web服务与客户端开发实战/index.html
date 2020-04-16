@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/" />
+  <link rel="next" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/" />
+  <link rel="canonical" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           服务计算第十二周作业：简单 web 服务与客户端开发实战 | Infinit
+       
+  </title>
+  <meta name="title" content="服务计算第十二周作业：简单 web 服务与客户端开发实战 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "服务计算第十二周作业：简单 web 服务与客户端开发实战",
+    "headline" : "服务计算第十二周作业：简单 web 服务与客户端开发实战",
+    "description" : "服务计算作业：简单 web 服务与客户端开发实战 作业要求概述 利用 web 客户端调用远端服务是服务开发本实验的重要内容。其中，要点建立 API First 的开发理念，实现前后端分离，使得团队协作变得更有效率。\n作业要求\n开发过程 本次作业我们选择实现见单个人博客网站：项目地址\n以下是本人承担的工作.\n使用Github建立组织 在github创建本次作业的组织Simple-Blog，创建三个仓库：\n backend：后端 frontend：前端 docs：项目文档  邀请所有组员加入，并在自己的分支下分别进行开发，本地测试无Bug后再发起Marge Request，由创建者Marge。\n参考：建立组织\n设计API { \x26#34;ArticlePost\x26#34;: \x26#34;\/openapi101\/users\/{username}\/article\x26#34;, \x26#34;ArticleArticleIdGet\x26#34;:\x26#34;\/openapi101\/users\/{username}\/article\/{article_id}\x26#34;, \x26#34;CreateComment\x26#34;:\x26#34;\/openapi101\/users\/{username}\/article\/{article_id}\/comment\x26#34;, \x26#34;GetCommentsOfArticle\x26#34;:\x26#34;\/openapi101\/users\/{username}\/article\/{article_id}\/comment\x26#34;, \x26#34;AuthSigninPost\x26#34;:\x26#34;\/openapi101\/auth\/signin\x26#34;, \x26#34;AuthSignupPost\x26#34;: \x26#34;\/openapi101\/auth\/signup\x26#34; } 具体api设计见项目文档中的api.yaml\nGithub API v3 overview\n使用API工具生成框架 使用swagger，swagger是一个简单强大的API表达工具，只需要在在线编辑器上用YAML或者JSON写好API，就可以自动生成几乎所有语言框架的API。\n网页左边是编辑器，右边是实时响应的预览界面。\n部分api如下：\n\/user\/{username}\/article\/{article_id}: get: summary: get post parameters: - name: username in: path required: true description: user\x26#39;s name type: string - name: article_id in: path required: true description: article id type: integer responses: 200: description: A post schema: $ref: \x26#39;#\/definitions\/Article\x26#39; 404: description: Not Found swagger的使用教程与yaml编写api的学习参考:Swagger Gitbook",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-18 11:11:38 \x2b0800 CST",
+    "dateModified" : "2019-12-18 11:11:38 \x2b0800 CST",
+    "url" : "http:\/\/tifinity.github.io\/2019\/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98\/",
+    "wordCount" : "225",
+    "keywords" : [  "Infinit"]
+}
+</script>
+
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">服务计算第十二周作业：简单 web 服务与客户端开发实战</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-18 itemprop="datePublished">December 18, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97/"> 服务计算 </a>
+                        
+                </span>
+        </div>
+        
+        <div class="post-total">
+             <h5 id="wc" style="font-size: 1rem;text-align: left;">300 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+        </div>
+       
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="-web-">服务计算作业：简单 web 服务与客户端开发实战</h1>
+<h2 id="heading">作业要求概述</h2>
+<p>利用 web 客户端调用远端服务是服务开发本实验的重要内容。其中，要点建立 API First 的开发理念，实现前后端分离，使得团队协作变得更有效率。</p>
+<p><a href="https://pmlpml.github.io/ServiceComputingOnCloud/ex-services">作业要求</a></p>
+<h2 id="heading1">开发过程</h2>
+<p>本次作业我们选择实现见单个人博客网站：<a href="https://github.com/Simple-Blog">项目地址</a></p>
+<p>以下是本人承担的工作.</p>
+<h3 id="github">使用Github建立组织</h3>
+<p>在github创建本次作业的组织Simple-Blog，创建三个仓库：</p>
+<ul>
+<li>backend：后端</li>
+<li>frontend：前端</li>
+<li>docs：项目文档</li>
+</ul>
+<p>邀请所有组员加入，并在自己的分支下分别进行开发，本地测试无Bug后再发起Marge Request，由创建者Marge。</p>
+<p>参考：<a href="https://chun-ge.github.io/How-to-establish-an-organization-on-Github/">建立组织</a></p>
+<h3 id="api">设计API</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;ArticlePost&#34;</span>: <span style="color:#e6db74">&#34;/openapi101/users/{username}/article&#34;</span>,
+   	<span style="color:#f92672">&#34;ArticleArticleIdGet&#34;</span>:<span style="color:#e6db74">&#34;/openapi101/users/{username}/article/{article_id}&#34;</span>,
+    <span style="color:#f92672">&#34;CreateComment&#34;</span>:<span style="color:#e6db74">&#34;/openapi101/users/{username}/article/{article_id}/comment&#34;</span>,
+    <span style="color:#f92672">&#34;GetCommentsOfArticle&#34;</span>:<span style="color:#e6db74">&#34;/openapi101/users/{username}/article/{article_id}/comment&#34;</span>,
+    <span style="color:#f92672">&#34;AuthSigninPost&#34;</span>:<span style="color:#e6db74">&#34;/openapi101/auth/signin&#34;</span>,
+    <span style="color:#f92672">&#34;AuthSignupPost&#34;</span>: <span style="color:#e6db74">&#34;/openapi101/auth/signup&#34;</span>
+}
+</code></pre></div><p>具体api设计见项目文档中的api.yaml</p>
+<p><a href="https://developer.github.com/v3/">Github API v3 overview</a></p>
+<h3 id="api1">使用API工具生成框架</h3>
+<p>使用swagger，swagger是一个简单强大的API表达工具，只需要在<a href="http://editor.swagger.io/">在线编辑器</a>上用YAML或者JSON写好API，就可以自动生成几乎所有语言框架的API。</p>
+<p>网页左边是编辑器，右边是实时响应的预览界面。</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw10/image-20191209231219892.png" alt="image-20191209231219892"></p>
+<p>部分api如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">/user/{username}/article/{article_id}:
+    get:
+      summary: get post
+      parameters:
+        - name: username
+          in: path
+          required: <span style="color:#66d9ef">true</span>
+          description: user<span style="color:#e6db74">&#39;s name
+</span><span style="color:#e6db74">          type: string
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        - name: article_id
+</span><span style="color:#e6db74">          in: path
+</span><span style="color:#e6db74">          required: true
+</span><span style="color:#e6db74">          description: article id
+</span><span style="color:#e6db74">          type: integer
+</span><span style="color:#e6db74">          
+</span><span style="color:#e6db74">      responses:
+</span><span style="color:#e6db74">        200:
+</span><span style="color:#e6db74">          description: A post
+</span><span style="color:#e6db74">          schema:
+</span><span style="color:#e6db74">            $ref: &#39;</span><span style="color:#75715e">#/definitions/Article&#39;</span>
+        <span style="color:#ae81ff">404</span>:
+          description: Not Found
+</code></pre></div><p>swagger的使用教程与yaml编写api的学习参考:<a href="https://huangwenchao.gitbooks.io/swagger/content/">Swagger Gitbook</a></p>
+<h3 id="heading2">后端开发</h3>
+<h4 id="heading3">生成框架</h4>
+<p>在编辑器上方菜单栏点击GenerateServer-&gt;go server即可生成golang的后端框架，项目结构如下：</p>
+<p>go-server-server</p>
+<ul>
+<li>.swagger-codegen</li>
+<li>api
+<ul>
+<li>swagger.yaml：api设计文件</li>
+</ul>
+</li>
+<li>go：
+<ul>
+<li>logger.go：日志</li>
+<li>routers.go：路由匹配</li>
+<li>model_(*).go：资源模型</li>
+<li>api_default.go：api框架</li>
+</ul>
+</li>
+<li>.swagger-codegen-ignore</li>
+<li>main.go：项目入口，主文件</li>
+</ul>
+<p>项目通过main.go进入，收到请求时通过routers.go匹配api_default.go中对应的函数。既然框架已经搭好，我们就只需要关心逻辑实现了。</p>
+<h4 id="heading4">实现注册</h4>
+<ol>
+<li>通过json反序列化http请求的body，得到username和password，判断是否符合规则，不符合返回错误信息，符合进行下一步；</li>
+<li>查找数据库判断有无重复用户，有则返回错误信息，无则进行下一步；</li>
+<li>更新数据库；</li>
+<li>响应200.</li>
+</ol>
+<h4 id="heading5">实现登录</h4>
+<ol>
+<li>通过json反序列化http请求的body，得到username和password，判断是否符合规则，不符合返回错误信息，符合进行下一步；</li>
+<li>查找数据库，判断是否有该用户，密码是否正确；</li>
+<li>返回JWT；</li>
+<li>响应200.</li>
+</ol>
+<h4 id="boltdb">关于boltdb数据库的使用：</h4>
+<p>开启数据库:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">db</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bolt</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;my.db&#34;</span>, <span style="color:#ae81ff">0600</span>, <span style="color:#66d9ef">nil</span>)
+</code></pre></div><p>通过View进行只读事务，通过User桶查找用户：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">View</span>(<span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">tx</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">bolt</span>.<span style="color:#a6e22e">Tx</span>) <span style="color:#66d9ef">error</span> {
+    <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">tx</span>.<span style="color:#a6e22e">Bucket</span>([]byte(<span style="color:#e6db74">&#34;User&#34;</span>))
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">b</span>.<span style="color:#a6e22e">Get</span>([]byte(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">Username</span>))
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">v</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;User Exists&#34;</span>)
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+})
+</code></pre></div><p>通过Update进行写操作，如果没有User桶则先创建，然后使用Put写入用户名和密码的键值对。</p>
+<p>需要注意的是所有写入操作都需要写入[]byte。</p>
+<p>boltdb数据库学习：<a href="https://segmentfault.com/a/1190000010098668">golang boltdb的学习和实践</a></p>
+<h4 id="jwt">关于JWT验证</h4>
+<p>JWT（Json Web Token）是一种验证用户身份的方式，一般使用方式为：用户登录后，服务端发给客户端一个token，客户端将其存放在cookie中，之后客户端与服务端的交互都需要在请求的Header中加上Authorization参数，值即为该token。</p>
+<p>这个token的组成为：</p>
+<p>JWT头：</p>
+<p>{</p>
+<pre><code>&quot;alg&quot;: &quot;HS256&quot;,
+
+&quot;typ&quot;: &quot;JWT&quot;
+</code></pre>
+<p>}</p>
+<p>&ldquo;alg&quot;表示签名算法为HS256，&ldquo;typ&quot;表示token类型为JWT。</p>
+<p>有效载荷：</p>
+<p>{</p>
+<pre><code>iss：发行人
+
+exp：到期时间
+
+sub：主题
+
+aud：用户
+
+nbf：在此之前不可用
+
+iat：发布时间
+
+jti：JWT ID用于标识该JWT
+</code></pre>
+<p>}</p>
+<p>除了这些默认可选字段之外也可以自己定义字段。</p>
+<p>签名：</p>
+<p>用来保证JWT的真实性。</p>
+<p>JWT生成与分发：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">token</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">SigningMethodHS256</span>)
+<span style="color:#a6e22e">claims</span> <span style="color:#f92672">:=</span> make(<span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">MapClaims</span>)
+<span style="color:#a6e22e">claims</span>[<span style="color:#e6db74">&#34;exp&#34;</span>] = <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Add</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Hour</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Duration</span>(<span style="color:#ae81ff">1</span>)).<span style="color:#a6e22e">Unix</span>()
+<span style="color:#a6e22e">claims</span>[<span style="color:#e6db74">&#34;iat&#34;</span>] = <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">Unix</span>()
+<span style="color:#a6e22e">claims</span>[<span style="color:#e6db74">&#34;sub&#34;</span>] = <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">Username</span>
+<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">Claims</span> = <span style="color:#a6e22e">claims</span>
+
+<span style="color:#a6e22e">tokenString</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">SignedString</span>([]byte(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">Username</span>))
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    <span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">WriteHeader</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusInternalServerError</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintln</span>(<span style="color:#a6e22e">w</span>, <span style="color:#e6db74">&#34;Token error&#34;</span>)
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+}
+</code></pre></div><p><a href="https://blog.csdn.net/wangshubo1989/article/details/74529333">Go实战&ndash;golang中使用JWT(JSON Web Token)</a></p>
+<p><a href="https://baijiahao.baidu.com/s?id=1608021814182894637&amp;wfr=spider&amp;for=pc">10分钟了解JSON Web令牌（JWT）</a></p>
+<h4 id="heading6">后端测试</h4>
+<p>后端使用Postman或者Postwoman发送不同的请求来进行接口的测试。</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw10/image-20191210001314114.png" alt="image-20191210001314114"></p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw10/image-20191210001402677.png" alt="image-20191210001402677"></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/" class="prev" rel="prev" title="Docker学习"><i class="iconfont icon-left"></i>&nbsp;Docker学习</a>
+         
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/" class="next" rel="next" title="服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7）">服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7）&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
+      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: 'どうぞ',
+      visitor: 'true'
+  });
+</script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

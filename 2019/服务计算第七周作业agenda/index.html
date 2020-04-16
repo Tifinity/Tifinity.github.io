@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/" />
+  <link rel="next" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/" />
+  <link rel="canonical" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           服务计算第七周作业：Agenda | Infinit
+       
+  </title>
+  <meta name="title" content="服务计算第七周作业：Agenda | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "服务计算第七周作业：Agenda",
+    "headline" : "服务计算第七周作业：Agenda",
+    "description" : "服务计算第七周作业：Agenda 文章目录 @[toc]\n概述   安装Cobra cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。\n首先安装被墙的依赖包。\n在$GOPATH\/src\/golang.org\/x目录下，若没有则自行创建，用git clone下载sys和text项目：\ngit clone https:\/\/github.com\/golang\/sys git clone https:\/\/github.com\/golang\/text 然后执行：\ngo get -v github.com\/spf13\/cobra\/cobra 若成功安装则在 $GOBIN 即 $GOPATH\/bin 下出现cobra可执行程序。 然后在命令行中输入cobra:\n[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cWEKKvcf-1571931179495)(image\\cobra安装.jpg)]\n出现图中提示信息则安装成功。\n创建程序 使用cobra init命令初始化程序框架，但是发现提示错误：\nError: required flag(s) \x26quot;pkg-name\x26quot; not set 在查看[官方文档][cobragithub]后发现Cobra版本更新后需要增加一个必须参数--pkg-name，就是main函数默认import的包。\n Updates to the Cobra generator have now decoupled it from the GOPATH. As such --pkg-name is required.\n 于是我们使用如下命令初始化：\n 先创建目录进入再初始化，此时不需要[name]参数，即目录  mkdir -p newApp cd newApp cobra init --pkg-name github.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-18 11:46:25 \x2b0800 CST",
+    "dateModified" : "2019-12-18 11:46:25 \x2b0800 CST",
+    "url" : "http:\/\/tifinity.github.io\/2019\/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda\/",
+    "wordCount" : "130",
+    "keywords" : [  "Infinit"]
+}
+</script>
+
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">服务计算第七周作业：Agenda</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-18 itemprop="datePublished">December 18, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97/"> 服务计算 </a>
+                        
+                </span>
+        </div>
+        
+        <div class="post-total">
+             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+        </div>
+       
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="agenda">服务计算第七周作业：Agenda</h1>
+<h2 id="heading">文章目录</h2>
+<p>@[toc]</p>
+<h2 id="heading1">概述</h2>
+<blockquote>
+</blockquote>
+<h2 id="cobra">安装Cobra</h2>
+<p>cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。</p>
+<p>首先安装被墙的依赖包。</p>
+<p>在<code>$GOPATH/src/golang.org/x</code>目录下，若没有则自行创建，用<code>git clone</code>下载sys和text项目：</p>
+<pre><code>git clone https://github.com/golang/sys
+git clone https://github.com/golang/text
+</code></pre><p>然后执行：</p>
+<pre><code>go get -v github.com/spf13/cobra/cobra
+</code></pre><p>若成功安装则在 <code>$GOBIN</code> 即 <code>$GOPATH/bin</code> 下出现cobra可执行程序。
+然后在命令行中输入<code>cobra</code>:</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cWEKKvcf-1571931179495)(image\cobra安装.jpg)]</p>
+<p>出现图中提示信息则安装成功。</p>
+<h2 id="heading2">创建程序</h2>
+<p>使用<code>cobra init</code>命令初始化程序框架，但是发现提示错误：</p>
+<pre><code>Error: required flag(s) &quot;pkg-name&quot; not set
+</code></pre><p>在查看[官方文档][cobragithub]后发现Cobra版本更新后需要增加一个必须参数<code>--pkg-name</code>，就是main函数默认import的包。</p>
+<blockquote>
+<p>Updates to the Cobra generator have now decoupled it from the GOPATH. As such <code>--pkg-name</code> is required.</p>
+</blockquote>
+<p>于是我们使用如下命令初始化：</p>
+<ol>
+<li>先创建目录进入再初始化，此时不需要[name]参数，即目录</li>
+</ol>
+<pre><code>mkdir -p newApp
+cd newApp
+cobra init --pkg-name github.com/github-user/newApp
+</code></pre><ol start="2">
+<li>直接创建目录新目录</li>
+</ol>
+<pre><code>cobra init --pkg-name github.com/github-user/newApp newApp
+</code></pre><p>初始化成功后出现如下提示信息：</p>
+<pre><code>Your Cobra applicaton is ready at &lt;path&gt;
+</code></pre><p>此时项目结构应如下：</p>
+<pre><code>agenda/
+    cmd/
+    main.go
+    LICENSE
+</code></pre><p>main.go长这个样子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/github-user/agenda/cmd&#34;</span> <span style="color:#75715e">//pkg-name
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+  <span style="color:#a6e22e">cmd</span>.<span style="color:#a6e22e">Execute</span>()
+}
+</code></pre></div><p>cmd文件夹里放的就是我们接下来要添加的命令。</p>
+<p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-lTspuo4l-1571931179497)(image\cobra初始化.jpg)]</p>
+<h2 id="heading3">添加命令</h2>
+<p>cobra添加命令的指令如下：</p>
+<pre><code>cobra add &lt;conmand_name&gt;
+
+</code></pre><p>于是我们进入刚创建的目录下，执行：</p>
+<pre><code>cobra add register
+cobra add login
+
+</code></pre><p>cmd中会自动添加两个go文件：</p>
+<pre><code>agenda/
+    cmd/
+    	register.go
+    	login.go
+    main.go
+    LICENSE
+
+</code></pre><h2 id="heading4">总结</h2>
+<p>本次作业在难度上比前两次要大很多。本质上来说是实现了一个“翻译”的任务，实现了golang版的selpg。大二操作系统也有写过C语言的命令行程序，所以对CLI也不是一窍不通，不过这一次对管道，重定向有了更深的了解，也简单使用了golang的命令行参数处理包flag和pflag，执行外部指令的exec，还有os和io的一些操作。过程还是比较坎坷，虽然网上参考的博客很多，但是鱼龙混杂，其中很多都有错的或者理解不到位的地方，自己真正会了才可能完整地做出来，否则即使正确的结果也只是简单的摆拍而已。</p>
+<p>github地址 -&gt; <a href="">?</a></p>
+<p>项目中附测试截图</p>
+<h2 id="heading5">参考资料</h2>
+<p><a href="https://shimo.im/sheets/KJXKY9YgchdKJXGx/MODOC/">go语言子进程</a></p>
+<p><a href="https://studygolang.com/articles/14170">go语言创建读取写入文件</a></p>
+<p><a href="https://blog.csdn.net/C486C/article/details/82990187">某博客</a></p>
+<p><a href="https://blog.csdn.net/hcm_0079/article/details/82927996">某另一博客</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/shell/clutil/index.html">开发Linux命令行实用程序</a></p>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/shell/clutil/selpg.c">selpg源代码</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/" class="prev" rel="prev" title="服务计算第八周作业：cloudgo"><i class="iconfont icon-left"></i>&nbsp;服务计算第八周作业：cloudgo</a>
+         
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/" class="next" rel="next" title="服务计算第九周作业：博客网站API设计">服务计算第九周作业：博客网站API设计&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
+      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: 'どうぞ',
+      visitor: 'true'
+  });
+</script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

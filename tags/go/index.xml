@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Infinit</title>
+    <link>http://tifinity.github.io/tags/go/</link>
+    <description>Recent content in Go on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 18 Dec 2019 11:16:56 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>服务计算第四周作业：开发简单CLI程序</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 18 Dec 2019 11:16:56 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</guid>
+      <description>使用Golang开发Linux命令行使用程序selpg 文章目录 @[toc]
+概述  CLI（Command Line Interface）实用程序是Linux下应用开发的基础。正确的编写命令行程序让应用与操作系统融为一体，通过shell或script使得应用获得最大的灵活性与开发效率。Linux提供了cat、ls、copy等命令与操作系统交互；go语言提供一组实用程序完成从编码、编译、库管理、产品发布全过程支持；容器服务如docker、k8s提供了大量实用程序支撑云服务的开发、部署、监控、访问等管理任务；git、npm等都是大家比较熟悉的工具。尽管操作系统与应用系统服务可视化、图形化，但在开发领域，CLI在编程、调试、运维、管理中提供了图形化程序不可替代的灵活性与效率
+ 原版C语言selpg分析 如何使用  selpg是从文本输入选择页范围的实用程序。该输入可以来自作为最后一个命令行参数指定的文件，在没有给出文件名参数时也可以来自标准输入。selpg 首先处理所有的命令行参数。在扫描了所有的选项参数（也就是那些以连字符为前缀的参数）后，如果 selpg 发现还有一个参数，则它会接受该参数为输入文件的名称并尝试打开它以进行读取。如果没有其它参数，则 selpg 假定输入来自标准输入。
+ 在命令行中输入的指令为如下形式，：
+selpg -sstart_page -eend_page [-lline | -f ] [-d dstFile] filename 我们来看每个参数的含义。
+首先是两个必选参数：
+ -sstartPage：例如-s10，表示从第10页开始打印。 -eendPage：例如-e50，表示打印到50页。  selpg -s10 -e50 .. 然后是可选参数：
+ -llinePerPage ：例如-l72，表示每一页72行，即将输入文件按72行一页分割，默认为72。 -f ：按照换页符来打印，默认一行一页。 -ddstFile：输出文件路径，默认为标准输出，即命令行界面。  如果在检查完上面的参数后发现还有一个参数，即filename，则将其设置为输入文件，否则等待标准输入即命令行输入文件路径。
+一些例子：
+selpg -s1 -e1 input_file 将input_file的第1页打印到屏幕。
+selpg -s10 -e20 input_file &amp;gt;output_file 将input_file的第10页到第20页打印output_file。
+源代码分析 首先定义了一个结构体selpg_args，包含了所有参数。
+struct selpg_args { int start_page; int end_page; char in_filename[BUFSIZ]; int page_len; /* default value, can be overriden by &amp;#34;-l number&amp;#34; on command line */ int page_type; /* &amp;#39;l&amp;#39; for lines-delimited, &amp;#39;f&amp;#39; for form-feed-delimited */ /* default is &amp;#39;l&amp;#39; */ char print_dest[BUFSIZ]; }; process_args函数解析用户的输入，将对应的参数放入参数结构体sa中。以空格分隔的字符串前带有连字符作为标志判断参数，最后如果还有一个参数的话将其设为输入文件，并且检查所有的输入是否符合要求打印错误信息。</description>
+    </item>
+    
+    <item>
+      <title>Go语言使用GoConvey框架进行测试</title>
+      <link>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 18 Dec 2019 11:15:59 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</guid>
+      <description>Go语言使用GoConvey框架进行测试 本周作业为在go-online上完成一个最小堆算法，在完成之后我使用GoConvey进行测试。
+要想写出好的的代码，必须学会测试框架，对于golang，可以使用自带的go test测试，也可以使用其他框架如
+GoConvey，GoStub，GoMock，Monkey，本次我学习使用GoConvey。
+安装GoConvey go get github.com/smartystreets/goconvey 需要等待较长的一段时间，然后查看$GOPATH/src/github.com目录下增加了smartystreets文件夹即可。
+使用GoConvey 将作业代码复制到go工作空间中命名为myheap.go，并且在同一目录下创建myheap_test.go。
+先go build或者go install生成包，不需main主函数。因为要测试的函数需要有返回值，所以简单修改一下作业中的函数，将nodes返回。
+myheap_test.go文件如下：
+package myheap import ( &amp;#34;testing&amp;#34; . &amp;#34;github.com/smartystreets/goconvey/convey&amp;#34; ) func TestInit(t *testing.T) { Convey(&amp;#34;test&amp;#34;, t, func() { nodes := []Node{ Node{3}, Node{6}, Node{9}, Node{1}, Node{2}, Node{5}, Node{8}, Node{4}, Node{7}, } Convey(&amp;#34;Test Init()&amp;#34;, func(){ So(Init(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) nodes = Init(nodes) Convey(&amp;#34;Test Push()&amp;#34;, func(){ So(Push(Node{0}, nodes), ShouldResemble, []Node{ Node{0}, Node{1}, Node{5}, Node{4}, Node{2}, Node{9}, Node{8}, Node{6}, Node{7}, Node{3}, }) }) nodes = Push(Node{0}, nodes) Convey(&amp;#34;Test Pop()&amp;#34;, func(){ So(Pop(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) }) } myheap.</description>
+    </item>
+    
+  </channel>
+</rss>

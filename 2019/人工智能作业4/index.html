@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/" />
+  <link rel="next" href="http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/" />
+  <link rel="canonical" href="http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           人工智能作业4 | Infinit
+       
+  </title>
+  <meta name="title" content="人工智能作业4 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "人工智能作业4",
+    "headline" : "人工智能作业4",
+    "description" : "人工智能第四次作业 17343105 田皓 EM算法实验内容 算法原理 EM **Expectation-maximization algorithm **期望最大化算法\na.记录了每次选择的是A还是B\nA硬币出现正面的概率为 $P(A) = \\frac{24}{24\x2b6}= 0.80$\nB硬币出现正面的概率为 $P(B) = \\frac{9}{9\x2b11}= 0.45$\nb.没有记录每次选择的是A还是B\n假设每次选择的硬币是X（X={A或B}），我们需要根据结果求PA，PB，就要知道X，而要用最大似然来估计X又需要知道PAPB，这是个死循环。\n这个时候就需要使用EM算法，基本思想是：先初始化PA和PB，然后用PA和PB估计X，有了X再计算PA和PB，不断重复直到收敛。\n算法步骤  计算期望（E），利用对隐变量（即硬币是A还是B）的现有估计值，计算AB硬币的正反面次数； 最大化（M），计算新的AB硬币正面概率，与上一次迭代结果比较，若收敛则结束，否则再次执行1。  算法结果 简单地取多组初值进行实验，结果有些许差别。阈值主要影响迭代次数，这个例子比较简单，一般十次迭代就能得到结果。详见data.txt。\n图片分类任务 从官网下载cifar-10数据集。\n作业要求:   明确图片分类任务的基本流程\n将数据集分为训练集和测试集，输入训练集训练模型，用验证集调整参数，估计模型准确率，输入测试集，得到结果，与标签对比得到准确率。\n  清楚数据集的训练集验证集和测试集的划分和用途,简单介绍自己的用 法\n举个例子，我们是老师，程序是学生，那么：\n训练集是课本，学生根据课本里的内容来掌握知识；\n验证集是作业，通过作业我们可以了解学生对知识的掌握情况并调整教学方法；\n测试集是试卷，通过考试检验学生到底掌握的如何。\n验证集不是必须的，划分比例一般为6：2：2，三者本质上无区别，是为了更好的调整模型而存在的，比如防止过拟合。\n  编写 K 近邻算法,SVM 以及简单的两层神经网络分类器各一(多分类分 类器)进行图片分类任务\n见下。\n  根据得到的分类结果(精度)说明和比较各个算法的优越性和局限性, 懂得它们之间的差异\n见下。\n  编写实验报告\n正是本文档。\n  KNN （K最近邻算法） knn是机器学习中最简单的方法之一，对于一个样本，取特征空间中的k个与其最相似的样本，其中数量最多的类别就是该样本的类别。knn不需要估计参数，实际上也不需要训练，测试集的每一张图片都在训练集中找最相似的k个来预测即可。\n算法步骤：\n 对测试集每一个样本，计算其与训练集所有元素的“距离”； 循环k次，找出前k个距离最小的样本； 在这k个样本中找出最多的类别，作为预测类别； 计算准确率。  算法优点：",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-20 20:56:03 \x2b0800 CST",
+    "dateModified" : "2019-12-20 20:56:03 \x2b0800 CST",
+    "url" : "http:\/\/tifinity.github.io\/2019\/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4\/",
+    "wordCount" : "158",
+    "keywords" : [ "AI","EM算法","图片分类", "Infinit"]
+}
+</script>
+
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">人工智能作业4</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-20 itemprop="datePublished">December 20, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"> 人工智能 </a>
+                        
+                </span>
+        </div>
+        
+        <div class="post-total">
+             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+        </div>
+       
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="-17343105-">人工智能第四次作业 17343105 田皓</h1>
+<h2 id="em">EM算法实验内容</h2>
+<h3 id="heading">算法原理</h3>
+<p>EM **Expectation-maximization algorithm **期望最大化算法</p>
+<p>a.记录了每次选择的是A还是B</p>
+<p>A硬币出现正面的概率为 $P(A) = \frac{24}{24+6}= 0.80$</p>
+<p>B硬币出现正面的概率为 $P(B) = \frac{9}{9+11}= 0.45$</p>
+<p>b.没有记录每次选择的是A还是B</p>
+<p>假设每次选择的硬币是X（X={A或B}），我们需要根据结果求PA，PB，就要知道X，而要用最大似然来估计X又需要知道PAPB，这是个死循环。</p>
+<p>这个时候就需要使用EM算法，基本思想是：先初始化PA和PB，然后用PA和PB估计X，有了X再计算PA和PB，不断重复直到收敛。</p>
+<h3 id="heading1">算法步骤</h3>
+<ol>
+<li>计算期望（E），利用对隐变量（即硬币是A还是B）的现有估计值，计算AB硬币的正反面次数；</li>
+<li>最大化（M），计算新的AB硬币正面概率，与上一次迭代结果比较，若收敛则结束，否则再次执行1。</li>
+</ol>
+<h3 id="heading2">算法结果</h3>
+<p>简单地取多组初值进行实验，结果有些许差别。阈值主要影响迭代次数，这个例子比较简单，一般十次迭代就能得到结果。详见data.txt。</p>
+<h2 id="heading3">图片分类任务</h2>
+<p>从<a href="http://www.cs.toronto.edu/~kriz/cifar.html">官网</a>下载cifar-10数据集。</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191205184629303.png" alt="image-20191205184617188"></p>
+<h3 id="heading4">作业要求:</h3>
+<ul>
+<li>
+<p>明确图片分类任务的基本流程</p>
+<p>将数据集分为训练集和测试集，输入训练集训练模型，用验证集调整参数，估计模型准确率，输入测试集，得到结果，与标签对比得到准确率。</p>
+</li>
+<li>
+<p>清楚数据集的训练集验证集和测试集的划分和用途,简单介绍自己的用
+法</p>
+<p>举个例子，我们是老师，程序是学生，那么：</p>
+<p>训练集是课本，学生根据课本里的内容来掌握知识；</p>
+<p>验证集是作业，通过作业我们可以了解学生对知识的掌握情况并调整教学方法；</p>
+<p>测试集是试卷，通过考试检验学生到底掌握的如何。</p>
+<p>验证集不是必须的，划分比例一般为6：2：2，三者本质上无区别，是为了更好的调整模型而存在的，比如防止过拟合。</p>
+</li>
+<li>
+<p>编写 K 近邻算法,SVM 以及简单的两层神经网络分类器各一(多分类分
+类器)进行图片分类任务</p>
+<p>见下。</p>
+</li>
+<li>
+<p>根据得到的分类结果(精度)说明和比较各个算法的优越性和局限性,
+懂得它们之间的差异</p>
+<p>见下。</p>
+</li>
+<li>
+<p>编写实验报告</p>
+<p>正是本文档。</p>
+</li>
+</ul>
+<h3 id="knn-k">KNN （K最近邻算法）</h3>
+<p>knn是机器学习中最简单的方法之一，对于一个样本，取特征空间中的k个与其最相似的样本，其中数量最多的类别就是该样本的类别。knn不需要估计参数，实际上也不需要训练，测试集的每一张图片都在训练集中找最相似的k个来预测即可。</p>
+<p>算法步骤：</p>
+<ol>
+<li>对测试集每一个样本，计算其与训练集所有元素的“距离”；</li>
+<li>循环k次，找出前k个距离最小的样本；</li>
+<li>在这k个样本中找出最多的类别，作为预测类别；</li>
+<li>计算准确率。</li>
+</ol>
+<p>算法优点：</p>
+<ol>
+<li>简单</li>
+<li>适合多分类问题</li>
+</ol>
+<p>算法缺点：</p>
+<ol>
+<li>计算量大，时间长</li>
+<li>结果更多依据训练样本的比例，而不是数量</li>
+</ol>
+<p>结果：</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191204190855286.png" alt="image-20191204190855286"></p>
+<h3 id="svm-">SVM （支持向量机）</h3>
+<p>SVM主要用于分类问题中，将每一个样本看作一个点在n维空间中(n是特征数，在这里就是图像的大小，即32*32*3)，目的是找到分隔两个类的“最好”的超平面，“最好”指与其最近的点的距离最大。</p>
+<p>在样本空间中，超平面可通过如下形式来描述：
+$$
+w^Tx + b
+$$
+w为法向量，决定平面的方向，b是偏移表示平面离原点的距离，任意点到超平面$(w，b)$的距离为：
+$$
+r = \frac{|w^Tx + b|}{\left | w \right |}
+$$
+现在开始寻找最大间隔，首先确定分类器为$w^Tx + b &gt; 1$则$y = 1$，$w^Tx + b &lt; -1$则$y = -1$</p>
+<p>SVM多分类</p>
+<p>SVM算法最初是为二值分类问题设计的，当处理多类问题时，就需要构造合适的多类分类器。目前，构造SVM多类分类器的方法主要有两类：</p>
+<ul>
+<li>
+<p>一类是直接法，直接在目标函数上进行修改，将多个分类面的参数求解合并到一个最优化问题中，通过求解该最优化问题“一次性”实现多类分类。这种方法看似简单，但其计算复杂度比较高，实现起来比较困难，只适合用于小型问题中；</p>
+</li>
+<li>
+<p>另一类是间接法，主要是通过组合多个二分类器来实现多分类器的构造，常见的方法有one-against-one和one-against-all两种。</p>
+</li>
+</ul>
+<p>在这里我使用间接法，间接法又有：</p>
+<ul>
+<li>
+<p>one-versus-rest：训练时依次把某个类别的样本归为一类,其他剩余的样本归为另一类，k个类别k个分类器。分类时将未知样本分类为具有最大分类函数值的那类。</p>
+</li>
+<li>
+<p>one-versus-one：其做法是在任意两类样本之间设计一个SVM，因此k个类别的样本就需要设计k(k-1)/2个SVM。当对一个未知样本进行分类时，最后得票最多的类别即为该未知样本的类别。</p>
+</li>
+</ul>
+<p>调用sklearn包的SVM函数实现</p>
+<p>简单使用不同的参数实现，得到以下结果：</p>
+<p>从上到下分别是：线性，rbf（gamma=0.1），rbf（gamma=100），poly（degree=3）</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191205191035911.png" alt="image-20191205191035911"></p>
+<h3 id="heading5">简单神经网络</h3>
+<p>使用tensorflow2.0在docker中运行完成本次任务。</p>
+<p>按照官网教程使用CNN，网络结构如下：</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191204203020314.png" alt="image-20191204203020314"></p>
+<p>从上到下依次为卷积层，池化层，卷积层，池化层，卷积层，压缩层，全链接层，全链接层。</p>
+<p>图像中0-255的像素值先转换为0-1的浮点数，然后输入第一个卷积层，输入shape为高32像素，宽32像素，三通道，卷积核形状为3*3，32个。</p>
+<p>Conv2D的每一次卷积变换如下：</p>
+<p>1 1 1 0</p>
+<p>0 1 1 1	=&gt;  4 3</p>
+<p>0 0 1 1           2 4</p>
+<p>0 0 1 1</p>
+<p>卷积核为：</p>
+<p>1 0 1</p>
+<p>0 1 0</p>
+<p>1 0 1</p>
+<p>MaxPooling2D最大池化层的每一次变换如下:</p>
+<p>2*2取最大值</p>
+<p>4  3  =&gt;  4</p>
+<p>2  4</p>
+<p>图像的宽和高逐步变小，最后通过Flatten将4*4*64的三维张量转化为1024的向量，再使用两个全连接层Dense构建一个输入层为1024，隐藏层为64，输出层为10的普通神经网络，最后输出的长度为10的向量代表cifar-10的10个类别，向量中第k个值代表输入图片分类为k的概率。</p>
+<p>结果：</p>
+<p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191204213642669.png" alt="image-20191204213642669"></p>
+<p>准确率0.6696，比knn和svm都高出很多。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/ai/">
+                    #AI</a></span>
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/em%E7%AE%97%E6%B3%95/">
+                    #EM算法</a></span>
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/%E5%9B%BE%E7%89%87%E5%88%86%E7%B1%BB/">
+                    #图片分类</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/" class="prev" rel="prev" title="国际语言代码表"><i class="iconfont icon-left"></i>&nbsp;国际语言代码表</a>
+         
+        
+        <a href="http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/" class="next" rel="next" title="YAML学习">YAML学习&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
+      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: 'どうぞ',
+      visitor: 'true'
+  });
+</script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

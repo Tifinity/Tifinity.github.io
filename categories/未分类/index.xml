@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>未分类 on Infinit</title>
+    <link>http://tifinity.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/</link>
+    <description>Recent content in 未分类 on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python如何发送邮件</title>
+      <link>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Thu, 16 Apr 2020 11:02:04 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description>Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。
+ 使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。
+提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：
+import sysprint(sys.path)所以Python会找不到模块，出现下面这样的错误：
+ModuleNotFoundError:No module named &amp;#39;email.mime&amp;#39;; &amp;#39;email&amp;#39; is not a package然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。
+第一步，创建邮件并设置邮件信息：
+sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.com&amp;#39;] # 接收者 subject = &amp;#39;Python SMTP 邮件测试&amp;#39;content = &amp;#39;你要发送的邮件内容&amp;#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8 message = MIMEText(content, &amp;#39;plain&amp;#39;, &amp;#39;utf-8&amp;#39;)message[&amp;#39;From&amp;#39;] = Header(sender, &amp;#39;utf-8&amp;#39;)	# 发送者 message[&amp;#39;To&amp;#39;] = Header(receivers[0], &amp;#39;utf-8&amp;#39;)	# 接收者 message[&amp;#39;Subject&amp;#39;] = Header(subject, &amp;#39;utf-8&amp;#39;)	# 主题 第二步，设置第三方SMTP服务：</description>
+    </item>
+    
+    <item>
+      <title>YAML学习</title>
+      <link>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 20 Dec 2019 23:11:18 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
+      <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&#39;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
+在开发的这种语言时，YAML 的意思其实是：&amp;ldquo;Yet Another Markup Language&amp;rdquo;（仍是一种标记语言）。
+YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它实质上是一种通用的数据串行化格式。
+基本语法  大小写敏感 使用缩进表示层级关系 缩进只允许空格 缩进的空格数不重要，只要相同层级的元素左对齐即可 &amp;lsquo;#&amp;lsquo;表示单行注释  数据结构   对象：键值对集合，又称映射/哈希/字典
+# 冒号后的空格不可省略 key: valuekey: {name: TH, money: Infinit}# 复合 key:key1: value1key2: value2  数组：或序列，列表
+- a- b- c  纯量（scalars）：单个不可分割的值，包括：
+ 字符串，布尔，整数，浮点数，Null，时间，日期  boolean: TRUE #true，True都可以 float: 6.8523015e+5 #可以使用科学计数法 int: 0b1010_0111_0100_1010_1110 #二进制表示 null: ~ #使用~表示null string:- 哈哈- &amp;#39;Hello world&amp;#39; #可以使用双引号或者单引号包裹特殊字符 - newlinenewline2 #字符串可以拆成多行，每一行会被转化成一个空格 date:- 2018-02-17 #日期必须使用ISO 8601格式，即yyyy-MM-dd   datetime: - 2018-02-17T15:02:31+08:00</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu学习</title>
+      <link>http://tifinity.github.io/2019/ubuntu-learning/</link>
+      <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/ubuntu-learning/</guid>
+      <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt;apt-get update apt-get upgrade这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
+如果你想知道apt-get到底是什么；
+install的软件到底安装到哪去了；
+update和upgrade的区别；
+下载速度慢的时候换源是什么操作；
+可以接着往下看本文。
+1.1 软件包仓库 当你使用apt-get install &amp;lt;package&amp;gt;时，apt先到/etc/apt目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。
+source.list长这样：
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to# newer versions of the distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted## Major bug fix updates produced after the final release of the## distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted每一个仓库表示为：</description>
+    </item>
+    
+  </channel>
+</rss>

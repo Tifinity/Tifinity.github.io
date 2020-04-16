@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scoop on Infinit</title>
+    <link>http://tifinity.github.io/tags/scoop/</link>
+    <description>Recent content in Scoop on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 27 Dec 2019 19:43:39 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/tags/scoop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scoop-为Windows而生的命令行包管理工具</title>
+      <link>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 27 Dec 2019 19:43:39 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <description>Scoop第一次使用过程 为什么要使用包管理工具？ 首先，在Windows下我们一般怎么安装软件？💢
+ 百度你要安装的软件 找到官网或者一个看起来安全一点的地址 下载一个奇怪的exe 安装到奇怪的地方  仔细想想，我从用Windows开始一直以来都是这样安装软件的，直到开始用Linux的操作系统才对包管理有了模糊的概念，不过也只是停留在“Linux跟Windows安装软件的方法有一点不一样”的阶段。
+ 包管理器又称软件包管理系统，它是在电脑中自动安装、配制、卸载和升级软件包的工具组合，在各种系统软件和应用软件的安装管理中均有广泛应用。——百度百科
+ 我对Windows电脑软件的管理经历了三个阶段：
+ 腾讯电脑管家 手动管理+Windows自带的卸载 发现了Scoop，开始了解包管理工具  Scoop的官方文档上这么写着：
+Scoop试图消除类似的东西：
+ 权限弹出窗口 GUI向导式安装程序 安装大量程序造成的路径污染 安装和卸载程序产生的意外副作用 查找和安装依赖项的需要 需要执行额外的设置步骤才能获得有效的程序  安装配置 首先需要几个环境要求：
+ Windows 版本不低于 Windows 7 PowerShell 3+ .NET Framework 4.5+ 用户名无中文  如果PowerShell和.NET不满足版本要求的话还是得先用百度更新。💔
+# 允许本地脚本执行 set-executionpolicy remotesigned -scope currentuser# 下载安装scoop iex (new-object net.webclient).downloadstring(&amp;#39;https://get.scoop.sh&amp;#39;)现在等待脚本执行完成。🚏
+安装完成后请迫不及待地执行scoop help，看到帮助信息说明安装成功了。
+简单使用 你已经看过了help输出的使用说明，如果以后某个指令想不起来也请执行scoop help。
+   常用命令 含义     search 搜索软件名   install 安装软件   update 更新软件   status 查看软件状态   uninstall 卸载软件   info 查看软件详情   home 打开软件主页    举个🌰：</description>
+    </item>
+    
+  </channel>
+</rss>

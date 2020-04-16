@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>信息安全 on Infinit</title>
+    <link>http://tifinity.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in 信息安全 on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 24 Dec 2019 14:29:44 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>信息安全作业5：网络扫描实验</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
+      <pubDate>Tue, 24 Dec 2019 14:29:44 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
+      <description>信息安全作业5：网络扫描实验 实验目的   掌握网络扫描技术的原理。
+  学会使用 Nmap 扫描工具。
+  实验环境  实验主机操作系统： IP地址：172.18.61.253 目标机操作系统： IP地址： 网络环境：中山大学东校区有线校园网  实验工具 Nmap (Network Mapper，网络映射器) 是一款开放源代码的网络探测和安全审核的工具。其设计目标是快速地扫描大型网络，也可以扫描单个主机。Nmap以新颖的方式使用原始IP报文来发现网络上的主机及其提供的服务，包括其应用程序名称和版本，这些服务运行的操作系统包括版本信息，它们使用什么类型的报文过滤器/防火墙，以及一些其它功能。虽然Nmap通常用于安全审核，也可以利用来做一些日常管理维护的工作，比如查看整个网络的信息，管理服务升级计划，以及监视主机和服务的运行。
+实验过程 主机发现：进行连通性监测，判断目标主机。 假设本地目标IP地址为172.16.1.101，首先确定测试机与目标机物理连接是连通的。
+  关闭目标机的防火墙，分别命令行窗口用Windows命令Ping 172.16.1.101和Nmap命令nmap -sP 172.16.1.101进行测试，记录测试情况。简要说明测试差别。
+在cmd窗口ping：很普通的响应，连接正常。
+使用Nmap，在Nmap上执行nmap -sP 172.16.1.101。参数-sP：用ping扫描判断主机是否存活，只有主机存活，nmap才会继续扫描，一般最好不加，因为有的主机会禁止ping。只返回了MAC地址，没有端口信息 。
+在Nmap上执行nmap 172.16.1.101，可以看到有了一些端口的信息，23是open的，另外三个被防火墙屏蔽。
+  开启目标机的防火墙，重复第一步，结果有什么不同？请说明原因。
+Cmd中还是可以ping通，与第一步相同。
+在Nmap上执行nmap -sP 172.16.1.101，没有端口信息。
+在Nmap上执行nmap 172.16.1.101，部分端口被防火墙屏蔽。
+使用wireshark抓包：
+从23号端口收到ACK/SYN回复，所以Nmap判断其开放；
+其他端口仅有ACK表示收到了发过去的包但没有SYN，收到RST，所以Nmap判断其被屏蔽。
+  测试结果不连通，但实际上是物理连通的，什么原因？
+因为端口被防火墙屏蔽。
+端口扫描是Nmap最基本最核心的功能，用于确定目标主机的TCP/UDP端口的开放情况。
+Nmap通过探测将端口划分为6个状态：
+open：端口是开放的。
+closed：端口是关闭的。
+filtered：端口被防火墙IDS/IPS屏蔽，无法确定其状态。
+unfiltered：端口没有被屏蔽，但是否开放需要进一步确定。
+open|filtered：端口是开放的或被屏蔽，Nmap不能识别。
+closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
+  对目标主机进行TCP端口扫描   使用常规扫描方式：Nmap -sT 172.</description>
+    </item>
+    
+    <item>
+      <title>信息安全作业1：DES</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</link>
+      <pubDate>Fri, 20 Dec 2019 15:11:35 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</guid>
+      <description>信息安全与技术作业一：DES算法 1.1算法原理概述 1.1.1介绍 Data Encryption Standard (DES) 是一种典型的对称密钥算法，采用块加密方法，运行速度较慢，但较安全。DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样 64位长度的密文。DES 使用加密密钥定义变换过程，因此算法认为只有持有加密 所用的密钥的用户才能解密密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可 随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖于密钥。DES 算法的基本过程是换位和置换。
+1.1.2 信息空间 DES的信息空间由 {0, 1} 组成的字符串构成，原始明文消息和经过 DES 加密的密文信息是8个字节 (64位) 的分组，密钥也是64位。 ²
+  原始明文消息按 PKCS#5 (RFC 8018) 规范进行字节填充：
+  原始明文消息最后的分组不够8个字节 (64位) 时，在末尾以字节填满，填入的字节取值相同，都是填充的字节数目；
+  原始明文消息刚好分组完全时，在末尾填充8个字节 (即增 加一个完整分组)，每个字节取值都是08。 ²
+  明文分组结构：M = m1m2 … m64 , mi Î{0, 1}, i = 1 .. 64. ² 密文分组结构：C = c1c2 … c64 , ci Î{0, 1}, i = 1 .</description>
+    </item>
+    
+    <item>
+      <title>信息安全作业4</title>
+      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
+      <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
+      <description>信息安全作业4：描述IPSec传输模式下 ESP 报文的装包与拆包过程 IPSec   IP 协议的安全性
+传统的 IP 协议诞生于军用计划，设计之初未考虑太多安全问题，存在很多安全隐患。比如数据明文传输，同在一个集线器的通信可以被互相监听，如果获得交换机权限，所有流经交换机的通信也可以被监听。攻击者即便没有交换机权限，也可以通过中间人攻击窃取用户的通信。
+  IPsec（互联网安全协定）提供了网络层加密方案
+对 IP 协议进行安全加强的迫切需要催生了 IPsec。IPsec 在网络层将每个 IP 分组的内容先加密再传输，即便中途被截获，攻击者由于缺乏解密数据包所必要的密钥而无法获取其中内容。IPsec 对数据进行加密的方式有两种：传输模式和隧道模式。
+ 传输模式只是对 IP 协议报文的有效数据载荷 (payload) 进行了加密，因此需要对原始 IP 报文进行拆装。 隧道模式则是对整个 IP 报文进行加密，就好像整个 IP 报文封装在一个安全的隧道里传输一样，保持了原始 IP 报文的完整性。    ESP协议 ESP（Encapsulating Security Payloads），封装安全载荷协议，IPsec 所支持的两类协议中的一种。该协议能够在数据的传输过程中对数据进行完整性度量，来源认证以及加密，也可防止回放攻击。传输模式，与隧道模式同为IPsec工作的两种方式。与隧道模式不同，当IPsec工作在传输模式时，新的IP头并不会被生成，而是采用原来的IP头，保护的也仅仅是真正传输的数据，而不是整个IP报文。在处理方法上，原来的IP报文会先被解开，再在数据前面加上新的ESP或AH协议头，最后再装回原来的IP头，即原来的IP包被修改过再传输。
+装包过程 在传输模式下，当要发出一个数据包时：
+  在原IP报文末尾添加尾部信息。
+尾部包含三部分：
+ 填充数据：由所选加密算法可能是块加密，那么当最后一块长度不够时就需要进行填充； 填充长度：并且附上填充长度方便解包时找到填充的数据； Next header：则用来标明被加密的数据报文的类型，例如TCP。    将原IP报文以及第1步得到的ESP尾部作为一个整体进行加密，具体的加密算法与密钥由SA给出。
+  为第2步得到的加密数据添加ESP头部。ESP头由两部分组成，SPI和序号。
+  对加密区域和ESP头部做验证，得到一个完整性度量值ICV，并附在ESP报文的尾部；
+  将IP头部附在ESP报文前，得到新的IP报文，发送报文。
+  拆包过程   首先，检查协议类型是50，确定为IPSec包；</description>
+    </item>
+    
+  </channel>
+</rss>

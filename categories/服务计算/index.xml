@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>服务计算 on Infinit</title>
+    <link>http://tifinity.github.io/categories/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97/</link>
+    <description>Recent content in 服务计算 on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 18 Dec 2019 11:48:06 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/categories/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>服务计算第九周作业：博客网站API设计</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Wed, 18 Dec 2019 11:48:06 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</guid>
+      <description>服务计算第九周作业：博客网站API设计 作业要求 规范：REST API 设计 Github API v3 overview ；微软 作业：模仿 Github，设计一个博客网站的 API
+API设计 查看网站主页 GET &amp;ldquo;https://myblog&amp;rdquo;
+  Request
+  Header
+Authorization: token     Response 200( application/json )
+{ &amp;#34;ok&amp;#34;: true, &amp;#34;data&amp;#34;: &amp;#34;&amp;#34; }   当前用户 GET &amp;ldquo;https://myblog/user&amp;rdquo;
+  Request
+  Header
+Authorization: token     Response 200( application/json )
+{ &amp;#34;ok&amp;#34;: true, &amp;#34;data&amp;#34;: { &amp;#34;id&amp;#34;: &amp;#34;用户ID&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;用户&amp;#34;, } }   用户身份验证 POST https://myblog.</description>
+    </item>
+    
+    <item>
+      <title>服务计算第七周作业：Agenda</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</link>
+      <pubDate>Wed, 18 Dec 2019 11:46:25 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</guid>
+      <description>服务计算第七周作业：Agenda 文章目录 @[toc]
+概述   安装Cobra cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。
+首先安装被墙的依赖包。
+在$GOPATH/src/golang.org/x目录下，若没有则自行创建，用git clone下载sys和text项目：
+git clone https://github.com/golang/sys git clone https://github.com/golang/text 然后执行：
+go get -v github.com/spf13/cobra/cobra 若成功安装则在 $GOBIN 即 $GOPATH/bin 下出现cobra可执行程序。 然后在命令行中输入cobra:
+[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cWEKKvcf-1571931179495)(image\cobra安装.jpg)]
+出现图中提示信息则安装成功。
+创建程序 使用cobra init命令初始化程序框架，但是发现提示错误：
+Error: required flag(s) &amp;quot;pkg-name&amp;quot; not set 在查看[官方文档][cobragithub]后发现Cobra版本更新后需要增加一个必须参数--pkg-name，就是main函数默认import的包。
+ Updates to the Cobra generator have now decoupled it from the GOPATH. As such --pkg-name is required.
+ 于是我们使用如下命令初始化：
+ 先创建目录进入再初始化，此时不需要[name]参数，即目录  mkdir -p newApp cd newApp cobra init --pkg-name github.</description>
+    </item>
+    
+    <item>
+      <title>服务计算第八周作业：cloudgo</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</link>
+      <pubDate>Wed, 18 Dec 2019 11:37:14 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</guid>
+      <description>处理 web 程序的输入与输出 文章目录 @[toc]
+概述 设计一个 web 小应用，展示静态文件服务、js 请求支持、模板输出、表单处理、Filter 中间件设计等方面的能力。（不需要数据库支持）
+任务要求 编程 web 应用程序 cloudgo-io。 请在项目 README.MD 给出完成任务的证据！
+基本要求
+ 支持静态文件服务 支持简单 js 访问 提交表单，并输出一个表格 对 /unknown 给出开发中的提示，返回码 5xx  完成基本要求 1. 框架选择 首先需要选择一个golang框架来进行开发，看了许多前辈的博客都说iris好，我想既然都没使用过那就随便选一个吧·~·
+目前网上关于iris的教程比较少，主要参考前辈博客和官方文档。
+官方网站给出的安装指令：
+go get -u github.com/kataras/iris 但是因为部分依赖包被墙了，是无法安装成功的，下面给出翻墙之外的方法。
+先找到安装不成功的包，通过在get命令中使用-v参数看到安装的详细过程，看哪个包failed了，或者直接在网上随便找一个iris的程序go run test.go，看报错信息缺少哪个包。
+/*test.go*/ package main import &amp;#34;github.com/kataras/iris&amp;#34; func main() { app := iris.Default() app.Handle(&amp;#34;GET&amp;#34;, &amp;#34;/&amp;#34;, func(ctx iris.Context) { ctx.HTML(&amp;#34;Hello world!&amp;#34;) }) app.Run(iris.Addr(&amp;#34;:8080&amp;#34;)) } 一般golang.org的包是无法访问的，但好在github上都有资源，所以只需要在github上搜索缺少的包手动git clone到golang.org/x目录(没有就自己创建)下即可。
+除此之外github.com下的包也可能缺失，删掉重新go get即可。</description>
+    </item>
+    
+    <item>
+      <title>服务计算第四周作业：开发简单CLI程序</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Wed, 18 Dec 2019 11:16:56 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</guid>
+      <description>使用Golang开发Linux命令行使用程序selpg 文章目录 @[toc]
+概述  CLI（Command Line Interface）实用程序是Linux下应用开发的基础。正确的编写命令行程序让应用与操作系统融为一体，通过shell或script使得应用获得最大的灵活性与开发效率。Linux提供了cat、ls、copy等命令与操作系统交互；go语言提供一组实用程序完成从编码、编译、库管理、产品发布全过程支持；容器服务如docker、k8s提供了大量实用程序支撑云服务的开发、部署、监控、访问等管理任务；git、npm等都是大家比较熟悉的工具。尽管操作系统与应用系统服务可视化、图形化，但在开发领域，CLI在编程、调试、运维、管理中提供了图形化程序不可替代的灵活性与效率
+ 原版C语言selpg分析 如何使用  selpg是从文本输入选择页范围的实用程序。该输入可以来自作为最后一个命令行参数指定的文件，在没有给出文件名参数时也可以来自标准输入。selpg 首先处理所有的命令行参数。在扫描了所有的选项参数（也就是那些以连字符为前缀的参数）后，如果 selpg 发现还有一个参数，则它会接受该参数为输入文件的名称并尝试打开它以进行读取。如果没有其它参数，则 selpg 假定输入来自标准输入。
+ 在命令行中输入的指令为如下形式，：
+selpg -sstart_page -eend_page [-lline | -f ] [-d dstFile] filename 我们来看每个参数的含义。
+首先是两个必选参数：
+ -sstartPage：例如-s10，表示从第10页开始打印。 -eendPage：例如-e50，表示打印到50页。  selpg -s10 -e50 .. 然后是可选参数：
+ -llinePerPage ：例如-l72，表示每一页72行，即将输入文件按72行一页分割，默认为72。 -f ：按照换页符来打印，默认一行一页。 -ddstFile：输出文件路径，默认为标准输出，即命令行界面。  如果在检查完上面的参数后发现还有一个参数，即filename，则将其设置为输入文件，否则等待标准输入即命令行输入文件路径。
+一些例子：
+selpg -s1 -e1 input_file 将input_file的第1页打印到屏幕。
+selpg -s10 -e20 input_file &amp;gt;output_file 将input_file的第10页到第20页打印output_file。
+源代码分析 首先定义了一个结构体selpg_args，包含了所有参数。
+struct selpg_args { int start_page; int end_page; char in_filename[BUFSIZ]; int page_len; /* default value, can be overriden by &amp;#34;-l number&amp;#34; on command line */ int page_type; /* &amp;#39;l&amp;#39; for lines-delimited, &amp;#39;f&amp;#39; for form-feed-delimited */ /* default is &amp;#39;l&amp;#39; */ char print_dest[BUFSIZ]; }; process_args函数解析用户的输入，将对应的参数放入参数结构体sa中。以空格分隔的字符串前带有连字符作为标志判断参数，最后如果还有一个参数的话将其设为输入文件，并且检查所有的输入是否符合要求打印错误信息。</description>
+    </item>
+    
+    <item>
+      <title>Go语言使用GoConvey框架进行测试</title>
+      <link>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 18 Dec 2019 11:15:59 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</guid>
+      <description>Go语言使用GoConvey框架进行测试 本周作业为在go-online上完成一个最小堆算法，在完成之后我使用GoConvey进行测试。
+要想写出好的的代码，必须学会测试框架，对于golang，可以使用自带的go test测试，也可以使用其他框架如
+GoConvey，GoStub，GoMock，Monkey，本次我学习使用GoConvey。
+安装GoConvey go get github.com/smartystreets/goconvey 需要等待较长的一段时间，然后查看$GOPATH/src/github.com目录下增加了smartystreets文件夹即可。
+使用GoConvey 将作业代码复制到go工作空间中命名为myheap.go，并且在同一目录下创建myheap_test.go。
+先go build或者go install生成包，不需main主函数。因为要测试的函数需要有返回值，所以简单修改一下作业中的函数，将nodes返回。
+myheap_test.go文件如下：
+package myheap import ( &amp;#34;testing&amp;#34; . &amp;#34;github.com/smartystreets/goconvey/convey&amp;#34; ) func TestInit(t *testing.T) { Convey(&amp;#34;test&amp;#34;, t, func() { nodes := []Node{ Node{3}, Node{6}, Node{9}, Node{1}, Node{2}, Node{5}, Node{8}, Node{4}, Node{7}, } Convey(&amp;#34;Test Init()&amp;#34;, func(){ So(Init(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) nodes = Init(nodes) Convey(&amp;#34;Test Push()&amp;#34;, func(){ So(Push(Node{0}, nodes), ShouldResemble, []Node{ Node{0}, Node{1}, Node{5}, Node{4}, Node{2}, Node{9}, Node{8}, Node{6}, Node{7}, Node{3}, }) }) nodes = Push(Node{0}, nodes) Convey(&amp;#34;Test Pop()&amp;#34;, func(){ So(Pop(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) }) } myheap.</description>
+    </item>
+    
+    <item>
+      <title>服务计算第二周作业：golang环境配置（CentOS7&#43;VSCode）</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</link>
+      <pubDate>Wed, 18 Dec 2019 11:14:56 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</guid>
+      <description>服务计算实验二：golang环境配置（CentOS7+VSCode） github项目
+Linux文件目录结构 在安装golang之前，为了避免许多不必要的错误，一定要分清root用户和你使用图形界面的用户，即你自己取了个名字的用户，以下为了方便称为非root用户。
+进入root用户的命令为su，退出是按Ctrl + D。
+/root就是root用户，系统管理员，超级权限者的主目录，而非root用户的主文件夹是在**/home**下的。
+pwd：查看当前位置
+ /usr：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。
+/etc： 这个目录用来存放所有的系统管理所需要的配置文件和子目录。
+ 详细请看菜鸟教程
+golang环境配置-Linux 安装包下载地址：GO语言中文网 或者 RPM包下载
+Windows直接运行.msi文件即可。
+Linux下
+ 如果下载的是.tar文件，进入文件目录使用命令tar [压缩包文件名]解压，你需要记住解压的位置。如果提示没有权限则在前面加上sudo再运行。 如果下载的是.rpm文件，进入文件目录使用命令rpm -ivh [文件名]会自动安装golang到该目录：/usr/lib/golang，可参见上图Linux文件目录结构。  推荐新手使用.rpm的方式安装，安装目录固定并且会自动设置环境变量，不容易出错。如果想详细了解.tar.gz和.rpm文件的区别，请前往 -&amp;gt; ?。
+[外链图片转存失败(img-OA5sNPSK-1568524694199)(T:\TH\大三上\服务计算\3\image\安装.jpg)]
+安装完成后执行go version查看版本，有类似下图输出则安装成功。
+安装vscode   可以使用snap安装
+sudo snap install --classic code
+  下载.rpm文件安装，如果安装过程中需要什么依赖就到此处搜索下载：?
+  安装命令同go的rpm安装，参看上文。安装完成后可在左上角应用程序-&amp;gt;活动概览找到VSCode
+工作空间 就是自己创建的文件夹，应该被创建成这样：
+一开始只要有bin，pkg，src就行了，src用来放后缀是**.go**的源代码，就想**.cpp**或**.py**，pkg放编译过的包以便再次运行时节约时间，bin用来放可执行文件。每一次编写go语言的项目应该在一个工作空间中进行。
+环境变量 目前我们需要用到的环境变量只有两个，一个是GOPATH，一个是PATH。
+修改环境变量有几种方式：
+ 临时：  export PATH=$PATH:$GOPATH/bin export GOPATH=$HOME/work  永久：需要修改文件，进入对应目录并使用vim [文件名]打开配置文件，把上面的语句添加到文件中。  修改/home/[用户名]/.bashrc，隐藏文件需要使用ls -a才能看到，该方法对单一用户生效。本次建议使用该方法 修改/etc/profile，对所有用户生效，需要root权限。    详细设置可以参看 -&amp;gt; ?</description>
+    </item>
+    
+    <item>
+      <title>服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7）</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</link>
+      <pubDate>Wed, 18 Dec 2019 11:11:38 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</guid>
+      <description>服务计算实验一：安装配置你的私有云（VMware+CentOS7） 实验内容 使用VMware创建虚拟机   下载Linux镜像：从老师给的地址或者其他网址下载Centos操作系统。
+  创建虚拟机：基本操作此处不赘述。
+  再添加一块虚拟网卡  第一块网卡为NAT模式，用于访问外网，第二块网卡为仅主机模式，用于与主机相连。
+开机  安装CentOS系统并配置   按照提示一步步安装
+【注意】创建用户时有两个用户名，以后使用的都是全小写的那个
+  登陆root账户
+su 并输入密码
+【注意】在虚拟机中小键盘默认关闭，输入密码时请不要使用小键盘，以免误认为密码输错
+  开启虚拟网卡
+若配置完网卡无法ping通主机或者升级内核时出现错误，出现以下信息：
+  【注意】可能是因为CentOS的网卡默认是不开启的，需要手动开启
+以下为操作过程：
+  进入网卡的配置文件夹
+cd /etc/sysconfig/network-scripts
+  ls -a 查看所有文件，找到 ifcfg-en33 (或其他网卡名称)
+vi ifcfg-en33 ，按 i 进入插入模式，将文件中的 onboot = no 改成 onboot = yes ，按 ESC，再按 :wq 保存并退出。
+  对 ifcfg-en37（或其他名称，即另一个网卡）也进行同样操作。
+  完成操作后需要重启虚拟机 reboot 或 重启网络 service network restart</description>
+    </item>
+    
+    <item>
+      <title>服务计算第十二周作业：简单 web 服务与客户端开发实战</title>
+      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</link>
+      <pubDate>Wed, 18 Dec 2019 11:11:38 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</guid>
+      <description>服务计算作业：简单 web 服务与客户端开发实战 作业要求概述 利用 web 客户端调用远端服务是服务开发本实验的重要内容。其中，要点建立 API First 的开发理念，实现前后端分离，使得团队协作变得更有效率。
+作业要求
+开发过程 本次作业我们选择实现见单个人博客网站：项目地址
+以下是本人承担的工作.
+使用Github建立组织 在github创建本次作业的组织Simple-Blog，创建三个仓库：
+ backend：后端 frontend：前端 docs：项目文档  邀请所有组员加入，并在自己的分支下分别进行开发，本地测试无Bug后再发起Marge Request，由创建者Marge。
+参考：建立组织
+设计API { &amp;#34;ArticlePost&amp;#34;: &amp;#34;/openapi101/users/{username}/article&amp;#34;, &amp;#34;ArticleArticleIdGet&amp;#34;:&amp;#34;/openapi101/users/{username}/article/{article_id}&amp;#34;, &amp;#34;CreateComment&amp;#34;:&amp;#34;/openapi101/users/{username}/article/{article_id}/comment&amp;#34;, &amp;#34;GetCommentsOfArticle&amp;#34;:&amp;#34;/openapi101/users/{username}/article/{article_id}/comment&amp;#34;, &amp;#34;AuthSigninPost&amp;#34;:&amp;#34;/openapi101/auth/signin&amp;#34;, &amp;#34;AuthSignupPost&amp;#34;: &amp;#34;/openapi101/auth/signup&amp;#34; } 具体api设计见项目文档中的api.yaml
+Github API v3 overview
+使用API工具生成框架 使用swagger，swagger是一个简单强大的API表达工具，只需要在在线编辑器上用YAML或者JSON写好API，就可以自动生成几乎所有语言框架的API。
+网页左边是编辑器，右边是实时响应的预览界面。
+部分api如下：
+/user/{username}/article/{article_id}: get: summary: get post parameters: - name: username in: path required: true description: user&amp;#39;s name type: string - name: article_id in: path required: true description: article id type: integer responses: 200: description: A post schema: $ref: &amp;#39;#/definitions/Article&amp;#39; 404: description: Not Found swagger的使用教程与yaml编写api的学习参考:Swagger Gitbook</description>
+    </item>
+    
+    <item>
+      <title>Docker学习</title>
+      <link>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 17 Dec 2019 00:01:28 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Docker学习 准备Docker环境 安装Docker：
+  Community Edition CE 社区版
+  Enterprise Edition EE 企业版
+  我们就安装社区版。
+避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见Docker官方文档。
+sudo groupadd docker sudo usermod -aG docker $USER 重启电脑 或者执行 newgrp docker  激活对组的更改。
+Docker是CS架构，与MySQL一样，需要本机启动服务：
+sudo service docker start sudo systemctl start docker 执行docker version检查版本信息。
+镜像 Image 查看本地所有镜像： # 列出本机的所有 image 文件。 docker image ls # 或者 docker images 修改默认仓库： 官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。
+打开/etc/default/docker加上：
+DOCKER_OPTS=&amp;#34;--registry-mirror=https://registry.docker-cn.com&amp;#34; 然后重启docker服务
+sudo service docker restart 其他 在默认仓库搜索镜像：
+docker search &amp;lt;name&amp;gt; 拉取镜像：</description>
+    </item>
+    
+  </channel>
+</rss>
