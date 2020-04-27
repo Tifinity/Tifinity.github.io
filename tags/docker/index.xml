@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Infinit</title>
+    <link>http://tifinity.github.io/tags/docker/</link>
+    <description>Recent content in Docker on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 17 Dec 2019 00:01:28 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker学习</title>
+      <link>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 17 Dec 2019 00:01:28 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Docker学习 准备Docker环境 安装Docker：
+  Community Edition CE 社区版
+  Enterprise Edition EE 企业版
+  我们就安装社区版。
+避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见Docker官方文档。
+sudo groupadd docker sudo usermod -aG docker $USER 重启电脑 或者执行 newgrp docker  激活对组的更改。
+Docker是CS架构，与MySQL一样，需要本机启动服务：
+sudo service docker start sudo systemctl start docker 执行docker version检查版本信息。
+镜像 Image 查看本地所有镜像： # 列出本机的所有 image 文件。 docker image ls # 或者 docker images 修改默认仓库： 官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。
+打开/etc/default/docker加上：
+DOCKER_OPTS=&amp;#34;--registry-mirror=https://registry.docker-cn.com&amp;#34; 然后重启docker服务
+sudo service docker restart 其他 在默认仓库搜索镜像：
+docker search &amp;lt;name&amp;gt; 拉取镜像：</description>
+    </item>
+    
+  </channel>
+</rss>

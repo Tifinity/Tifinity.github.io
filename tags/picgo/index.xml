@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PicGo on Infinit</title>
+    <link>http://tifinity.github.io/tags/picgo/</link>
+    <description>Recent content in PicGo on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 27 Dec 2019 17:53:45 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/tags/picgo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PicGo-图床管理工具</title>
+      <link>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 27 Dec 2019 17:53:45 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <description>PicGo+Github图片管理方案 PicGo使用 PicGo是一个非常好用的开源图床管理工具：Github地址
+我的图床目前是Github，下面就以Github来进行一遍操作。
+在Github上创建一个仓库用来保存图片，然后创建一个token，点击头像-&amp;gt;Setting-&amp;gt;Developer setting-&amp;gt;Personal access tokens-&amp;gt;Generate new token，填写Note，勾选repo，复制保存token，这个 token 只显示一次。
+然后打开PicGo-&amp;gt;图床设置-&amp;gt;Github设置：
+在PicGo设置中开启上传前重命名，可以手动修改图片名，更好的分类管理图片，PicGo会在仓库中按路径存放图片，文件夹不存在会自动创建。
+在Github仓库中能够看到上传的图片。
+从此告别了写一篇博客还要同步操作图床的麻烦。
+修改hosts解决Github图片无法加载问题 如果出现在Github上图片加载不出来，PicGo的相册里也加载不出图片，像下面这样，一般是Github网站的问题。
+第一步，用管理员权限打开文件，C:\Windows\System32\drivers\etc\hosts。
+# 这两行是固定的，直接复制192.30.253.112 github.com192.30.253.119 gist.github.com# 下面的每个人不一样，获取方法如下文199.232.28.133 githubusercontent.com199.232.28.133 assets-cdn.github.com199.232.28.133 raw.githubusercontent.com199.232.28.133 gist.githubusercontent.com199.232.28.133 cloud.githubusercontent.com199.232.28.133 camo.githubusercontent.com第二步，打开IP查询网站，从上面随便复制一个域名输入下图的查询框，点击查询。
+得到你的IP地址，填入hosts里，保存，刷新Github网站，现在可以正确显示图片。</description>
+    </item>
+    
+  </channel>
+</rss>

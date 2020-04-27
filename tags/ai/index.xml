@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on Infinit</title>
+    <link>http://tifinity.github.io/tags/ai/</link>
+    <description>Recent content in AI on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 20 Dec 2019 20:56:03 +0800</lastBuildDate>
+    
+	<atom:link href="http://tifinity.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>人工智能作业4</title>
+      <link>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</link>
+      <pubDate>Fri, 20 Dec 2019 20:56:03 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</guid>
+      <description>人工智能第四次作业 17343105 田皓 EM算法实验内容 算法原理 EM **Expectation-maximization algorithm **期望最大化算法
+a.记录了每次选择的是A还是B
+A硬币出现正面的概率为 $P(A) = \frac{24}{24+6}= 0.80$
+B硬币出现正面的概率为 $P(B) = \frac{9}{9+11}= 0.45$
+b.没有记录每次选择的是A还是B
+假设每次选择的硬币是X（X={A或B}），我们需要根据结果求PA，PB，就要知道X，而要用最大似然来估计X又需要知道PAPB，这是个死循环。
+这个时候就需要使用EM算法，基本思想是：先初始化PA和PB，然后用PA和PB估计X，有了X再计算PA和PB，不断重复直到收敛。
+算法步骤  计算期望（E），利用对隐变量（即硬币是A还是B）的现有估计值，计算AB硬币的正反面次数； 最大化（M），计算新的AB硬币正面概率，与上一次迭代结果比较，若收敛则结束，否则再次执行1。  算法结果 简单地取多组初值进行实验，结果有些许差别。阈值主要影响迭代次数，这个例子比较简单，一般十次迭代就能得到结果。详见data.txt。
+图片分类任务 从官网下载cifar-10数据集。
+作业要求:   明确图片分类任务的基本流程
+将数据集分为训练集和测试集，输入训练集训练模型，用验证集调整参数，估计模型准确率，输入测试集，得到结果，与标签对比得到准确率。
+  清楚数据集的训练集验证集和测试集的划分和用途,简单介绍自己的用 法
+举个例子，我们是老师，程序是学生，那么：
+训练集是课本，学生根据课本里的内容来掌握知识；
+验证集是作业，通过作业我们可以了解学生对知识的掌握情况并调整教学方法；
+测试集是试卷，通过考试检验学生到底掌握的如何。
+验证集不是必须的，划分比例一般为6：2：2，三者本质上无区别，是为了更好的调整模型而存在的，比如防止过拟合。
+  编写 K 近邻算法,SVM 以及简单的两层神经网络分类器各一(多分类分 类器)进行图片分类任务
+见下。
+  根据得到的分类结果(精度)说明和比较各个算法的优越性和局限性, 懂得它们之间的差异
+见下。
+  编写实验报告
+正是本文档。
+  KNN （K最近邻算法） knn是机器学习中最简单的方法之一，对于一个样本，取特征空间中的k个与其最相似的样本，其中数量最多的类别就是该样本的类别。knn不需要估计参数，实际上也不需要训练，测试集的每一张图片都在训练集中找最相似的k个来预测即可。
+算法步骤：
+ 对测试集每一个样本，计算其与训练集所有元素的“距离”； 循环k次，找出前k个距离最小的样本； 在这k个样本中找出最多的类别，作为预测类别； 计算准确率。  算法优点：</description>
+    </item>
+    
+  </channel>
+</rss>

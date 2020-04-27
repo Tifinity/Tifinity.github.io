@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/" />
+  <link rel="next" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/" />
+  <link rel="canonical" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7） | Infinit
+       
+  </title>
+  <meta name="title" content="服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7） | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "服务计算第一周作业：安装配置你的私有云（VMware\x2bCentOS7）",
+    "headline" : "服务计算第一周作业：安装配置你的私有云（VMware\x2bCentOS7）",
+    "description" : "服务计算实验一：安装配置你的私有云（VMware\x2bCentOS7） 实验内容 使用VMware创建虚拟机   下载Linux镜像：从老师给的地址或者其他网址下载Centos操作系统。\n  创建虚拟机：基本操作此处不赘述。\n  再添加一块虚拟网卡  第一块网卡为NAT模式，用于访问外网，第二块网卡为仅主机模式，用于与主机相连。\n开机  安装CentOS系统并配置   按照提示一步步安装\n【注意】创建用户时有两个用户名，以后使用的都是全小写的那个\n  登陆root账户\nsu 并输入密码\n【注意】在虚拟机中小键盘默认关闭，输入密码时请不要使用小键盘，以免误认为密码输错\n  开启虚拟网卡\n若配置完网卡无法ping通主机或者升级内核时出现错误，出现以下信息：\n  【注意】可能是因为CentOS的网卡默认是不开启的，需要手动开启\n以下为操作过程：\n  进入网卡的配置文件夹\ncd \/etc\/sysconfig\/network-scripts\n  ls -a 查看所有文件，找到 ifcfg-en33 (或其他网卡名称)\nvi ifcfg-en33 ，按 i 进入插入模式，将文件中的 onboot = no 改成 onboot = yes ，按 ESC，再按 :wq 保存并退出。\n  对 ifcfg-en37（或其他名称，即另一个网卡）也进行同样操作。\n  完成操作后需要重启虚拟机 reboot 或 重启网络 service network restart",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-18 11:11:38 \x2b0800 CST",
+    "dateModified" : "2019-12-18 11:11:38 \x2b0800 CST",
+    "url" : "http:\/\/tifinity.github.io\/2019\/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7\/",
+    "wordCount" : "175",
+    "keywords" : [  "Infinit"]
+}
+</script>
+
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7）</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-18 itemprop="datePublished">December 18, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97/"> 服务计算 </a>
+                        
+                </span>
+        </div>
+        
+        <div class="post-total">
+             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+        </div>
+       
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="vmwarecentos7">服务计算实验一：安装配置你的私有云（VMware+CentOS7）</h1>
+<h2 id="heading">实验内容</h2>
+<h3 id="vmware">使用VMware创建虚拟机</h3>
+<ol>
+<li>
+<p>下载Linux镜像：从老师给的地址或者其他网址下载Centos操作系统。</p>
+</li>
+<li>
+<p>创建虚拟机：基本操作此处不赘述。</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190831171423128.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ol start="3">
+<li>再添加一块虚拟网卡</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190831171453633.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+第一块网卡为NAT模式，用于访问外网，第二块网卡为仅主机模式，用于与主机相连。</p>
+<ol start="4">
+<li>开机</li>
+</ol>
+<h3 id="centos">安装CentOS系统并配置</h3>
+<ol>
+<li>
+<p>按照提示一步步安装</p>
+<p><strong>【注意】创建用户时有两个用户名，以后使用的都是全小写的那个</strong></p>
+</li>
+<li>
+<p>登陆root账户</p>
+<p><code>su</code> 并输入密码</p>
+<p><strong>【注意】在虚拟机中小键盘默认关闭，输入密码时请不要使用小键盘，以免误认为密码输错</strong></p>
+</li>
+<li>
+<p>开启虚拟网卡</p>
+<p>若配置完网卡无法ping通主机或者升级内核时出现错误，出现以下信息：</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190831171512388.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>【注意】可能是因为CentOS的网卡默认是不开启的，需要手动开启</strong></p>
+<p>以下为操作过程：</p>
+<ul>
+<li>
+<p>进入网卡的配置文件夹</p>
+<p><code>cd /etc/sysconfig/network-scripts</code></p>
+</li>
+<li>
+<p><code>ls -a</code> 查看所有文件，找到 <strong>ifcfg-en33</strong> (或其他网卡名称)</p>
+<p><code>vi ifcfg-en33</code> ，按 <strong>i</strong> 进入插入模式，将文件中的 onboot = no 改成 onboot = yes ，按 <strong>ESC</strong>，再按 <strong>:wq</strong> 保存并退出。</p>
+</li>
+<li>
+<p>对 <strong>ifcfg-en37</strong>（或其他名称，即另一个网卡）也进行同样操作。</p>
+</li>
+<li>
+<p>完成操作后需要重启虚拟机 <code>reboot</code> 或 重启网络 <code>service network restart</code></p>
+</li>
+</ul>
+<ol start="3">
+<li>
+<p>升级CentOS系统内核</p>
+<p><code> yum install wget</code> 先安装wget，一个从网络上自动下载文件的工具</p>
+<p><code>yum update</code> 升级内核</p>
+<p>因为网络没有问题所以没有换源。</p>
+</li>
+<li>
+<p>配置虚拟网卡</p>
+<p><em>本人此处截图是在安装完图形界面之后所截，只需中英文对照即可</em></p>
+<p>首先<code>nmtui</code>配置网络</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190831171543898.jpg" alt="在这里插入图片描述"></p>
+<p>先选择编辑连接，将NAT的网卡ipv4改成手动设置，随便设置一个ip，”/24“表示子网掩码“255.255.255.0”，网关改为“192.168.100.1”。
+<img src="https://img-blog.csdnimg.cn/20190831171553264.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+在启用连接中查看连接状态，确保两个网卡（ens33，ens37）都启用。</p>
+<p><img src="https://img-blog.csdnimg.cn/2019083117162086.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>使用 <code>nmcli</code> 查看网络连接，类似于windows的 <code>ipconfig</code>。</p>
+<p>若安装 net-tools 即<code> yum install net-tools</code>  之后，还可以使用 <code>ip addr</code> 查看网卡和ip。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190831171642398.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="\[外链图片转存失败(img-eek1otdm-1567242807176)(T:\TH\大三上\服务计算\1\1567187691(3)\].jpg)"></p>
+<p>这里的ens33为NAT模式的网卡，ens37为仅主机模式的网卡，此处仅为本人的网卡信息，不同虚拟机网卡名称可能不同，此时的设置即为正确设置。</p>
+<p>然后ping：</p>
+<p>ping主机网关<code>ping 192.168.100.1</code></p>
+<p>ping外网网关<code>ping 192.168.78.1</code></p>
+<p><img src="https://img-blog.csdnimg.cn/20190831171711635.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/2019083117172373.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+主机使用ssh登陆虚拟机：
+<img src="https://img-blog.csdnimg.cn/20190831171736643.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+如果无法ping通，可能需要关闭防火墙。</p>
+<p>关于防火墙的操作：</p>
+<pre><code>systemctl start firewalld   /*启动*/
+systemctl stop firewalld    /*关闭*/
+systemctl status firewalld  /*查看状态*/
+systemctl disable firewalld /*开机禁用*/
+systemctl enable firewalld  /*开机启用*/
+</code></pre><p>然后关闭主机的防火墙，以Windows10为例：</p>
+<p><img src="https://img-blog.csdnimg.cn/2019083117180981.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190831171817493.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20190831171825776.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+此时主机和虚拟机应该可以互相ping通。</p>
+<p>到此Base虚拟机配置完毕，需要用到多个虚拟机时，新建比较麻烦，这时候就需要克隆来快速地创建多个虚拟机。</p>
+<p>虚拟机-&gt;管理-&gt;克隆（在此之前需要关闭虚拟机），记得选择重新初始化网卡MAC地址，并且需要修改手动设置地址的网卡ip地址，自动获取则不需要</p>
+<h3 id="heading1">设置端口映射</h3>
+<p>要想通过局域网中其他主机直接ping通虚拟机，需要设置端口映射。</p>
+<p>VMware -&gt; 编辑 -&gt; 虚拟网络编辑器 -&gt; NAT设置 -&gt; 添加</p>
+<p>输入主机端口（建议5000以上），类型为TCP，虚拟机IP为NAT网卡的IP，端口为3389（3389是提供远程桌面服务的端口），描述可不写，然后确认。
+<img src="https://img-blog.csdnimg.cn/20190831171912822.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20190831171933414.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+此时使用其他主机对本主机的5005端口的访问就会被转发给虚拟机的3389端口，可以直接ping通虚拟机，也可以使用ssh直接连接虚拟机，连接的目标为<strong>主机ip：主机端口</strong>。</p>
+<h3 id="heading2">安装图形界面</h3>
+<p><code>yum groupinstall &quot;GNOME Desktop&quot;</code> 下载图形界面</p>
+<p>若此时出现黑屏，等待几分钟，不要轻易重启，会发生图形界面安装不完全的情况，等待compelete出现再进行操作。</p>
+<p><code>ln -sf /lib/systemd/system/runlevel5.target /etc/systemd/system/default.target</code>  设置开机启动GUI</p>
+<p><code>reboot</code> 重启</p>
+<p><img src="https://img-blog.csdnimg.cn/20190831171945583.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+终端在 应用程序-&gt;收藏-&gt;终端，图形界面默认不是root用户，记得<code>su</code>登陆root用户。</p>
+<h3 id="heading3">远程连接虚拟机</h3>
+<p>想要远程连接到虚拟机，最后需要安装远程连接的安全证书xrdp。</p>
+<p>首先，xrdp不在的yum默认库中，需要安装补充开源库epel。</p>
+<p><code>yum install epel-release</code></p>
+<p>然后安装xrdp。</p>
+<p><code>yum install xrdp</code></p>
+<p>如果安装过程中出现错误：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190831172000113.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>原因是xrdp的版本太高导致的bug，需要自行下载较低版本的xrdp手动安装。</p>
+<p><img src="https://img-blog.csdnimg.cn/2019083117201065.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20190831172026714.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><code>rpm -ivh /*文件名*/</code></p>
+<p>然后再 <code>yum install -y xrdp</code>, 加上-y默认所有选项选yes。</p>
+<p><code>yum install tigervnc-server</code></p>
+<p>开启xrdp服务</p>
+<p><code>systemctl start xrdp</code>
+<code>systemctl enable xrdp</code></p>
+<p>到这里，就已经可以用局域网（即校园网）里的任意一台电脑远程直接连接虚拟机了。
+<img src="https://img-blog.csdnimg.cn/20190831172041417.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20190831172049966.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/2019083117205814.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20190831172107329.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+成了·~·</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/" class="prev" rel="prev" title="服务计算第十二周作业：简单 web 服务与客户端开发实战"><i class="iconfont icon-left"></i>&nbsp;服务计算第十二周作业：简单 web 服务与客户端开发实战</a>
+         
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/" class="next" rel="next" title="服务计算第二周作业：golang环境配置（CentOS7&#43;VSCode）">服务计算第二周作业：golang环境配置（CentOS7&#43;VSCode）&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
+      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: 'どうぞ',
+      visitor: 'true'
+  });
+</script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

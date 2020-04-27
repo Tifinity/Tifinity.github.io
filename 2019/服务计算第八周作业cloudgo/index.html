@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/" />
+  <link rel="next" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/" />
+  <link rel="canonical" href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           服务计算第八周作业：cloudgo | Infinit
+       
+  </title>
+  <meta name="title" content="服务计算第八周作业：cloudgo | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "服务计算第八周作业：cloudgo",
+    "headline" : "服务计算第八周作业：cloudgo",
+    "description" : "处理 web 程序的输入与输出 文章目录 @[toc]\n概述 设计一个 web 小应用，展示静态文件服务、js 请求支持、模板输出、表单处理、Filter 中间件设计等方面的能力。（不需要数据库支持）\n任务要求 编程 web 应用程序 cloudgo-io。 请在项目 README.MD 给出完成任务的证据！\n基本要求\n 支持静态文件服务 支持简单 js 访问 提交表单，并输出一个表格 对 \/unknown 给出开发中的提示，返回码 5xx  完成基本要求 1. 框架选择 首先需要选择一个golang框架来进行开发，看了许多前辈的博客都说iris好，我想既然都没使用过那就随便选一个吧·~·\n目前网上关于iris的教程比较少，主要参考前辈博客和官方文档。\n官方网站给出的安装指令：\ngo get -u github.com\/kataras\/iris 但是因为部分依赖包被墙了，是无法安装成功的，下面给出翻墙之外的方法。\n先找到安装不成功的包，通过在get命令中使用-v参数看到安装的详细过程，看哪个包failed了，或者直接在网上随便找一个iris的程序go run test.go，看报错信息缺少哪个包。\n\/*test.go*\/ package main import \x26#34;github.com\/kataras\/iris\x26#34; func main() { app := iris.Default() app.Handle(\x26#34;GET\x26#34;, \x26#34;\/\x26#34;, func(ctx iris.Context) { ctx.HTML(\x26#34;Hello world!\x26#34;) }) app.Run(iris.Addr(\x26#34;:8080\x26#34;)) } 一般golang.org的包是无法访问的，但好在github上都有资源，所以只需要在github上搜索缺少的包手动git clone到golang.org\/x目录(没有就自己创建)下即可。\n除此之外github.com下的包也可能缺失，删掉重新go get即可。",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-18 11:37:14 \x2b0800 CST",
+    "dateModified" : "2019-12-18 11:37:14 \x2b0800 CST",
+    "url" : "http:\/\/tifinity.github.io\/2019\/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo\/",
+    "wordCount" : "274",
+    "keywords" : [  "Infinit"]
+}
+</script>
+
+  
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">服务计算第八周作业：cloudgo</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-12-18 itemprop="datePublished">December 18, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97/"> 服务计算 </a>
+                        
+                </span>
+        </div>
+        
+        <div class="post-total">
+             <h5 id="wc" style="font-size: 1rem;text-align: left;">300 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
+        </div>
+       
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="-web-">处理 web 程序的输入与输出</h1>
+<h2 id="heading">文章目录</h2>
+<p>@[toc]</p>
+<h2 id="heading1">概述</h2>
+<p>设计一个 web 小应用，展示静态文件服务、js 请求支持、模板输出、表单处理、Filter 中间件设计等方面的能力。（不需要数据库支持）</p>
+<h2 id="heading2">任务要求</h2>
+<p>编程 web 应用程序 cloudgo-io。 请在项目 README.MD 给出完成任务的证据！</p>
+<p><strong>基本要求</strong></p>
+<ol>
+<li>支持静态文件服务</li>
+<li>支持简单 js 访问</li>
+<li>提交表单，并输出一个表格</li>
+<li>对 <code>/unknown</code> 给出开发中的提示，返回码 <code>5xx</code></li>
+</ol>
+<h2 id="heading3">完成基本要求</h2>
+<h3 id="1-">1. 框架选择</h3>
+<p>首先需要选择一个golang框架来进行开发，看了许多前辈的博客都说iris好，我想既然都没使用过那就随便选一个吧·~·</p>
+<p>目前网上关于iris的教程比较少，主要参考<a href="https://blog.csdn.net/Wonderful_sky/article/details/84036366">前辈博客</a>和<a href="https://studyiris.com/doc/">官方文档</a>。</p>
+<p>官方网站给出的安装指令：</p>
+<pre><code>go get -u github.com/kataras/iris
+</code></pre><p>但是因为部分依赖包被墙了，是无法安装成功的，下面给出翻墙之外的方法。</p>
+<p>先找到安装不成功的包，通过在get命令中使用-v参数看到安装的详细过程，看哪个包failed了，或者直接在网上随便找一个iris的程序<code>go run test.go</code>，看报错信息缺少哪个包。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">/*test.go*/</span>
+<span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/kataras/iris&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">app</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Default</span>()
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Handle</span>(<span style="color:#e6db74">&#34;GET&#34;</span>, <span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Context</span>) {
+        <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">HTML</span>(<span style="color:#e6db74">&#34;Hello world!&#34;</span>)
+    })
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Addr</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>))
+}
+</code></pre></div><p>一般golang.org的包是无法访问的，但好在github上都有资源，所以只需要在github上搜索缺少的包手动<code>git clone</code>到golang.org/x目录(没有就自己创建)下即可。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191112104819591.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>除此之外github.com下的包也可能缺失，删掉重新go get即可。</p>
+<p>然后又出现错误：error未定义，翻看iris源码发现使用了error包，而error包似乎是golang 1.13才有的，于是更新golang到1.13。</p>
+<p>运行<code>go run test.go</code>成功会看到命令行的提示信息。</p>
+<h3 id="2-iris">2. 使用iris框架完成本次作业</h3>
+<h4 id="21-">2.1 基本步骤</h4>
+<p>我的main.go如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;github.com/Tifinity/cloudgo/services&#34;</span>
+	<span style="color:#e6db74">&#34;github.com/kataras/iris&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// 获取app
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">app</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Default</span>()
+	<span style="color:#75715e">// 日志等级
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Logger</span>().<span style="color:#a6e22e">SetLevel</span>(<span style="color:#e6db74">&#34;debug&#34;</span>)
+	<span style="color:#75715e">// 运行
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">StartServices</span>(<span style="color:#a6e22e">app</span>)
+	<span style="color:#75715e">// 程序内配置服务端
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Addr</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>), <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">WithConfiguration</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Configuration</span>{
+	    <span style="color:#a6e22e">DisableInterruptHandler</span>:           <span style="color:#66d9ef">false</span>,
+	    <span style="color:#a6e22e">DisablePathCorrection</span>:             <span style="color:#66d9ef">false</span>,
+
+</code></pre></div><p>先获取app，通过<code>iris.Default()</code>获取默认app或者<code>iris.New()</code>新建一个app都可以。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 获取app
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Default</span>()
+</code></pre></div><p>然后可以设置日志等级，默认是INFO，DEBUG会在命令行窗口输出更详细的信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 日志等级
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Logger</span>().<span style="color:#a6e22e">SetLevel</span>(<span style="color:#e6db74">&#34;debug&#34;</span>)
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20191112104842509.jpg" alt="在这里插入图片描述"></p>
+<p>然后是运行端口和服务器配置，可以在程序内通过代码配置，也可以通过TOML，YAML文件配置，配置项是抄官方文档的，并且app初始化时已经使用了默认的配置值，无需配置也可以启动我们的程序。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 程序内配置服务端并运行
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Addr</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>), <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">WithConfiguration</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Configuration</span>{
+    <span style="color:#a6e22e">DisableInterruptHandler</span>:           <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">DisablePathCorrection</span>:             <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">EnablePathEscape</span>:                  <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">FireMethodNotAllowed</span>:              <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">DisableBodyConsumptionOnUnmarshal</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">DisableAutoFireStatusCode</span>:         <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">TimeFormat</span>:                        <span style="color:#e6db74">&#34;Mon, 02 Jan 2006 15:04:05 GMT&#34;</span>,
+    <span style="color:#a6e22e">Charset</span>:                           <span style="color:#e6db74">&#34;UTF-8&#34;</span>,
+}))
+</code></pre></div><h4 id="22-">2.2 支持静态文件服务</h4>
+<p>只需一行代码即可支持静态文件的传输，不过前辈博客中的StaticWeb方法已经不能用了，官方文档也还是使用的StaticWeb。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">//app.StaticWeb(&#34;/static&#34;, &#34;./static&#34;)
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">HandleDir</span>(<span style="color:#e6db74">&#34;/static&#34;</span>, <span style="color:#e6db74">&#34;./static&#34;</span>)
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20191112104853739.jpg" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191112104901814.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+图片来源于B站，<a href="https://space.bilibili.com/3990478/">·~·</a></p>
+<h4 id="23--js-">2.3 支持简单 js 访问</h4>
+<p>简单js访问，比如点击一下按钮跳转到另一个页面。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/*test.js*/</span>
+<span style="color:#75715e">// 新建窗口打开/static
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span>() {
+    window.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#34;/static/img/test.webp&#34;</span>)
+}
+
+<span style="color:#75715e">/*hello.html*/</span>
+<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">onclick</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;f()&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js&#34;</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><h4 id="24-">2.4 提交表单，并输出一个表格</h4>
+<p>使用模板显示视图，需要先注册，两个参数分别是文件夹和文件类型，Reload(true)表示html更新时不用重新启动app。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">RegisterView</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">HTML</span>(<span style="color:#e6db74">&#34;./templates&#34;</span>, <span style="color:#e6db74">&#34;.html&#34;</span>).<span style="color:#a6e22e">Reload</span>(<span style="color:#66d9ef">true</span>))
+</code></pre></div><p>在hello.html中定义表单，请求方法为POST。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/info&#34;</span>&gt;
+	say something: &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Something&#34;</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+	&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;&lt;<span style="color:#f92672">br</span>/&gt;&lt;<span style="color:#f92672">br</span>/&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+</code></pre></div><p>首先定义一个表单结构体，字段名称需要和html中的表单字段名相同（在这里是Something）， 首字母必须大写，使用ReadForm将表单读取到form中，使用ViewData填充返回的html文件，第一个参数是key，第二个是value。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">StartServices</span>(<span style="color:#a6e22e">app</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Application</span>) {
+    <span style="color:#75715e">/*···*/</span>
+	<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">Post</span>(<span style="color:#e6db74">&#34;/info&#34;</span>, <span style="color:#a6e22e">getInfo</span>)
+    <span style="color:#75715e">/*···*/</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getInfo</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Context</span>) {
+	<span style="color:#a6e22e">form</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Form</span>{}
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">ReadForm</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">form</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">StatusCode</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">StatusInternalServerError</span>)
+		<span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Map</span>{
+			<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;Something Wrong&#34;</span>,
+		})
+	} <span style="color:#66d9ef">else</span> {
+		<span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">ViewData</span>(<span style="color:#e6db74">&#34;something&#34;</span>, <span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">Something</span>)
+		<span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">View</span>(<span style="color:#e6db74">&#34;info.html&#34;</span>)
+	}
+}
+</code></pre></div><p><img src="https://img-blog.csdnimg.cn/20191112104917600.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/20191112104923744.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="25--unknown--5xx">2.5 对 <code>/unknown</code> 给出开发中的提示，返回码 <code>5xx</code></h4>
+<p>使用StatusCode设置错误码，然后通过WriteString或者JSON返回错误信息。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">unknown</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Context</span>) {
+	<span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">StatusCode</span>(<span style="color:#ae81ff">501</span>)
+	<span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Map</span>{
+		<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;501 ~开发中~&#34;</span>,
+	})
+}
+</code></pre></div><p>同时在特定错误发生时可以自定义处理函数，比如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">StartServices</span>(<span style="color:#a6e22e">app</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Application</span>) {
+    <span style="color:#75715e">/*···*/</span>
+	<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">OnErrorCode</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">StatusNotFound</span>, <span style="color:#a6e22e">notFound</span>)
+    <span style="color:#75715e">/*···*/</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">notFound</span>(<span style="color:#a6e22e">ctx</span> <span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Context</span>) {
+    <span style="color:#a6e22e">ctx</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">iris</span>.<span style="color:#a6e22e">Map</span>{
+		<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;404 Not Found&#34;</span>,
+	})
+    <span style="color:#75715e">/*可以返回JSON，可以返回html等等*/</span>
+}
+</code></pre></div><p>用postman发出请求，方便看到状态码（右边绿色）。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191112105017430.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="heading4">其他</h2>
+<p><a href="https://github.com/Tifinity/HelloGo/tree/master/cloudgo">github地址</a></p>
+<h3 id="heading5">参考资料</h3>
+<p><a href="https://docs.iris-go.com/iris/">官方英文文档</a></p>
+<p><a href="https://studyiris.com/doc/">官方中文文档</a></p>
+<p><a href="https://blog.csdn.net/Wonderful_sky/article/details/84036366">前辈博客</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/" class="prev" rel="prev" title="服务计算第四周作业：开发简单CLI程序"><i class="iconfont icon-left"></i>&nbsp;服务计算第四周作业：开发简单CLI程序</a>
+         
+        
+        <a href="http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/" class="next" rel="next" title="服务计算第七周作业：Agenda">服务计算第七周作业：Agenda&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+
+    <div class="post-comment">
+        
+        
+
+<div id="vcomments"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+  new Valine({
+      el: '#vcomments' ,
+      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
+      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
+      notify: 'false', 
+      verify: 'false', 
+      avatar:'mm', 
+      placeholder: 'どうぞ',
+      visitor: 'true'
+  });
+</script>
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2020</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
