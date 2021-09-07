@@ -6,24 +6,97 @@
     <description>Recent content in 未分类 on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate>
-    
-	<atom:link href="http://tifinity.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 07 Sep 2021 10:21:24 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drone如何使用GIT&#43;SSH</title>
+      <link>http://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</link>
+      <pubDate>Tue, 07 Sep 2021 10:21:24 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</guid>
+      <description>Drone如何使用GIT+SSH  慎终如始，则无败事。 ——《道德经》
+ 在本文开始之前，我已经按官网的说明将 drone server 和 runner 都成功的部署在自己的服务器上。部署完之后创建了一条更新 github.io 的流水线，然而现在 github 的 https 通道弱不禁风，跑十次“失联”九次，所以需要换成用 ssh 来 git clone 和 push。
+我们都知道 CI 流水线的第一步一般是 在 drone 的官方文档中并没有很直接的说明如何使用 ssh 来连接 git，只说明可以禁用默认的 clone 步骤并自定义 clone 流程，但并没看到有 ssh key 相关的参数或者环境变量之类的，不是很清楚怎么使用。
+随后找到一篇博客，muxueqz 大佬的静态博客持续集成大法，看到他是自己写了 drone 的插件来定义参数和调用命令的，不过该博客写于2019年，于是我坚信这个步骤应该有并且可能两年时间已经优化了 ssh 的更简单的使用方法，于是又去找别的办法。
+在 Drone官方讨论区 搜索了一下 git ssh，找到一些帖子：
+这两个是 19 年的提问以及解决，还有一些更久远的就没看了
+提问1 提问2
+官方在 github 上给出的脚本:
+# write the ssh key. mkdir /root/.ssh echo -n &amp;#34;$SSH_KEY&amp;#34; &amp;gt; /root/.ssh/id_rsa chmod 600 /root/.</description>
+    </item>
     
     <item>
-      <title>Python如何发送邮件</title>
-      <link>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
-      <pubDate>Thu, 16 Apr 2020 11:02:04 +0800</pubDate>
+      <title>流水线工具调研</title>
+      <link>http://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</link>
+      <pubDate>Sun, 05 Sep 2021 12:44:01 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
-      <description>Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。
- 使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。
-提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：
-import sysprint(sys.path)所以Python会找不到模块，出现下面这样的错误：
-ModuleNotFoundError:No module named &amp;#39;email.mime&amp;#39;; &amp;#39;email&amp;#39; is not a package然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。
-第一步，创建邮件并设置邮件信息：
-sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.com&amp;#39;] # 接收者 subject = &amp;#39;Python SMTP 邮件测试&amp;#39;content = &amp;#39;你要发送的邮件内容&amp;#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8 message = MIMEText(content, &amp;#39;plain&amp;#39;, &amp;#39;utf-8&amp;#39;)message[&amp;#39;From&amp;#39;] = Header(sender, &amp;#39;utf-8&amp;#39;)	# 发送者 message[&amp;#39;To&amp;#39;] = Header(receivers[0], &amp;#39;utf-8&amp;#39;)	# 接收者 message[&amp;#39;Subject&amp;#39;] = Header(subject, &amp;#39;utf-8&amp;#39;)	# 主题 第二步，设置第三方SMTP服务：</description>
+      <guid>http://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</guid>
+      <description>流水线工具调研   Drone CI
+  Jenkins
+  Travis CI
+  Circle CI
+  Drone 官网：https://www.drone.io/
+这里以 Github + docker 为例
+1. 准备工作 在 Github 创建一个OAuth应用程序: Settings - OAuth Apps - New OAuth App，Homepage URL 和 Authorization callback URL 填你自己的 Drone 服务器的地址，这是一个 Webhook，当代码提交等事件触发时就会向该服务器发送事先定义好的请求。前者为服务器主页，后者为认证的地址，若第一次访问主页则会跳转到认证的URL。
+创建一个共享密钥，以验证 runner 与中央 Drone 服务器之间的通信。按照官网的示例使用 openssl 生成共享密钥：
+openssl rand -hex 16 2. 下载 下载 drone 的 docker 镜像
+# 中央服务，调度任务 docker pull drone/drone:1 # Runner，每条流水线由一个执行机执行 docker pull drone/drone-runner-docker:1 3.</description>
+    </item>
+    
+    <item>
+      <title>MacBook实用操作</title>
+      <link>http://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Wed, 01 Sep 2021 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+      <description>MacBook实用操作 小技巧 访达显示隐藏文件 # 更改boolean为true或false然后重新打开访达即可 # 显示隐藏文件 defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder # 不显示隐藏文件 defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder 应用安装显示不被信任的开发者 偏好设置，安全性与隐私，通用，打开锁，可以看到刚刚被拦截的应用，选择仍要打开即可安装。
+程序坞移动到其他显示器 鼠标在显示器最下方停留几秒即可
+快捷键 窗口最小化：ctrl+m
+偏好设置里可以将触控板的“轻点来点按”打开
+调度中心，相当于 windows 的 win+tab ：三指向上轻扫
+实用工具 番茄钟：Just Focus
+终端：iTerm2
+剪贴板：CopyQ
+风扇管理：Macs Fan Control</description>
+    </item>
+    
+    <item>
+      <title>腾讯CSIG测试开发实习生面经</title>
+      <link>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</link>
+      <pubDate>Mon, 20 Apr 2020 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</guid>
+      <description>腾讯CSIG 测试开发 一面 本来投的是后台开发，然后不知道为啥被测开捞了，可能是因为提前批实习生的时间快截止了，想着好歹沾点边面面看。
+没自我介绍，直接开始。时间估计1个小时左右。还有些基础问题记不得了。
+  关于项目，聊的时间比较长，涉及微服务，Docker，MVC，Python的Django等
+  解释一下MVC。
+  你说你会用Python和Golang，哪个更熟练一点
+Python用的更多。
+  那意思就是Python很熟练咯？
+不敢说很熟练，一般熟练，基本都会，原理也懂点。
+  Python限制多线程的原因。
+GIL全局线程锁。
+  写一个程序：读入一个文件名为a.log的文件，文件内容为 “key=value” 的键值对，输出每个key的具体内容和key数量。
+用Python，乍一看比较简单，然后就写了。
+  写完之后，面试官：现在让你来测试这个程序，你会怎么测试？
+o怪不得写这么简单的东西，原来还有一手。
+因为测试的东西不太懂，就开始乱说，什么最重要的是看能不能满足需求，然后文件不存在没处理，文件里有不是这样的格式的行没处理，用‘=’把value和key分开如果value和key本身内容含有‘=’没处理等等等。
+有几个是我自己想的，然后面试官指点了几个，还说了逻辑覆盖。
+这块说了比较久，可能20分钟
+  TCP/IP有几层，分别是什么？四层，物理网络传输应用
+  HTTP是哪一层的？应用
+  有没有什么问题问我？我问了是哪个部门，是CSIG智能医疗。
+  中午十一点面试，晚上12点变成复试了。基础知识问的不多，面试内容除了那个自己写程序自己想测试之外其他的都跟后台没啥区别。
+大家冲鸭！！！
+二面   首先自我介绍。
+  说说项目，以下问题全是项目相关。
+  如果有人恶意攻击，提交对服务器有害的程序给测评机怎么办？
+说了一堆，感觉不太对。
+  用户很多，越来越多，数据库放不下用户信息怎么办？
+分布式，一个服务对一个数据库等等等。
+  用户上传的文件服务器放不下了怎么办？
+使用一个监督程序来监视服务器的硬盘容量，达到阈值则发邮件或者其他方式提醒管理员需要删除一部分或者增加硬盘容量等等等。
+然后布置了一个额外任务，在项目中实现这个功能，让我一个星期做完发邮件给面试官，不影响面试结果，当时听到这句话就感觉有点稳：
+ 监视程序 消息提醒 监视程序如何保活（保持自身稳定工作，自己不挂才能监视别人·~·）  （这边是作业链接：Linux磁盘空间监控</description>
     </item>
     
     <item>
@@ -32,30 +105,13 @@ sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.
       <pubDate>Fri, 20 Dec 2019 23:11:18 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
-      <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&#39;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
+      <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&amp;rsquo;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
 在开发的这种语言时，YAML 的意思其实是：&amp;ldquo;Yet Another Markup Language&amp;rdquo;（仍是一种标记语言）。
 YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它实质上是一种通用的数据串行化格式。
 基本语法  大小写敏感 使用缩进表示层级关系 缩进只允许空格 缩进的空格数不重要，只要相同层级的元素左对齐即可 &amp;lsquo;#&amp;lsquo;表示单行注释  数据结构   对象：键值对集合，又称映射/哈希/字典
-# 冒号后的空格不可省略 key: valuekey: {name: TH, money: Infinit}# 复合 key:key1: value1key2: value2  数组：或序列，列表
-- a- b- c  纯量（scalars）：单个不可分割的值，包括：
- 字符串，布尔，整数，浮点数，Null，时间，日期  boolean: TRUE #true，True都可以 float: 6.8523015e+5 #可以使用科学计数法 int: 0b1010_0111_0100_1010_1110 #二进制表示 null: ~ #使用~表示null string:- 哈哈- &amp;#39;Hello world&amp;#39; #可以使用双引号或者单引号包裹特殊字符 - newlinenewline2 #字符串可以拆成多行，每一行会被转化成一个空格 date:- 2018-02-17 #日期必须使用ISO 8601格式，即yyyy-MM-dd   datetime: - 2018-02-17T15:02:31+08:00</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu学习</title>
-      <link>http://tifinity.github.io/2019/ubuntu-learning/</link>
-      <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
-      
-      <guid>http://tifinity.github.io/2019/ubuntu-learning/</guid>
-      <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt;apt-get update apt-get upgrade这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
-如果你想知道apt-get到底是什么；
-install的软件到底安装到哪去了；
-update和upgrade的区别；
-下载速度慢的时候换源是什么操作；
-可以接着往下看本文。
-1.1 软件包仓库 当你使用apt-get install &amp;lt;package&amp;gt;时，apt先到/etc/apt目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。
-source.list长这样：
-# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to# newer versions of the distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted## Major bug fix updates produced after the final release of the## distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted每一个仓库表示为：</description>
+# 冒号后的空格不可省略 key: value key: {name: TH, money: Infinit} # 复合 key: key1: value1 key2: value2   数组：或序列，列表
+- a - b - c   纯量（scalars）：单个不可分割的值，包括：
+ 字符串，布尔，整数，浮点数，Null，时间，日期  boolean: TRUE #true，True都可以 float: 6.8523015e+5 #可以使用科学计数法 int: 0b1010_0111_0100_1010_1110  #二进制表示 null: ~  #使用~表示null string: - 哈哈 - &amp;#39;Hello world&amp;#39; #可以使用双引号或者单引号包裹特殊字符 - newline newline2  #字符串可以拆成多行，每一行会被转化成一个空格 date: - 2018-02-17 #日期必须使用ISO 8601格式，即yyyy-MM-dd   datetime: - 2018-02-17T15:02:31+08:00</description>
     </item>
     
   </channel>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D项目三：牧师与魔鬼 | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D项目三：牧师与魔鬼 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D项目三：牧师与魔鬼",
+    "headline" : "Unity3D项目三：牧师与魔鬼",
+    "description" : "Unity3D项目三：牧师与魔鬼 基本介绍   列出游戏中提及的事物（Objects）\n牧师，恶魔，船，河流，左侧陆地，右侧陆地\n  用表格列出玩家动作表（规则表），注意，动作越少越好\n   动作 条件 结果     点击角色（牧师或魔鬼） 游戏未结束，角色在船上 角色上岸   点击角色（牧师或魔鬼） 游戏未结束，角色在岸上，点击的角色与船在同一岸边 角色上船   点击船 游戏未结束，船上有至少一个角色 船移动到另一侧   点击重新开始 无 重新开始      请将游戏中对象做成预制\n   在 GenGameObjects 中创建 长方形、正方形、球 及其色彩代表游戏中的对象。 使用 C# 集合类型 有效组织对象 整个游戏仅 主摄像机 和 一个 Empty 对象， 其他对象必须代码动态生成！！！ 。 整个游戏不许出现 Find 游戏对象， SendMessage 这类突破程序结构的 通讯耦合 语句。 违背本条准则，不给分  请使用课件架构图编程，不接受非 MVC 结构程序 注意细节，例如：船未靠岸，牧师与魔鬼上下船运动中，均不能接受用户事件！  完成过程   首先用各种方块搭建好场景，主要是记住大概的位置，写代码的时候方便。",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 01:22:03 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 01:22:03 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC\/",
+    "wordCount" : "398",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D项目三：牧师与魔鬼</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="unity3d项目三牧师与魔鬼">Unity3D项目三：牧师与魔鬼</h1>
+<h3 id="基本介绍">基本介绍</h3>
+<ul>
+<li>
+<p>列出游戏中提及的事物（Objects）</p>
+<p>牧师，恶魔，船，河流，左侧陆地，右侧陆地</p>
+</li>
+<li>
+<p>用表格列出玩家动作表（规则表），注意，动作越少越好</p>
+<table>
+<thead>
+<tr>
+<th>动作</th>
+<th>条件</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>点击角色（牧师或魔鬼）</td>
+<td>游戏未结束，角色在船上</td>
+<td>角色上岸</td>
+</tr>
+<tr>
+<td>点击角色（牧师或魔鬼）</td>
+<td>游戏未结束，角色在岸上，点击的角色与船在同一岸边</td>
+<td>角色上船</td>
+</tr>
+<tr>
+<td>点击船</td>
+<td>游戏未结束，船上有至少一个角色</td>
+<td>船移动到另一侧</td>
+</tr>
+<tr>
+<td>点击重新开始</td>
+<td>无</td>
+<td>重新开始</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>请将游戏中对象做成预制</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20190921190059949.jpg" alt="在这里插入图片描述"></p>
+<ul>
+<li>在 GenGameObjects 中创建 长方形、正方形、球 及其色彩代表游戏中的对象。</li>
+<li>使用 C# 集合类型 有效组织对象</li>
+<li>整个游戏仅 主摄像机 和 一个 Empty 对象， <strong>其他对象必须代码动态生成！！！</strong> 。 整个游戏不许出现 Find 游戏对象， SendMessage 这类突破程序结构的 通讯耦合 语句。 <strong>违背本条准则，不给分</strong>
+<img src="https://img-blog.csdnimg.cn/20190921185905453.jpg" alt="在这里插入图片描述"></li>
+<li>请使用课件架构图编程，<strong>不接受非 MVC 结构程序</strong></li>
+<li>注意细节，例如：船未靠岸，牧师与魔鬼上下船运动中，均不能接受用户事件！</li>
+</ul>
+<h3 id="完成过程">完成过程</h3>
+<ol>
+<li>
+<p>首先用各种方块搭建好场景，主要是记住大概的位置，写代码的时候方便。</p>
+</li>
+<li>
+<p>基本架构 MVC</p>
+<ul>
+<li>
+<p>Model：游戏中所有GameObject，他们受各自Controllor的控制，我将这些对象控制器写在一个命名空间中方便调用。需要注意，Model并不是代码中的类，而是在游戏对象树中存在的实体。</p>
+</li>
+<li>
+<p>View：GUI和Click，GUI负责展示游戏结果等信息，Click负责响应用户的点击。</p>
+</li>
+<li>
+<p>Controllor：除了控制游戏物体的底层控制器，他们之上负责这些物体通讯加载以及根据用户输入执行不同动作的控制器是FirstControllor（场景控制器），场景控制器控制整个场景中所有游戏物体。在场景控制器之上为SSDirect（导演），本次游戏因为只有一个场景，所以导演的作用只负责退出和暂停。
+<img src="https://img-blog.csdnimg.cn/20190921185828358.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>具体实现：
+<img src="https://img-blog.csdnimg.cn/20190921185837855.jpg" alt="在这里插入图片描述"></p>
+<ul>
+<li>
+<p>SSDirector：使用单例模式创建，并且继承于<code>System.Object</code>保持一直存在，不受Unity内存管理。导演负责控制当前场景的运行，切换，游戏的暂停恢复和退出，设定配置等等。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">//导演
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SSDirector</span> : System.Object {
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> SSDirector <span style="color:#ae81ff">_</span>instance;
+    <span style="color:#66d9ef">public</span> ISceneController CurrentScenceController { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> SSDirector GetInstance() {
+        <span style="color:#66d9ef">if</span> (<span style="color:#ae81ff">_</span>instance == <span style="color:#66d9ef">null</span>) {
+            <span style="color:#ae81ff">_</span>instance = <span style="color:#66d9ef">new</span> SSDirector();
+        }
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">_</span>instance;
+    }
+}
+</code></pre></div></li>
+<li>
+<p>ISceneControllor：场景控制器的接口，导演使用这个接口与场景控制器沟通，本次作业中只有加载资源这一个函数需要实现。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">/*in class SSDirector*/</span>
+<span style="color:#66d9ef">public</span> ISceneController CurrentScenceController { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+<span style="color:#75715e">/*in interface ISceneController*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> ISceneController {
+    <span style="color:#66d9ef">void</span> LoadResources();
+}
+</code></pre></div></li>
+<li>
+<p>IUserAction：用户操作的接口，根据上文中的用户动作表格缩写，使View与Controllor的桥梁。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IUserAction {
+    <span style="color:#75715e">//移动船
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> MoveBoat();
+    <span style="color:#75715e">//移动角色
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> MoveRole(RoleModel role);
+    <span style="color:#75715e">//重新开始
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> Restart();
+    <span style="color:#75715e">//检查游戏状态
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> Check();
+}
+</code></pre></div></li>
+<li>
+<p>FirstControllor：场景控制器，是该场景中所有游戏对象“动起来”的核心，使用底层控制器控制各个对象，实现上文中的两个接口供GUI和导演使用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FirstControllor</span> : MonoBehaviour, ISceneController, IUserAction {
+
+    <span style="color:#75715e">/*场景中的资源*/</span>
+
+    <span style="color:#66d9ef">void</span> Start() {
+        SSDirector director = SSDirector.GetInstance();
+        director.CurrentScenceController = <span style="color:#66d9ef">this</span>;
+        GUI = gameObject.AddComponent&lt;UserGUI&gt;() <span style="color:#66d9ef">as</span> UserGUI;
+        LoadResources();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> LoadResources() {
+        <span style="color:#75715e">/*加载资源*/</span>
+    }
+</code></pre></div></li>
+<li>
+<p>UserGUI：建立按钮和标签，不做赘述。</p>
+</li>
+<li>
+<p>LandModel：陆地控制器，首先陆地有两块，所以需要标志是开始岸还是结束岸；而且陆地可以看作一个‘容器’，上面装了牧师和魔鬼（或许还可以装船），所以它有一系列空位置，用来放置角色。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LandModel</span> {
+        GameObject land;
+        <span style="color:#75715e">//保存每个角色放在陆地上的位置
+</span><span style="color:#75715e"></span>        Vector3[] positions;  
+        <span style="color:#75715e">//表示是开始岸还是结束岸
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> land_sign;   
+        <span style="color:#75715e">//该陆地上的角色
+</span><span style="color:#75715e"></span>        RoleModel[] roles = <span style="color:#66d9ef">new</span> RoleModel[<span style="color:#ae81ff">6</span>];
+        <span style="color:#66d9ef">public</span> LandModel(<span style="color:#66d9ef">string</span> land_mark) {
+            positions = <span style="color:#66d9ef">new</span> Vector3[] {
+                <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">6.35F</span>,<span style="color:#ae81ff">2.25F</span>,<span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">7.35f</span>,<span style="color:#ae81ff">2.25F</span>,<span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">8.35f</span>,<span style="color:#ae81ff">2.25F</span>,<span style="color:#ae81ff">0</span>),
+                <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">9.35f</span>,<span style="color:#ae81ff">2.25F</span>,<span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">10.35f</span>,<span style="color:#ae81ff">2.25F</span>,<span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">11.35f</span>,<span style="color:#ae81ff">2.25F</span>,<span style="color:#ae81ff">0</span>)
+            };
+            <span style="color:#66d9ef">if</span> (land_mark == <span style="color:#e6db74">&#34;start&#34;</span>) land_sign = <span style="color:#ae81ff">1</span>;
+            <span style="color:#66d9ef">else</span> land_sign = -<span style="color:#ae81ff">1</span>;
+            land = Object.Instantiate(
+                    Resources.Load&lt;GameObject&gt;(<span style="color:#e6db74">&#34;Prefabs/Land&#34;</span>),
+                    <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">9</span> * land_sign, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>), Quaternion.identity) <span style="color:#66d9ef">as</span> GameObject;
+            land.name = land_mark + <span style="color:#e6db74">&#34;Land&#34;</span>;
+        }
+
+       <span style="color:#75715e">/*many method*/</span>
+
+    }
+</code></pre></div></li>
+<li>
+<p>BoatModel：船控制器，需要的属性为在哪一岸的标志，和在两个岸边的载人位置，船上的角色。船和陆地比较相似，只不过多了一个移动的动作。此处有一个需要注意的点是空位置的设置，startPos和endPos的x轴绝对值是要反过来的否则会出现这样的情况：</p>
+<p>两个角色上船，移动船，离岸远的角色A下船再上船，会与角色B重叠。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">startPos = <span style="color:#66d9ef">new</span> Vector3[] { <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">5.5f</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">4.5f</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>) };
+endPos = <span style="color:#66d9ef">new</span> Vector3[] { <span style="color:#66d9ef">new</span> Vector3(-<span style="color:#ae81ff">4.5f</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">new</span> Vector3(-<span style="color:#ae81ff">5.5f</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>) };
+</code></pre></div></li>
+<li>
+<p>RoleModel：角色控制器，属性应有：牧师或恶魔的标志，还有在哪一块陆地和在船上的标志，方法应有移动到指定位置。而且我认为角色不能有船或者陆地，这样会使类之间耦合。</p>
+</li>
+<li>
+<p>Move：控制移动，通过标志来区分如何移动，是先垂直再水平，还是先水平再垂直，或者只水平移动。使用Update来实现对象的运动。在使用控制器创建对象时会将该脚本挂载到需要运动的对象上。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">void</span> Update() {
+    <span style="color:#66d9ef">if</span> (move_sign == <span style="color:#ae81ff">1</span>) {
+        transform.position = Vector3.MoveTowards(
+            transform.position, middle_pos, move_speed * Time.deltaTime);
+        <span style="color:#66d9ef">if</span> (transform.position == middle_pos)
+            move_sign = <span style="color:#ae81ff">2</span>;
+    }
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (move_sign == <span style="color:#ae81ff">2</span>) {
+        transform.position = Vector3.MoveTowards(
+            transform.position, end_pos, move_speed * Time.deltaTime);
+        <span style="color:#66d9ef">if</span> (transform.position == end_pos)
+            move_sign = <span style="color:#ae81ff">0</span>;
+    }
+}
+</code></pre></div></li>
+<li>
+<p>Click：检测鼠标点击，需要注意的是对象需要挂载Collider组件才会响应点击，不过创建的正方体等是默认挂了的，如果你用了其他的模型需要自己添加合适的碰撞检测器。在使用控制器创建对象时会将该脚本挂载到需要响应点击的对象上。
+<img src="https://img-blog.csdnimg.cn/20190921185850133.jpg" alt="在这里插入图片描述"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Click</span> : MonoBehaviour {
+    IUserAction action;
+    RoleModel role = <span style="color:#66d9ef">null</span>;
+    BoatModel boat = <span style="color:#66d9ef">null</span>;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SetRole(RoleModel role) {
+        <span style="color:#66d9ef">this</span>.role = role;
+    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SetBoat(BoatModel boat) {
+        <span style="color:#66d9ef">this</span>.boat = boat;
+    }
+    <span style="color:#66d9ef">void</span> Start() {
+        action = SSDirector.GetInstance().CurrentScenceController <span style="color:#66d9ef">as</span> IUserAction;
+    }
+    <span style="color:#66d9ef">void</span> OnMouseDown() {
+        <span style="color:#66d9ef">if</span> (boat == <span style="color:#66d9ef">null</span> &amp;&amp; role == <span style="color:#66d9ef">null</span>) <span style="color:#66d9ef">return</span>;
+        <span style="color:#66d9ef">if</span> (boat != <span style="color:#66d9ef">null</span>) action.MoveBoat();
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (role != <span style="color:#66d9ef">null</span>) action.MoveRole(role);
+    }
+}
+</code></pre></div><p>最后，将FirstCortrollor挂载到Main对象上即可运行。代码部分还是参考了师兄的，不过也发现了师兄的几个BUG并改正，而且将角色类与陆地和船的耦合性降低，对代码的层次也重新构建了一下。资源都是商店里免费筛选的前几个，搜Devil和Boat就能找到，牧师的话在免费的前几页。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>关于动画</p>
+<p>如果你下载的资源自带动画，选中动画的文件在检查器中点击Edit，勾上循环时间和循环动作，再将这个文件像贴图一样拖到对象组件的动画器中即可。</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20190921185752190.jpg" alt="在这里插入图片描述">
+<img src="https://img-blog.csdnimg.cn/20190921185800962.jpg" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190921185808336.jpg" alt="在这里插入图片描述">
+演示视频：<a href="https://www.bilibili.com/video/av68513475/">?</a></p>
+<p>github项目传送门：<a href="https://github.com/Tifinity/Unity3DStudy-master/tree/master/%E9%A1%B9%E7%9B%AE%E4%B8%89%EF%BC%9A%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC">?</a></p>
+<p>感谢师兄的博客参考：<a href="https://blog.csdn.net/C486C/article/details/79795708">?</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/" class="prev" rel="prev" title="Unity3D项目二：太阳系仿真"><i class="iconfont icon-left"></i>&nbsp;Unity3D项目二：太阳系仿真</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/" class="next" rel="next" title="Unity3D作业三：空间与运动">Unity3D作业三：空间与运动&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

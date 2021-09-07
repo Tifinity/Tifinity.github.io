@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D项目十：简单坦克大战 | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D项目十：简单坦克大战 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D项目十：简单坦克大战",
+    "headline" : "Unity3D项目十：简单坦克大战",
+    "description" : "简单坦克大战 作业要求 坦克对战游戏 AI 设计 从商店下载游戏：“Kawaii” Tank 或 其他坦克模型，构建 AI 对战坦克。具体要求\n 使用“感知-思考-行为”模型，建模 AI 坦克 场景中要放置一些障碍阻挡对手视线 坦克需要放置一个矩阵包围盒触发器，以保证 AI 坦克能使用射线探测对手方位 AI 坦克必须在有目标条件下使用导航，并能绕过障碍。（失去目标时策略自己思考） 实现人机对战  项目地址 github bilibili\n具体实现 参考学姐博客，对一些混乱的地方进行了修改。 关于框架的复用不再赘述，主要包括：\n 用工厂处理子弹和电脑坦克； 导演，场景控制器； IUserGUI接受用户输入；  NavMesh 官方文档 使用NavMesh来控制AI坦克的移动，使用SetDestination将Player设置为目标。\nvoid FixedUpdate () { if(sceneController.getResult()==0) { target = sceneController.getPlayerPosition(); if(HP.GetHP() \u0026lt;= 0.0f \u0026amp;\u0026amp; recycleEvent != null) { recycleEvent(this.gameObject); sceneController.decreaseCountNPC(); } else { NavMeshAgent agent = GetComponent\u0026lt;NavMeshAgent\u0026gt;(); agent.SetDestination(target); } } else { NavMeshAgent agent = GetComponent\u0026lt;NavMeshAgent\u0026gt; (); agent.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 00:09:20 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 00:09:20 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98\/",
+    "wordCount" : "177",
+    "keywords" : [ "Unity3D", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D项目十：简单坦克大战</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="简单坦克大战">简单坦克大战</h1>
+<h2 id="作业要求">作业要求</h2>
+<p>坦克对战游戏 AI 设计
+从商店下载游戏：“Kawaii” Tank 或 其他坦克模型，构建 AI 对战坦克。具体要求</p>
+<ul>
+<li>使用“感知-思考-行为”模型，建模 AI 坦克</li>
+<li>场景中要放置一些障碍阻挡对手视线</li>
+<li>坦克需要放置一个矩阵包围盒触发器，以保证 AI 坦克能使用射线探测对手方位</li>
+<li>AI 坦克必须在有目标条件下使用导航，并能绕过障碍。（失去目标时策略自己思考）</li>
+<li>实现人机对战</li>
+</ul>
+<h2 id="项目地址">项目地址</h2>
+<p><a href="https://github.com/Tifinity/Unity3D-Learning/tree/master/%E9%A1%B9%E7%9B%AE%E4%B9%9D%EF%BC%9A%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98">github</a>
+<a href="https://www.bilibili.com/video/av78119019/">bilibili</a></p>
+<h2 id="具体实现">具体实现</h2>
+<p>参考<a href="https://yuandi-sherry.github.io/2018/06/19/Week15-Tanks/">学姐博客</a>，对一些混乱的地方进行了修改。
+关于框架的复用不再赘述，主要包括：</p>
+<ul>
+<li>用工厂处理子弹和电脑坦克；</li>
+<li>导演，场景控制器；</li>
+<li>IUserGUI接受用户输入；</li>
+</ul>
+<h3 id="navmesh">NavMesh</h3>
+<p><a href="https://docs.unity3d.com/Manual/nav-MoveToDestination.html">官方文档</a>
+使用NavMesh来控制AI坦克的移动，使用SetDestination将Player设置为目标。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">void</span> FixedUpdate () {
+		<span style="color:#66d9ef">if</span>(sceneController.getResult()==<span style="color:#ae81ff">0</span>) {
+			target = sceneController.getPlayerPosition();
+			<span style="color:#66d9ef">if</span>(HP.GetHP() &lt;= <span style="color:#ae81ff">0.0f</span> &amp;&amp; recycleEvent != <span style="color:#66d9ef">null</span>) {
+				recycleEvent(<span style="color:#66d9ef">this</span>.gameObject);
+				sceneController.decreaseCountNPC();
+			}
+			<span style="color:#66d9ef">else</span> {
+				NavMeshAgent agent = GetComponent&lt;NavMeshAgent&gt;();
+				agent.SetDestination(target);
+			}
+		}
+		<span style="color:#66d9ef">else</span> {
+			NavMeshAgent agent = GetComponent&lt;NavMeshAgent&gt; ();
+			agent.velocity = Vector3.zero;
+			agent.ResetPath();
+		}
+	}
+</code></pre></div><h3 id="血条">血条</h3>
+<p>学姐使用blood作为基类然后Player和NPC继承blood，bloodcontroller来控制血量，但是bloodcontroller完全没有使用，我将这部分代码重写，把上一次作业制作的预制体UGUI-H-Bar挂到玩家和电脑的坦克上，当子弹碰撞到时扣血即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">using</span> UnityEngine;
+<span style="color:#66d9ef">using</span> System.Collections;
+<span style="color:#66d9ef">using</span> UnityEngine.UI;
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UGUI_H</span>: MonoBehaviour {
+    <span style="color:#66d9ef">public</span> Slider HPStrip;
+    <span style="color:#66d9ef">public</span> Image fill;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> HP = <span style="color:#ae81ff">10f</span>;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">float</span> tmpHP;
+    <span style="color:#66d9ef">void</span> Awake() {
+        HPStrip.<span style="color:#66d9ef">value</span> = HPStrip.maxValue = HP;
+        tmpHP = HP;
+        fill.color = Color.green;
+    }
+
+    <span style="color:#66d9ef">void</span> Update() {
+        HP = Mathf.Lerp(HP, tmpHP, <span style="color:#ae81ff">0.05f</span>);
+        HPStrip.<span style="color:#66d9ef">value</span> = HP;
+        <span style="color:#66d9ef">if</span> (HP&lt;=<span style="color:#ae81ff">5</span>) {
+            fill.color = Color.red;
+        }
+    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SetHP(<span style="color:#66d9ef">int</span> flag, <span style="color:#66d9ef">float</span> damage) {
+        <span style="color:#66d9ef">if</span>(flag == <span style="color:#ae81ff">1</span> &amp;&amp; HP &lt;= <span style="color:#ae81ff">10</span>) {
+            tmpHP += damage;
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(flag == <span style="color:#ae81ff">0</span> &amp;&amp; HP &gt; <span style="color:#ae81ff">0</span>) {
+            tmpHP -= damage;
+        }
+        
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> GetHP() {
+        <span style="color:#66d9ef">return</span> HP;
+    }
+}
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/unity3d/">
+                    #Unity3D</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/" class="prev" rel="prev" title="腾讯CSIG测试开发实习生面经"><i class="iconfont icon-left"></i>&nbsp;腾讯CSIG测试开发实习生面经</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/" class="next" rel="next" title="Unity3D项目九：简单的两个血条">Unity3D项目九：简单的两个血条&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

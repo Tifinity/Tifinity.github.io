@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" />
+  <link rel="next" href="http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Linux磁盘空间监控 | Infinit
+       
+  </title>
+  <meta name="title" content="Linux磁盘空间监控 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Linux磁盘空间监控",
+    "headline" : "Linux磁盘空间监控",
+    "description" : "Linux磁盘空间监控  开发当牛 测试做马 测试开发 当牛做马\n 我要做的工作基本上都是学习这位天外归云大佬的：天外归云的博客，上面引用的也是大佬首页上的话，觉得很有意思hh。下面正式开始。\n获取磁盘信息 首先Linux查看磁盘空间的命令有两个：\n  du（disk usage 硬盘使用率）：显示每个文件和目录占用的空间，如果直接执行du，你就会看到一长串文件刷出来。\n  df （disk free 空余硬盘）：显示磁盘分区上可以使用的磁盘空间。\n  那么df就可以满足我们的需求，现在在python中调用df：\n可以用commands或者subprocess，commands模块在Python3中被subprocess取代。\nimport subprocess code = subprocess.call([\u0026#39;df\u0026#39;]) print(code) # 输出与在命令行中使用df一样，如果执行成功的话code的值是0 使用subprocess确实能够输出与df一样的结果，实际上就相当于创建了一个子进程执行了df，不过这个结果好像获取不到，没法进行操作，因为subprocess.call()只返回一个状态码表示完成情况，需要想别的办法。\n第一种方法 就是用上面的df指令，并想办法获取它的结果来进行操作。\n目前对Linux的指令还不熟悉，挖个坑，以后补充·~·\n第二种方法 其实Python中的os包已经有方法可以得到磁盘信息了。\n 在所给的路径上执行 statvfs() 系统调用。返回值是一个对象，其属性描述了所给路径上的文件系统，并且与 statvfs 结构体的成员相对应，即：f_bsize, f_frsize, f_blocks, f_bfree, f_bavail, f_files, f_ffree, f_favail, f_flag, f_namemax, f_fsid。\n 该方法的使用参考菜鸟教程和中文文档\ndef get_disk_usage_percent(): statvfs = os.statvfs(\u0026#39;\/\u0026#39;) # f_frsize: fragment size碎片大小 # f_blocks: 文件系统数据块总数 # f_bfree: 文件系统可用数据块数 total_disk_space = statvfs.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-17 13:02:09 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-17 13:02:09 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7\/",
+    "wordCount" : "184",
+    "keywords" : [ "Linux","硬盘","statvfs", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Linux磁盘空间监控</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-17 itemprop="datePublished">April 17, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/linux/"> Linux </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="linux磁盘空间监控">Linux磁盘空间监控</h3>
+<blockquote>
+<p>开发当牛 测试做马
+测试开发 当牛做马</p>
+</blockquote>
+<p>我要做的工作基本上都是学习这位<strong>天外归云</strong>大佬的：<a href="https://www.cnblogs.com/LanTianYou/">天外归云的博客</a>，上面引用的也是大佬首页上的话，觉得很有意思hh。下面正式开始。</p>
+<h2 id="获取磁盘信息">获取磁盘信息</h2>
+<p>首先Linux查看磁盘空间的命令有两个：</p>
+<ul>
+<li>
+<p>du（disk usage 硬盘使用率）：显示每个文件和目录占用的空间，如果直接执行du，你就会看到一长串文件刷出来。</p>
+</li>
+<li>
+<p>df （disk free 空余硬盘）：显示磁盘分区上可以使用的磁盘空间。</p>
+<p><img src="https://raw.githubusercontent.com/Tifinity/MyImage/master/UsageMonitor/20200415113432.png" alt=""></p>
+</li>
+</ul>
+<p>那么df就可以满足我们的需求，现在在python中调用df：</p>
+<p>可以用commands或者subprocess，commands模块在Python3中被subprocess取代。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> subprocess
+code <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>call([<span style="color:#e6db74">&#39;df&#39;</span>])
+print(code)
+<span style="color:#75715e"># 输出与在命令行中使用df一样，如果执行成功的话code的值是0</span>
+</code></pre></div><p>使用subprocess确实能够输出与df一样的结果，实际上就相当于创建了一个子进程执行了df，不过这个结果好像获取不到，没法进行操作，因为subprocess.call()只返回一个状态码表示完成情况，需要想别的办法。</p>
+<h4 id="第一种方法">第一种方法</h4>
+<p>就是用上面的df指令，并想办法获取它的结果来进行操作。</p>
+<p>目前对Linux的指令还不熟悉，挖个坑，以后补充·~·</p>
+<h4 id="第二种方法">第二种方法</h4>
+<p>其实Python中的os包已经有方法可以得到磁盘信息了。</p>
+<blockquote>
+<p>在所给的路径上执行 <code>statvfs()</code> 系统调用。返回值是一个对象，其属性描述了所给路径上的文件系统，并且与 <code>statvfs</code> 结构体的成员相对应，即：<code>f_bsize</code>, <code>f_frsize</code>, <code>f_blocks</code>, <code>f_bfree</code>, <code>f_bavail</code>, <code>f_files</code>, <code>f_ffree</code>, <code>f_favail</code>, <code>f_flag</code>, <code>f_namemax</code>, <code>f_fsid</code>。</p>
+</blockquote>
+<p>该方法的使用参考<a href="https://www.runoob.com/python/os-statvfs.html">菜鸟教程</a>和<a href="https://docs.python.org/zh-cn/3.7/library/os.html#module-os">中文文档</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_disk_usage_percent</span>():
+    statvfs <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>statvfs(<span style="color:#e6db74">&#39;/&#39;</span>)
+    <span style="color:#75715e"># f_frsize: fragment size碎片大小</span>
+    <span style="color:#75715e"># f_blocks: 文件系统数据块总数</span>
+    <span style="color:#75715e"># f_bfree: 文件系统可用数据块数</span>
+    total_disk_space <span style="color:#f92672">=</span> statvfs<span style="color:#f92672">.</span>f_frsize <span style="color:#f92672">*</span> statvfs<span style="color:#f92672">.</span>f_blocks
+    free_disk_space <span style="color:#f92672">=</span> statvfs<span style="color:#f92672">.</span>f_frsize <span style="color:#f92672">*</span> statvfs<span style="color:#f92672">.</span>f_bfree
+    disk_usage <span style="color:#f92672">=</span> (total_disk_space <span style="color:#f92672">-</span> free_disk_space) <span style="color:#f92672">*</span> <span style="color:#ae81ff">100.0</span> <span style="color:#f92672">/</span> total_disk_space
+    disk_usage <span style="color:#f92672">=</span> int(disk_usage)
+    <span style="color:#66d9ef">return</span> disk_usage
+</code></pre></div><p>所以只需计算一下空闲空间和总空间，即可得到磁盘使用率。</p>
+<h2 id="通知管理员">通知管理员</h2>
+<p>那么，磁盘空间不足之后，就需要通知管理员了，使用<a href="%5Bhttps://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/%5D(https://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/)">上一篇博客</a>的方法发送邮件即可。</p>
+<p>Github项目地址：<a href="https://github.com/Tifinity/UsageMonitor">UsageMonitor</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_disk_usage_percent</span>():
+    statvfs <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>statvfs(<span style="color:#e6db74">&#39;/&#39;</span>)
+    <span style="color:#75715e"># f_frsize: 分栈大小</span>
+    <span style="color:#75715e"># f_blocks: 文件系统数据块总数</span>
+    <span style="color:#75715e"># f_bfree: 文件系统可用数据块数</span>
+    total_disk_space <span style="color:#f92672">=</span> statvfs<span style="color:#f92672">.</span>f_frsize <span style="color:#f92672">*</span> statvfs<span style="color:#f92672">.</span>f_blocks
+    free_disk_space <span style="color:#f92672">=</span> statvfs<span style="color:#f92672">.</span>f_frsize <span style="color:#f92672">*</span> statvfs<span style="color:#f92672">.</span>f_bfree
+    disk_usage <span style="color:#f92672">=</span> (total_disk_space <span style="color:#f92672">-</span> free_disk_space) <span style="color:#f92672">*</span> <span style="color:#ae81ff">100.0</span> <span style="color:#f92672">/</span> total_disk_space
+    disk_usage <span style="color:#f92672">=</span> int(disk_usage)
+    <span style="color:#66d9ef">return</span> disk_usage
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">monitor_warning</span>():
+    sender <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1139390530@qq.com&#39;</span> <span style="color:#75715e">#发送者</span>
+    receivers <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;1139390530@qq.com&#39;</span>]  <span style="color:#75715e"># 接收者</span>
+    subject <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;坏球了&#39;</span>
+    content <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;坏球了&#39;</span> 
+    email_send<span style="color:#f92672">.</span>send_mail(sender, receivers, subject, content)
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+        disk_usage <span style="color:#f92672">=</span> get_disk_usage_percent()
+        disk_tip <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;硬盘空间使用率（最大100%）：&#34;</span><span style="color:#f92672">+</span>str(disk_usage)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>
+        print(disk_tip)
+        max_usage <span style="color:#f92672">=</span> <span style="color:#ae81ff">80</span>
+        <span style="color:#66d9ef">if</span> disk_usage <span style="color:#f92672">&gt;</span> max_usage:
+            monitor_warning()
+        time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">10</span>)
+</code></pre></div><p>同样的，除了磁盘空间还可以自己完成CPU，内存等信息的监控和通知。</p>
+<h2 id="总结">总结</h2>
+<p>写这样一个程序其实是面试的时候面试官给我布置的&quot;课后作业&quot;，让我完成一个监控服务器磁盘空间的程序并用在项目中，上面的项目简单完成了这个功能，也放进Docker里测试过了，不过还有一个问题就是监控程序保活的问题还没解决，目前正在学习。</p>
+<p>然后之后要是真正使用感觉还是用Monit这类监控软件比较好，毕竟自己写的还很粗糙，不过在过程中学习到很多东西，也算是稍微接触了下运维的工作，对自己有好处。</p>
+<p>尴尬的是，面试结束后太激动手一抖就把腾讯会议关了，没记下面试官的邮箱😂，要是您看到这篇博客，说明我没偷懒哈·~·😋</p>
+<h2 id="参考">参考</h2>
+<p><a href="https://blog.csdn.net/magic_zj00/article/details/7207445">python语言获取linux磁盘使用情况</a></p>
+<p><a href="https://blog.csdn.net/shangshaohui2009/article/details/79628684">python监控linux磁盘空间使用情况并邮件通知管理员</a></p>
+<p><a href="https://www.cnblogs.com/LanTianYou/p/6913833.html">Linux服务器CPU，内存，磁盘空间，负载情况查看python脚本</a></p>
+<p><a href="https://www.iteye.com/blog/luckyclouds-675711">Linux proc详解</a></p>
+<p><a href="https://blog.csdn.net/zd199218/article/details/80698192">【Linux】/proc/stat详解 完整验证版</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/>http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/linux/">
+                    #Linux</a></span>
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/%E7%A1%AC%E7%9B%98/">
+                    #硬盘</a></span>
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/statvfs/">
+                    #statvfs</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" class="prev" rel="prev" title="Python如何发送邮件"><i class="iconfont icon-left"></i>&nbsp;Python如何发送邮件</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/" class="next" rel="next" title="腾讯CSIG测试开发实习生面经">腾讯CSIG测试开发实习生面经&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

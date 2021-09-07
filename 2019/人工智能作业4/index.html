@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "人工智能作业4",
     "headline" : "人工智能作业4",
-    "description" : "人工智能第四次作业 17343105 田皓 EM算法实验内容 算法原理 EM **Expectation-maximization algorithm **期望最大化算法\na.记录了每次选择的是A还是B\nA硬币出现正面的概率为 $P(A) = \\frac{24}{24\x2b6}= 0.80$\nB硬币出现正面的概率为 $P(B) = \\frac{9}{9\x2b11}= 0.45$\nb.没有记录每次选择的是A还是B\n假设每次选择的硬币是X（X={A或B}），我们需要根据结果求PA，PB，就要知道X，而要用最大似然来估计X又需要知道PAPB，这是个死循环。\n这个时候就需要使用EM算法，基本思想是：先初始化PA和PB，然后用PA和PB估计X，有了X再计算PA和PB，不断重复直到收敛。\n算法步骤  计算期望（E），利用对隐变量（即硬币是A还是B）的现有估计值，计算AB硬币的正反面次数； 最大化（M），计算新的AB硬币正面概率，与上一次迭代结果比较，若收敛则结束，否则再次执行1。  算法结果 简单地取多组初值进行实验，结果有些许差别。阈值主要影响迭代次数，这个例子比较简单，一般十次迭代就能得到结果。详见data.txt。\n图片分类任务 从官网下载cifar-10数据集。\n作业要求:   明确图片分类任务的基本流程\n将数据集分为训练集和测试集，输入训练集训练模型，用验证集调整参数，估计模型准确率，输入测试集，得到结果，与标签对比得到准确率。\n  清楚数据集的训练集验证集和测试集的划分和用途,简单介绍自己的用 法\n举个例子，我们是老师，程序是学生，那么：\n训练集是课本，学生根据课本里的内容来掌握知识；\n验证集是作业，通过作业我们可以了解学生对知识的掌握情况并调整教学方法；\n测试集是试卷，通过考试检验学生到底掌握的如何。\n验证集不是必须的，划分比例一般为6：2：2，三者本质上无区别，是为了更好的调整模型而存在的，比如防止过拟合。\n  编写 K 近邻算法,SVM 以及简单的两层神经网络分类器各一(多分类分 类器)进行图片分类任务\n见下。\n  根据得到的分类结果(精度)说明和比较各个算法的优越性和局限性, 懂得它们之间的差异\n见下。\n  编写实验报告\n正是本文档。\n  KNN （K最近邻算法） knn是机器学习中最简单的方法之一，对于一个样本，取特征空间中的k个与其最相似的样本，其中数量最多的类别就是该样本的类别。knn不需要估计参数，实际上也不需要训练，测试集的每一张图片都在训练集中找最相似的k个来预测即可。\n算法步骤：\n 对测试集每一个样本，计算其与训练集所有元素的“距离”； 循环k次，找出前k个距离最小的样本； 在这k个样本中找出最多的类别，作为预测类别； 计算准确率。  算法优点：",
+    "description" : "人工智能第四次作业 17343105 田皓 EM算法实验内容 算法原理 EM **Expectation-maximization algorithm **期望最大化算法\na.记录了每次选择的是A还是B\nA硬币出现正面的概率为 $P(A) = \\frac{24}{24\u002b6}= 0.80$\nB硬币出现正面的概率为 $P(B) = \\frac{9}{9\u002b11}= 0.45$\nb.没有记录每次选择的是A还是B\n假设每次选择的硬币是X（X={A或B}），我们需要根据结果求PA，PB，就要知道X，而要用最大似然来估计X又需要知道PAPB，这是个死循环。\n这个时候就需要使用EM算法，基本思想是：先初始化PA和PB，然后用PA和PB估计X，有了X再计算PA和PB，不断重复直到收敛。\n算法步骤  计算期望（E），利用对隐变量（即硬币是A还是B）的现有估计值，计算AB硬币的正反面次数； 最大化（M），计算新的AB硬币正面概率，与上一次迭代结果比较，若收敛则结束，否则再次执行1。  算法结果 简单地取多组初值进行实验，结果有些许差别。阈值主要影响迭代次数，这个例子比较简单，一般十次迭代就能得到结果。详见data.txt。\n图片分类任务 从官网下载cifar-10数据集。\n作业要求:   明确图片分类任务的基本流程\n将数据集分为训练集和测试集，输入训练集训练模型，用验证集调整参数，估计模型准确率，输入测试集，得到结果，与标签对比得到准确率。\n  清楚数据集的训练集验证集和测试集的划分和用途,简单介绍自己的用 法\n举个例子，我们是老师，程序是学生，那么：\n训练集是课本，学生根据课本里的内容来掌握知识；\n验证集是作业，通过作业我们可以了解学生对知识的掌握情况并调整教学方法；\n测试集是试卷，通过考试检验学生到底掌握的如何。\n验证集不是必须的，划分比例一般为6：2：2，三者本质上无区别，是为了更好的调整模型而存在的，比如防止过拟合。\n  编写 K 近邻算法,SVM 以及简单的两层神经网络分类器各一(多分类分 类器)进行图片分类任务\n见下。\n  根据得到的分类结果(精度)说明和比较各个算法的优越性和局限性, 懂得它们之间的差异\n见下。\n  编写实验报告\n正是本文档。\n  KNN （K最近邻算法） knn是机器学习中最简单的方法之一，对于一个样本，取特征空间中的k个与其最相似的样本，其中数量最多的类别就是该样本的类别。knn不需要估计参数，实际上也不需要训练，测试集的每一张图片都在训练集中找最相似的k个来预测即可。\n算法步骤：\n 对测试集每一个样本，计算其与训练集所有元素的“距离”； 循环k次，找出前k个距离最小的样本； 在这k个样本中找出最多的类别，作为预测类别； 计算准确率。  算法优点：",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-20 20:56:03 \x2b0800 CST",
-    "dateModified" : "2019-12-20 20:56:03 \x2b0800 CST",
+    "datePublished": "2019-12-20 20:56:03 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-20 20:56:03 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4\/",
     "wordCount" : "158",
     "keywords" : [ "AI","EM算法","图片分类", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -131,11 +129,6 @@
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -155,9 +148,9 @@
           
           
 
-          <h1 id="-17343105-">人工智能第四次作业 17343105 田皓</h1>
-<h2 id="em">EM算法实验内容</h2>
-<h3 id="heading">算法原理</h3>
+          <h1 id="人工智能第四次作业-17343105-田皓">人工智能第四次作业 17343105 田皓</h1>
+<h2 id="em算法实验内容">EM算法实验内容</h2>
+<h3 id="算法原理">算法原理</h3>
 <p>EM **Expectation-maximization algorithm **期望最大化算法</p>
 <p>a.记录了每次选择的是A还是B</p>
 <p>A硬币出现正面的概率为 $P(A) = \frac{24}{24+6}= 0.80$</p>
@@ -165,17 +158,17 @@
 <p>b.没有记录每次选择的是A还是B</p>
 <p>假设每次选择的硬币是X（X={A或B}），我们需要根据结果求PA，PB，就要知道X，而要用最大似然来估计X又需要知道PAPB，这是个死循环。</p>
 <p>这个时候就需要使用EM算法，基本思想是：先初始化PA和PB，然后用PA和PB估计X，有了X再计算PA和PB，不断重复直到收敛。</p>
-<h3 id="heading1">算法步骤</h3>
+<h3 id="算法步骤">算法步骤</h3>
 <ol>
 <li>计算期望（E），利用对隐变量（即硬币是A还是B）的现有估计值，计算AB硬币的正反面次数；</li>
 <li>最大化（M），计算新的AB硬币正面概率，与上一次迭代结果比较，若收敛则结束，否则再次执行1。</li>
 </ol>
-<h3 id="heading2">算法结果</h3>
+<h3 id="算法结果">算法结果</h3>
 <p>简单地取多组初值进行实验，结果有些许差别。阈值主要影响迭代次数，这个例子比较简单，一般十次迭代就能得到结果。详见data.txt。</p>
-<h2 id="heading3">图片分类任务</h2>
+<h2 id="图片分类任务">图片分类任务</h2>
 <p>从<a href="http://www.cs.toronto.edu/~kriz/cifar.html">官网</a>下载cifar-10数据集。</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191205184629303.png" alt="image-20191205184617188"></p>
-<h3 id="heading4">作业要求:</h3>
+<h3 id="作业要求">作业要求:</h3>
 <ul>
 <li>
 <p>明确图片分类任务的基本流程</p>
@@ -205,7 +198,7 @@
 <p>正是本文档。</p>
 </li>
 </ul>
-<h3 id="knn-k">KNN （K最近邻算法）</h3>
+<h3 id="knn-k最近邻算法">KNN （K最近邻算法）</h3>
 <p>knn是机器学习中最简单的方法之一，对于一个样本，取特征空间中的k个与其最相似的样本，其中数量最多的类别就是该样本的类别。knn不需要估计参数，实际上也不需要训练，测试集的每一张图片都在训练集中找最相似的k个来预测即可。</p>
 <p>算法步骤：</p>
 <ol>
@@ -226,7 +219,7 @@
 </ol>
 <p>结果：</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191204190855286.png" alt="image-20191204190855286"></p>
-<h3 id="svm-">SVM （支持向量机）</h3>
+<h3 id="svm-支持向量机">SVM （支持向量机）</h3>
 <p>SVM主要用于分类问题中，将每一个样本看作一个点在n维空间中(n是特征数，在这里就是图像的大小，即32*32*3)，目的是找到分隔两个类的“最好”的超平面，“最好”指与其最近的点的距离最大。</p>
 <p>在样本空间中，超平面可通过如下形式来描述：
 $$
@@ -260,7 +253,7 @@ $$
 <p>简单使用不同的参数实现，得到以下结果：</p>
 <p>从上到下分别是：线性，rbf（gamma=0.1），rbf（gamma=100），poly（degree=3）</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191205191035911.png" alt="image-20191205191035911"></p>
-<h3 id="heading5">简单神经网络</h3>
+<h3 id="简单神经网络">简单神经网络</h3>
 <p>使用tensorflow2.0在docker中运行完成本次任务。</p>
 <p>按照官网教程使用CNN，网络结构如下：</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/AI-Learning/hw4/image-20191204203020314.png" alt="image-20191204203020314"></p>
@@ -344,28 +337,6 @@ $$
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -373,7 +344,7 @@ $$
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -383,14 +354,7 @@ $$
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

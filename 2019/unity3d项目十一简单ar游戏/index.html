@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Unity3D项目十一：简单AR",
     "headline" : "Unity3D项目十一：简单AR",
-    "description" : "简单AR学习 作业要求 1、 图片识别与建模\n2、 虚拟按键小游戏\n项目地址 Github\n实现效果 Bilibili\n准备工作 安装Java和AndroidSDK 要导出到安卓手机的话需要进行环境的配置，过程比较麻烦，如果只是在电脑上运行的话不需要进行这一步。\n安装Java：官网\n安装android sdk:一个博客\n使用Vuforia Vuforia官网\nVuforia官方文档\n在Unity3D中安装Android平台支持 文件-\x26gt;Build Setting，选择Android，点击切换平台。\n如果没有会有下载按钮，下载安装即可。\n在Unity3D中安装Vuforia支持 文件-\x26gt;Build Settings-\x26gt;Android-\x26gt;切换平台-\x26gt;PlaySettings-\x26gt;XR设置\n在这里勾选”支持虚拟现实“，SDKs中添加Vuforia，如果没有下方会有下载按钮，下载安装即可。\n申请密钥 右上角注册-\x26gt;Develop-\x26gt;LicenseManager-\x26gt;Get Development Key，免费开发者每个月可以扫描1000次。\n随便输入一个LicenseName，下面打勾，然后Confirm即可。\n项目就创建好了。\n然后添加数据库用于保存识别图的数据。\nDevelop-\x26gt;Target Manager-\x26gt;Add Database\n进入创建好的数据库，Add Target添加识别图。\n拍一张照上传，选择Single Image，Width的默认单位是米，我输入的是0.1。识别图就是之后你的摄像头拍到这个东西，就会执行你定义好的操作。\n上传之后会生成识别图的特征点数据包，Vuforia还会为你的识别图打分，星级越高说明识别效果越好。\n以下关于图像星级的说明引用自CSDN的Wonderful_sky师兄，感谢。\n 图像的星级 我们会注意到将识别图上传到数据库时，target项右侧会有星级显示，星级越高代表识别图的质量越高。你可能会问，何为识别图质量？识别图质量有什么用？答案是，你踩过坑之后就知道了。经试验，影响识别图最主要的因素就是待识别图的对比度，这里应该要极力避免使用有很多连续相同或相似大色块的图片，因为分析识别图特征点的原理是 根据色块边缘 来决定的，色彩变化越丰富，色块边缘、棱角就越多（如果棱角分布均匀且每个色块都很小那就再好不过了），进而特征点就越多，而特征点越多就意味着识别图质量越高。另外，以下三点则是我总结的识别图质量最主要影响的三个方面：\n 星级越高越容易识别 星级越高识别速度越快 星级越高更不容易出现抖动   下载数据库，Download Database-\x26gt;Unity Editor，得到一个Unity包，之后用到。\n回到Unity中，Resources-\x26gt;VuforiaConfiguration，复制之前的License Key粘贴到App License Key中。\n现在鼠标右键-\x26gt;创建游戏对象，有了Vuforia Engine，创建一个ARCamera和一个ImageTarget。将之前下载的数据库包导入，上图中的Databases属性会变成你的数据库，并且新版本会自动加载，不用再做设置。接下来选中ImageTarget，设置你要是用的识别图，如果自己拍的效果不够好，也可以在网上下载。\n另外，虚拟按钮集成到了ImageTarget-\x26gt;Advanced里，点击添加虚拟按钮后就会在ImageTarget下生成子对象。\n需要注意的是，虚拟按钮必须放在识别图内，因为虚拟按钮的原理是根据识别图被遮挡的特征点是否在此按钮范围内来判断按钮是否被按下。\n下方两个大的色块是虚拟按钮，而两个小的色块是Plane，用来在运行时提示这里有按钮。\n代码实现 脚本挂在ImageTarget上，先找到子对象中所有按钮，然后根据按钮名字来判断执行什么功能。\npublic class ButtonTest : MonoBehaviour, IVirtualButtonEventHandler { private GameObject sphere; void Start() { VirtualButtonBehaviour[] vbs = GetComponentsInChildren\x26lt;VirtualButtonBehaviour\x26gt;(); for (int i = 0; i \x26lt; vbs.",
+    "description" : "简单AR学习 作业要求 1、 图片识别与建模\n2、 虚拟按键小游戏\n项目地址 Github\n实现效果 Bilibili\n准备工作 安装Java和AndroidSDK 要导出到安卓手机的话需要进行环境的配置，过程比较麻烦，如果只是在电脑上运行的话不需要进行这一步。\n安装Java：官网\n安装android sdk:一个博客\n使用Vuforia Vuforia官网\nVuforia官方文档\n在Unity3D中安装Android平台支持 文件-\u0026gt;Build Setting，选择Android，点击切换平台。\n如果没有会有下载按钮，下载安装即可。\n在Unity3D中安装Vuforia支持 文件-\u0026gt;Build Settings-\u0026gt;Android-\u0026gt;切换平台-\u0026gt;PlaySettings-\u0026gt;XR设置\n在这里勾选”支持虚拟现实“，SDKs中添加Vuforia，如果没有下方会有下载按钮，下载安装即可。\n申请密钥 右上角注册-\u0026gt;Develop-\u0026gt;LicenseManager-\u0026gt;Get Development Key，免费开发者每个月可以扫描1000次。\n随便输入一个LicenseName，下面打勾，然后Confirm即可。\n项目就创建好了。\n然后添加数据库用于保存识别图的数据。\nDevelop-\u0026gt;Target Manager-\u0026gt;Add Database\n进入创建好的数据库，Add Target添加识别图。\n拍一张照上传，选择Single Image，Width的默认单位是米，我输入的是0.1。识别图就是之后你的摄像头拍到这个东西，就会执行你定义好的操作。\n上传之后会生成识别图的特征点数据包，Vuforia还会为你的识别图打分，星级越高说明识别效果越好。\n以下关于图像星级的说明引用自CSDN的Wonderful_sky师兄，感谢。\n 图像的星级 我们会注意到将识别图上传到数据库时，target项右侧会有星级显示，星级越高代表识别图的质量越高。你可能会问，何为识别图质量？识别图质量有什么用？答案是，你踩过坑之后就知道了。经试验，影响识别图最主要的因素就是待识别图的对比度，这里应该要极力避免使用有很多连续相同或相似大色块的图片，因为分析识别图特征点的原理是 根据色块边缘 来决定的，色彩变化越丰富，色块边缘、棱角就越多（如果棱角分布均匀且每个色块都很小那就再好不过了），进而特征点就越多，而特征点越多就意味着识别图质量越高。另外，以下三点则是我总结的识别图质量最主要影响的三个方面：\n 星级越高越容易识别 星级越高识别速度越快 星级越高更不容易出现抖动   下载数据库，Download Database-\u0026gt;Unity Editor，得到一个Unity包，之后用到。\n回到Unity中，Resources-\u0026gt;VuforiaConfiguration，复制之前的License Key粘贴到App License Key中。\n现在鼠标右键-\u0026gt;创建游戏对象，有了Vuforia Engine，创建一个ARCamera和一个ImageTarget。将之前下载的数据库包导入，上图中的Databases属性会变成你的数据库，并且新版本会自动加载，不用再做设置。接下来选中ImageTarget，设置你要是用的识别图，如果自己拍的效果不够好，也可以在网上下载。\n另外，虚拟按钮集成到了ImageTarget-\u0026gt;Advanced里，点击添加虚拟按钮后就会在ImageTarget下生成子对象。\n需要注意的是，虚拟按钮必须放在识别图内，因为虚拟按钮的原理是根据识别图被遮挡的特征点是否在此按钮范围内来判断按钮是否被按下。\n下方两个大的色块是虚拟按钮，而两个小的色块是Plane，用来在运行时提示这里有按钮。\n代码实现 脚本挂在ImageTarget上，先找到子对象中所有按钮，然后根据按钮名字来判断执行什么功能。\npublic class ButtonTest : MonoBehaviour, IVirtualButtonEventHandler { private GameObject sphere; void Start() { VirtualButtonBehaviour[] vbs = GetComponentsInChildren\u0026lt;VirtualButtonBehaviour\u0026gt;(); for (int i = 0; i \u0026lt; vbs.",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-19 13:02:33 \x2b0800 CST",
-    "dateModified" : "2019-12-19 13:02:33 \x2b0800 CST",
+    "datePublished": "2019-12-19 13:02:33 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-19 13:02:33 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F\/",
     "wordCount" : "146",
     "keywords" : [ "Unity3d","AR", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -131,11 +129,6 @@
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -156,30 +149,30 @@
           
           
 
-          <h1 id="ar">简单AR学习</h1>
-<h2 id="heading">作业要求</h2>
+          <h1 id="简单ar学习">简单AR学习</h1>
+<h2 id="作业要求">作业要求</h2>
 <p>1、 图片识别与建模</p>
 <p>2、 虚拟按键小游戏</p>
-<h2 id="heading1">项目地址</h2>
+<h2 id="项目地址">项目地址</h2>
 <p><a href="https://github.com/Tifinity/Unity3D-Learning/tree/master/%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%EF%BC%9A%E7%AE%80%E5%8D%95AR">Github</a></p>
-<h2 id="heading2">实现效果</h2>
+<h2 id="实现效果">实现效果</h2>
 <p><a href="https://www.bilibili.com/video/av79825685/">Bilibili</a></p>
-<h2 id="heading3">准备工作</h2>
-<h3 id="javaandroidsdk">安装Java和AndroidSDK</h3>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="安装java和androidsdk">安装Java和AndroidSDK</h3>
 <p>要导出到安卓手机的话需要进行环境的配置，过程比较麻烦，如果只是在电脑上运行的话不需要进行这一步。</p>
 <p>安装Java：<a href="https://www.java.com/zh_CN/">官网</a></p>
 <p>安装android sdk:<a href="https://blog.csdn.net/Akatsuki__Itachi/article/details/90813230">一个博客</a></p>
-<h3 id="vuforia">使用Vuforia</h3>
+<h3 id="使用vuforia">使用Vuforia</h3>
 <p><a href="https://developer.vuforia.com">Vuforia官网</a></p>
 <p><a href="https://library.vuforia.com/articles/Training/getting-started-with-vuforia-in-unity.html">Vuforia官方文档</a></p>
-<h3 id="unity3dandroid">在Unity3D中安装Android平台支持</h3>
+<h3 id="在unity3d中安装android平台支持">在Unity3D中安装Android平台支持</h3>
 <p>文件-&gt;Build Setting，选择Android，点击切换平台。</p>
 <p>如果没有会有下载按钮，下载安装即可。</p>
-<h3 id="unity3dvuforia">在Unity3D中安装Vuforia支持</h3>
+<h3 id="在unity3d中安装vuforia支持">在Unity3D中安装Vuforia支持</h3>
 <p>文件-&gt;Build Settings-&gt;Android-&gt;切换平台-&gt;PlaySettings-&gt;XR设置</p>
 <p>在这里勾选”支持虚拟现实“，SDKs中添加Vuforia，如果没有下方会有下载按钮，下载安装即可。</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/Unity3D/hw11/image-20191218200028135.png" alt="image-20191218200028135"></p>
-<h3 id="heading4">申请密钥</h3>
+<h3 id="申请密钥">申请密钥</h3>
 <p>右上角注册-&gt;Develop-&gt;LicenseManager-&gt;Get Development Key，免费开发者每个月可以扫描1000次。</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/Unity3D/hw11/image-20191218144125699.png" alt="image-20191218144125699"></p>
 <p>随便输入一个LicenseName，下面打勾，然后Confirm即可。</p>
@@ -214,9 +207,9 @@
 <p>需要注意的是，虚拟按钮必须放在识别图内，因为虚拟按钮的原理是根据识别图被遮挡的特征点是否在此按钮范围内来判断按钮是否被按下。</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/Unity3D/hw11/image-20191219134206119.png" alt="image-20191219134206119"></p>
 <p>下方两个大的色块是虚拟按钮，而两个小的色块是Plane，用来在运行时提示这里有按钮。</p>
-<h3 id="heading5">代码实现</h3>
+<h3 id="代码实现">代码实现</h3>
 <p>脚本挂在ImageTarget上，先找到子对象中所有按钮，然后根据按钮名字来判断执行什么功能。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ButtonTest</span> : MonoBehaviour, IVirtualButtonEventHandler { 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ButtonTest</span> : MonoBehaviour, IVirtualButtonEventHandler { 
     <span style="color:#66d9ef">private</span> GameObject sphere;
     <span style="color:#66d9ef">void</span> Start() {
         VirtualButtonBehaviour[] vbs = GetComponentsInChildren&lt;VirtualButtonBehaviour&gt;(); 
@@ -306,28 +299,6 @@
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -335,7 +306,7 @@
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -345,14 +316,7 @@
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

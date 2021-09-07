@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Docker学习",
     "headline" : "Docker学习",
-    "description" : "Docker学习 准备Docker环境 安装Docker：\n  Community Edition CE 社区版\n  Enterprise Edition EE 企业版\n  我们就安装社区版。\n避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见Docker官方文档。\nsudo groupadd docker sudo usermod -aG docker $USER 重启电脑 或者执行 newgrp docker  激活对组的更改。\nDocker是CS架构，与MySQL一样，需要本机启动服务：\nsudo service docker start sudo systemctl start docker 执行docker version检查版本信息。\n镜像 Image 查看本地所有镜像： # 列出本机的所有 image 文件。 docker image ls # 或者 docker images 修改默认仓库： 官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。\n打开\/etc\/default\/docker加上：\nDOCKER_OPTS=\x26#34;--registry-mirror=https:\/\/registry.docker-cn.com\x26#34; 然后重启docker服务\nsudo service docker restart 其他 在默认仓库搜索镜像：\ndocker search \x26lt;name\x26gt; 拉取镜像：",
+    "description" : "Docker学习 准备Docker环境 安装Docker：\n  Community Edition CE 社区版\n  Enterprise Edition EE 企业版\n  我们就安装社区版。\n避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见Docker官方文档。\nsudo groupadd docker sudo usermod -aG docker $USER 重启电脑 或者执行 newgrp docker  激活对组的更改。\nDocker是CS架构，与MySQL一样，需要本机启动服务：\nsudo service docker start sudo systemctl start docker 执行docker version检查版本信息。\n镜像 Image 查看本地所有镜像： # 列出本机的所有 image 文件。 docker image ls # 或者 docker images 修改默认仓库： 官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。\n打开\/etc\/default\/docker加上：\nDOCKER_OPTS=\u0026#34;--registry-mirror=https:\/\/registry.docker-cn.com\u0026#34; 然后重启docker服务\nsudo service docker restart 其他 在默认仓库搜索镜像：\ndocker search \u0026lt;name\u0026gt; 拉取镜像：",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-17 00:01:28 \x2b0800 CST",
-    "dateModified" : "2019-12-17 00:01:28 \x2b0800 CST",
+    "datePublished": "2019-12-17 00:01:28 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-17 00:01:28 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/docker%E5%AD%A6%E4%B9%A0\/",
     "wordCount" : "221",
     "keywords" : [ "Docker", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -131,11 +129,6 @@
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">300 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -155,8 +148,8 @@
           
           
 
-          <h1 id="docker">Docker学习</h1>
-<h2 id="docker1">准备Docker环境</h2>
+          <h1 id="docker学习">Docker学习</h1>
+<h2 id="准备docker环境">准备Docker环境</h2>
 <p>安装Docker：</p>
 <ul>
 <li>
@@ -168,45 +161,45 @@
 </ul>
 <p>我们就安装社区版。</p>
 <p>避免每次执行docker命令时sudo，将当前用户加入docker用户组，参见<a href="https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user">Docker官方文档</a>。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo groupadd docker
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo groupadd docker
 sudo usermod -aG docker $USER
 </code></pre></div><p>重启电脑 或者执行 <code>newgrp docker </code> 激活对组的更改。</p>
 <p>Docker是CS架构，与MySQL一样，需要本机启动服务：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service docker start
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service docker start
 sudo systemctl start docker
 </code></pre></div><p>执行<code>docker  version</code>检查版本信息。</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216145811800.png" alt="image-20191216145811800"></p>
-<h2 id="-image">镜像 Image</h2>
-<h3 id="heading">查看本地所有镜像：</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 列出本机的所有 image 文件。</span>
+<h2 id="镜像-image">镜像 Image</h2>
+<h3 id="查看本地所有镜像">查看本地所有镜像：</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 列出本机的所有 image 文件。</span>
 docker image ls
 <span style="color:#75715e"># 或者</span>
 docker images
 </code></pre></div><p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216151535379.png" alt="image-20191216151535379"></p>
-<h3 id="heading1">修改默认仓库：</h3>
+<h3 id="修改默认仓库">修改默认仓库：</h3>
 <p>官方仓库的下载速度可能比较慢，所以我们可以修改为国内镜像仓库。</p>
 <p>打开<code>/etc/default/docker</code>加上：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">DOCKER_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--registry-mirror=https://registry.docker-cn.com&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">DOCKER_OPTS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--registry-mirror=https://registry.docker-cn.com&#34;</span>
 </code></pre></div><p>然后重启docker服务</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service docker restart
-</code></pre></div><h3 id="heading2">其他</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo service docker restart
+</code></pre></div><h3 id="其他">其他</h3>
 <p>在默认仓库搜索镜像：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search &lt;name&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search &lt;name&gt;
 </code></pre></div><p>拉取镜像：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull &lt;name+tag&gt;
-</code></pre></div><h2 id="-container">容器 Container</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull &lt;name+tag&gt;
+</code></pre></div><h2 id="容器-container">容器 Container</h2>
 <p>镜像与容器就像程序与进程。</p>
 <p>运行第一个image，hello-world：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run hello-world
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run hello-world
 </code></pre></div><p>Dokcer会在本地目录<code>/var/docker/image</code>查找要运行的镜像文件，如果没有会自动从DockerHub下载。</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216150612578.png" alt="image-20191216150612578"></p>
 <p>hello-world做的事情就是简单输出一些信息，然后就自动中止。</p>
 <p>运行另一个镜像：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># --rm表示容器退出时自动删除，-it会创建一个虚拟终端让你可以在容器内进行操作。</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># --rm表示容器退出时自动删除，-it会创建一个虚拟终端让你可以在容器内进行操作。</span>
 docker run --rm -it pytorch/pytorch
 </code></pre></div><p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216164147004.png" alt="image-20191216164147004"></p>
-<h3 id="heading3">其他</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 显示运行中的容器</span>
+<h3 id="其他-1">其他</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 显示运行中的容器</span>
 docker ps
 <span style="color:#75715e"># 显示所有容器（包括中止的）</span>
 docker ps -a
@@ -214,10 +207,10 @@ docker ps -a
 docker restart &lt;name&gt;
 <span style="color:#75715e"># 进入正在运行的容器，在容器中使用exit退出</span>
 docker attach &lt;name&gt;
-</code></pre></div><h2 id="-dockerfile">描述文件 Dockerfile</h2>
+</code></pre></div><h2 id="描述文件-dockerfile">描述文件 Dockerfile</h2>
 <p>Dockerfile就像Makefile。</p>
 <p>这是一个Danjgo后端的Dockerfile。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> python:3.6</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> python:3.6</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> DATABASE_USERNAME xxx<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> DATABASE_PASSWORD xxx<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> DATABASE_ADDRESS xxx<span style="color:#960050;background-color:#1e0010">
@@ -229,7 +222,7 @@ docker attach &lt;name&gt;
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r ../requirements.txt<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 9003</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;python3&#34;</span>, <span style="color:#e6db74">&#34;manage.py&#34;</span>, <span style="color:#e6db74">&#34;runserver&#34;</span>,<span style="color:#e6db74">&#34;0.0.0.0:9003&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
 </span></code></pre></div><ul>
 <li>FROM：一般构建一个image是在一个已有的image上添加层，FROM 后面的参数表示指定基础镜像，可以用scratch来指定空白镜像。</li>
 <li>ENV：设置容器内环境变量。</li>
@@ -243,40 +236,40 @@ docker attach &lt;name&gt;
 <li>CMD：运行容器之后执行的命令。</li>
 </ul>
 <p>执行：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># -t参数指定镜像名</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># -t参数指定镜像名</span>
 docker build -t test
 </code></pre></div><p>新的test镜像就构建好了。</p>
 <p>目前只会最基础的使用，还在学习中。</p>
 <p><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile官方文档</a></p>
 <h2 id="docker-compose">Docker compose</h2>
-<h3 id="dockercompose">安装docker-compose工具</h3>
+<h3 id="安装docker-compose工具">安装docker-compose工具</h3>
 <p>由于墙的存在，crul太慢，所以使用pip方式a安装</p>
 <p>Ubuntu下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install python-pip
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install python-pip
 sudo pip install docker-compose
 docker-compose --version
 </code></pre></div><p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191216152900453.png" alt="image-20191216152900453"></p>
 <p>docker-compose根据目录下的.yml文件管理多个docker容器之间的关系，组成一个应用。</p>
 <p>比如下面这个mysql+wordpress的例子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># test.yml</span>
-mysql:
-    image: mysql:<span style="color:#ae81ff">5.7</span>
-    environment:
-     - MYSQL_ROOT_PASSWORD=tianHAOyuQI361
-     - MYSQL_DATABASE=wordpress
-web:
-    image: wordpress
-    links:
-     - mysql
-    environment:
-     - WORDPRESS_DB_PASSWORD=tianHAOyuQI361
-    ports:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># test.yml</span>
+<span style="color:#f92672">mysql</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">mysql:5.7</span>
+    <span style="color:#f92672">environment</span>:
+     - <span style="color:#ae81ff">MYSQL_ROOT_PASSWORD=tianHAOyuQI361</span>
+     - <span style="color:#ae81ff">MYSQL_DATABASE=wordpress</span>
+<span style="color:#f92672">web</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">wordpress</span>
+    <span style="color:#f92672">links</span>:
+     - <span style="color:#ae81ff">mysql</span>
+    <span style="color:#f92672">environment</span>:
+     - <span style="color:#ae81ff">WORDPRESS_DB_PASSWORD=tianHAOyuQI361</span>
+    <span style="color:#f92672">ports</span>:
      - <span style="color:#e6db74">&#34;127.0.0.3:8080:80&#34;</span>
-    working_dir: /var/www/html
-    volumes:
-     - wordpress:/var/www/html
+    <span style="color:#f92672">working_dir</span>: <span style="color:#ae81ff">/var/www/html</span>
+    <span style="color:#f92672">volumes</span>:
+     - <span style="color:#ae81ff">wordpress:/var/www/html</span>
 </code></pre></div><p>启动：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 启动所有服务</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 启动所有服务</span>
 $ docker-compose up
 <span style="color:#75715e"># 关闭所有服务</span>
 $ docker-compose stop
@@ -285,9 +278,9 @@ $ docker-compose stop
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/ServiceComputing/hw11/image-20191202173258746.png" alt="image-20191202173258746"></p>
 <h2 id="dockerhub">DockerHub</h2>
 <p>与github很像，image文件最常用的仓库，docker pull 下来的image放在 <code>/var/docker/image</code>。</p>
-<h2 id="docker2">Docker存储</h2>
+<h2 id="docker存储">Docker存储</h2>
 <p>还需要学习</p>
-<h2 id="docker3">Docker网络</h2>
+<h2 id="docker网络">Docker网络</h2>
 <p>还需要学习</p>
 
     </div>
@@ -344,28 +337,6 @@ $ docker-compose stop
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -373,7 +344,7 @@ $ docker-compose stop
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -383,14 +354,7 @@ $ docker-compose stop
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面经 on Infinit</title>
+    <link>http://tifinity.github.io/tags/%E9%9D%A2%E7%BB%8F/</link>
+    <description>Recent content in 面经 on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 20 Apr 2020 12:44:01 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/%E9%9D%A2%E7%BB%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>腾讯CSIG测试开发实习生面经</title>
+      <link>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</link>
+      <pubDate>Mon, 20 Apr 2020 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</guid>
+      <description>腾讯CSIG 测试开发 一面 本来投的是后台开发，然后不知道为啥被测开捞了，可能是因为提前批实习生的时间快截止了，想着好歹沾点边面面看。
+没自我介绍，直接开始。时间估计1个小时左右。还有些基础问题记不得了。
+  关于项目，聊的时间比较长，涉及微服务，Docker，MVC，Python的Django等
+  解释一下MVC。
+  你说你会用Python和Golang，哪个更熟练一点
+Python用的更多。
+  那意思就是Python很熟练咯？
+不敢说很熟练，一般熟练，基本都会，原理也懂点。
+  Python限制多线程的原因。
+GIL全局线程锁。
+  写一个程序：读入一个文件名为a.log的文件，文件内容为 “key=value” 的键值对，输出每个key的具体内容和key数量。
+用Python，乍一看比较简单，然后就写了。
+  写完之后，面试官：现在让你来测试这个程序，你会怎么测试？
+o怪不得写这么简单的东西，原来还有一手。
+因为测试的东西不太懂，就开始乱说，什么最重要的是看能不能满足需求，然后文件不存在没处理，文件里有不是这样的格式的行没处理，用‘=’把value和key分开如果value和key本身内容含有‘=’没处理等等等。
+有几个是我自己想的，然后面试官指点了几个，还说了逻辑覆盖。
+这块说了比较久，可能20分钟
+  TCP/IP有几层，分别是什么？四层，物理网络传输应用
+  HTTP是哪一层的？应用
+  有没有什么问题问我？我问了是哪个部门，是CSIG智能医疗。
+  中午十一点面试，晚上12点变成复试了。基础知识问的不多，面试内容除了那个自己写程序自己想测试之外其他的都跟后台没啥区别。
+大家冲鸭！！！
+二面   首先自我介绍。
+  说说项目，以下问题全是项目相关。
+  如果有人恶意攻击，提交对服务器有害的程序给测评机怎么办？
+说了一堆，感觉不太对。
+  用户很多，越来越多，数据库放不下用户信息怎么办？
+分布式，一个服务对一个数据库等等等。
+  用户上传的文件服务器放不下了怎么办？
+使用一个监督程序来监视服务器的硬盘容量，达到阈值则发邮件或者其他方式提醒管理员需要删除一部分或者增加硬盘容量等等等。
+然后布置了一个额外任务，在项目中实现这个功能，让我一个星期做完发邮件给面试官，不影响面试结果，当时听到这句话就感觉有点稳：
+ 监视程序 消息提醒 监视程序如何保活（保持自身稳定工作，自己不挂才能监视别人·~·）  （这边是作业链接：Linux磁盘空间监控</description>
+    </item>
+    
+  </channel>
+</rss>

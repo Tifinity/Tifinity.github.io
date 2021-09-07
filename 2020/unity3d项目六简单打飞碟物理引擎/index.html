@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D项目六：简单打飞碟（物理引擎） | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D项目六：简单打飞碟（物理引擎） | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D项目六：简单打飞碟（物理引擎）",
+    "headline" : "Unity3D项目六：简单打飞碟（物理引擎）",
+    "description" : "简单打飞碟（物理引擎） @[toc]\n游戏规则与要求  游戏内容要求：  按 adapter模式 设计图修改飞碟游戏 使它同时支持物理运动与运动学（变换）运动    附加项目 附加项目简单打靶\n项目地址与演示视频 项目地址 -\u0026gt; 传送门?\n视频连接 -\u0026gt; 传送门?\n演示视频与运动学版本无较大差别。\n具体实现 在上次作业的基础上增加使用物理引擎的动作管理类，并在场景控制器中对两个动作管理类进行选择即可。\n  首先，若要使用物理引擎，我们需要使用刚体（Rigidbody）组件，刚体组件不能通过Update()函数来刷新，Update()的调用速率默认是60次\/秒，受到机器性能和被渲染物体的影响，但是物理引擎渲染是一个固定的时间，是可以设置的。\n在Edit-\u0026gt;ProjectSetting-\u0026gt;Time: 所以对于刚体的更新我们需要用FixedUpdate()函数来实现。\n  在SSActionManager.cs中，加上FixedUpdate，使动作管理类可以适配物理引擎：\n\/\/对于字典中每一个pair，看是执行还是删除 foreach (KeyValuePair\u0026lt;int, SSAction\u0026gt; kv in actions) { SSAction ac = kv.Value; if (ac.destroy) { waitingDelete.Add(ac.GetInstanceID()); } else if (ac.enable) { ac.Update(); ac.FixedUpdate(); \/\/-----适配物理引擎  } }   在SSAction.cs中同样加上FixedUpdate()。\npublic virtual void Update() { throw new System.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 00:21:16 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 00:21:16 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E\/",
+    "wordCount" : "231",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D项目六：简单打飞碟（物理引擎）</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="简单打飞碟物理引擎">简单打飞碟（物理引擎）</h1>
+<p>@[toc]</p>
+<h2 id="游戏规则与要求">游戏规则与要求</h2>
+<ul>
+<li>游戏内容要求：
+<ol>
+<li>按 <em>adapter模式</em> 设计图修改飞碟游戏</li>
+<li>使它同时支持物理运动与运动学（变换）运动</li>
+</ol>
+</li>
+</ul>
+<h2 id="附加项目">附加项目</h2>
+<p><a href="https://blog.csdn.net/Tifinity/article/details/102617434">附加项目简单打靶</a></p>
+<h2 id="项目地址与演示视频">项目地址与演示视频</h2>
+<p>项目地址 -&gt; <a href="https://github.com/Tifinity/Unity3DStudy-master/tree/master/%E9%A1%B9%E7%9B%AE%E5%85%AD%EF%BC%9A%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%EF%BC%88%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E%EF%BC%89">传送门?</a></p>
+<p>视频连接 -&gt; <a href="https://www.bilibili.com/video/av70636842/">传送门?</a></p>
+<p>演示视频与运动学版本无较大差别。</p>
+<h2 id="具体实现">具体实现</h2>
+<p>在上次作业的基础上增加使用物理引擎的动作管理类，并在场景控制器中对两个动作管理类进行选择即可。</p>
+<ul>
+<li>
+<p>首先，若要使用物理引擎，我们需要使用刚体（Rigidbody）组件，刚体组件不能通过Update()函数来刷新，Update()的调用速率默认是60次/秒，受到机器性能和被渲染物体的影响，但是物理引擎渲染是一个固定的时间，是可以设置的。</p>
+<p>在Edit-&gt;ProjectSetting-&gt;Time:
+<img src="https://img-blog.csdnimg.cn/20191017125012395.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>所以对于刚体的更新我们需要用FixedUpdate()函数来实现。</p>
+</li>
+<li>
+<p>在SSActionManager.cs中，加上FixedUpdate，使动作管理类可以适配物理引擎：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">//对于字典中每一个pair，看是执行还是删除
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">foreach</span> (KeyValuePair&lt;<span style="color:#66d9ef">int</span>, SSAction&gt; kv <span style="color:#66d9ef">in</span> actions) {
+    SSAction ac = kv.Value;
+    <span style="color:#66d9ef">if</span> (ac.destroy) {
+        waitingDelete.Add(ac.GetInstanceID());
+    }
+    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (ac.enable) {
+        ac.Update();
+        ac.FixedUpdate(); <span style="color:#75715e">//-----适配物理引擎
+</span><span style="color:#75715e"></span>    }
+}
+</code></pre></div></li>
+<li>
+<p>在SSAction.cs中同样加上FixedUpdate()。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Update() {
+    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> System.NotImplementedException();
+}
+<span style="color:#75715e">//-----适配物理引擎
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> FixedUpdate() {
+    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> System.NotImplementedException();
+}
+</code></pre></div></li>
+<li>
+<p>PhysisDiskFlyAction.cs</p>
+<p>与DiskFlyAction大同小异，将所有操作都放进FixedUpdate()，当飞碟落到屏幕外时将飞碟的速度清空。Start()中对飞碟施加一个冲击力（Impulse）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PhysisDiskFlyAction</span> : SSAction {
+    <span style="color:#66d9ef">private</span> Vector3 start_vector;                              
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> power;
+    <span style="color:#66d9ef">private</span> PhysisDiskFlyAction() { }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> PhysisDiskFlyAction GetSSAction(<span style="color:#66d9ef">int</span> lor, <span style="color:#66d9ef">float</span> power) {
+        PhysisDiskFlyAction action = CreateInstance&lt;PhysisDiskFlyAction&gt;();
+        <span style="color:#66d9ef">if</span> (lor == -<span style="color:#ae81ff">1</span>) action.start_vector = Vector3.left * power;
+        <span style="color:#66d9ef">else</span> action.start_vector = Vector3.right * power;
+        action.power = power;
+        <span style="color:#66d9ef">return</span> action;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Update() { }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> FixedUpdate() {
+        <span style="color:#66d9ef">if</span> (transform.position.y &lt;= -<span style="color:#ae81ff">10f</span>) {
+            gameobject.GetComponent&lt;Rigidbody&gt;().velocity = <span style="color:#66d9ef">new</span> Vector3(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+            <span style="color:#66d9ef">this</span>.destroy = <span style="color:#66d9ef">true</span>;
+            <span style="color:#66d9ef">this</span>.callback.SSActionEvent(<span style="color:#66d9ef">this</span>);
+        }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Start() {
+        gameobject.GetComponent&lt;Rigidbody&gt;().AddForce(start_vector*<span style="color:#ae81ff">3</span>, ForceMode.Impulse);
+    }
+}
+</code></pre></div></li>
+<li>
+<p>FlyActionManager.cs</p>
+<p>在动作管理器中加上使用物理引擎的动作并重载DiskFly函数，当不使用物理引擎时启用isKinematic运动学变换，当使用物理引擎时关闭运动学变换：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">//飞碟飞行
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> DiskFly(GameObject disk, <span style="color:#66d9ef">float</span> angle, <span style="color:#66d9ef">float</span> power) {
+    disk.GetComponent&lt;Rigidbody&gt;().isKinematic = <span style="color:#66d9ef">true</span>;
+    <span style="color:#66d9ef">int</span> lor = <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">if</span> (disk.transform.position.x &gt; <span style="color:#ae81ff">0</span>) lor = -<span style="color:#ae81ff">1</span>;
+    fly = DiskFlyAction.GetSSAction(lor, angle, power);
+    <span style="color:#66d9ef">this</span>.RunAction(disk, fly, <span style="color:#66d9ef">this</span>);
+}
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> DiskFly(GameObject disk, <span style="color:#66d9ef">float</span> power) {
+    disk.GetComponent&lt;Rigidbody&gt;().isKinematic = <span style="color:#66d9ef">false</span>;
+    <span style="color:#66d9ef">int</span> lor = <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">if</span> (disk.transform.position.x &gt; <span style="color:#ae81ff">0</span>) lor = -<span style="color:#ae81ff">1</span>;
+    fly_ph = PhysisDiskFlyAction.GetSSAction(lor, power);
+    <span style="color:#66d9ef">this</span>.RunAction(disk, fly_ph, <span style="color:#66d9ef">this</span>);
+}
+</code></pre></div></li>
+<li>
+<p>最后给飞碟的预制体加上刚体组件即可，其他代码都不需要改动。</p>
+</li>
+<li>
+<p>在FirstController中可切换：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">action_manager.DiskFly(disk, angle, power);<span style="color:#75715e">//运动学变换
+</span><span style="color:#75715e">//action_manager.DiskFly(disk, power);//物理引擎
+</span></code></pre></div></li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>本次作业主要是了解了物理引擎在Unity3D中的使用，包括FixedUpdate函数，刚体组件，对游戏对象速度和力的操作，使用物理引擎就不需要模拟运动学的位置变换，使用复杂的公式计算。总的来说过程比较顺利，没有太大的阻碍。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/" class="prev" rel="prev" title="Unity3D项目六：简单打靶"><i class="iconfont icon-left"></i>&nbsp;Unity3D项目六：简单打靶</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/" class="next" rel="next" title="Unity3D项目五：简单打飞碟">Unity3D项目五：简单打飞碟&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

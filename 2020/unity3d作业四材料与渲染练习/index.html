@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D作业四：材料与渲染练习 | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D作业四：材料与渲染练习 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D作业四：材料与渲染练习",
+    "headline" : "Unity3D作业四：材料与渲染练习",
+    "description" : "材料与渲染练习 先在这里推荐一个纹理材质的网站 -\u0026gt; ?\n现在开始我的学习过程ヽ(✿ﾟ▽ﾟ)ノ\n首先在网站上随便找了一块免费的石头\n往下可以看到一共有五张贴图。\n选择分辨率为Medium（1024*1024），全部下载并放进Unity3D的素材中。\n我们一张一张的来，创建一个新的材质球和一个球体对象。首先是Albedo贴图，将其拖到Albedo属性左边的贴图框中，球体变成了这个样子。因为这块石头的纹理比较简单，看起来就像一个黑色的球，仔细看能够看到它的纹路细节。Albedo贴图其实就是一张RGB的图片，你也可以点击Albedo右边的颜色编辑器来创建一个纯色的贴图。\n这样的材质未必太过简陋，那么那些逼真复杂的纹理是怎么创建的呢，我们先不管金属度和平滑度，往下看︿(￣︶￣)︿\n把Normal贴图加上，就是那张看起来是蓝紫色的。球体变成了这样，有了凹凸的纹理，更加逼真了。不过这个高低差不是真的，你会发现边缘还是一个完整的正圆形，说明其实没有真的凹下去或者凸出来，只是视觉上的效果。\n下面放上官网的法线贴图效果：\n然后我们加上高度贴图，这里有一个问题，高度贴图是灰度图，如果下载的格式是TIF，那么导入进Unity3D会变成天蓝色，需要用PS或者别的软件转一下格式为JPG才正常。\n这个素材加上高度贴图的效果感觉不是很明显，就不放图了，可以看官网的对比。\n关于法线贴图和高度贴图的异同点详见：?\n现在该Ambient Occlusion了，一般称为ao贴图，翻译为环境遮挡，加上之后可以看到更明显的阴影，下图左为无ao，右为有ao，可以看到沟壑的颜色明显变深了。\n还以最后一张，roughness贴图，在unity3D中想要使用的话需要做一些处理。因为我们的贴图是“粗糙度”，而unity中只有“平滑度”，并且为了节约资源，平滑度其实就是金属度的Alpha通道的值，需要用图像处理软件进行处理，所以此次我们暂时不使用roughness贴图了。\n那么现在我们回到金属度和平滑度。我们都知道金属度控制材质表面金属感的程度，平滑度控制材质表面从橡胶到玻璃的光滑程度。\n为了金属度的效果更加明显，我们将材质球换成纯白色。将材质球的金属度盒平滑度都拉到最高，你可以看到球体上“反射”出了天空盒，但是这真的是像现实一样的反射吗？\n进入菜单栏-\u0026gt;窗口-\u0026gt;渲染-\u0026gt;照明设置，在环境照明中将源改为红色，环境反射改为自定义，并在贴图中选择原来的天空盒。\n发生了什么？即使天上没有天空盒，球体上也出现了反射的天空！\n其实，金属度的本质就是环境照明和环境反射的比例，而平滑度控制金属度的Alpha通道即透明度。\n再随便调一调金属度和平滑度看看效果：\n    金属度 平滑度     左上 0 0   左下 1 0   右上 0 1   右下 1 1    那么本次材料与渲染练习就到此为止了，继续努力吧**·~·**",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 01:23:49 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 01:23:49 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0\/",
+    "wordCount" : "39",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D作业四：材料与渲染练习</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="材料与渲染练习">材料与渲染练习</h1>
+<p>先在这里推荐一个纹理材质的网站 -&gt; <a href="https://www.textures.com/download/pbr0233/133289">?</a></p>
+<p>现在开始我的学习过程ヽ(✿ﾟ▽ﾟ)ノ</p>
+<p>首先在网站上随便找了一块免费的石头</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927150918643.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>往下可以看到一共有五张贴图。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927150928848.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>选择分辨率为Medium（1024*1024），全部下载并放进Unity3D的素材中。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927150938937.jpg" alt="在这里插入图片描述"></p>
+<p>我们一张一张的来，创建一个新的材质球和一个球体对象。首先是Albedo贴图，将其拖到Albedo属性左边的贴图框中，球体变成了这个样子。因为这块石头的纹理比较简单，看起来就像一个黑色的球，仔细看能够看到它的纹路细节。Albedo贴图其实就是一张RGB的图片，你也可以点击Albedo右边的颜色编辑器来创建一个纯色的贴图。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927150952684.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">
+这样的材质未必太过简陋，那么那些逼真复杂的纹理是怎么创建的呢，我们先不管金属度和平滑度，往下看︿(￣︶￣)︿</p>
+<p>把Normal贴图加上，就是那张看起来是蓝紫色的。球体变成了这样，有了凹凸的纹理，更加逼真了。不过这个高低差不是真的，你会发现边缘还是一个完整的正圆形，说明其实没有真的凹下去或者凸出来，只是视觉上的效果。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151002134.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>下面放上官网的法线贴图效果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151015804.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>然后我们加上高度贴图，这里有一个问题，高度贴图是灰度图，如果下载的格式是TIF，那么导入进Unity3D会变成天蓝色，需要用PS或者别的软件转一下格式为JPG才正常。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151032836.jpg" alt="在这里插入图片描述"></p>
+<p>这个素材加上高度贴图的效果感觉不是很明显，就不放图了，可以看官网的对比。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151040631.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>关于法线贴图和高度贴图的异同点详见：<a href="http://www.manew.com/thread-90210-1-1.html">?</a></p>
+<p>现在该Ambient Occlusion了，一般称为ao贴图，翻译为环境遮挡，加上之后可以看到更明显的阴影，下图左为无ao，右为有ao，可以看到沟壑的颜色明显变深了。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151050839.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>还以最后一张，roughness贴图，在unity3D中想要使用的话需要做一些处理。因为我们的贴图是“粗糙度”，而unity中只有“平滑度”，并且为了节约资源，平滑度其实就是金属度的Alpha通道的值，需要用图像处理软件进行处理，所以此次我们暂时不使用roughness贴图了。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151100703.jpg" alt="在这里插入图片描述"></p>
+<p>那么现在我们回到金属度和平滑度。我们都知道金属度控制材质表面金属感的程度，平滑度控制材质表面从橡胶到玻璃的光滑程度。</p>
+<p>为了金属度的效果更加明显，我们将材质球换成纯白色。将材质球的金属度盒平滑度都拉到最高，你可以看到球体上“反射”出了天空盒，但是这真的是像现实一样的反射吗？</p>
+<p>进入菜单栏-&gt;窗口-&gt;渲染-&gt;照明设置，在环境照明中将源改为红色，环境反射改为自定义，并在贴图中选择原来的天空盒。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151149543.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>发生了什么？即使天上没有天空盒，球体上也出现了反射的天空！</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151125693.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>其实，金属度的本质就是环境照明和环境反射的比例，而平滑度控制金属度的Alpha通道即透明度。</p>
+<p>再随便调一调金属度和平滑度看看效果：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190927151213696.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-mnDSzpMd-1569568101639)(T:\TH\大三上\3D游戏设计\4游戏对象与图形基础\材料与渲染练习\images\调整.jpg)\]"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>金属度</th>
+<th>平滑度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左上</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>左下</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>右上</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>右下</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>那么本次材料与渲染练习就到此为止了，继续努力吧**·~·**</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/" class="prev" rel="prev" title="Unity3D作业三：空间与运动"><i class="iconfont icon-left"></i>&nbsp;Unity3D作业三：空间与运动</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/" class="next" rel="next" title="Unity3D作业五：游戏对象与图形基础">Unity3D作业五：游戏对象与图形基础&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

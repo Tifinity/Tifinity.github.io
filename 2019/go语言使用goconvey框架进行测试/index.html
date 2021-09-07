@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Go语言使用GoConvey框架进行测试",
     "headline" : "Go语言使用GoConvey框架进行测试",
-    "description" : "Go语言使用GoConvey框架进行测试 本周作业为在go-online上完成一个最小堆算法，在完成之后我使用GoConvey进行测试。\n要想写出好的的代码，必须学会测试框架，对于golang，可以使用自带的go test测试，也可以使用其他框架如\nGoConvey，GoStub，GoMock，Monkey，本次我学习使用GoConvey。\n安装GoConvey go get github.com\/smartystreets\/goconvey 需要等待较长的一段时间，然后查看$GOPATH\/src\/github.com目录下增加了smartystreets文件夹即可。\n使用GoConvey 将作业代码复制到go工作空间中命名为myheap.go，并且在同一目录下创建myheap_test.go。\n先go build或者go install生成包，不需main主函数。因为要测试的函数需要有返回值，所以简单修改一下作业中的函数，将nodes返回。\nmyheap_test.go文件如下：\npackage myheap import ( \x26#34;testing\x26#34; . \x26#34;github.com\/smartystreets\/goconvey\/convey\x26#34; ) func TestInit(t *testing.T) { Convey(\x26#34;test\x26#34;, t, func() { nodes := []Node{ Node{3}, Node{6}, Node{9}, Node{1}, Node{2}, Node{5}, Node{8}, Node{4}, Node{7}, } Convey(\x26#34;Test Init()\x26#34;, func(){ So(Init(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) nodes = Init(nodes) Convey(\x26#34;Test Push()\x26#34;, func(){ So(Push(Node{0}, nodes), ShouldResemble, []Node{ Node{0}, Node{1}, Node{5}, Node{4}, Node{2}, Node{9}, Node{8}, Node{6}, Node{7}, Node{3}, }) }) nodes = Push(Node{0}, nodes) Convey(\x26#34;Test Pop()\x26#34;, func(){ So(Pop(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) }) } myheap.",
+    "description" : "Go语言使用GoConvey框架进行测试 本周作业为在go-online上完成一个最小堆算法，在完成之后我使用GoConvey进行测试。\n要想写出好的的代码，必须学会测试框架，对于golang，可以使用自带的go test测试，也可以使用其他框架如\nGoConvey，GoStub，GoMock，Monkey，本次我学习使用GoConvey。\n安装GoConvey go get github.com\/smartystreets\/goconvey 需要等待较长的一段时间，然后查看$GOPATH\/src\/github.com目录下增加了smartystreets文件夹即可。\n使用GoConvey 将作业代码复制到go工作空间中命名为myheap.go，并且在同一目录下创建myheap_test.go。\n先go build或者go install生成包，不需main主函数。因为要测试的函数需要有返回值，所以简单修改一下作业中的函数，将nodes返回。\nmyheap_test.go文件如下：\npackage myheap import ( \u0026#34;testing\u0026#34; . \u0026#34;github.com\/smartystreets\/goconvey\/convey\u0026#34; ) func TestInit(t *testing.T) { Convey(\u0026#34;test\u0026#34;, t, func() { nodes := []Node{ Node{3}, Node{6}, Node{9}, Node{1}, Node{2}, Node{5}, Node{8}, Node{4}, Node{7}, } Convey(\u0026#34;Test Init()\u0026#34;, func(){ So(Init(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) nodes = Init(nodes) Convey(\u0026#34;Test Push()\u0026#34;, func(){ So(Push(Node{0}, nodes), ShouldResemble, []Node{ Node{0}, Node{1}, Node{5}, Node{4}, Node{2}, Node{9}, Node{8}, Node{6}, Node{7}, Node{3}, }) }) nodes = Push(Node{0}, nodes) Convey(\u0026#34;Test Pop()\u0026#34;, func(){ So(Pop(nodes), ShouldResemble, []Node{ Node{1}, Node{2}, Node{5}, Node{4}, Node{3}, Node{9}, Node{8}, Node{6}, Node{7}, }) }) }) } myheap.",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-18 11:15:59 \x2b0800 CST",
-    "dateModified" : "2019-12-18 11:15:59 \x2b0800 CST",
+    "datePublished": "2019-12-18 11:15:59 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-18 11:15:59 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95\/",
     "wordCount" : "365",
     "keywords" : [ "Go", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -131,11 +129,6 @@
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">400 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -155,19 +148,19 @@
           
           
 
-          <h1 id="gogoconvey">Go语言使用GoConvey框架进行测试</h1>
+          <h1 id="go语言使用goconvey框架进行测试">Go语言使用GoConvey框架进行测试</h1>
 <p>本周作业为在go-online上完成一个最小堆算法，在完成之后我使用GoConvey进行测试。</p>
 <p>要想写出好的的代码，必须学会测试框架，对于golang，可以使用自带的<code>go test</code>测试，也可以使用其他框架如</p>
 <p>GoConvey，GoStub，GoMock，Monkey，本次我学习使用GoConvey。</p>
-<h3 id="goconvey">安装GoConvey</h3>
-<pre><code>go get github.com/smartystreets/goconvey
+<h3 id="安装goconvey">安装GoConvey</h3>
+<pre tabindex="0"><code>go get github.com/smartystreets/goconvey
 </code></pre><p>需要等待较长的一段时间，然后查看<code>$GOPATH/src/github.com</code>目录下增加了<code>smartystreets</code>文件夹即可。</p>
-<h3 id="goconvey1">使用GoConvey</h3>
+<h3 id="使用goconvey">使用GoConvey</h3>
 <p>将作业代码复制到go工作空间中命名为<code>myheap.go</code>，并且在同一目录下创建<code>myheap_test.go</code>。</p>
 <p><img src="https://img-blog.csdnimg.cn/20190924171326479.png" alt="在这里插入图片描述"></p>
 <p>先<code>go build</code>或者<code>go install</code>生成包，不需main主函数。因为要测试的函数需要有返回值，所以简单修改一下作业中的函数，将nodes返回。</p>
 <p>myheap_test.go文件如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">myheap</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">myheap</span>
 
 <span style="color:#f92672">import</span> (
     <span style="color:#e6db74">&#34;testing&#34;</span>
@@ -237,7 +230,7 @@
 	})
 }
 </code></pre></div><p>myheap.go文件如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">myheap</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">myheap</span>
 
 <span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
 
@@ -388,28 +381,6 @@
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -417,7 +388,7 @@
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -427,14 +398,7 @@
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

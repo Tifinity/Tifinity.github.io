@@ -6,10 +6,432 @@
     <description>Recent content in Posts on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 07 Sep 2021 10:21:24 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Drone如何使用GIT&#43;SSH</title>
+      <link>http://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</link>
+      <pubDate>Tue, 07 Sep 2021 10:21:24 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</guid>
+      <description>Drone如何使用GIT+SSH  慎终如始，则无败事。 ——《道德经》
+ 在本文开始之前，我已经按官网的说明将 drone server 和 runner 都成功的部署在自己的服务器上。部署完之后创建了一条更新 github.io 的流水线，然而现在 github 的 https 通道弱不禁风，跑十次“失联”九次，所以需要换成用 ssh 来 git clone 和 push。
+我们都知道 CI 流水线的第一步一般是 在 drone 的官方文档中并没有很直接的说明如何使用 ssh 来连接 git，只说明可以禁用默认的 clone 步骤并自定义 clone 流程，但并没看到有 ssh key 相关的参数或者环境变量之类的，不是很清楚怎么使用。
+随后找到一篇博客，muxueqz 大佬的静态博客持续集成大法，看到他是自己写了 drone 的插件来定义参数和调用命令的，不过该博客写于2019年，于是我坚信这个步骤应该有并且可能两年时间已经优化了 ssh 的更简单的使用方法，于是又去找别的办法。
+在 Drone官方讨论区 搜索了一下 git ssh，找到一些帖子：
+这两个是 19 年的提问以及解决，还有一些更久远的就没看了
+提问1 提问2
+官方在 github 上给出的脚本:
+# write the ssh key. mkdir /root/.ssh echo -n &amp;#34;$SSH_KEY&amp;#34; &amp;gt; /root/.ssh/id_rsa chmod 600 /root/.</description>
+    </item>
     
-	<atom:link href="http://tifinity.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>流水线工具调研</title>
+      <link>http://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</link>
+      <pubDate>Sun, 05 Sep 2021 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</guid>
+      <description>流水线工具调研   Drone CI
+  Jenkins
+  Travis CI
+  Circle CI
+  Drone 官网：https://www.drone.io/
+这里以 Github + docker 为例
+1. 准备工作 在 Github 创建一个OAuth应用程序: Settings - OAuth Apps - New OAuth App，Homepage URL 和 Authorization callback URL 填你自己的 Drone 服务器的地址，这是一个 Webhook，当代码提交等事件触发时就会向该服务器发送事先定义好的请求。前者为服务器主页，后者为认证的地址，若第一次访问主页则会跳转到认证的URL。
+创建一个共享密钥，以验证 runner 与中央 Drone 服务器之间的通信。按照官网的示例使用 openssl 生成共享密钥：
+openssl rand -hex 16 2. 下载 下载 drone 的 docker 镜像
+# 中央服务，调度任务 docker pull drone/drone:1 # Runner，每条流水线由一个执行机执行 docker pull drone/drone-runner-docker:1 3.</description>
+    </item>
     
+    <item>
+      <title>MacBook实用操作</title>
+      <link>http://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Wed, 01 Sep 2021 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+      <description>MacBook实用操作 小技巧 访达显示隐藏文件 # 更改boolean为true或false然后重新打开访达即可 # 显示隐藏文件 defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder # 不显示隐藏文件 defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder 应用安装显示不被信任的开发者 偏好设置，安全性与隐私，通用，打开锁，可以看到刚刚被拦截的应用，选择仍要打开即可安装。
+程序坞移动到其他显示器 鼠标在显示器最下方停留几秒即可
+快捷键 窗口最小化：ctrl+m
+偏好设置里可以将触控板的“轻点来点按”打开
+调度中心，相当于 windows 的 win+tab ：三指向上轻扫
+实用工具 番茄钟：Just Focus
+终端：iTerm2
+剪贴板：CopyQ
+风扇管理：Macs Fan Control</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业五：游戏对象与图形基础</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 28 Apr 2020 01:24:43 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
+可以创建地形，也可以直接将预制地形拖到场景中。
+在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
+然后鼠标会变成一个刷子，单击放置树，按住Shift单击删除，设置中的参数都很好理解，大量放置树就是在整个地图上放置。
+在Demo同级的Materials文件夹中有天空盒素材，是传统的六面天空盒，直接将其拖到场景中就可以看到天空。
+牧师与魔鬼-&amp;gt;?
+材料与渲染-&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业四：材料与渲染练习</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Tue, 28 Apr 2020 01:23:49 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</guid>
+      <description>材料与渲染练习 先在这里推荐一个纹理材质的网站 -&amp;gt; ?
+现在开始我的学习过程ヽ(✿ﾟ▽ﾟ)ノ
+首先在网站上随便找了一块免费的石头
+往下可以看到一共有五张贴图。
+选择分辨率为Medium（1024*1024），全部下载并放进Unity3D的素材中。
+我们一张一张的来，创建一个新的材质球和一个球体对象。首先是Albedo贴图，将其拖到Albedo属性左边的贴图框中，球体变成了这个样子。因为这块石头的纹理比较简单，看起来就像一个黑色的球，仔细看能够看到它的纹路细节。Albedo贴图其实就是一张RGB的图片，你也可以点击Albedo右边的颜色编辑器来创建一个纯色的贴图。
+这样的材质未必太过简陋，那么那些逼真复杂的纹理是怎么创建的呢，我们先不管金属度和平滑度，往下看︿(￣︶￣)︿
+把Normal贴图加上，就是那张看起来是蓝紫色的。球体变成了这样，有了凹凸的纹理，更加逼真了。不过这个高低差不是真的，你会发现边缘还是一个完整的正圆形，说明其实没有真的凹下去或者凸出来，只是视觉上的效果。
+下面放上官网的法线贴图效果：
+然后我们加上高度贴图，这里有一个问题，高度贴图是灰度图，如果下载的格式是TIF，那么导入进Unity3D会变成天蓝色，需要用PS或者别的软件转一下格式为JPG才正常。
+这个素材加上高度贴图的效果感觉不是很明显，就不放图了，可以看官网的对比。
+关于法线贴图和高度贴图的异同点详见：?
+现在该Ambient Occlusion了，一般称为ao贴图，翻译为环境遮挡，加上之后可以看到更明显的阴影，下图左为无ao，右为有ao，可以看到沟壑的颜色明显变深了。
+还以最后一张，roughness贴图，在unity3D中想要使用的话需要做一些处理。因为我们的贴图是“粗糙度”，而unity中只有“平滑度”，并且为了节约资源，平滑度其实就是金属度的Alpha通道的值，需要用图像处理软件进行处理，所以此次我们暂时不使用roughness贴图了。
+那么现在我们回到金属度和平滑度。我们都知道金属度控制材质表面金属感的程度，平滑度控制材质表面从橡胶到玻璃的光滑程度。
+为了金属度的效果更加明显，我们将材质球换成纯白色。将材质球的金属度盒平滑度都拉到最高，你可以看到球体上“反射”出了天空盒，但是这真的是像现实一样的反射吗？
+进入菜单栏-&amp;gt;窗口-&amp;gt;渲染-&amp;gt;照明设置，在环境照明中将源改为红色，环境反射改为自定义，并在贴图中选择原来的天空盒。
+发生了什么？即使天上没有天空盒，球体上也出现了反射的天空！
+其实，金属度的本质就是环境照明和环境反射的比例，而平滑度控制金属度的Alpha通道即透明度。
+再随便调一调金属度和平滑度看看效果：
+    金属度 平滑度     左上 0 0   左下 1 0   右上 0 1   右下 1 1    那么本次材料与渲染练习就到此为止了，继续努力吧**·~·**</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业三：空间与运动</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</link>
+      <pubDate>Tue, 28 Apr 2020 01:23:11 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</guid>
+      <description>Unity3D作业二：空间与运动 作业内容
+1、简答并用程序验证
+  游戏对象运动的本质是什么？
+运动的本质是游戏对象位置，欧拉角，形状的改变。
+  请用三种方法以上方法，实现物体的抛物线运动。（如，修改Transform属性，使用向量Vector3的方法…）
+  使用Vector3修改position
+using System.Collections; using System.Collections.Generic; using UnityEngine; public class move : MonoBehaviour { private float speed = 0.25f;//初速度  private float acceleration = 0.20f;//加速度  // Start is called before the first frame update  void Start() { } // Update is called once per frame  void Update() { this.transform.position += Vector3.right * speed * Time.time; this.transform.position += Vector3.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目三：牧师与魔鬼</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</link>
+      <pubDate>Tue, 28 Apr 2020 01:22:03 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</guid>
+      <description>Unity3D项目三：牧师与魔鬼 基本介绍   列出游戏中提及的事物（Objects）
+牧师，恶魔，船，河流，左侧陆地，右侧陆地
+  用表格列出玩家动作表（规则表），注意，动作越少越好
+   动作 条件 结果     点击角色（牧师或魔鬼） 游戏未结束，角色在船上 角色上岸   点击角色（牧师或魔鬼） 游戏未结束，角色在岸上，点击的角色与船在同一岸边 角色上船   点击船 游戏未结束，船上有至少一个角色 船移动到另一侧   点击重新开始 无 重新开始      请将游戏中对象做成预制
+   在 GenGameObjects 中创建 长方形、正方形、球 及其色彩代表游戏中的对象。 使用 C# 集合类型 有效组织对象 整个游戏仅 主摄像机 和 一个 Empty 对象， 其他对象必须代码动态生成！！！ 。 整个游戏不许出现 Find 游戏对象， SendMessage 这类突破程序结构的 通讯耦合 语句。 违背本条准则，不给分  请使用课件架构图编程，不接受非 MVC 结构程序 注意细节，例如：船未靠岸，牧师与魔鬼上下船运动中，均不能接受用户事件！  完成过程   首先用各种方块搭建好场景，主要是记住大概的位置，写代码的时候方便。</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目二：太阳系仿真</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</link>
+      <pubDate>Tue, 28 Apr 2020 01:21:11 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</guid>
+      <description>Unity3D项目二：太阳系仿真 先上演示视频：?
+视角移动秘技  飞行模式：按住鼠标右键 + WASD（或方向键）移动，QE可以缩放 聚焦旋转：选中物体按F或者双击聚焦，然后按住ALT + 鼠标左键移动  物体旋转 围绕自身的旋转，参数为旋转轴 * 速度，注意只有一个参数
+this.transform.Rotate (Vector3.up * rotaSpeed);
+围绕某个点的旋转，参数为围绕的点，旋转轴，速度
+this.transform.RotateAround (Vector3.zero, Vector3.up, rotaSpeed);
+完成过程 首先创建九个球体排成一列，并挂上相应材质
+我使用的材质链接：?
+将游戏对象结构创建成这样，Salor是个空对象
+脚本是solar的组件，我使用的方法是将所有行星作为公有成员添加到脚本中，然后控制他们的旋转即可。
+公转时为了实现在不同的法平面上，使用Vector3作为旋转轴，可以自由调整向量的方向，不过如果Y方向为负数则速度也需要为负数，否则会公转方向不同。
+/*公转*/ mercury.RotateAround(this.transform.position, new Vector3(4, 10, 0), 47 * Time.deltaTime); venus.RotateAround(this.transform.position, new Vector3(2,10, 0), 35 * Time.deltaTime); earth.RotateAround(this.transform.position, new Vector3(1, -10, 0), -30 * Time.deltaTime); mars.RotateAround(this.transform.position, new Vector3(2, 10, 0), 24 * Time.deltaTime); jupiter.RotateAround(this.transform.position, new Vector3(2, -10, 0), -13 * Time.deltaTime); saturn.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业二：离散仿真引擎基础</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 28 Apr 2020 01:18:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</guid>
+      <description>离散仿真引擎基础 简答题 1. 解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。  游戏对象：出现在场景中，一般有人物、道具和风景等等，充当组件的容器，实现真正的功能。游戏对象自己不做任何事。他们需要专有属性，才可以成为一个角色，一个环境，或一个特殊效果。 资源：表示可以在项目中使用的任何素材。可能来自在Unity之外创建的文件，例如3D模型、音频文件，图像，脚本或Unity支持的任何其他类型的文件。还有一些可以在Unity中创建的资源类型，如动画控制器、音频混音器或渲染纹理。  2. 下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构） 游戏对象树的结构主要包括：摄像机，场景，光源，风，开始位置等
+资源目录包括：动画，素材，文本，模型，场景，预设等
+3. 编写一个代码，使用 debug 语句来验证 MonoBehaviour 基本行为或事件触发的条件 public class Test : MonoBehaviour { void Awake() { Debug.Log (&amp;#34;onAwake&amp;#34;); } void Start () { Debug.Log (&amp;#34;onStart&amp;#34;); } void Update () { Debug.Log (&amp;#34;onUpdate&amp;#34;); } void FixedUpdate() { Debug.Log (&amp;#34;onFixedUpdate&amp;#34;); } void LateUpdate() { Debug.Log (&amp;#34;onLateUpdate&amp;#34;); } void OnGUI() { Debug.Log (&amp;#34;onGUI&amp;#34;); } void OnDisable() { Debug.Log (&amp;#34;onDisable&amp;#34;); } void OnEnable() { Debug.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目一：IMGUI井字棋</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</link>
+      <pubDate>Tue, 28 Apr 2020 00:27:50 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</guid>
+      <description>Unity3D游戏一：IMGUI井字棋 要求  游戏内容： 井字棋 技术限制： 仅允许使用 IMGUI 构建 UI 作业目的：  了解 OnGUI() 事件，提升 debug 能力 提升阅读 API 文档能力    实现   完整代码传送门-&amp;gt;?
+  视屏演示传送门-&amp;gt;?
+  首先使用IMGUI搭建出游戏界面
+  OnGUI()函数，与Update()一样，只要脚本启用，每一帧都会被调用。
+  GUI.Box()制作背景盒
+  GUI.Label()创建文本框，仅用于显示信息，不能交互。
+  GUI.Button()创建按钮
+if (GUI.Button(new Rect(400, 200, 140, 50), &amp;#34;reset&amp;#34;)) { //do  } GUI.Button函数的返回值是0或1，0表示这个按钮没有被点击，1表示被点击，所以这句话的意思是创建按钮并判断该按钮是否被点击。
+    游戏逻辑
+  检查胜利条件，check()通过返回值不同来表示当前游戏状态。
+int check() { /*横线获胜*/ for (int i = 0; i &amp;lt; 3; i++) { if (board[i][0] !</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目四：牧师与魔鬼（动作分离版）</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</link>
+      <pubDate>Tue, 28 Apr 2020 00:24:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</guid>
+      <description>Unity3D项目四：牧师与魔鬼（动作分离版） 基本介绍 动作管理是游戏的重要内容，全部都放在游戏对象里显得十分笨重，所以本次项目需要将动作从对象中提取出来写成单独的动作控制器。动作控制器来管理控制所有的游戏对象移动，通过场景控制器将需要移动的游戏对象和位置等信息传递给动作控制器，动作控制器负责实现具体的移动。当动作很多或是需要做同样动作的游戏对象很多的时候，使用动作管理器可以让动作很容易管理，也提高了代码复用性。
+具体实现 完成ActionControllor.cs   ISSActionCallback（动作事件接口）
+使用了枚举变量定义动作类型，执行还是完成。
+定义了事件处理接口，动作组合类和动作管理类都需要实现这个接口，来实现接收其子动作的消息以实现动作的调度管理。当动作完成的时候会调用该接口通知管理者该动作完成。
+public enum SSActionEventType : int { Started, Competeted } public interface ISSActionCallback { void SSActionEvent( SSAction source, SSActionEventType events = SSActionEventType.Competeted, int intParam = 0, string strParam = null, Object objectParam = null ); }   SSAction（动作基类）
+代表一个动作，继承了ScriptableObject，是不需要绑定GameObject的可编程基类，受到Unity管理。
+/*动作基类*/ public class SSAction : ScriptableObject { public bool enable = true; //是否进行  public bool destroy = false; //是否删除  public GameObject gameobject; //动作对象  public Transform transform; //动作对象的transform  public ISSActionCallback callback; //回调函数  //防止用户自己new对象  protected SSAction() { } public virtual void Start() { throw new System.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业四：游戏对象与图形基础</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 28 Apr 2020 00:23:15 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
+可以创建地形，也可以直接将预制地形拖到场景中。
+在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
+然后鼠标会变成一个刷子，单击放置树，按住Shift单击删除，设置中的参数都很好理解，大量放置树就是在整个地图上放置。
+在Demo同级的Materials文件夹中有天空盒素材，是传统的六面天空盒，直接将其拖到场景中就可以看到天空。
+牧师与魔鬼-&amp;gt;?
+材料与渲染-&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目五：简单打飞碟</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</link>
+      <pubDate>Tue, 28 Apr 2020 00:22:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</guid>
+      <description>打飞碟 @[toc]
+游戏规则与要求  游戏内容要求：  游戏有 n 个 round，每个 round 都包括10 次 trial； 每个 trial 的飞碟的色彩、大小、发射位置、速度、角度、同时出现的个数都可能不同。它们由该 round 的 ruler 控制； 每个 trial 的飞碟有随机性，总体难度随 round 上升； 鼠标点中得分，得分规则按色彩、大小、速度不同计算，规则可自由设定。   游戏的要求：  使用带缓存的工厂模式管理不同飞碟的生产与回收，该工厂必须是场景单实例的！具体实现见参考资源 Singleton 模板类 近可能使用前面 MVC 结构实现人机交互与游戏模型分离    项目地址与演示视频 项目地址 -&amp;gt;传送门?
+视频连接 -&amp;gt; 传送门?
+具体实现 动作管理的大部分代码延用上一次作业，需要实现的就只有一个飞碟的飞行动作。
+  FlyActionManager
+飞碟的动作管理类，当场景控制器需要发射飞碟时就调用DiskFly使飞碟飞行。
+using System.Collections; using System.Collections.Generic; using UnityEngine; public class FlyActionManager : SSActionManager { public DiskFlyAction fly; public FirstController scene_controller; protected void Start() { scene_controller = (FirstController)SSDirector.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目六：简单打飞碟（物理引擎）</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Tue, 28 Apr 2020 00:21:16 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</guid>
+      <description>简单打飞碟（物理引擎） @[toc]
+游戏规则与要求  游戏内容要求：  按 adapter模式 设计图修改飞碟游戏 使它同时支持物理运动与运动学（变换）运动    附加项目 附加项目简单打靶
+项目地址与演示视频 项目地址 -&amp;gt; 传送门?
+视频连接 -&amp;gt; 传送门?
+演示视频与运动学版本无较大差别。
+具体实现 在上次作业的基础上增加使用物理引擎的动作管理类，并在场景控制器中对两个动作管理类进行选择即可。
+  首先，若要使用物理引擎，我们需要使用刚体（Rigidbody）组件，刚体组件不能通过Update()函数来刷新，Update()的调用速率默认是60次/秒，受到机器性能和被渲染物体的影响，但是物理引擎渲染是一个固定的时间，是可以设置的。
+在Edit-&amp;gt;ProjectSetting-&amp;gt;Time: 所以对于刚体的更新我们需要用FixedUpdate()函数来实现。
+  在SSActionManager.cs中，加上FixedUpdate，使动作管理类可以适配物理引擎：
+//对于字典中每一个pair，看是执行还是删除 foreach (KeyValuePair&amp;lt;int, SSAction&amp;gt; kv in actions) { SSAction ac = kv.Value; if (ac.destroy) { waitingDelete.Add(ac.GetInstanceID()); } else if (ac.enable) { ac.Update(); ac.FixedUpdate(); //-----适配物理引擎  } }   在SSAction.cs中同样加上FixedUpdate()。
+public virtual void Update() { throw new System.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目六：简单打靶</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</link>
+      <pubDate>Tue, 28 Apr 2020 00:18:23 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</guid>
+      <description>简单打靶 @[toc]
+游戏规则与要求    游戏内容要求：  靶对象为 5 环，按环计分； 箭对象，射中后要插在靶上  增强要求：射中后，箭对象产生颤抖效果，到下一次射击 或 1秒以后   游戏仅一轮，无限 trials；  增强要求：添加一个风向和强度标志，提高难度        项目地址与演示视频 项目地址 -&amp;gt; 传送门?
+视频连接 -&amp;gt; 传送门?
+具体实现   与上一个项目相同，将动作管理相关的类改成适配物理引擎。箭工厂与飞碟工厂相同，
+  主要的内容在FirstSenceController中，
+首先时Update函数，使用LookAt函数将弓箭转向鼠标的方向，如果没有箭则从工厂中取出一支箭放在弓上，检测鼠标左键按下则射箭。
+void Update () { if(game_start) { Vector3 mpos = Camera.main.ScreenPointToRay(Input.mousePosition).direction; if (Input.GetButtonDown(&amp;#34;Fire1&amp;#34;)) { Shoot(mpos * 15 ); } if (arrow == null) { arrow = arrow_factory.GetArrow(); arrow.</description>
+    </item>
+    
+    <item>
+      <title>Unity3d项目七：简单巡逻兵</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</link>
+      <pubDate>Tue, 28 Apr 2020 00:16:44 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</guid>
+      <description>简单巡逻兵 @[toc]
+游戏规则与要求  智能巡逻兵  游戏设计要求：  创建一个地图和若干巡逻兵(使用动画)； 每个巡逻兵走一个3~5个边的凸多边型，位置数据是相对地址。即每次确定下一个目标位置，用自己当前位置为原点计算； 巡逻兵碰撞到障碍物，则会自动选下一个点为目标； 巡逻兵在设定范围内感知到玩家，会自动追击玩家； 失去玩家目标后，继续巡逻； 计分：玩家每次甩掉一个巡逻兵计一分，与巡逻兵碰撞游戏结束；   程序设计要求：  必须使用订阅与发布模式传消息  subject：OnLostGoal Publisher: GameEventManager Subscriber: 场景控制器   工厂模式生产巡逻兵      项目地址与演示视频 项目地址 -&amp;gt; 传送门?
+视频连接 -&amp;gt; 传送门?
+Unity3D小技巧：   窗口是可以锁定的：
+当你制作预制体需要把脚本拖到检查器中时，按一下窗口右上角的锁就可以锁定窗口，选中其他对象检查器也不会变，告别手残·~·
+  去掉轮廓：
+有时布置场景时感觉对象图标和轮廓太碍事，去掉他们！
+Gizmos-&amp;gt;调整图标大小，显示轮廓网格选择线。   具体实现 基本逻辑：玩家通过键盘控制人物在地图上移动，地图分为九个部分，有八个巡逻兵在出生点以外的部分巡逻，当玩家进入一个部分时该部分的巡逻兵就会追逐玩家，若玩家甩开巡逻兵则分数加一，若玩家与巡逻兵触碰则游戏结束。
+由于本次项目代码量比较大，框架部分还是重用之前写的代码，在此只叙述重点部分。
+本章标题是动画与模型，于是我将重点放在了人物模型与动画上。
+我所使用的模型素材：?
+人物模型部分： 由于这部分内容比较多放在了另一篇博客中：?
+人物模型如下：
+人物动画器如下，一个Layer五个动作：
+巡逻兵部分： 巡逻兵与玩家使用同一个模型和动画器，不过通过代码控制其只有行走和奔跑两个动作，巡逻时行走，追逐玩家时奔跑。
+巡逻兵的移动策略是参考C486C师兄(师姐？)博客的，不过师兄所有的动作都是使用运动学的函数MoveTowards来实现并且使用Update来更新，而巡逻兵是刚体且没有勾选运动学，我认为使用运动学的函数来移动刚体是不太好的，所以改为物理引擎的移动方式并且使用FixedUpdate来更新；另一点是师兄将本次巡逻兵的两个动作切换写在了动作管理器基类SSActionManager中，我认为应该在巡逻兵的动作管理器中GuardActionManager中实现该功能。
+以下分析部分代码：
+  GuardPatrolAction：
+Update只更新平面移动的向量，FixedUpdate使用该向量进行移动，通过修改rigid的velocity来移动。
+/*变量*/ private Rigidbody rigid; //刚体组件 private Vector3 planarVec; // 平面移动向量  /*更新函数*/ public override void Update() { //保留供物理引擎调用  planarVec = gameobject.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目七：动画制作过程</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Tue, 28 Apr 2020 00:15:46 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</guid>
+      <description>人物模型与动画 @[toc]
+效果展示 作业博客 -&amp;gt; 传送门
+视频连接 -&amp;gt; 传送门
+具体实现 准备工作   素材资源
+我所使用的模型素材：传送门
+   从左到右从上到下分别为行走，奔跑，跳跃，后跳，翻滚，下落，（还有一个站立忘记截图）这就是本次使用的所有动画。    制作预制体
+预制体结构树：
+  首先创建Player空对象，其子对象为：ybot人物模型，cameraHandle空对象用于控制相机，sensor空对象用于探测地面。
+动画器   准备工作
+在Assert中创建新文件夹Animator-&amp;gt;创建动画控制器，命名为PlayerController，
+将所使用的动画都拖入人物动画器的Base Layer中。
+最后动画器长这个样子：
+  实现的效果是，按下WASD进行行走和转向，站立不动时按下空格后跳一小步，行走时按下空格向前翻滚，按住SHIFT奔跑，奔跑时按下空格向前跳跃，在空中跳跃完成后下落，下落到地面时翻滚。
+然后开始一步一步制作。
+  ground动画混合树
+ground是一个Blend Tree，动画混合树，一个动画混合树其实也是一个状态，不过可以由多个动画所组成。
+官网动画混合树教程
+在BaseLayer右键-&amp;gt;创建状态-&amp;gt;从新的混合树，创建新的动画混合树。
+ground由站立，走路，奔跑三个动画组成，将这三个动画拖进来。
+  修改混合树名字和参数名字，在Motion中新增三个状态，并拖入如图所示的三个动画，并调整阈值。拖动红色标尺能看到动画的渐变。
+  创建过渡与参数控制
+右键-&amp;gt;创建过渡，将所有状态都连接起来。状态之间的过渡通过参数来控制。
+使用的所有参数如下：
+  forward为Float，用于控制ground混合树中行走奔跑的过渡；
+OnGround为Bool，表示模型是否在地面上；
+jump为Trigger，用于控制跳跃和后跳；
+roll为Trigger，用于控制翻滚；
+jabVelocity为Float，表示后跳的速度；
+rollVelocity为Float，表示翻滚的速度。
+下面是一个从ground到jump的过渡例子：
+使用参数来过渡需要不勾选退出时间，两个动画的长短以及过渡的区间都可以调整，在预览中看到自己满意的效果即可。
+然后是另一个例子：
+从jump到fall会有一个问题，如果跳起来还没有播放下落动画就着地了，此时会接着播放fall再播放ground，我们就需要将这条路中断。在状态的Setting中选取中断源为Current State，CurrentState就是过渡箭头的起始状态，在这里就是强行中断fall返回jump再回到ground。
+其他过渡不再赘述。
+  通过脚本控制参数</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目九：简单的两个血条</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</link>
+      <pubDate>Tue, 28 Apr 2020 00:14:10 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</guid>
+      <description>简单血条 IMGUI和UGUI @[toc]
+作业要求   分别使用 IMGUI 和 UGUI 实现
+  使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机
+  分析两种实现的优缺点
+  给出预制的使用方法
+  效果展示 项目地址 -&amp;gt; 传送门
+视频连接 -&amp;gt; 传送门
+具体实现 UGUI实现 制作血条 先随便创建一个Cube，然后在Cube下创建子物体Canvas：右键-&amp;gt;UI-&amp;gt;Canvas；
+接着在Canvas下创建Slider：右键-&amp;gt;UI-&amp;gt;Slider；
+场景中一个白色的大框就是画布Canvas，画布中有一个滑动条Slider，项目结构树中可以看到如下结构。展开Slider可以看到组成滑动条的三个组件：Background-背景颜色，Fill Area-填充颜色，Handle SliderArea-滑动柄。
+右边检查器中可以修改滑动条的各个属性，拖动value可以看到滑动条随之移动：
+现在删掉滑动柄Handle SliderArea，然后将Fill中的图像-&amp;gt;颜色改为你喜欢的颜色，将Fill Area和Fill中Rect Transform中的左右都设为0，不然血条会超出填充框。
+一个简单的血条现在就差不多做好了。
+很重要的一点：千万不要乱改Rect Transform的其他固定值，调大小用缩放来调。
+摆放血条 现在血条静止的在场景中，我们需要让它跟随摄像机移动。
+Canvas-&amp;gt;Canvas画布-&amp;gt;Render Mode渲染模式，这里有三种渲染模式：
+  Screen Space - Overlay:默认的渲染模式，将UI元素放置在场景顶部渲染的屏幕，画布会自动更改大小匹配屏幕。此模式Canvas位置大小不可改变，但可以通过移动父物体来间接改变，Canvas的起始位置就是父物体的位置，大小和设置的显示屏幕大小有关，更改不同的显示大小，Canvas的形状大小也将会发生改变。此模式不需要UI相机，Canvas上的内容将显示在所有游戏物体之前。
+  Screen Space - Camera：此模式Canvas位置大小不可改变，需要指定UI相机定，可以将Main Camera挂载到上面观察效果，画布上的内容将一直显示在相机视野里，且 显示在所有游戏物体之前。
+  World Space： 画布行为与场景中的其他任何对象一样，UI元素将放置在其他对象的前面或后面渲染。画布大小和位置任意设置，这对于意在成为世界一部分的用户界面非常有用。
+  选择World Space，再将Main Camera拖到事件摄像机的位置，这时画布的Rect Transform可以修改了，在修改画布和血条的位置和比例到合适的位置。</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目十：简单坦克大战</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</link>
+      <pubDate>Tue, 28 Apr 2020 00:09:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</guid>
+      <description>简单坦克大战 作业要求 坦克对战游戏 AI 设计 从商店下载游戏：“Kawaii” Tank 或 其他坦克模型，构建 AI 对战坦克。具体要求
+ 使用“感知-思考-行为”模型，建模 AI 坦克 场景中要放置一些障碍阻挡对手视线 坦克需要放置一个矩阵包围盒触发器，以保证 AI 坦克能使用射线探测对手方位 AI 坦克必须在有目标条件下使用导航，并能绕过障碍。（失去目标时策略自己思考） 实现人机对战  项目地址 github bilibili
+具体实现 参考学姐博客，对一些混乱的地方进行了修改。 关于框架的复用不再赘述，主要包括：
+ 用工厂处理子弹和电脑坦克； 导演，场景控制器； IUserGUI接受用户输入；  NavMesh 官方文档 使用NavMesh来控制AI坦克的移动，使用SetDestination将Player设置为目标。
+void FixedUpdate () { if(sceneController.getResult()==0) { target = sceneController.getPlayerPosition(); if(HP.GetHP() &amp;lt;= 0.0f &amp;amp;&amp;amp; recycleEvent != null) { recycleEvent(this.gameObject); sceneController.decreaseCountNPC(); } else { NavMeshAgent agent = GetComponent&amp;lt;NavMeshAgent&amp;gt;(); agent.SetDestination(target); } } else { NavMeshAgent agent = GetComponent&amp;lt;NavMeshAgent&amp;gt; (); agent.</description>
+    </item>
+    
+    <item>
+      <title>腾讯CSIG测试开发实习生面经</title>
+      <link>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</link>
+      <pubDate>Mon, 20 Apr 2020 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</guid>
+      <description>腾讯CSIG 测试开发 一面 本来投的是后台开发，然后不知道为啥被测开捞了，可能是因为提前批实习生的时间快截止了，想着好歹沾点边面面看。
+没自我介绍，直接开始。时间估计1个小时左右。还有些基础问题记不得了。
+  关于项目，聊的时间比较长，涉及微服务，Docker，MVC，Python的Django等
+  解释一下MVC。
+  你说你会用Python和Golang，哪个更熟练一点
+Python用的更多。
+  那意思就是Python很熟练咯？
+不敢说很熟练，一般熟练，基本都会，原理也懂点。
+  Python限制多线程的原因。
+GIL全局线程锁。
+  写一个程序：读入一个文件名为a.log的文件，文件内容为 “key=value” 的键值对，输出每个key的具体内容和key数量。
+用Python，乍一看比较简单，然后就写了。
+  写完之后，面试官：现在让你来测试这个程序，你会怎么测试？
+o怪不得写这么简单的东西，原来还有一手。
+因为测试的东西不太懂，就开始乱说，什么最重要的是看能不能满足需求，然后文件不存在没处理，文件里有不是这样的格式的行没处理，用‘=’把value和key分开如果value和key本身内容含有‘=’没处理等等等。
+有几个是我自己想的，然后面试官指点了几个，还说了逻辑覆盖。
+这块说了比较久，可能20分钟
+  TCP/IP有几层，分别是什么？四层，物理网络传输应用
+  HTTP是哪一层的？应用
+  有没有什么问题问我？我问了是哪个部门，是CSIG智能医疗。
+  中午十一点面试，晚上12点变成复试了。基础知识问的不多，面试内容除了那个自己写程序自己想测试之外其他的都跟后台没啥区别。
+大家冲鸭！！！
+二面   首先自我介绍。
+  说说项目，以下问题全是项目相关。
+  如果有人恶意攻击，提交对服务器有害的程序给测评机怎么办？
+说了一堆，感觉不太对。
+  用户很多，越来越多，数据库放不下用户信息怎么办？
+分布式，一个服务对一个数据库等等等。
+  用户上传的文件服务器放不下了怎么办？
+使用一个监督程序来监视服务器的硬盘容量，达到阈值则发邮件或者其他方式提醒管理员需要删除一部分或者增加硬盘容量等等等。
+然后布置了一个额外任务，在项目中实现这个功能，让我一个星期做完发邮件给面试官，不影响面试结果，当时听到这句话就感觉有点稳：
+ 监视程序 消息提醒 监视程序如何保活（保持自身稳定工作，自己不挂才能监视别人·~·）  （这边是作业链接：Linux磁盘空间监控</description>
+    </item>
+    
+    <item>
+      <title>Linux磁盘空间监控</title>
+      <link>http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</link>
+      <pubDate>Fri, 17 Apr 2020 13:02:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</guid>
+      <description>Linux磁盘空间监控  开发当牛 测试做马 测试开发 当牛做马
+ 我要做的工作基本上都是学习这位天外归云大佬的：天外归云的博客，上面引用的也是大佬首页上的话，觉得很有意思hh。下面正式开始。
+获取磁盘信息 首先Linux查看磁盘空间的命令有两个：
+  du（disk usage 硬盘使用率）：显示每个文件和目录占用的空间，如果直接执行du，你就会看到一长串文件刷出来。
+  df （disk free 空余硬盘）：显示磁盘分区上可以使用的磁盘空间。
+  那么df就可以满足我们的需求，现在在python中调用df：
+可以用commands或者subprocess，commands模块在Python3中被subprocess取代。
+import subprocess code = subprocess.call([&amp;#39;df&amp;#39;]) print(code) # 输出与在命令行中使用df一样，如果执行成功的话code的值是0 使用subprocess确实能够输出与df一样的结果，实际上就相当于创建了一个子进程执行了df，不过这个结果好像获取不到，没法进行操作，因为subprocess.call()只返回一个状态码表示完成情况，需要想别的办法。
+第一种方法 就是用上面的df指令，并想办法获取它的结果来进行操作。
+目前对Linux的指令还不熟悉，挖个坑，以后补充·~·
+第二种方法 其实Python中的os包已经有方法可以得到磁盘信息了。
+ 在所给的路径上执行 statvfs() 系统调用。返回值是一个对象，其属性描述了所给路径上的文件系统，并且与 statvfs 结构体的成员相对应，即：f_bsize, f_frsize, f_blocks, f_bfree, f_bavail, f_files, f_ffree, f_favail, f_flag, f_namemax, f_fsid。
+ 该方法的使用参考菜鸟教程和中文文档
+def get_disk_usage_percent(): statvfs = os.statvfs(&amp;#39;/&amp;#39;) # f_frsize: fragment size碎片大小 # f_blocks: 文件系统数据块总数 # f_bfree: 文件系统可用数据块数 total_disk_space = statvfs.</description>
+    </item>
     
     <item>
       <title>Python如何发送邮件</title>
@@ -20,10 +442,11 @@
       <description>Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。
  使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。
 提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：
-import sysprint(sys.path)所以Python会找不到模块，出现下面这样的错误：
-ModuleNotFoundError:No module named &amp;#39;email.mime&amp;#39;; &amp;#39;email&amp;#39; is not a package然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。
+import sys print(sys.path) 所以Python会找不到模块，出现下面这样的错误：
+ModuleNotFoundError: No module named &amp;#39;email.mime&amp;#39;; &amp;#39;email&amp;#39; is not a package 然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。
 第一步，创建邮件并设置邮件信息：
-sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.com&amp;#39;] # 接收者 subject = &amp;#39;Python SMTP 邮件测试&amp;#39;content = &amp;#39;你要发送的邮件内容&amp;#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8 message = MIMEText(content, &amp;#39;plain&amp;#39;, &amp;#39;utf-8&amp;#39;)message[&amp;#39;From&amp;#39;] = Header(sender, &amp;#39;utf-8&amp;#39;)	# 发送者 message[&amp;#39;To&amp;#39;] = Header(receivers[0], &amp;#39;utf-8&amp;#39;)	# 接收者 message[&amp;#39;Subject&amp;#39;] = Header(subject, &amp;#39;utf-8&amp;#39;)	# 主题 第二步，设置第三方SMTP服务：</description>
+sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.com&amp;#39;] # 接收者 subject = &amp;#39;Python SMTP 邮件测试&amp;#39; content = &amp;#39;你要发送的邮件内容&amp;#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8 message = MIMEText(content, &amp;#39;plain&amp;#39;, &amp;#39;utf-8&amp;#39;) message[&amp;#39;From&amp;#39;] = Header(sender, &amp;#39;utf-8&amp;#39;)	# 发送者 message[&amp;#39;To&amp;#39;] = Header(receivers[0], &amp;#39;utf-8&amp;#39;)	# 接收者 message[&amp;#39;Subject&amp;#39;] = Header(subject, &amp;#39;utf-8&amp;#39;)	# 主题 第二步，设置第三方SMTP服务：
+# 第三方 SMTP 服务 mail_host=&amp;#34;smtp.</description>
     </item>
     
     <item>
@@ -40,7 +463,7 @@ sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.
 Scoop试图消除类似的东西：
  权限弹出窗口 GUI向导式安装程序 安装大量程序造成的路径污染 安装和卸载程序产生的意外副作用 查找和安装依赖项的需要 需要执行额外的设置步骤才能获得有效的程序  安装配置 首先需要几个环境要求：
  Windows 版本不低于 Windows 7 PowerShell 3+ .NET Framework 4.5+ 用户名无中文  如果PowerShell和.NET不满足版本要求的话还是得先用百度更新。💔
-# 允许本地脚本执行 set-executionpolicy remotesigned -scope currentuser# 下载安装scoop iex (new-object net.webclient).downloadstring(&amp;#39;https://get.scoop.sh&amp;#39;)现在等待脚本执行完成。🚏
+# 允许本地脚本执行 set-executionpolicy remotesigned -scope currentuser # 下载安装scoop iex (new-object net.webclient).downloadstring(&amp;#39;https://get.scoop.sh&amp;#39;) 现在等待脚本执行完成。🚏
 安装完成后请迫不及待地执行scoop help，看到帮助信息说明安装成功了。
 简单使用 你已经看过了help输出的使用说明，如果以后某个指令想不起来也请执行scoop help。
    常用命令 含义     search 搜索软件名   install 安装软件   update 更新软件   status 查看软件状态   uninstall 卸载软件   info 查看软件详情   home 打开软件主页    举个🌰：</description>
@@ -61,7 +484,7 @@ Scoop试图消除类似的东西：
 从此告别了写一篇博客还要同步操作图床的麻烦。
 修改hosts解决Github图片无法加载问题 如果出现在Github上图片加载不出来，PicGo的相册里也加载不出图片，像下面这样，一般是Github网站的问题。
 第一步，用管理员权限打开文件，C:\Windows\System32\drivers\etc\hosts。
-# 这两行是固定的，直接复制192.30.253.112 github.com192.30.253.119 gist.github.com# 下面的每个人不一样，获取方法如下文199.232.28.133 githubusercontent.com199.232.28.133 assets-cdn.github.com199.232.28.133 raw.githubusercontent.com199.232.28.133 gist.githubusercontent.com199.232.28.133 cloud.githubusercontent.com199.232.28.133 camo.githubusercontent.com第二步，打开IP查询网站，从上面随便复制一个域名输入下图的查询框，点击查询。
+# 这两行是固定的，直接复制 192.30.253.112 github.com 192.30.253.119 gist.github.com # 下面的每个人不一样，获取方法如下文 199.232.28.133 githubusercontent.com 199.232.28.133 assets-cdn.github.com 199.232.28.133 raw.githubusercontent.com 199.232.28.133 gist.githubusercontent.com 199.232.28.133 cloud.githubusercontent.com 199.232.28.133 camo.githubusercontent.com 第二步，打开IP查询网站，从上面随便复制一个域名输入下图的查询框，点击查询。
 得到你的IP地址，填入hosts里，保存，刷新Github网站，现在可以正确显示图片。</description>
     </item>
     
@@ -105,7 +528,7 @@ closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
       <pubDate>Tue, 24 Dec 2019 14:12:21 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</guid>
-      <description>Git的一些让人方便的设置 # 用户名和邮箱git config --global user.name &amp;lt;your name&amp;gt;git config --global user.email &amp;lt;your_email@example.com&amp;gt;# 解决中文在Git Bash里显示诸如“/202/233/233”的转码问题# core.quotepath 为false的话，就不会对0x80以上的字符进行quote。中文显示正常。git config --global core.quotepath false# 设置commit的默认编辑器git config --global core.editor /usr/bin/vim# 避免每次pull和push时输入用户名和密码git config --global credential.helper store# Windows Git Bash启用http/https协议git config --global credential.helper wincred# 设置大小写敏感，保持Mac/Win/Linux一致性git config --global core.ignorecase false# Windows CRLFgit config --global core.autocrlf true# Linux，Macgit config --global core.autocrlf input</description>
+      <description>Git的一些让人方便的设置 # 用户名和邮箱 git config --global user.name &amp;lt;your name&amp;gt; git config --global user.email &amp;lt;your_email@example.com&amp;gt; # 解决中文在Git Bash里显示诸如“/202/233/233”的转码问题 # core.quotepath 为false的话，就不会对0x80以上的字符进行quote。中文显示正常。 git config --global core.quotepath false # 设置commit的默认编辑器 git config --global core.editor /usr/bin/vim # 避免每次pull和push时输入用户名和密码 git config --global credential.helper store # Windows Git Bash启用http/https协议 git config --global credential.helper wincred # 设置大小写敏感，保持Mac/Win/Linux一致性 git config --global core.ignorecase false # Windows CRLF git config --global core.autocrlf true # Linux，Mac git config --global core.autocrlf input </description>
     </item>
     
     <item>
@@ -114,7 +537,7 @@ closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
       <pubDate>Mon, 23 Dec 2019 18:55:09 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</guid>
-      <description>希腊字母表    字母名称 国际音标 大写字母 小写字母 字母名称 国际音标 大写字母 小写字母     alpha /&amp;lsquo;ælfə/ Α α nu /nju:/ Ν ν   beta /&amp;lsquo;bi:tə/或 /&amp;lsquo;beɪtə/ Β β xi 希腊 /ksi/；英美 /ˈzaɪ/ 或 /ˈksaɪ/ Ξ ξ   gamma /&amp;lsquo;gæmə/ Γ γ omicron /əuˈmaikrən/或 /ˈɑmɪˌkrɑn/ Ο ο   delta /&amp;lsquo;deltə/ Δ δ pi /paɪ/ Π π   epsilon /&amp;lsquo;epsɪlɒn/ Ε ε rho /rəʊ/ Ρ ρ   zeta /&amp;lsquo;zi:tə/ Ζ ζ sigma /&amp;lsquo;sɪɡmə/ Σ σ ς   eta /&amp;lsquo;i:tə/ Η η tau /tɔ:/ 或 /taʊ/ Τ τ   theta /&amp;lsquo;θi:tə/ Θ θ upsilon /ˈipsilon/或 /ˈʌpsɨlɒn/ Υ υ   iota /aɪ&#39;əʊtə/ Ι ι ℩ phi /faɪ/ Φ φ   kappa /&amp;lsquo;kæpə/ Κ κ chi /kaɪ/ Χ χ   lambda /&amp;lsquo;læmdə/ Λ λ psi /psaɪ/ Ψ ψ   mu /mju:/ Μ μ omega /&amp;lsquo;əʊmɪɡə/或 /oʊ&#39;meɡə/ Ω ω    </description>
+      <description>希腊字母表    字母名称 国际音标 大写字母 小写字母 字母名称 国际音标 大写字母 小写字母     alpha /&amp;lsquo;ælfə/ Α α nu /nju:/ Ν ν   beta /&amp;lsquo;bi:tə/或 /&amp;lsquo;beɪtə/ Β β xi 希腊 /ksi/；英美 /ˈzaɪ/ 或 /ˈksaɪ/ Ξ ξ   gamma /&amp;lsquo;gæmə/ Γ γ omicron /əuˈmaikrən/或 /ˈɑmɪˌkrɑn/ Ο ο   delta /&amp;lsquo;deltə/ Δ δ pi /paɪ/ Π π   epsilon /&amp;lsquo;epsɪlɒn/ Ε ε rho /rəʊ/ Ρ ρ   zeta /&amp;lsquo;zi:tə/ Ζ ζ sigma /&amp;lsquo;sɪɡmə/ Σ σ ς   eta /&amp;lsquo;i:tə/ Η η tau /tɔ:/ 或 /taʊ/ Τ τ   theta /&amp;lsquo;θi:tə/ Θ θ upsilon /ˈipsilon/或 /ˈʌpsɨlɒn/ Υ υ   iota /aɪ&amp;rsquo;əʊtə/ Ι ι ℩ phi /faɪ/ Φ φ   kappa /&amp;lsquo;kæpə/ Κ κ chi /kaɪ/ Χ χ   lambda /&amp;lsquo;læmdə/ Λ λ psi /psaɪ/ Ψ ψ   mu /mju:/ Μ μ omega /&amp;lsquo;əʊmɪɡə/或 /oʊ&amp;rsquo;meɡə/ Ω ω    </description>
     </item>
     
     <item>
@@ -125,9 +548,9 @@ closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
       <guid>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</guid>
       <description>Markdown转PDF 使用Pandoc Pandoc被誉为“瑞士军刀”，可以实现很多文本格式的转换。
 建议使用方法：先转docx，再用WPS或者Word输出为PDF，只需要Pandoc，不需要任何其他配置。
-pandoc filename.md -o filename.docxPandoc官网，不过下载速度很慢
+pandoc filename.md -o filename.docx Pandoc官网，不过下载速度很慢
 可以使用Python的pip来安装：
-pip install pandoc然后可以在Python中使用Pandoc。
+pip install pandoc 然后可以在Python中使用Pandoc。
 使用VSCode + MarkdownPDF插件 在VSCode的扩展中搜索 MarkdownPDF 下载即可。
 使用方法为在VSCode中打开.md文件，右键，可以输出为PDF还有一些其它格式。</description>
     </item>
@@ -138,13 +561,13 @@ pip install pandoc然后可以在Python中使用Pandoc。
       <pubDate>Fri, 20 Dec 2019 23:11:18 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
-      <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&#39;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
+      <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&amp;rsquo;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
 在开发的这种语言时，YAML 的意思其实是：&amp;ldquo;Yet Another Markup Language&amp;rdquo;（仍是一种标记语言）。
 YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它实质上是一种通用的数据串行化格式。
 基本语法  大小写敏感 使用缩进表示层级关系 缩进只允许空格 缩进的空格数不重要，只要相同层级的元素左对齐即可 &amp;lsquo;#&amp;lsquo;表示单行注释  数据结构   对象：键值对集合，又称映射/哈希/字典
-# 冒号后的空格不可省略 key: valuekey: {name: TH, money: Infinit}# 复合 key:key1: value1key2: value2  数组：或序列，列表
-- a- b- c  纯量（scalars）：单个不可分割的值，包括：
- 字符串，布尔，整数，浮点数，Null，时间，日期  boolean: TRUE #true，True都可以 float: 6.8523015e+5 #可以使用科学计数法 int: 0b1010_0111_0100_1010_1110 #二进制表示 null: ~ #使用~表示null string:- 哈哈- &amp;#39;Hello world&amp;#39; #可以使用双引号或者单引号包裹特殊字符 - newlinenewline2 #字符串可以拆成多行，每一行会被转化成一个空格 date:- 2018-02-17 #日期必须使用ISO 8601格式，即yyyy-MM-dd   datetime: - 2018-02-17T15:02:31+08:00</description>
+# 冒号后的空格不可省略 key: value key: {name: TH, money: Infinit} # 复合 key: key1: value1 key2: value2   数组：或序列，列表
+- a - b - c   纯量（scalars）：单个不可分割的值，包括：
+ 字符串，布尔，整数，浮点数，Null，时间，日期  boolean: TRUE #true，True都可以 float: 6.8523015e+5 #可以使用科学计数法 int: 0b1010_0111_0100_1010_1110  #二进制表示 null: ~  #使用~表示null string: - 哈哈 - &amp;#39;Hello world&amp;#39; #可以使用双引号或者单引号包裹特殊字符 - newline newline2  #字符串可以拆成多行，每一行会被转化成一个空格 date: - 2018-02-17 #日期必须使用ISO 8601格式，即yyyy-MM-dd   datetime: - 2018-02-17T15:02:31+08:00</description>
     </item>
     
     <item>
@@ -443,7 +866,7 @@ docker search &amp;lt;name&amp;gt; 拉取镜像：</description>
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/ubuntu-learning/</guid>
-      <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt;apt-get update apt-get upgrade这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
+      <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt; apt-get update apt-get upgrade 这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
 如果你想知道apt-get到底是什么；
 install的软件到底安装到哪去了；
 update和upgrade的区别；
@@ -451,7 +874,7 @@ update和upgrade的区别；
 可以接着往下看本文。
 1.1 软件包仓库 当你使用apt-get install &amp;lt;package&amp;gt;时，apt先到/etc/apt目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。
 source.list长这样：
-# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to# newer versions of the distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted## Major bug fix updates produced after the final release of the## distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted每一个仓库表示为：</description>
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to # newer versions of the distribution. deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted # deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted ## Major bug fix updates produced after the final release of the ## distribution. deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted # deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted 每一个仓库表示为：</description>
     </item>
     
     <item>
@@ -473,6 +896,22 @@ source.list长这样：
   对加密区域和ESP头部做验证，得到一个完整性度量值ICV，并附在ESP报文的尾部；
   将IP头部附在ESP报文前，得到新的IP报文，发送报文。
   拆包过程   首先，检查协议类型是50，确定为IPSec包；</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/</guid>
+      <description>AJAX学习 AJAX == Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。
+AJAX使服务端与客户端交换数据时不必重新加载整个页面而更新网页的某个部分。
+AJAX用于创建快速动态网页。
+DOM == Document Object Model == 文档对象模型
+W3C == World Wide Web Consortium == 万维网协会
+XMLHttpRequest 是 AJAX 的基础。
+XMLHttpRequest 对象用于和服务器交换数据。
+为什么没有服务器地址？</description>
     </item>
     
   </channel>

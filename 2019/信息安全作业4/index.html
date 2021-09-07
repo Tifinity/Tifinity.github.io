@@ -9,7 +9,7 @@
   
   
   
-  
+  <link rel="prev" href="http://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/" />
   <link rel="next" href="http://tifinity.github.io/2019/ubuntu-learning/" />
   <link rel="canonical" href="http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-16 19:00:20 \x2b0800 CST",
-    "dateModified" : "2019-12-16 19:00:20 \x2b0800 CST",
+    "datePublished": "2019-12-16 19:00:20 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-16 19:00:20 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4\/",
     "wordCount" : "56",
     "keywords" : [ "IPSec", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -131,11 +129,6 @@
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">100 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -153,7 +146,7 @@
           
           
 
-          <h1 id="4ipsec-esp-">信息安全作业4：描述IPSec传输模式下 ESP 报文的装包与拆包过程</h1>
+          <h1 id="信息安全作业4描述ipsec传输模式下-esp-报文的装包与拆包过程">信息安全作业4：描述IPSec传输模式下 ESP 报文的装包与拆包过程</h1>
 <h2 id="ipsec">IPSec</h2>
 <ul>
 <li>
@@ -169,9 +162,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="esp">ESP协议</h2>
+<h2 id="esp协议">ESP协议</h2>
 <p>ESP（Encapsulating Security Payloads），封装安全载荷协议，IPsec 所支持的两类协议中的一种。该协议能够在数据的传输过程中对数据进行完整性度量，来源认证以及加密，也可防止回放攻击。传输模式，与隧道模式同为IPsec工作的两种方式。与隧道模式不同，当IPsec工作在传输模式时，新的IP头并不会被生成，而是采用原来的IP头，保护的也仅仅是真正传输的数据，而不是整个IP报文。在处理方法上，原来的IP报文会先被解开，再在数据前面加上新的ESP或AH协议头，最后再装回原来的IP头，即原来的IP包被修改过再传输。</p>
-<h2 id="heading">装包过程</h2>
+<h2 id="装包过程">装包过程</h2>
 <p>在传输模式下，当要发出一个数据包时：</p>
 <ol>
 <li>
@@ -196,7 +189,7 @@
 <p>将IP头部附在ESP报文前，得到新的IP报文，发送报文。</p>
 </li>
 </ol>
-<h2 id="heading1">拆包过程</h2>
+<h2 id="拆包过程">拆包过程</h2>
 <ol>
 <li>
 <p>首先，检查协议类型是50，确定为IPSec包；</p>
@@ -259,6 +252,8 @@
     </div>
 
     <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/" class="prev" rel="prev" title=""><i class="iconfont icon-left"></i>&nbsp;</a>
          
         
         <a href="http://tifinity.github.io/2019/ubuntu-learning/" class="next" rel="next" title="Ubuntu学习">Ubuntu学习&nbsp;<i class="iconfont icon-right"></i></a>
@@ -270,28 +265,6 @@
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -299,7 +272,7 @@
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -309,14 +282,7 @@
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

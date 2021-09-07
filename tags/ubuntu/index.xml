@@ -6,18 +6,14 @@
     <description>Recent content in Ubuntu on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 16 Dec 2019 19:00:20 +0800</lastBuildDate>
-    
-	<atom:link href="http://tifinity.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 16 Dec 2019 19:00:20 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu学习</title>
       <link>http://tifinity.github.io/2019/ubuntu-learning/</link>
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/ubuntu-learning/</guid>
-      <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt;apt-get update apt-get upgrade这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
+      <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt; apt-get update apt-get upgrade 这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
 如果你想知道apt-get到底是什么；
 install的软件到底安装到哪去了；
 update和upgrade的区别；
@@ -25,7 +21,7 @@ update和upgrade的区别；
 可以接着往下看本文。
 1.1 软件包仓库 当你使用apt-get install &amp;lt;package&amp;gt;时，apt先到/etc/apt目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。
 source.list长这样：
-# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to# newer versions of the distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted## Major bug fix updates produced after the final release of the## distribution.deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted# deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted每一个仓库表示为：</description>
+# See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to # newer versions of the distribution. deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted # deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted ## Major bug fix updates produced after the final release of the ## distribution. deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted # deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted 每一个仓库表示为：</description>
     </item>
     
   </channel>

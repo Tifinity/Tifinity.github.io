@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>none on Infinit</title>
+    <link>http://tifinity.github.io/tags/none/</link>
+    <description>Recent content in none on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 28 Apr 2020 01:24:43 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/none/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity3D作业五：游戏对象与图形基础</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 28 Apr 2020 01:24:43 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
+可以创建地形，也可以直接将预制地形拖到场景中。
+在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
+然后鼠标会变成一个刷子，单击放置树，按住Shift单击删除，设置中的参数都很好理解，大量放置树就是在整个地图上放置。
+在Demo同级的Materials文件夹中有天空盒素材，是传统的六面天空盒，直接将其拖到场景中就可以看到天空。
+牧师与魔鬼-&amp;gt;?
+材料与渲染-&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业四：材料与渲染练习</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</link>
+      <pubDate>Tue, 28 Apr 2020 01:23:49 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</guid>
+      <description>材料与渲染练习 先在这里推荐一个纹理材质的网站 -&amp;gt; ?
+现在开始我的学习过程ヽ(✿ﾟ▽ﾟ)ノ
+首先在网站上随便找了一块免费的石头
+往下可以看到一共有五张贴图。
+选择分辨率为Medium（1024*1024），全部下载并放进Unity3D的素材中。
+我们一张一张的来，创建一个新的材质球和一个球体对象。首先是Albedo贴图，将其拖到Albedo属性左边的贴图框中，球体变成了这个样子。因为这块石头的纹理比较简单，看起来就像一个黑色的球，仔细看能够看到它的纹路细节。Albedo贴图其实就是一张RGB的图片，你也可以点击Albedo右边的颜色编辑器来创建一个纯色的贴图。
+这样的材质未必太过简陋，那么那些逼真复杂的纹理是怎么创建的呢，我们先不管金属度和平滑度，往下看︿(￣︶￣)︿
+把Normal贴图加上，就是那张看起来是蓝紫色的。球体变成了这样，有了凹凸的纹理，更加逼真了。不过这个高低差不是真的，你会发现边缘还是一个完整的正圆形，说明其实没有真的凹下去或者凸出来，只是视觉上的效果。
+下面放上官网的法线贴图效果：
+然后我们加上高度贴图，这里有一个问题，高度贴图是灰度图，如果下载的格式是TIF，那么导入进Unity3D会变成天蓝色，需要用PS或者别的软件转一下格式为JPG才正常。
+这个素材加上高度贴图的效果感觉不是很明显，就不放图了，可以看官网的对比。
+关于法线贴图和高度贴图的异同点详见：?
+现在该Ambient Occlusion了，一般称为ao贴图，翻译为环境遮挡，加上之后可以看到更明显的阴影，下图左为无ao，右为有ao，可以看到沟壑的颜色明显变深了。
+还以最后一张，roughness贴图，在unity3D中想要使用的话需要做一些处理。因为我们的贴图是“粗糙度”，而unity中只有“平滑度”，并且为了节约资源，平滑度其实就是金属度的Alpha通道的值，需要用图像处理软件进行处理，所以此次我们暂时不使用roughness贴图了。
+那么现在我们回到金属度和平滑度。我们都知道金属度控制材质表面金属感的程度，平滑度控制材质表面从橡胶到玻璃的光滑程度。
+为了金属度的效果更加明显，我们将材质球换成纯白色。将材质球的金属度盒平滑度都拉到最高，你可以看到球体上“反射”出了天空盒，但是这真的是像现实一样的反射吗？
+进入菜单栏-&amp;gt;窗口-&amp;gt;渲染-&amp;gt;照明设置，在环境照明中将源改为红色，环境反射改为自定义，并在贴图中选择原来的天空盒。
+发生了什么？即使天上没有天空盒，球体上也出现了反射的天空！
+其实，金属度的本质就是环境照明和环境反射的比例，而平滑度控制金属度的Alpha通道即透明度。
+再随便调一调金属度和平滑度看看效果：
+    金属度 平滑度     左上 0 0   左下 1 0   右上 0 1   右下 1 1    那么本次材料与渲染练习就到此为止了，继续努力吧**·~·**</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业三：空间与运动</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</link>
+      <pubDate>Tue, 28 Apr 2020 01:23:11 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</guid>
+      <description>Unity3D作业二：空间与运动 作业内容
+1、简答并用程序验证
+  游戏对象运动的本质是什么？
+运动的本质是游戏对象位置，欧拉角，形状的改变。
+  请用三种方法以上方法，实现物体的抛物线运动。（如，修改Transform属性，使用向量Vector3的方法…）
+  使用Vector3修改position
+using System.Collections; using System.Collections.Generic; using UnityEngine; public class move : MonoBehaviour { private float speed = 0.25f;//初速度  private float acceleration = 0.20f;//加速度  // Start is called before the first frame update  void Start() { } // Update is called once per frame  void Update() { this.transform.position += Vector3.right * speed * Time.time; this.transform.position += Vector3.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目三：牧师与魔鬼</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</link>
+      <pubDate>Tue, 28 Apr 2020 01:22:03 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</guid>
+      <description>Unity3D项目三：牧师与魔鬼 基本介绍   列出游戏中提及的事物（Objects）
+牧师，恶魔，船，河流，左侧陆地，右侧陆地
+  用表格列出玩家动作表（规则表），注意，动作越少越好
+   动作 条件 结果     点击角色（牧师或魔鬼） 游戏未结束，角色在船上 角色上岸   点击角色（牧师或魔鬼） 游戏未结束，角色在岸上，点击的角色与船在同一岸边 角色上船   点击船 游戏未结束，船上有至少一个角色 船移动到另一侧   点击重新开始 无 重新开始      请将游戏中对象做成预制
+   在 GenGameObjects 中创建 长方形、正方形、球 及其色彩代表游戏中的对象。 使用 C# 集合类型 有效组织对象 整个游戏仅 主摄像机 和 一个 Empty 对象， 其他对象必须代码动态生成！！！ 。 整个游戏不许出现 Find 游戏对象， SendMessage 这类突破程序结构的 通讯耦合 语句。 违背本条准则，不给分  请使用课件架构图编程，不接受非 MVC 结构程序 注意细节，例如：船未靠岸，牧师与魔鬼上下船运动中，均不能接受用户事件！  完成过程   首先用各种方块搭建好场景，主要是记住大概的位置，写代码的时候方便。</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目二：太阳系仿真</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</link>
+      <pubDate>Tue, 28 Apr 2020 01:21:11 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</guid>
+      <description>Unity3D项目二：太阳系仿真 先上演示视频：?
+视角移动秘技  飞行模式：按住鼠标右键 + WASD（或方向键）移动，QE可以缩放 聚焦旋转：选中物体按F或者双击聚焦，然后按住ALT + 鼠标左键移动  物体旋转 围绕自身的旋转，参数为旋转轴 * 速度，注意只有一个参数
+this.transform.Rotate (Vector3.up * rotaSpeed);
+围绕某个点的旋转，参数为围绕的点，旋转轴，速度
+this.transform.RotateAround (Vector3.zero, Vector3.up, rotaSpeed);
+完成过程 首先创建九个球体排成一列，并挂上相应材质
+我使用的材质链接：?
+将游戏对象结构创建成这样，Salor是个空对象
+脚本是solar的组件，我使用的方法是将所有行星作为公有成员添加到脚本中，然后控制他们的旋转即可。
+公转时为了实现在不同的法平面上，使用Vector3作为旋转轴，可以自由调整向量的方向，不过如果Y方向为负数则速度也需要为负数，否则会公转方向不同。
+/*公转*/ mercury.RotateAround(this.transform.position, new Vector3(4, 10, 0), 47 * Time.deltaTime); venus.RotateAround(this.transform.position, new Vector3(2,10, 0), 35 * Time.deltaTime); earth.RotateAround(this.transform.position, new Vector3(1, -10, 0), -30 * Time.deltaTime); mars.RotateAround(this.transform.position, new Vector3(2, 10, 0), 24 * Time.deltaTime); jupiter.RotateAround(this.transform.position, new Vector3(2, -10, 0), -13 * Time.deltaTime); saturn.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业二：离散仿真引擎基础</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 28 Apr 2020 01:18:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</guid>
+      <description>离散仿真引擎基础 简答题 1. 解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。  游戏对象：出现在场景中，一般有人物、道具和风景等等，充当组件的容器，实现真正的功能。游戏对象自己不做任何事。他们需要专有属性，才可以成为一个角色，一个环境，或一个特殊效果。 资源：表示可以在项目中使用的任何素材。可能来自在Unity之外创建的文件，例如3D模型、音频文件，图像，脚本或Unity支持的任何其他类型的文件。还有一些可以在Unity中创建的资源类型，如动画控制器、音频混音器或渲染纹理。  2. 下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构） 游戏对象树的结构主要包括：摄像机，场景，光源，风，开始位置等
+资源目录包括：动画，素材，文本，模型，场景，预设等
+3. 编写一个代码，使用 debug 语句来验证 MonoBehaviour 基本行为或事件触发的条件 public class Test : MonoBehaviour { void Awake() { Debug.Log (&amp;#34;onAwake&amp;#34;); } void Start () { Debug.Log (&amp;#34;onStart&amp;#34;); } void Update () { Debug.Log (&amp;#34;onUpdate&amp;#34;); } void FixedUpdate() { Debug.Log (&amp;#34;onFixedUpdate&amp;#34;); } void LateUpdate() { Debug.Log (&amp;#34;onLateUpdate&amp;#34;); } void OnGUI() { Debug.Log (&amp;#34;onGUI&amp;#34;); } void OnDisable() { Debug.Log (&amp;#34;onDisable&amp;#34;); } void OnEnable() { Debug.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目一：IMGUI井字棋</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</link>
+      <pubDate>Tue, 28 Apr 2020 00:27:50 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</guid>
+      <description>Unity3D游戏一：IMGUI井字棋 要求  游戏内容： 井字棋 技术限制： 仅允许使用 IMGUI 构建 UI 作业目的：  了解 OnGUI() 事件，提升 debug 能力 提升阅读 API 文档能力    实现   完整代码传送门-&amp;gt;?
+  视屏演示传送门-&amp;gt;?
+  首先使用IMGUI搭建出游戏界面
+  OnGUI()函数，与Update()一样，只要脚本启用，每一帧都会被调用。
+  GUI.Box()制作背景盒
+  GUI.Label()创建文本框，仅用于显示信息，不能交互。
+  GUI.Button()创建按钮
+if (GUI.Button(new Rect(400, 200, 140, 50), &amp;#34;reset&amp;#34;)) { //do  } GUI.Button函数的返回值是0或1，0表示这个按钮没有被点击，1表示被点击，所以这句话的意思是创建按钮并判断该按钮是否被点击。
+    游戏逻辑
+  检查胜利条件，check()通过返回值不同来表示当前游戏状态。
+int check() { /*横线获胜*/ for (int i = 0; i &amp;lt; 3; i++) { if (board[i][0] !</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目四：牧师与魔鬼（动作分离版）</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</link>
+      <pubDate>Tue, 28 Apr 2020 00:24:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</guid>
+      <description>Unity3D项目四：牧师与魔鬼（动作分离版） 基本介绍 动作管理是游戏的重要内容，全部都放在游戏对象里显得十分笨重，所以本次项目需要将动作从对象中提取出来写成单独的动作控制器。动作控制器来管理控制所有的游戏对象移动，通过场景控制器将需要移动的游戏对象和位置等信息传递给动作控制器，动作控制器负责实现具体的移动。当动作很多或是需要做同样动作的游戏对象很多的时候，使用动作管理器可以让动作很容易管理，也提高了代码复用性。
+具体实现 完成ActionControllor.cs   ISSActionCallback（动作事件接口）
+使用了枚举变量定义动作类型，执行还是完成。
+定义了事件处理接口，动作组合类和动作管理类都需要实现这个接口，来实现接收其子动作的消息以实现动作的调度管理。当动作完成的时候会调用该接口通知管理者该动作完成。
+public enum SSActionEventType : int { Started, Competeted } public interface ISSActionCallback { void SSActionEvent( SSAction source, SSActionEventType events = SSActionEventType.Competeted, int intParam = 0, string strParam = null, Object objectParam = null ); }   SSAction（动作基类）
+代表一个动作，继承了ScriptableObject，是不需要绑定GameObject的可编程基类，受到Unity管理。
+/*动作基类*/ public class SSAction : ScriptableObject { public bool enable = true; //是否进行  public bool destroy = false; //是否删除  public GameObject gameobject; //动作对象  public Transform transform; //动作对象的transform  public ISSActionCallback callback; //回调函数  //防止用户自己new对象  protected SSAction() { } public virtual void Start() { throw new System.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D作业四：游戏对象与图形基础</title>
+      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Tue, 28 Apr 2020 00:23:15 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
+可以创建地形，也可以直接将预制地形拖到场景中。
+在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
+然后鼠标会变成一个刷子，单击放置树，按住Shift单击删除，设置中的参数都很好理解，大量放置树就是在整个地图上放置。
+在Demo同级的Materials文件夹中有天空盒素材，是传统的六面天空盒，直接将其拖到场景中就可以看到天空。
+牧师与魔鬼-&amp;gt;?
+材料与渲染-&amp;gt;?</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目五：简单打飞碟</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</link>
+      <pubDate>Tue, 28 Apr 2020 00:22:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</guid>
+      <description>打飞碟 @[toc]
+游戏规则与要求  游戏内容要求：  游戏有 n 个 round，每个 round 都包括10 次 trial； 每个 trial 的飞碟的色彩、大小、发射位置、速度、角度、同时出现的个数都可能不同。它们由该 round 的 ruler 控制； 每个 trial 的飞碟有随机性，总体难度随 round 上升； 鼠标点中得分，得分规则按色彩、大小、速度不同计算，规则可自由设定。   游戏的要求：  使用带缓存的工厂模式管理不同飞碟的生产与回收，该工厂必须是场景单实例的！具体实现见参考资源 Singleton 模板类 近可能使用前面 MVC 结构实现人机交互与游戏模型分离    项目地址与演示视频 项目地址 -&amp;gt;传送门?
+视频连接 -&amp;gt; 传送门?
+具体实现 动作管理的大部分代码延用上一次作业，需要实现的就只有一个飞碟的飞行动作。
+  FlyActionManager
+飞碟的动作管理类，当场景控制器需要发射飞碟时就调用DiskFly使飞碟飞行。
+using System.Collections; using System.Collections.Generic; using UnityEngine; public class FlyActionManager : SSActionManager { public DiskFlyAction fly; public FirstController scene_controller; protected void Start() { scene_controller = (FirstController)SSDirector.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目六：简单打飞碟（物理引擎）</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Tue, 28 Apr 2020 00:21:16 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</guid>
+      <description>简单打飞碟（物理引擎） @[toc]
+游戏规则与要求  游戏内容要求：  按 adapter模式 设计图修改飞碟游戏 使它同时支持物理运动与运动学（变换）运动    附加项目 附加项目简单打靶
+项目地址与演示视频 项目地址 -&amp;gt; 传送门?
+视频连接 -&amp;gt; 传送门?
+演示视频与运动学版本无较大差别。
+具体实现 在上次作业的基础上增加使用物理引擎的动作管理类，并在场景控制器中对两个动作管理类进行选择即可。
+  首先，若要使用物理引擎，我们需要使用刚体（Rigidbody）组件，刚体组件不能通过Update()函数来刷新，Update()的调用速率默认是60次/秒，受到机器性能和被渲染物体的影响，但是物理引擎渲染是一个固定的时间，是可以设置的。
+在Edit-&amp;gt;ProjectSetting-&amp;gt;Time: 所以对于刚体的更新我们需要用FixedUpdate()函数来实现。
+  在SSActionManager.cs中，加上FixedUpdate，使动作管理类可以适配物理引擎：
+//对于字典中每一个pair，看是执行还是删除 foreach (KeyValuePair&amp;lt;int, SSAction&amp;gt; kv in actions) { SSAction ac = kv.Value; if (ac.destroy) { waitingDelete.Add(ac.GetInstanceID()); } else if (ac.enable) { ac.Update(); ac.FixedUpdate(); //-----适配物理引擎  } }   在SSAction.cs中同样加上FixedUpdate()。
+public virtual void Update() { throw new System.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目六：简单打靶</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</link>
+      <pubDate>Tue, 28 Apr 2020 00:18:23 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</guid>
+      <description>简单打靶 @[toc]
+游戏规则与要求    游戏内容要求：  靶对象为 5 环，按环计分； 箭对象，射中后要插在靶上  增强要求：射中后，箭对象产生颤抖效果，到下一次射击 或 1秒以后   游戏仅一轮，无限 trials；  增强要求：添加一个风向和强度标志，提高难度        项目地址与演示视频 项目地址 -&amp;gt; 传送门?
+视频连接 -&amp;gt; 传送门?
+具体实现   与上一个项目相同，将动作管理相关的类改成适配物理引擎。箭工厂与飞碟工厂相同，
+  主要的内容在FirstSenceController中，
+首先时Update函数，使用LookAt函数将弓箭转向鼠标的方向，如果没有箭则从工厂中取出一支箭放在弓上，检测鼠标左键按下则射箭。
+void Update () { if(game_start) { Vector3 mpos = Camera.main.ScreenPointToRay(Input.mousePosition).direction; if (Input.GetButtonDown(&amp;#34;Fire1&amp;#34;)) { Shoot(mpos * 15 ); } if (arrow == null) { arrow = arrow_factory.GetArrow(); arrow.</description>
+    </item>
+    
+    <item>
+      <title>Unity3d项目七：简单巡逻兵</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</link>
+      <pubDate>Tue, 28 Apr 2020 00:16:44 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</guid>
+      <description>简单巡逻兵 @[toc]
+游戏规则与要求  智能巡逻兵  游戏设计要求：  创建一个地图和若干巡逻兵(使用动画)； 每个巡逻兵走一个3~5个边的凸多边型，位置数据是相对地址。即每次确定下一个目标位置，用自己当前位置为原点计算； 巡逻兵碰撞到障碍物，则会自动选下一个点为目标； 巡逻兵在设定范围内感知到玩家，会自动追击玩家； 失去玩家目标后，继续巡逻； 计分：玩家每次甩掉一个巡逻兵计一分，与巡逻兵碰撞游戏结束；   程序设计要求：  必须使用订阅与发布模式传消息  subject：OnLostGoal Publisher: GameEventManager Subscriber: 场景控制器   工厂模式生产巡逻兵      项目地址与演示视频 项目地址 -&amp;gt; 传送门?
+视频连接 -&amp;gt; 传送门?
+Unity3D小技巧：   窗口是可以锁定的：
+当你制作预制体需要把脚本拖到检查器中时，按一下窗口右上角的锁就可以锁定窗口，选中其他对象检查器也不会变，告别手残·~·
+  去掉轮廓：
+有时布置场景时感觉对象图标和轮廓太碍事，去掉他们！
+Gizmos-&amp;gt;调整图标大小，显示轮廓网格选择线。   具体实现 基本逻辑：玩家通过键盘控制人物在地图上移动，地图分为九个部分，有八个巡逻兵在出生点以外的部分巡逻，当玩家进入一个部分时该部分的巡逻兵就会追逐玩家，若玩家甩开巡逻兵则分数加一，若玩家与巡逻兵触碰则游戏结束。
+由于本次项目代码量比较大，框架部分还是重用之前写的代码，在此只叙述重点部分。
+本章标题是动画与模型，于是我将重点放在了人物模型与动画上。
+我所使用的模型素材：?
+人物模型部分： 由于这部分内容比较多放在了另一篇博客中：?
+人物模型如下：
+人物动画器如下，一个Layer五个动作：
+巡逻兵部分： 巡逻兵与玩家使用同一个模型和动画器，不过通过代码控制其只有行走和奔跑两个动作，巡逻时行走，追逐玩家时奔跑。
+巡逻兵的移动策略是参考C486C师兄(师姐？)博客的，不过师兄所有的动作都是使用运动学的函数MoveTowards来实现并且使用Update来更新，而巡逻兵是刚体且没有勾选运动学，我认为使用运动学的函数来移动刚体是不太好的，所以改为物理引擎的移动方式并且使用FixedUpdate来更新；另一点是师兄将本次巡逻兵的两个动作切换写在了动作管理器基类SSActionManager中，我认为应该在巡逻兵的动作管理器中GuardActionManager中实现该功能。
+以下分析部分代码：
+  GuardPatrolAction：
+Update只更新平面移动的向量，FixedUpdate使用该向量进行移动，通过修改rigid的velocity来移动。
+/*变量*/ private Rigidbody rigid; //刚体组件 private Vector3 planarVec; // 平面移动向量  /*更新函数*/ public override void Update() { //保留供物理引擎调用  planarVec = gameobject.</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目七：动画制作过程</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Tue, 28 Apr 2020 00:15:46 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</guid>
+      <description>人物模型与动画 @[toc]
+效果展示 作业博客 -&amp;gt; 传送门
+视频连接 -&amp;gt; 传送门
+具体实现 准备工作   素材资源
+我所使用的模型素材：传送门
+   从左到右从上到下分别为行走，奔跑，跳跃，后跳，翻滚，下落，（还有一个站立忘记截图）这就是本次使用的所有动画。    制作预制体
+预制体结构树：
+  首先创建Player空对象，其子对象为：ybot人物模型，cameraHandle空对象用于控制相机，sensor空对象用于探测地面。
+动画器   准备工作
+在Assert中创建新文件夹Animator-&amp;gt;创建动画控制器，命名为PlayerController，
+将所使用的动画都拖入人物动画器的Base Layer中。
+最后动画器长这个样子：
+  实现的效果是，按下WASD进行行走和转向，站立不动时按下空格后跳一小步，行走时按下空格向前翻滚，按住SHIFT奔跑，奔跑时按下空格向前跳跃，在空中跳跃完成后下落，下落到地面时翻滚。
+然后开始一步一步制作。
+  ground动画混合树
+ground是一个Blend Tree，动画混合树，一个动画混合树其实也是一个状态，不过可以由多个动画所组成。
+官网动画混合树教程
+在BaseLayer右键-&amp;gt;创建状态-&amp;gt;从新的混合树，创建新的动画混合树。
+ground由站立，走路，奔跑三个动画组成，将这三个动画拖进来。
+  修改混合树名字和参数名字，在Motion中新增三个状态，并拖入如图所示的三个动画，并调整阈值。拖动红色标尺能看到动画的渐变。
+  创建过渡与参数控制
+右键-&amp;gt;创建过渡，将所有状态都连接起来。状态之间的过渡通过参数来控制。
+使用的所有参数如下：
+  forward为Float，用于控制ground混合树中行走奔跑的过渡；
+OnGround为Bool，表示模型是否在地面上；
+jump为Trigger，用于控制跳跃和后跳；
+roll为Trigger，用于控制翻滚；
+jabVelocity为Float，表示后跳的速度；
+rollVelocity为Float，表示翻滚的速度。
+下面是一个从ground到jump的过渡例子：
+使用参数来过渡需要不勾选退出时间，两个动画的长短以及过渡的区间都可以调整，在预览中看到自己满意的效果即可。
+然后是另一个例子：
+从jump到fall会有一个问题，如果跳起来还没有播放下落动画就着地了，此时会接着播放fall再播放ground，我们就需要将这条路中断。在状态的Setting中选取中断源为Current State，CurrentState就是过渡箭头的起始状态，在这里就是强行中断fall返回jump再回到ground。
+其他过渡不再赘述。
+  通过脚本控制参数</description>
+    </item>
+    
+    <item>
+      <title>Unity3D项目九：简单的两个血条</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</link>
+      <pubDate>Tue, 28 Apr 2020 00:14:10 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</guid>
+      <description>简单血条 IMGUI和UGUI @[toc]
+作业要求   分别使用 IMGUI 和 UGUI 实现
+  使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机
+  分析两种实现的优缺点
+  给出预制的使用方法
+  效果展示 项目地址 -&amp;gt; 传送门
+视频连接 -&amp;gt; 传送门
+具体实现 UGUI实现 制作血条 先随便创建一个Cube，然后在Cube下创建子物体Canvas：右键-&amp;gt;UI-&amp;gt;Canvas；
+接着在Canvas下创建Slider：右键-&amp;gt;UI-&amp;gt;Slider；
+场景中一个白色的大框就是画布Canvas，画布中有一个滑动条Slider，项目结构树中可以看到如下结构。展开Slider可以看到组成滑动条的三个组件：Background-背景颜色，Fill Area-填充颜色，Handle SliderArea-滑动柄。
+右边检查器中可以修改滑动条的各个属性，拖动value可以看到滑动条随之移动：
+现在删掉滑动柄Handle SliderArea，然后将Fill中的图像-&amp;gt;颜色改为你喜欢的颜色，将Fill Area和Fill中Rect Transform中的左右都设为0，不然血条会超出填充框。
+一个简单的血条现在就差不多做好了。
+很重要的一点：千万不要乱改Rect Transform的其他固定值，调大小用缩放来调。
+摆放血条 现在血条静止的在场景中，我们需要让它跟随摄像机移动。
+Canvas-&amp;gt;Canvas画布-&amp;gt;Render Mode渲染模式，这里有三种渲染模式：
+  Screen Space - Overlay:默认的渲染模式，将UI元素放置在场景顶部渲染的屏幕，画布会自动更改大小匹配屏幕。此模式Canvas位置大小不可改变，但可以通过移动父物体来间接改变，Canvas的起始位置就是父物体的位置，大小和设置的显示屏幕大小有关，更改不同的显示大小，Canvas的形状大小也将会发生改变。此模式不需要UI相机，Canvas上的内容将显示在所有游戏物体之前。
+  Screen Space - Camera：此模式Canvas位置大小不可改变，需要指定UI相机定，可以将Main Camera挂载到上面观察效果，画布上的内容将一直显示在相机视野里，且 显示在所有游戏物体之前。
+  World Space： 画布行为与场景中的其他任何对象一样，UI元素将放置在其他对象的前面或后面渲染。画布大小和位置任意设置，这对于意在成为世界一部分的用户界面非常有用。
+  选择World Space，再将Main Camera拖到事件摄像机的位置，这时画布的Rect Transform可以修改了，在修改画布和血条的位置和比例到合适的位置。</description>
+    </item>
+    
+  </channel>
+</rss>

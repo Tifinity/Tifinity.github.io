@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Infinit</title>
+    <link>http://tifinity.github.io/categories/python/</link>
+    <description>Recent content in Python on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python如何发送邮件</title>
+      <link>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Thu, 16 Apr 2020 11:02:04 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description>Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。
+ 使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。
+提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：
+import sys print(sys.path) 所以Python会找不到模块，出现下面这样的错误：
+ModuleNotFoundError: No module named &amp;#39;email.mime&amp;#39;; &amp;#39;email&amp;#39; is not a package 然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。
+第一步，创建邮件并设置邮件信息：
+sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.com&amp;#39;] # 接收者 subject = &amp;#39;Python SMTP 邮件测试&amp;#39; content = &amp;#39;你要发送的邮件内容&amp;#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8 message = MIMEText(content, &amp;#39;plain&amp;#39;, &amp;#39;utf-8&amp;#39;) message[&amp;#39;From&amp;#39;] = Header(sender, &amp;#39;utf-8&amp;#39;)	# 发送者 message[&amp;#39;To&amp;#39;] = Header(receivers[0], &amp;#39;utf-8&amp;#39;)	# 接收者 message[&amp;#39;Subject&amp;#39;] = Header(subject, &amp;#39;utf-8&amp;#39;)	# 主题 第二步，设置第三方SMTP服务：
+# 第三方 SMTP 服务 mail_host=&amp;#34;smtp.</description>
+    </item>
+    
+  </channel>
+</rss>

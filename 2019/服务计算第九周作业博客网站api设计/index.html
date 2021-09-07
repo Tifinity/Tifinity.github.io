@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "服务计算第九周作业：博客网站API设计",
     "headline" : "服务计算第九周作业：博客网站API设计",
-    "description" : "服务计算第九周作业：博客网站API设计 作业要求 规范：REST API 设计 Github API v3 overview ；微软 作业：模仿 Github，设计一个博客网站的 API\nAPI设计 查看网站主页 GET \x26ldquo;https:\/\/myblog\x26rdquo;\n  Request\n  Header\nAuthorization: token     Response 200( application\/json )\n{ \x26#34;ok\x26#34;: true, \x26#34;data\x26#34;: \x26#34;\x26#34; }   当前用户 GET \x26ldquo;https:\/\/myblog\/user\x26rdquo;\n  Request\n  Header\nAuthorization: token     Response 200( application\/json )\n{ \x26#34;ok\x26#34;: true, \x26#34;data\x26#34;: { \x26#34;id\x26#34;: \x26#34;用户ID\x26#34;, \x26#34;name\x26#34;: \x26#34;用户\x26#34;, } }   用户身份验证 POST https:\/\/myblog.",
+    "description" : "服务计算第九周作业：博客网站API设计 作业要求 规范：REST API 设计 Github API v3 overview ；微软 作业：模仿 Github，设计一个博客网站的 API\nAPI设计 查看网站主页 GET \u0026ldquo;https:\/\/myblog\u0026rdquo;\n  Request\n  Header\nAuthorization: token     Response 200( application\/json )\n{ \u0026#34;ok\u0026#34;: true, \u0026#34;data\u0026#34;: \u0026#34;\u0026#34; }   当前用户 GET \u0026ldquo;https:\/\/myblog\/user\u0026rdquo;\n  Request\n  Header\nAuthorization: token     Response 200( application\/json )\n{ \u0026#34;ok\u0026#34;: true, \u0026#34;data\u0026#34;: { \u0026#34;id\u0026#34;: \u0026#34;用户ID\u0026#34;, \u0026#34;name\u0026#34;: \u0026#34;用户\u0026#34;, } }   用户身份验证 POST https:\/\/myblog.",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-18 11:48:06 \x2b0800 CST",
-    "dateModified" : "2019-12-18 11:48:06 \x2b0800 CST",
+    "datePublished": "2019-12-18 11:48:06 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-18 11:48:06 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1\/",
     "wordCount" : "285",
     "keywords" : [ "Api", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -131,11 +129,6 @@
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">300 Words|Read in about 2 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -153,11 +146,11 @@
           
           
 
-          <h1 id="api">服务计算第九周作业：博客网站API设计</h1>
-<h2 id="heading">作业要求</h2>
+          <h1 id="服务计算第九周作业博客网站api设计">服务计算第九周作业：博客网站API设计</h1>
+<h2 id="作业要求">作业要求</h2>
 <p>规范：REST API 设计 <a href="https://developer.github.com/v3/">Github API v3 overview</a> ；<a href="https://docs.microsoft.com/zh-cn/azure/architecture/best-practices/api-design">微软</a>
 作业：模仿 Github，设计一个博客网站的 API</p>
-<h2 id="api1">API设计</h2>
+<h2 id="api设计">API设计</h2>
 <p>查看网站主页 GET &ldquo;https://myblog&rdquo;</p>
 <ul>
 <li>
@@ -165,13 +158,13 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
       <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
       <span style="color:#f92672">&#34;data&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
 }
@@ -184,13 +177,13 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: {
         <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;用户ID&#34;</span>,
@@ -199,7 +192,7 @@
 }
 </code></pre></div></li>
 </ul>
-<p>用户身份验证 POST <a href="https://myblog.com/settings/connections/applications">https://myblog.com/settings/connections/applications</a>{/client_id}</p>
+<p>用户身份验证 POST <a href="https://myblog.com/settings/connections/applications%7B/client_id%7D">https://myblog.com/settings/connections/applications{/client_id}</a></p>
 <p>发布文章 POST https://myblog/blog_edit</p>
 <ul>
 <li>
@@ -207,11 +200,11 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
 </code></pre></div></li>
 <li>
 <p>Body</p>
-<pre><code> {
+<pre tabindex="0"><code> {
      &quot;name&quot;: &quot;文章名&quot;,
      &quot;body&quot;: &quot;文章内容&quot;
  }
@@ -220,7 +213,7 @@
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
 }
@@ -233,13 +226,13 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
       <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
       <span style="color:#f92672">&#34;data&#34;</span>: [
           {
@@ -249,7 +242,7 @@
           }
       ]
 }
-  
+
 </code></pre></div></li>
 </ul>
 <p>查看用户博客列表 GET https://myblog/users/{username}/blogs</p>
@@ -259,14 +252,14 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
+
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
       <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
       <span style="color:#f92672">&#34;data&#34;</span>: [
           {
@@ -276,7 +269,7 @@
           }
       ]
 }
-  
+
 </code></pre></div></li>
 </ul>
 <p>查看用户个人信息 GET https://myblog/users/{username}/profile</p>
@@ -286,14 +279,14 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
+
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
       <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
       <span style="color:#f92672">&#34;data&#34;</span>: {
           <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;用户ID&#34;</span>,
@@ -301,7 +294,7 @@
           <span style="color:#f92672">&#34;...&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>
       }
 }
-  
+
 </code></pre></div></li>
 </ul>
 <p>查看用户粉丝列表 GET https://myblog/users/{username}/fans</p>
@@ -311,14 +304,14 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
+
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: [
         {
@@ -326,7 +319,7 @@
         }
     ]
 }
-  
+
 </code></pre></div></li>
 </ul>
 <p>查看用户关注列表 GET https://myblog/users/{username}/followers</p>
@@ -336,14 +329,14 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
+
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: [
         {
@@ -351,7 +344,7 @@
         }
     ]
 }
-  
+
 </code></pre></div></li>
 </ul>
 <p>关注用户 POST https://myblog/users/{username}/following</p>
@@ -361,18 +354,18 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
+
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
 }
-  
+
 </code></pre></div></li>
 </ul>
 <p>查看博客 GET https://myblog/blogs/{blogID}</p>
@@ -382,21 +375,21 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
+
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: {
         <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;文章名&#34;</span>,
         <span style="color:#f92672">&#34;link&#34;</span>: <span style="color:#e6db74">&#34;博客地址&#34;</span>
     }
 }
-  
+
 </code></pre></div></li>
 </ul>
 <p>查看评论 GET https://myblog/blogs/{blogID}/comments</p>
@@ -406,14 +399,14 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
-    
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
+
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: {
         <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#ae81ff">1</span>,
@@ -430,19 +423,19 @@
 <ul>
 <li>
 <p>Header</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">A</span><span style="color:#960050;background-color:#1e0010">u</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">h</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">r</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">z</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">k</span><span style="color:#960050;background-color:#1e0010">e</span><span style="color:#960050;background-color:#1e0010">n</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">Authorization:</span> <span style="color:#960050;background-color:#1e0010">token</span>
 </code></pre></div></li>
 <li>
 <p>Body</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;comment&#34;</span><span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#e6db74">&#34;评论内容&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+	<span style="color:#f92672">&#34;comment&#34;</span><span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#e6db74">&#34;评论内容&#34;</span>
 }
 </code></pre></div></li>
 </ul>
 </li>
 <li>
 <p>Response 200( application/json )</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;ok&#34;</span>: <span style="color:#66d9ef">true</span>,
     <span style="color:#f92672">&#34;data&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
 }
@@ -503,28 +496,6 @@
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -532,7 +503,7 @@
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -542,14 +513,7 @@
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

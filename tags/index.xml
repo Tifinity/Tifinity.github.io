@@ -6,10 +6,69 @@
     <description>Recent content in Tags on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Sep 2021 12:44:01 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>流水线</title>
+      <link>http://tifinity.github.io/tags/%E6%B5%81%E6%B0%B4%E7%BA%BF/</link>
+      <pubDate>Sun, 05 Sep 2021 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/tags/%E6%B5%81%E6%B0%B4%E7%BA%BF/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="http://tifinity.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>none</title>
+      <link>http://tifinity.github.io/tags/none/</link>
+      <pubDate>Tue, 28 Apr 2020 01:24:43 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/tags/none/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>Unity3d</title>
+      <link>http://tifinity.github.io/tags/unity3d/</link>
+      <pubDate>Tue, 28 Apr 2020 00:09:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/tags/unity3d/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>面经</title>
+      <link>http://tifinity.github.io/tags/%E9%9D%A2%E7%BB%8F/</link>
+      <pubDate>Mon, 20 Apr 2020 12:44:01 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/tags/%E9%9D%A2%E7%BB%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://tifinity.github.io/tags/linux/</link>
+      <pubDate>Fri, 17 Apr 2020 13:02:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>statvfs</title>
+      <link>http://tifinity.github.io/tags/statvfs/</link>
+      <pubDate>Fri, 17 Apr 2020 13:02:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/tags/statvfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>硬盘</title>
+      <link>http://tifinity.github.io/tags/%E7%A1%AC%E7%9B%98/</link>
+      <pubDate>Fri, 17 Apr 2020 13:02:09 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/tags/%E7%A1%AC%E7%9B%98/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>邮件</title>
@@ -161,15 +220,6 @@
       <pubDate>Thu, 19 Dec 2019 13:02:33 +0800</pubDate>
       
       <guid>http://tifinity.github.io/tags/ar/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Unity3d</title>
-      <link>http://tifinity.github.io/tags/unity3d/</link>
-      <pubDate>Thu, 19 Dec 2019 13:02:33 +0800</pubDate>
-      
-      <guid>http://tifinity.github.io/tags/unity3d/</guid>
       <description></description>
     </item>
     

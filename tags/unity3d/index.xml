@@ -6,10 +6,19 @@
     <description>Recent content in Unity3d on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 19 Dec 2019 13:02:33 +0800</lastBuildDate>
-    
-	<atom:link href="http://tifinity.github.io/tags/unity3d/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 28 Apr 2020 00:09:20 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/unity3d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity3D项目十：简单坦克大战</title>
+      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</link>
+      <pubDate>Tue, 28 Apr 2020 00:09:20 +0800</pubDate>
+      
+      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</guid>
+      <description>简单坦克大战 作业要求 坦克对战游戏 AI 设计 从商店下载游戏：“Kawaii” Tank 或 其他坦克模型，构建 AI 对战坦克。具体要求
+ 使用“感知-思考-行为”模型，建模 AI 坦克 场景中要放置一些障碍阻挡对手视线 坦克需要放置一个矩阵包围盒触发器，以保证 AI 坦克能使用射线探测对手方位 AI 坦克必须在有目标条件下使用导航，并能绕过障碍。（失去目标时策略自己思考） 实现人机对战  项目地址 github bilibili
+具体实现 参考学姐博客，对一些混乱的地方进行了修改。 关于框架的复用不再赘述，主要包括：
+ 用工厂处理子弹和电脑坦克； 导演，场景控制器； IUserGUI接受用户输入；  NavMesh 官方文档 使用NavMesh来控制AI坦克的移动，使用SetDestination将Player设置为目标。
+void FixedUpdate () { if(sceneController.getResult()==0) { target = sceneController.getPlayerPosition(); if(HP.GetHP() &amp;lt;= 0.0f &amp;amp;&amp;amp; recycleEvent != null) { recycleEvent(this.gameObject); sceneController.decreaseCountNPC(); } else { NavMeshAgent agent = GetComponent&amp;lt;NavMeshAgent&amp;gt;(); agent.SetDestination(target); } } else { NavMeshAgent agent = GetComponent&amp;lt;NavMeshAgent&amp;gt; (); agent.</description>
+    </item>
     
     <item>
       <title>Unity3D项目十一：简单AR</title>

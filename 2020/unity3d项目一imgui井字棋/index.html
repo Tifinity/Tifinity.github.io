@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D项目一：IMGUI井字棋 | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D项目一：IMGUI井字棋 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D项目一：IMGUI井字棋",
+    "headline" : "Unity3D项目一：IMGUI井字棋",
+    "description" : "Unity3D游戏一：IMGUI井字棋 要求  游戏内容： 井字棋 技术限制： 仅允许使用 IMGUI 构建 UI 作业目的：  了解 OnGUI() 事件，提升 debug 能力 提升阅读 API 文档能力    实现   完整代码传送门-\u0026gt;?\n  视屏演示传送门-\u0026gt;?\n  首先使用IMGUI搭建出游戏界面\n  OnGUI()函数，与Update()一样，只要脚本启用，每一帧都会被调用。\n  GUI.Box()制作背景盒\n  GUI.Label()创建文本框，仅用于显示信息，不能交互。\n  GUI.Button()创建按钮\nif (GUI.Button(new Rect(400, 200, 140, 50), \u0026#34;reset\u0026#34;)) { \/\/do  } GUI.Button函数的返回值是0或1，0表示这个按钮没有被点击，1表示被点击，所以这句话的意思是创建按钮并判断该按钮是否被点击。\n    游戏逻辑\n  检查胜利条件，check()通过返回值不同来表示当前游戏状态。\nint check() { \/*横线获胜*\/ for (int i = 0; i \u0026lt; 3; i\u002b\u002b) { if (board[i][0] !",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 00:27:50 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 00:27:50 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B\/",
+    "wordCount" : "273",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D项目一：IMGUI井字棋</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="unity3d游戏一imgui井字棋">Unity3D游戏一：IMGUI井字棋</h1>
+<h3 id="要求">要求</h3>
+<ul>
+<li>游戏内容： 井字棋</li>
+<li>技术限制： 仅允许使用 <strong>IMGUI</strong> 构建 UI</li>
+<li>作业目的：
+<ul>
+<li>了解 OnGUI() 事件，提升 debug 能力</li>
+<li>提升阅读 API 文档能力</li>
+</ul>
+</li>
+</ul>
+<h3 id="实现">实现</h3>
+<ul>
+<li>
+<p>完整代码传送门-&gt;<a href="https://github.com/Tifinity/Unity3DStudy-master">?</a></p>
+</li>
+<li>
+<p>视屏演示传送门-&gt;<a href="https://www.bilibili.com/video/av67329230/">?</a></p>
+</li>
+<li>
+<p>首先使用IMGUI搭建出游戏界面</p>
+<ul>
+<li>
+<p>OnGUI()函数，与Update()一样，只要脚本启用，每一帧都会被调用。</p>
+</li>
+<li>
+<p>GUI.Box()制作背景盒</p>
+</li>
+<li>
+<p>GUI.Label()创建文本框，仅用于显示信息，不能交互。</p>
+</li>
+<li>
+<p>GUI.Button()创建按钮</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"> <span style="color:#66d9ef">if</span> (GUI.Button(<span style="color:#66d9ef">new</span> Rect(<span style="color:#ae81ff">400</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">140</span>, <span style="color:#ae81ff">50</span>), <span style="color:#e6db74">&#34;reset&#34;</span>)) {
+     <span style="color:#75715e">//do
+</span><span style="color:#75715e"></span> }
+</code></pre></div><p>GUI.Button函数的返回值是0或1，0表示这个按钮没有被点击，1表示被点击，所以这句话的意思是创建按钮并判断该按钮是否被点击。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>游戏逻辑</p>
+<ul>
+<li>
+<p>检查胜利条件，check()通过返回值不同来表示当前游戏状态。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">int</span> check() {
+    <span style="color:#75715e">/*横线获胜*/</span>
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; <span style="color:#ae81ff">3</span>; i++) {
+        <span style="color:#66d9ef">if</span> (board[i][<span style="color:#ae81ff">0</span>] != <span style="color:#ae81ff">0</span> &amp;&amp; board[i][<span style="color:#ae81ff">0</span>] == board[i][<span style="color:#ae81ff">1</span>] &amp;&amp; board[i][<span style="color:#ae81ff">1</span>] == board[i][<span style="color:#ae81ff">2</span>]) {
+            <span style="color:#66d9ef">return</span> board[i][<span style="color:#ae81ff">0</span>];
+        }
+    }
+    <span style="color:#75715e">/*纵线获胜*/</span>
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; <span style="color:#ae81ff">3</span>; i++) {
+        <span style="color:#66d9ef">if</span> (board[<span style="color:#ae81ff">0</span>][i] != <span style="color:#ae81ff">0</span> &amp;&amp; board[<span style="color:#ae81ff">0</span>][i] == board[<span style="color:#ae81ff">1</span>][i] &amp;&amp; board[<span style="color:#ae81ff">1</span>][i] == board[<span style="color:#ae81ff">2</span>][i]) {
+            <span style="color:#66d9ef">return</span> board[<span style="color:#ae81ff">0</span>][i];
+        }
+    }
+    <span style="color:#75715e">/*斜线获胜*/</span>
+    <span style="color:#66d9ef">if</span> (board[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] != <span style="color:#ae81ff">0</span> &amp;&amp;
+        board[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]== board[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] &amp;&amp; board[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">2</span>] == board[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] ||
+        board[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">2</span>] == board[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] &amp;&amp; board[<span style="color:#ae81ff">2</span>][<span style="color:#ae81ff">0</span>] == board[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>]) {
+        <span style="color:#66d9ef">return</span> board[<span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>];
+    }
+    <span style="color:#75715e">/*对局还没结束*/</span>
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; <span style="color:#ae81ff">3</span>; ++i) {
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j = <span style="color:#ae81ff">0</span>; j &lt; <span style="color:#ae81ff">3</span>; ++j) {
+            <span style="color:#66d9ef">if</span> (board[i][j] == <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+        }
+    }
+    <span style="color:#75715e">/*平局*/</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>;
+}
+</code></pre></div></li>
+<li>
+<p>先绘制已经下好的棋子，再判断游戏是否结束，若没结束则根据turn的值进行本次点击，更改二维数组的值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; <span style="color:#ae81ff">3</span>; ++i) {
+	<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j = <span style="color:#ae81ff">0</span>; j &lt; <span style="color:#ae81ff">3</span>; ++j) {
+        <span style="color:#66d9ef">if</span> (board[i][j] == <span style="color:#ae81ff">1</span>) {
+            GUI.Button(<span style="color:#66d9ef">new</span> Rect(m - <span style="color:#ae81ff">150</span> + i * <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span> + j * <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>), <span style="color:#e6db74">&#34;O&#34;</span>);
+        }
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (board[i][j] == <span style="color:#ae81ff">2</span>) {
+            GUI.Button(<span style="color:#66d9ef">new</span> Rect(m - <span style="color:#ae81ff">150</span> + i * <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span> + j * <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>), <span style="color:#e6db74">&#34;X&#34;</span>);
+        }   
+        <span style="color:#66d9ef">if</span>(GUI.Button(<span style="color:#66d9ef">new</span> Rect(m - <span style="color:#ae81ff">150</span> + i * <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">200</span> + j * <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>), <span style="color:#e6db74">&#34;&#34;</span>)) { 
+            <span style="color:#66d9ef">if</span> (res == <span style="color:#ae81ff">0</span>) {
+                <span style="color:#66d9ef">if</span> (turn == <span style="color:#ae81ff">1</span>) {
+                    board[i][j] = turn;
+                    turn = <span style="color:#ae81ff">2</span>;
+                }
+                <span style="color:#66d9ef">else</span> {
+                    board[i][j] = turn;
+                    turn = <span style="color:#ae81ff">1</span>;
+                }
+            }  
+        }
+    }
+}
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="游戏截图">游戏截图</h3>
+<p><img src="https://img-blog.csdnimg.cn/20190909163049419.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>参考资料：</p>
+<p><a href="http://docs.manew.com/Manual/index.htm">Unity3D用户手册中文翻译 by 游戏蛮牛</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/" class="prev" rel="prev" title="Unity3D项目四：牧师与魔鬼（动作分离版）"><i class="iconfont icon-left"></i>&nbsp;Unity3D项目四：牧师与魔鬼（动作分离版）</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/" class="next" rel="next" title="Unity3D作业二：离散仿真引擎基础">Unity3D作业二：离散仿真引擎基础&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

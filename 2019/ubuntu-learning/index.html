@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Ubuntu学习",
     "headline" : "Ubuntu学习",
-    "description" : "Ubuntu学习 1. Ubuntu包管理机制 apt-get install \x26lt;package\x26gt;\rapt-get update apt-get upgrade\r这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。\n如果你想知道apt-get到底是什么；\ninstall的软件到底安装到哪去了；\nupdate和upgrade的区别；\n下载速度慢的时候换源是什么操作；\n可以接着往下看本文。\n1.1 软件包仓库 当你使用apt-get install \x26lt;package\x26gt;时，apt先到\/etc\/apt目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。\nsource.list长这样：\n# See http:\/\/help.ubuntu.com\/community\/UpgradeNotes for how to upgrade to\r# newer versions of the distribution.\rdeb http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic main restricted\r# deb-src http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic main restricted\r## Major bug fix updates produced after the final release of the\r## distribution.\rdeb http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic-updates main restricted\r# deb-src http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic-updates main restricted\r每一个仓库表示为：",
+    "description" : "Ubuntu学习 1. Ubuntu包管理机制 apt-get install \u0026lt;package\u0026gt; apt-get update apt-get upgrade 这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。\n如果你想知道apt-get到底是什么；\ninstall的软件到底安装到哪去了；\nupdate和upgrade的区别；\n下载速度慢的时候换源是什么操作；\n可以接着往下看本文。\n1.1 软件包仓库 当你使用apt-get install \u0026lt;package\u0026gt;时，apt先到\/etc\/apt目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。\nsource.list长这样：\n# See http:\/\/help.ubuntu.com\/community\/UpgradeNotes for how to upgrade to # newer versions of the distribution. deb http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic main restricted # deb-src http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic main restricted ## Major bug fix updates produced after the final release of the ## distribution. deb http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic-updates main restricted # deb-src http:\/\/cn.archive.ubuntu.com\/ubuntu\/ bionic-updates main restricted 每一个仓库表示为：",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-16 19:00:20 \x2b0800 CST",
-    "dateModified" : "2019-12-16 19:00:20 \x2b0800 CST",
+    "datePublished": "2019-12-16 19:00:20 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-16 19:00:20 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/ubuntu-learning\/",
     "wordCount" : "155",
     "keywords" : [ "Ubuntu", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -127,15 +125,10 @@
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="http://tifinity.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"> 未分类 </a>
+                        <a href="http://tifinity.github.io/categories/linux/"> Linux </a>
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -155,9 +148,9 @@
           
           
 
-          <h1 id="ubuntu">Ubuntu学习</h1>
-<h2 id="1-ubuntu">1. Ubuntu包管理机制</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt-get install &lt;package&gt;
+          <h1 id="ubuntu学习">Ubuntu学习</h1>
+<h2 id="1-ubuntu包管理机制">1. Ubuntu包管理机制</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">apt-get install &lt;package&gt;
 apt-get update 
 apt-get upgrade
 </code></pre></div><p>这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。</p>
@@ -166,11 +159,11 @@ apt-get upgrade
 <p>update和upgrade的区别；</p>
 <p>下载速度慢的时候换源是什么操作；</p>
 <p>可以接着往下看本文。</p>
-<h3 id="11-">1.1 软件包仓库</h3>
+<h3 id="11-软件包仓库">1.1 软件包仓库</h3>
 <p>当你使用<code>apt-get install &lt;package&gt;</code>时，apt先到<code>/etc/apt</code>目录下去查找所有的仓库。这个目录下包含源仓库文件source.list和后缀为.gpg的gpg密钥文件。</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/GoOnlineReport/image-20191201134401534.png" alt="image-20191201134401534"></p>
 <p>source.list长这样：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to</span>
 <span style="color:#75715e"># newer versions of the distribution.</span>
 deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted
 <span style="color:#75715e"># deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted</span>
@@ -180,7 +173,7 @@ deb http://cn.archive.ubuntu.com/ubuntu/ bionic main restricted
 deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted
 <span style="color:#75715e"># deb-src http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted</span>
 </code></pre></div><p>每一个仓库表示为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">deb/deb-src  &lt;url&gt;  &lt;ubuntu版本代号&gt;  &lt;仓库类型&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">deb/deb-src  &lt;url&gt;  &lt;ubuntu版本代号&gt;  &lt;仓库类型&gt;
 </code></pre></div><p>其中</p>
 <ul>
 <li>
@@ -226,8 +219,8 @@ deb http://cn.archive.ubuntu.com/ubuntu/ bionic-updates main restricted
 <p>pool/ .deb安装包</p>
 <p>除了官方仓库，第三方仓库放在<code>etc/apt/sources.list.d/</code>目录下</p>
 <p><img src="https://github.com/Tifinity/MyImage/raw/master/GoOnlineReport/image-20191201133904920.png" alt="image-20191201133904920"></p>
-<h3 id="12-">1.2 包管理工具</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dpkg      – Debian 包安装工具
+<h3 id="12-包管理工具">1.2 包管理工具</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dpkg      – Debian 包安装工具
 apt-get （ 现在用apt即可 ） – APT 的命令行前端
 aptitude  – APT 的高级的字符和命令行前端
 synaptic  – 图形界面的 APT 前端
@@ -237,10 +230,10 @@ tasksel   – Task 安装工具
 <p>apt下载的包保存在<code>/var/cache/apt/archives</code></p>
 <p>未完待续</p>
 <p>.deb 和 .rpm</p>
-<h2 id="2">2.修改终端提示信息</h2>
+<h2 id="2修改终端提示信息">2.修改终端提示信息</h2>
 <p>修改/etc/profile：</p>
 <p><img src="D:%5CTH%5CTifinity-Blog%5CTifinity%5Ccontent%5Cposts%5Cimage-20191227124252968.png" alt="image-20191227124252968"></p>
-<h2 id="heading">参考资料</h2>
+<h2 id="参考资料">参考资料</h2>
 <p><a href="https://wiki.ubuntu.org.cn/UbuntuManual:Ubuntu_%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86">UbuntuManual</a></p>
 <p><a href="https://www.cnblogs.com/dennis-wong/p/9378145.html">https://www.cnblogs.com/dennis-wong/p/9378145.html</a></p>
 
@@ -298,28 +291,6 @@ tasksel   – Task 安装工具
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -327,7 +298,7 @@ tasksel   – Task 安装工具
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -337,14 +308,7 @@ tasksel   – Task 安装工具
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

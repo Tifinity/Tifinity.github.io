@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" />
-  
+  <link rel="next" href="http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/" />
   <link rel="canonical" href="http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "Python如何发送邮件",
     "headline" : "Python如何发送邮件",
-    "description" : "Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。\n 使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。\n提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：\nimport sys\rprint(sys.path)\r所以Python会找不到模块，出现下面这样的错误：\nModuleNotFoundError:\rNo module named \x26#39;email.mime\x26#39;; \x26#39;email\x26#39; is not a package\r然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。\n第一步，创建邮件并设置邮件信息：\nsender = \x26#39;XXX@qq.com\x26#39; # 发送者\r receivers = [\x26#39;XXX@qq.com\x26#39;] # 接收者\r subject = \x26#39;Python SMTP 邮件测试\x26#39;\rcontent = \x26#39;你要发送的邮件内容\x26#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8\r message = MIMEText(content, \x26#39;plain\x26#39;, \x26#39;utf-8\x26#39;)\rmessage[\x26#39;From\x26#39;] = Header(sender, \x26#39;utf-8\x26#39;)\t# 发送者\r message[\x26#39;To\x26#39;] = Header(receivers[0], \x26#39;utf-8\x26#39;)\t# 接收者\r message[\x26#39;Subject\x26#39;] = Header(subject, \x26#39;utf-8\x26#39;)\t# 主题\r 第二步，设置第三方SMTP服务：",
+    "description" : "Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。\n 使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。\n提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：\nimport sys print(sys.path) 所以Python会找不到模块，出现下面这样的错误：\nModuleNotFoundError: No module named \u0026#39;email.mime\u0026#39;; \u0026#39;email\u0026#39; is not a package 然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。\n第一步，创建邮件并设置邮件信息：\nsender = \u0026#39;XXX@qq.com\u0026#39; # 发送者 receivers = [\u0026#39;XXX@qq.com\u0026#39;] # 接收者 subject = \u0026#39;Python SMTP 邮件测试\u0026#39; content = \u0026#39;你要发送的邮件内容\u0026#39; # 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8 message = MIMEText(content, \u0026#39;plain\u0026#39;, \u0026#39;utf-8\u0026#39;) message[\u0026#39;From\u0026#39;] = Header(sender, \u0026#39;utf-8\u0026#39;)\t# 发送者 message[\u0026#39;To\u0026#39;] = Header(receivers[0], \u0026#39;utf-8\u0026#39;)\t# 接收者 message[\u0026#39;Subject\u0026#39;] = Header(subject, \u0026#39;utf-8\u0026#39;)\t# 主题 第二步，设置第三方SMTP服务：\n# 第三方 SMTP 服务 mail_host=\u0026#34;smtp.",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2020",
-    "datePublished": "2020-04-16 11:02:04 \x2b0800 CST",
-    "dateModified" : "2020-04-16 11:02:04 \x2b0800 CST",
+    "datePublished": "2020-04-16 11:02:04 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-16 11:02:04 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2020\/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6\/",
-    "wordCount" : "113",
+    "wordCount" : "114",
     "keywords" : [ "邮件", "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -127,19 +125,16 @@
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="http://tifinity.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"> 未分类 </a>
+                        <a href="http://tifinity.github.io/categories/python/"> Python </a>
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
 
+        
+            
         
 
         
@@ -153,45 +148,47 @@
           
           
 
-          <h1 id="python">Python如何发送邮件</h1>
+          <h1 id="python如何发送邮件">Python如何发送邮件</h1>
 <blockquote>
 <p>大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。</p>
 </blockquote>
 <p>使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。</p>
 <p>提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
-<span style="color:#66d9ef">print</span>(sys<span style="color:#f92672">.</span>path)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
+print(sys<span style="color:#f92672">.</span>path)
 </code></pre></div><p>所以Python会找不到模块，出现下面这样的错误：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">ModuleNotFoundError:
-No module named <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">email.mime</span><span style="color:#e6db74">&#39;</span>; <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">email</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> a package
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a6e22e">ModuleNotFoundError</span>:
+No module named <span style="color:#e6db74">&#39;email.mime&#39;</span>; <span style="color:#e6db74">&#39;email&#39;</span> <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> a package
 </code></pre></div><p>然后发送邮件可以使用本机上的邮件服务器来发送，也可以远程连接QQ邮箱或者网易邮箱等服务器来发送，这里我先使用QQ邮箱发一个最简单的纯文本邮件。</p>
 <p>第一步，创建邮件并设置邮件信息：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sender <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">XXX@qq.com</span><span style="color:#e6db74">&#39;</span> 			<span style="color:#75715e"># 发送者</span>
-receivers <span style="color:#f92672">=</span> [<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">XXX@qq.com</span><span style="color:#e6db74">&#39;</span>]  	<span style="color:#75715e"># 接收者</span>
-subject <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Python SMTP 邮件测试</span><span style="color:#e6db74">&#39;</span>
-content <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">你要发送的邮件内容</span><span style="color:#e6db74">&#39;</span> 
-<span style="color:#75715e"># 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8</span>
-message <span style="color:#f92672">=</span> MIMEText(content, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">plain</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">utf-8</span><span style="color:#e6db74">&#39;</span>)
-message[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">From</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> Header(sender, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">utf-8</span><span style="color:#e6db74">&#39;</span>)		<span style="color:#75715e"># 发送者</span>
-message[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">To</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span>  Header(receivers[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">utf-8</span><span style="color:#e6db74">&#39;</span>)	<span style="color:#75715e"># 接收者</span>
-message[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Subject</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> Header(subject, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">utf-8</span><span style="color:#e6db74">&#39;</span>)	<span style="color:#75715e"># 主题</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sender <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;XXX@qq.com&#39;</span> 			<span style="color:#75715e"># 发送者</span>
+receivers <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;XXX@qq.com&#39;</span>]  	<span style="color:#75715e"># 接收者</span>
+subject <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Python SMTP 邮件测试&#39;</span>
+content <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;你要发送的邮件内容&#39;</span> 
+<span style="color:#75715e"># 创建纯文本对象，参数：正文，类型plain表示纯文本，编码格式utf-8</span>
+message <span style="color:#f92672">=</span> MIMEText(content, <span style="color:#e6db74">&#39;plain&#39;</span>, <span style="color:#e6db74">&#39;utf-8&#39;</span>)
+message[<span style="color:#e6db74">&#39;From&#39;</span>] <span style="color:#f92672">=</span> Header(sender, <span style="color:#e6db74">&#39;utf-8&#39;</span>)		<span style="color:#75715e"># 发送者</span>
+message[<span style="color:#e6db74">&#39;To&#39;</span>] <span style="color:#f92672">=</span>  Header(receivers[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#39;utf-8&#39;</span>)	<span style="color:#75715e"># 接收者</span>
+message[<span style="color:#e6db74">&#39;Subject&#39;</span>] <span style="color:#f92672">=</span> Header(subject, <span style="color:#e6db74">&#39;utf-8&#39;</span>)	<span style="color:#75715e"># 主题</span>
 </code></pre></div><p>第二步，设置第三方SMTP服务：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 第三方 SMTP 服务</span>
-mail_host<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">smtp.qq.com</span><span style="color:#e6db74">&#34;</span>  		<span style="color:#75715e"># 服务器地址</span>
-mail_pass<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">XXXXX</span><span style="color:#e6db74">&#34;</span>   			<span style="color:#75715e"># 授权码</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 第三方 SMTP 服务</span>
+mail_host<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smtp.qq.com&#34;</span>  		<span style="color:#75715e"># 服务器地址</span>
+mail_pass<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;XXXXX&#34;</span>   			<span style="color:#75715e"># 授权码</span>
 </code></pre></div><p>有一点需要注意，授权码，不是账户密码，可查看QQ邮箱的帮助中心获取，可以先故意输错然后在报错信息中点开网址。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Error: 无法发送邮件:<span style="color:#f92672">(</span>535, b<span style="color:#e6db74">&#39;Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256&#39;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Error: 无法发送邮件:<span style="color:#f92672">(</span>535, b<span style="color:#e6db74">&#39;Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256&#39;</span><span style="color:#f92672">)</span>
 </code></pre></div><p>第三步，发送：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 连接邮件服务器</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 连接邮件服务器</span>
 smtpObj <span style="color:#f92672">=</span> smtplib<span style="color:#f92672">.</span>SMTP_SSL(mail_host, <span style="color:#ae81ff">465</span>) 
-<span style="color:#75715e"># 登录邮件服务器</span>
+<span style="color:#75715e"># 登录邮件服务器</span>
 smtpObj<span style="color:#f92672">.</span>login(sender, mail_pass)
-<span style="color:#75715e"># 发送邮件</span>
+<span style="color:#75715e"># 发送邮件</span>
 smtpObj<span style="color:#f92672">.</span>sendmail(sender, receivers, message<span style="color:#f92672">.</span>as_string())
-<span style="color:#75715e"># 退出服务器</span>
+<span style="color:#75715e"># 退出服务器</span>
 smtpObj<span style="color:#f92672">.</span>quit()
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">邮件发送成功</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">&#34;邮件发送成功&#34;</span>)
 </code></pre></div><p>这样一封基本的邮件就可以发出去了，然后更多关于邮件头的设置，以及HTML邮件，带附件的邮件等可以查看：<a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017790702398272">廖雪峰廖老师的教程</a></p>
+<p>顺便附上一张我的邮箱截图hhh</p>
+<p><img src="https://raw.githubusercontent.com/Tifinity/MyImage/master/Python/20200506115514.png" alt=""></p>
 
     </div>
 
@@ -238,34 +235,14 @@ smtpObj<span style="color:#f92672">.</span>quit()
         <a href="http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" class="prev" rel="prev" title="Scoop-为Windows而生的命令行包管理工具"><i class="iconfont icon-left"></i>&nbsp;Scoop-为Windows而生的命令行包管理工具</a>
          
         
+        <a href="http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/" class="next" rel="next" title="Linux磁盘空间监控">Linux磁盘空间监控&nbsp;<i class="iconfont icon-right"></i></a>
+        
     </div>
 
     <div class="post-comment">
           
                  
           
-    </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
     </div>
 </article>
           </div>
@@ -274,7 +251,7 @@ smtpObj<span style="color:#f92672">.</span>quit()
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -284,14 +261,7 @@ smtpObj<span style="color:#f92672">.</span>quit()
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 
@@ -307,8 +277,9 @@ smtpObj<span style="color:#f92672">.</span>quit()
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 

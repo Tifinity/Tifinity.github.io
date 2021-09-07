@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D项目九：简单的两个血条 | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D项目九：简单的两个血条 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D项目九：简单的两个血条",
+    "headline" : "Unity3D项目九：简单的两个血条",
+    "description" : "简单血条 IMGUI和UGUI @[toc]\n作业要求   分别使用 IMGUI 和 UGUI 实现\n  使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机\n  分析两种实现的优缺点\n  给出预制的使用方法\n  效果展示 项目地址 -\u0026gt; 传送门\n视频连接 -\u0026gt; 传送门\n具体实现 UGUI实现 制作血条 先随便创建一个Cube，然后在Cube下创建子物体Canvas：右键-\u0026gt;UI-\u0026gt;Canvas；\n接着在Canvas下创建Slider：右键-\u0026gt;UI-\u0026gt;Slider；\n场景中一个白色的大框就是画布Canvas，画布中有一个滑动条Slider，项目结构树中可以看到如下结构。展开Slider可以看到组成滑动条的三个组件：Background-背景颜色，Fill Area-填充颜色，Handle SliderArea-滑动柄。\n右边检查器中可以修改滑动条的各个属性，拖动value可以看到滑动条随之移动：\n现在删掉滑动柄Handle SliderArea，然后将Fill中的图像-\u0026gt;颜色改为你喜欢的颜色，将Fill Area和Fill中Rect Transform中的左右都设为0，不然血条会超出填充框。\n一个简单的血条现在就差不多做好了。\n很重要的一点：千万不要乱改Rect Transform的其他固定值，调大小用缩放来调。\n摆放血条 现在血条静止的在场景中，我们需要让它跟随摄像机移动。\nCanvas-\u0026gt;Canvas画布-\u0026gt;Render Mode渲染模式，这里有三种渲染模式：\n  Screen Space - Overlay:默认的渲染模式，将UI元素放置在场景顶部渲染的屏幕，画布会自动更改大小匹配屏幕。此模式Canvas位置大小不可改变，但可以通过移动父物体来间接改变，Canvas的起始位置就是父物体的位置，大小和设置的显示屏幕大小有关，更改不同的显示大小，Canvas的形状大小也将会发生改变。此模式不需要UI相机，Canvas上的内容将显示在所有游戏物体之前。\n  Screen Space - Camera：此模式Canvas位置大小不可改变，需要指定UI相机定，可以将Main Camera挂载到上面观察效果，画布上的内容将一直显示在相机视野里，且 显示在所有游戏物体之前。\n  World Space： 画布行为与场景中的其他任何对象一样，UI元素将放置在其他对象的前面或后面渲染。画布大小和位置任意设置，这对于意在成为世界一部分的用户界面非常有用。\n  选择World Space，再将Main Camera拖到事件摄像机的位置，这时画布的Rect Transform可以修改了，在修改画布和血条的位置和比例到合适的位置。",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 00:14:10 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 00:14:10 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1\/",
+    "wordCount" : "321",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D项目九：简单的两个血条</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="简单血条-imgui和ugui">简单血条 IMGUI和UGUI</h1>
+<p>@[toc]</p>
+<h2 id="作业要求">作业要求</h2>
+<ul>
+<li>
+<p>分别使用 IMGUI 和 UGUI 实现</p>
+</li>
+<li>
+<p>使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机</p>
+</li>
+<li>
+<p>分析两种实现的优缺点</p>
+</li>
+<li>
+<p>给出预制的使用方法</p>
+</li>
+</ul>
+<h2 id="效果展示">效果展示</h2>
+<p>项目地址 -&gt; <a href="https://github.com/Tifinity/Unity3DStudy-master/tree/master/%E9%A1%B9%E7%9B%AE%E4%B9%9D%EF%BC%9A%E7%AE%80%E5%8D%95%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/Assets">传送门</a></p>
+<p>视频连接 -&gt; <a href="https://www.bilibili.com/video/av76262413/">传送门</a></p>
+<h2 id="具体实现">具体实现</h2>
+<h3 id="ugui实现">UGUI实现</h3>
+<h4 id="制作血条">制作血条</h4>
+<p>先随便创建一个Cube，然后在Cube下创建子物体Canvas：右键-&gt;UI-&gt;Canvas；</p>
+<p>接着在Canvas下创建Slider：右键-&gt;UI-&gt;Slider；</p>
+<p>场景中一个白色的大框就是画布Canvas，画布中有一个滑动条Slider，项目结构树中可以看到如下结构。展开Slider可以看到组成滑动条的三个组件：Background-背景颜色，Fill Area-填充颜色，Handle SliderArea-滑动柄。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191119153708572.jpg" alt="在这里插入图片描述"></p>
+<p>右边检查器中可以修改滑动条的各个属性，拖动value可以看到滑动条随之移动：</p>
+<p><img src="https://img-blog.csdnimg.cn/201911191537202.jpg" alt="在这里插入图片描述"></p>
+<p>现在删掉滑动柄Handle SliderArea，然后将Fill中的图像-&gt;颜色改为你喜欢的颜色，将Fill Area和Fill中Rect Transform中的左右都设为0，不然血条会超出填充框。</p>
+<p>一个简单的血条现在就差不多做好了。</p>
+<p>很重要的一点：千万不要乱改Rect Transform的其他固定值，调大小用缩放来调。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191119153725600.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="摆放血条">摆放血条</h4>
+<p>现在血条静止的在场景中，我们需要让它跟随摄像机移动。</p>
+<p>Canvas-&gt;Canvas画布-&gt;Render Mode渲染模式，这里有三种渲染模式：</p>
+<ul>
+<li>
+<p>Screen Space - Overlay:默认的渲染模式，将UI元素放置在场景顶部渲染的屏幕，画布会自动更改大小匹配屏幕。此模式Canvas位置大小不可改变，但可以通过移动父物体来间接改变，Canvas的起始位置就是父物体的位置，大小和设置的显示屏幕大小有关，更改不同的显示大小，Canvas的形状大小也将会发生改变。此模式不需要UI相机，Canvas上的内容将显示在所有游戏物体之前。</p>
+</li>
+<li>
+<p>Screen Space - Camera：此模式Canvas位置大小不可改变，需要指定UI相机定，可以将Main Camera挂载到上面观察效果，画布上的内容将一直显示在相机视野里，且
+显示在所有游戏物体之前。</p>
+</li>
+<li>
+<p>World Space： 画布行为与场景中的其他任何对象一样，UI元素将放置在其他对象的前面或后面渲染。<strong>画布大小和位置任意设置</strong>，这对于意在成为世界一部分的用户界面非常有用。</p>
+</li>
+</ul>
+<p>选择World Space，再将Main Camera拖到事件摄像机的位置，这时画布的Rect Transform可以修改了，在修改画布和血条的位置和比例到合适的位置。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191119153813227.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4 id="控制血条">控制血条</h4>
+<p>按照课程网站教程，将血条挂在官方人物上，顺便一提，新版本的Unity3D要在资源商店里手动导入Standard Asserts，再里面找到Characters 的Prefabs就可以看到教程中的人物了。</p>
+<p>在这里我还是使用了之前作业做的人物。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191119153820295.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>简单的写了控制血条的代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">using</span> UnityEngine;
+<span style="color:#66d9ef">using</span> UnityEngine.UI;
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UGUI_H</span>: MonoBehaviour {
+    <span style="color:#66d9ef">public</span> Slider HPStrip;
+    <span style="color:#66d9ef">public</span> Image fill;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> HP = <span style="color:#ae81ff">10f</span>;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">float</span> tmpHP;
+    <span style="color:#66d9ef">void</span> Awake() {
+        HPStrip.<span style="color:#66d9ef">value</span> = HPStrip.maxValue = HP;
+        tmpHP = HP;
+        fill.color = Color.green;
+    }
+    <span style="color:#66d9ef">void</span> Update() {
+        HP = Mathf.Lerp(HP, tmpHP, <span style="color:#ae81ff">0.05f</span>);
+        HPStrip.<span style="color:#66d9ef">value</span> = HP;
+        <span style="color:#66d9ef">if</span> (HP&lt;=<span style="color:#ae81ff">5</span>) {
+            fill.color = Color.red;
+        }
+    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SetHP(<span style="color:#66d9ef">int</span> flag, <span style="color:#66d9ef">float</span> damage) {
+        <span style="color:#66d9ef">if</span>(flag == <span style="color:#ae81ff">1</span> &amp;&amp; HP &lt;= <span style="color:#ae81ff">10</span>) {
+            tmpHP += damage;
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(flag == <span style="color:#ae81ff">0</span> &amp;&amp; HP &gt; <span style="color:#ae81ff">0</span>) {
+            tmpHP -= damage;
+        }
+        
+    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> GetHP() {
+        <span style="color:#66d9ef">return</span> HP;
+    }
+}
+</code></pre></div><p>不过老师提出了以下问题：</p>
+<blockquote>
+<p>如果你在生产中使用上述血条，足以证明你是入门级别程序员。为了显示血条，每个图片从 pixel 单位映射到 world space，再投影到摄像机空间，在变成屏幕空间（pixel 单位）。这需要多少算力？</p>
+<p>因此，能用 Srceen Space 解决的问题绝不用 World Space， 能用 Overlay 解决问题绝不用 Camera！</p>
+<p>而血条恰恰是 Srceen Space - Overlay 能决解的哦！提示，阅读脚本手册 RectTransform</p>
+</blockquote>
+<p>暂时还没想到如何解决，基本思路还是先work起来再改进，这个问题留待以后解决。</p>
+<h3 id="imgui">IMGUI</h3>
+<p>用代码实现即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">using</span> UnityEngine;
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IMGUI_H</span> : MonoBehaviour {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> HP = <span style="color:#ae81ff">1.0f</span>;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">float</span> tmpHP;
+
+    <span style="color:#66d9ef">private</span> Rect HealthBar;
+
+    <span style="color:#66d9ef">void</span> Start() {
+        HealthBar = <span style="color:#66d9ef">new</span> Rect(<span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">20</span>);
+        tmpHP = HP;
+    }
+
+    <span style="color:#66d9ef">void</span> OnGUI() {
+        HP = Mathf.Lerp(HP, tmpHP, <span style="color:#ae81ff">0.05f</span>);
+        GUI.HorizontalScrollbar(HealthBar, <span style="color:#ae81ff">0.0f</span>, HP, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">1.0f</span>);
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SetHP(<span style="color:#66d9ef">int</span> flag, <span style="color:#66d9ef">float</span> damage) {
+        <span style="color:#66d9ef">if</span> (flag == <span style="color:#ae81ff">1</span>) {
+            tmpHP = tmpHP + <span style="color:#ae81ff">0.1f</span> &gt; <span style="color:#ae81ff">1.0f</span> ? <span style="color:#ae81ff">1.0f</span> : tmpHP + <span style="color:#ae81ff">0.1f</span>;
+        }
+        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (flag == <span style="color:#ae81ff">0</span>) {
+            tmpHP = tmpHP - <span style="color:#ae81ff">0.1f</span> &lt; <span style="color:#ae81ff">0.0f</span> ? <span style="color:#ae81ff">0.0f</span> : tmpHP - <span style="color:#ae81ff">0.1f</span>;
+        }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> GetHP() {
+        <span style="color:#66d9ef">return</span> HP;
+    }
+}
+</code></pre></div><h3 id="两种方法比较">两种方法比较</h3>
+<p>IMGUI：</p>
+<p>优点：</p>
+<ul>
+<li>符合传统编程习惯</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>效率低下，难以调试。</li>
+</ul>
+<blockquote>
+<p>按 Unity 官方说法，IMGUI主要用于以下场景：</p>
+<ul>
+<li>在游戏中创建调试显示工具</li>
+<li>为脚本组件创建自定义的 Inspector 面板。</li>
+<li>创建新的编辑器窗口和工具来扩展 Unity 环境。</li>
+</ul>
+</blockquote>
+<p>IMGUI不是我们想象中的与用户交互的UI，UGUI更像我们玩游戏的时候见到的UI。</p>
+<p>UGUI：</p>
+<p>优点：</p>
+<ul>
+<li>
+<p>UGUI出现了锚点的概念，更方便屏幕自适应。</p>
+</li>
+<li>
+<p>所见即所得，设计师也能参与程序开发</p>
+</li>
+<li>
+<p>UI 元素与游戏场景融为一体的交互</p>
+</li>
+<li>
+<p>面向对象</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>暂时没有使用上的缺点，因为还没有深入了解</li>
+</ul>
+<h3 id="预制体使用方法">预制体使用方法</h3>
+<p>两个预制体为IMGUI-H-Bar，UGUI-H-Bar，将其放在你的人物子对象中，在人物控制脚本中添加对应组件即可。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191119153833735.jpg" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191119153840182.jpg" alt="在这里插入图片描述"></p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://www.cnblogs.com/vmoor2016/p/6044941.html">前辈博客</a></p>
+<p><a href="https://pmlpml.github.io/unity3d-learning/09-ui.html">课程网站</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/" class="prev" rel="prev" title="Unity3D项目十：简单坦克大战"><i class="iconfont icon-left"></i>&nbsp;Unity3D项目十：简单坦克大战</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="next" rel="next" title="Unity3D项目七：动画制作过程">Unity3D项目七：动画制作过程&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

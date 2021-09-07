@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D项目六：简单打靶 | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D项目六：简单打靶 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D项目六：简单打靶",
+    "headline" : "Unity3D项目六：简单打靶",
+    "description" : "简单打靶 @[toc]\n游戏规则与要求    游戏内容要求：  靶对象为 5 环，按环计分； 箭对象，射中后要插在靶上  增强要求：射中后，箭对象产生颤抖效果，到下一次射击 或 1秒以后   游戏仅一轮，无限 trials；  增强要求：添加一个风向和强度标志，提高难度        项目地址与演示视频 项目地址 -\u0026gt; 传送门?\n视频连接 -\u0026gt; 传送门?\n具体实现   与上一个项目相同，将动作管理相关的类改成适配物理引擎。箭工厂与飞碟工厂相同，\n  主要的内容在FirstSenceController中，\n首先时Update函数，使用LookAt函数将弓箭转向鼠标的方向，如果没有箭则从工厂中取出一支箭放在弓上，检测鼠标左键按下则射箭。\nvoid Update () { if(game_start) { Vector3 mpos = Camera.main.ScreenPointToRay(Input.mousePosition).direction; if (Input.GetButtonDown(\u0026#34;Fire1\u0026#34;)) { Shoot(mpos * 15 ); } if (arrow == null) { arrow = arrow_factory.GetArrow(); arrow.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 00:18:23 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 00:18:23 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6\/",
+    "wordCount" : "212",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D项目六：简单打靶</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="简单打靶">简单打靶</h1>
+<p>@[toc]</p>
+<h2 id="游戏规则与要求">游戏规则与要求</h2>
+<ul>
+<li>
+<ol>
+<li>游戏内容要求：
+<ol>
+<li>靶对象为 5 环，按环计分；</li>
+<li>箭对象，射中后要插在靶上
+<ul>
+<li><strong>增强要求</strong>：射中后，箭对象产生颤抖效果，到下一次射击 或 1秒以后</li>
+</ul>
+</li>
+<li>游戏仅一轮，无限 trials；
+<ul>
+<li><strong>增强要求</strong>：添加一个风向和强度标志，提高难度</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="项目地址与演示视频">项目地址与演示视频</h2>
+<p>项目地址 -&gt; <a href="https://github.com/Tifinity/Unity3DStudy-master/tree/master/%E9%A1%B9%E7%9B%AE%E4%B8%83%EF%BC%9A%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6">传送门?</a></p>
+<p>视频连接 -&gt; <a href="https://www.bilibili.com/video/av71567483/">传送门?</a></p>
+<h2 id="具体实现">具体实现</h2>
+<ul>
+<li>
+<p>与上一个项目相同，将动作管理相关的类改成适配物理引擎。箭工厂与飞碟工厂相同，</p>
+</li>
+<li>
+<p>主要的内容在FirstSenceController中，</p>
+<p>首先时Update函数，使用LookAt函数将弓箭转向鼠标的方向，如果没有箭则从工厂中取出一支箭放在弓上，检测鼠标左键按下则射箭。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"> <span style="color:#66d9ef">void</span> Update () {
+     <span style="color:#66d9ef">if</span>(game_start) {
+         Vector3 mpos = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+         <span style="color:#66d9ef">if</span> (Input.GetButtonDown(<span style="color:#e6db74">&#34;Fire1&#34;</span>)) {
+             Shoot(mpos * <span style="color:#ae81ff">15</span> );
+         }
+         <span style="color:#66d9ef">if</span> (arrow == <span style="color:#66d9ef">null</span>) {
+             arrow = arrow_factory.GetArrow();
+             arrow.transform.position = bow.transform.position;
+             arrow.gameObject.SetActive(<span style="color:#66d9ef">true</span>);
+             arrow.GetComponent&lt;Rigidbody&gt;().isKinematic = <span style="color:#66d9ef">true</span>;
+         }
+         bow.transform.LookAt(mpos * <span style="color:#ae81ff">30</span>);
+         arrow.transform.LookAt(mpos * <span style="color:#ae81ff">30</span>);
+         arrow_factory.FreeArrow();
+     }
+ }
+</code></pre></div><p>Shoot函数：通知动作管理器根据初始的力和风力射箭，并且设置新的更强的风向。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Shoot(Vector3 force) {
+     <span style="color:#66d9ef">if</span> (arrow != <span style="color:#66d9ef">null</span>) {
+         arrow.GetComponent&lt;Rigidbody&gt;().isKinematic = <span style="color:#66d9ef">false</span>;
+         action_manager.ArrowFly(arrow, wind, force);
+         child_camera.GetComponent&lt;ChildCamera&gt;().StartShow();
+         arrow = <span style="color:#66d9ef">null</span>;
+         CreateWind();
+         round++;
+     }
+ }
+</code></pre></div></li>
+<li>
+<p>动作管理器与打飞碟相同，箭飞行的动作很简单，给一个冲击力和风力即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowFlyAction</span> : SSAction {
+    <span style="color:#66d9ef">public</span> Vector3 <span style="color:#ae81ff">_f</span>orce;
+    <span style="color:#66d9ef">public</span> Vector3 <span style="color:#ae81ff">_</span>wind;
+
+    <span style="color:#66d9ef">private</span> ArrowFlyAction() { }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> ArrowFlyAction GetSSAction(Vector3 wind, Vector3 force) {
+        ArrowFlyAction action = CreateInstance&lt;ArrowFlyAction&gt;();
+        action.<span style="color:#ae81ff">_f</span>orce = force;
+        action.<span style="color:#ae81ff">_</span>wind = wind;
+        <span style="color:#66d9ef">return</span> action;
+    }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Start() {
+        gameobject.GetComponent&lt;Rigidbody&gt;().AddForce(<span style="color:#ae81ff">_f</span>orce, ForceMode.Impulse);
+        gameobject.GetComponent&lt;Rigidbody&gt;().AddForce(<span style="color:#ae81ff">_</span>wind);
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Update() {}
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> FixedUpdate(){
+        <span style="color:#66d9ef">if</span> (transform.position.y &lt; -<span style="color:#ae81ff">30</span>) {
+            <span style="color:#66d9ef">this</span>.destroy = <span style="color:#66d9ef">true</span>;
+            <span style="color:#66d9ef">this</span>.callback.SSActionEvent(<span style="color:#66d9ef">this</span>);
+        }
+    }
+}
+</code></pre></div></li>
+<li>
+<p>CollisionDetection脚本检测碰撞，将其挂在靶子的每一环上，使用OnTriggerEnter函数检测碰撞，碰撞之后将箭头隐藏并且将箭设置为运动学停止其运动。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CollisionDetection</span> : MonoBehaviour {
+    <span style="color:#66d9ef">public</span> FirstSceneController scene_controller;
+    <span style="color:#66d9ef">public</span> ScoreRecorder recorder;
+
+    <span style="color:#66d9ef">void</span> Start() {
+        scene_controller = SSDirector.GetInstance().CurrentScenceController <span style="color:#66d9ef">as</span> FirstSceneController;
+        recorder = Singleton&lt;ScoreRecorder&gt;.Instance;
+    }
+
+    <span style="color:#66d9ef">void</span> OnTriggerEnter(Collider arrow_head) {
+        Transform arrow = arrow_head.gameObject.transform.parent;
+        <span style="color:#66d9ef">if</span> (arrow == <span style="color:#66d9ef">null</span>) <span style="color:#66d9ef">return</span>;
+        arrow.GetComponent&lt;Rigidbody&gt;().isKinematic = <span style="color:#66d9ef">true</span>;
+        arrow_head.gameObject.SetActive(<span style="color:#66d9ef">false</span>);
+        recorder.Record(<span style="color:#66d9ef">this</span>.gameObject);
+    }
+}
+</code></pre></div></li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>本次项目主要是关于碰撞的操作，需要注意的一点是当物体运动速度比较快或者碰撞体比较薄时，可能会出现穿过去而没有出发碰撞的情况，此时需要将速度快的物体即箭碰撞检测调为持续动态，将不动的物体碰撞检测设为持续。</p>
+<p>靶子：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191018001856348.jpg" alt="在这里插入图片描述"></p>
+<p>箭：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191018001903722.jpg" alt="在这里插入图片描述"></p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://blog.csdn.net/c486c/article/details/80058316">师兄博客</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/" class="prev" rel="prev" title="Unity3d项目七：简单巡逻兵"><i class="iconfont icon-left"></i>&nbsp;Unity3d项目七：简单巡逻兵</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/" class="next" rel="next" title="Unity3D项目六：简单打飞碟（物理引擎）">Unity3D项目六：简单打飞碟（物理引擎）&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

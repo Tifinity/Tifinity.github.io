@@ -6,11 +6,7 @@
     <description>Recent content in 工欲善其事，必先利其器 on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 27 Dec 2019 19:43:39 +0800</lastBuildDate>
-    
-	<atom:link href="http://tifinity.github.io/categories/%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 27 Dec 2019 19:43:39 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/categories/%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scoop-为Windows而生的命令行包管理工具</title>
       <link>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
@@ -25,7 +21,7 @@
 Scoop试图消除类似的东西：
  权限弹出窗口 GUI向导式安装程序 安装大量程序造成的路径污染 安装和卸载程序产生的意外副作用 查找和安装依赖项的需要 需要执行额外的设置步骤才能获得有效的程序  安装配置 首先需要几个环境要求：
  Windows 版本不低于 Windows 7 PowerShell 3+ .NET Framework 4.5+ 用户名无中文  如果PowerShell和.NET不满足版本要求的话还是得先用百度更新。💔
-# 允许本地脚本执行 set-executionpolicy remotesigned -scope currentuser# 下载安装scoop iex (new-object net.webclient).downloadstring(&amp;#39;https://get.scoop.sh&amp;#39;)现在等待脚本执行完成。🚏
+# 允许本地脚本执行 set-executionpolicy remotesigned -scope currentuser # 下载安装scoop iex (new-object net.webclient).downloadstring(&amp;#39;https://get.scoop.sh&amp;#39;) 现在等待脚本执行完成。🚏
 安装完成后请迫不及待地执行scoop help，看到帮助信息说明安装成功了。
 简单使用 你已经看过了help输出的使用说明，如果以后某个指令想不起来也请执行scoop help。
    常用命令 含义     search 搜索软件名   install 安装软件   update 更新软件   status 查看软件状态   uninstall 卸载软件   info 查看软件详情   home 打开软件主页    举个🌰：</description>
@@ -46,7 +42,7 @@ Scoop试图消除类似的东西：
 从此告别了写一篇博客还要同步操作图床的麻烦。
 修改hosts解决Github图片无法加载问题 如果出现在Github上图片加载不出来，PicGo的相册里也加载不出图片，像下面这样，一般是Github网站的问题。
 第一步，用管理员权限打开文件，C:\Windows\System32\drivers\etc\hosts。
-# 这两行是固定的，直接复制192.30.253.112 github.com192.30.253.119 gist.github.com# 下面的每个人不一样，获取方法如下文199.232.28.133 githubusercontent.com199.232.28.133 assets-cdn.github.com199.232.28.133 raw.githubusercontent.com199.232.28.133 gist.githubusercontent.com199.232.28.133 cloud.githubusercontent.com199.232.28.133 camo.githubusercontent.com第二步，打开IP查询网站，从上面随便复制一个域名输入下图的查询框，点击查询。
+# 这两行是固定的，直接复制 192.30.253.112 github.com 192.30.253.119 gist.github.com # 下面的每个人不一样，获取方法如下文 199.232.28.133 githubusercontent.com 199.232.28.133 assets-cdn.github.com 199.232.28.133 raw.githubusercontent.com 199.232.28.133 gist.githubusercontent.com 199.232.28.133 cloud.githubusercontent.com 199.232.28.133 camo.githubusercontent.com 第二步，打开IP查询网站，从上面随便复制一个域名输入下图的查询框，点击查询。
 得到你的IP地址，填入hosts里，保存，刷新Github网站，现在可以正确显示图片。</description>
     </item>
     
@@ -56,7 +52,7 @@ Scoop试图消除类似的东西：
       <pubDate>Tue, 24 Dec 2019 14:12:21 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</guid>
-      <description>Git的一些让人方便的设置 # 用户名和邮箱git config --global user.name &amp;lt;your name&amp;gt;git config --global user.email &amp;lt;your_email@example.com&amp;gt;# 解决中文在Git Bash里显示诸如“/202/233/233”的转码问题# core.quotepath 为false的话，就不会对0x80以上的字符进行quote。中文显示正常。git config --global core.quotepath false# 设置commit的默认编辑器git config --global core.editor /usr/bin/vim# 避免每次pull和push时输入用户名和密码git config --global credential.helper store# Windows Git Bash启用http/https协议git config --global credential.helper wincred# 设置大小写敏感，保持Mac/Win/Linux一致性git config --global core.ignorecase false# Windows CRLFgit config --global core.autocrlf true# Linux，Macgit config --global core.autocrlf input</description>
+      <description>Git的一些让人方便的设置 # 用户名和邮箱 git config --global user.name &amp;lt;your name&amp;gt; git config --global user.email &amp;lt;your_email@example.com&amp;gt; # 解决中文在Git Bash里显示诸如“/202/233/233”的转码问题 # core.quotepath 为false的话，就不会对0x80以上的字符进行quote。中文显示正常。 git config --global core.quotepath false # 设置commit的默认编辑器 git config --global core.editor /usr/bin/vim # 避免每次pull和push时输入用户名和密码 git config --global credential.helper store # Windows Git Bash启用http/https协议 git config --global credential.helper wincred # 设置大小写敏感，保持Mac/Win/Linux一致性 git config --global core.ignorecase false # Windows CRLF git config --global core.autocrlf true # Linux，Mac git config --global core.autocrlf input </description>
     </item>
     
     <item>
@@ -65,7 +61,7 @@ Scoop试图消除类似的东西：
       <pubDate>Mon, 23 Dec 2019 18:55:09 +0800</pubDate>
       
       <guid>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</guid>
-      <description>希腊字母表    字母名称 国际音标 大写字母 小写字母 字母名称 国际音标 大写字母 小写字母     alpha /&amp;lsquo;ælfə/ Α α nu /nju:/ Ν ν   beta /&amp;lsquo;bi:tə/或 /&amp;lsquo;beɪtə/ Β β xi 希腊 /ksi/；英美 /ˈzaɪ/ 或 /ˈksaɪ/ Ξ ξ   gamma /&amp;lsquo;gæmə/ Γ γ omicron /əuˈmaikrən/或 /ˈɑmɪˌkrɑn/ Ο ο   delta /&amp;lsquo;deltə/ Δ δ pi /paɪ/ Π π   epsilon /&amp;lsquo;epsɪlɒn/ Ε ε rho /rəʊ/ Ρ ρ   zeta /&amp;lsquo;zi:tə/ Ζ ζ sigma /&amp;lsquo;sɪɡmə/ Σ σ ς   eta /&amp;lsquo;i:tə/ Η η tau /tɔ:/ 或 /taʊ/ Τ τ   theta /&amp;lsquo;θi:tə/ Θ θ upsilon /ˈipsilon/或 /ˈʌpsɨlɒn/ Υ υ   iota /aɪ&#39;əʊtə/ Ι ι ℩ phi /faɪ/ Φ φ   kappa /&amp;lsquo;kæpə/ Κ κ chi /kaɪ/ Χ χ   lambda /&amp;lsquo;læmdə/ Λ λ psi /psaɪ/ Ψ ψ   mu /mju:/ Μ μ omega /&amp;lsquo;əʊmɪɡə/或 /oʊ&#39;meɡə/ Ω ω    </description>
+      <description>希腊字母表    字母名称 国际音标 大写字母 小写字母 字母名称 国际音标 大写字母 小写字母     alpha /&amp;lsquo;ælfə/ Α α nu /nju:/ Ν ν   beta /&amp;lsquo;bi:tə/或 /&amp;lsquo;beɪtə/ Β β xi 希腊 /ksi/；英美 /ˈzaɪ/ 或 /ˈksaɪ/ Ξ ξ   gamma /&amp;lsquo;gæmə/ Γ γ omicron /əuˈmaikrən/或 /ˈɑmɪˌkrɑn/ Ο ο   delta /&amp;lsquo;deltə/ Δ δ pi /paɪ/ Π π   epsilon /&amp;lsquo;epsɪlɒn/ Ε ε rho /rəʊ/ Ρ ρ   zeta /&amp;lsquo;zi:tə/ Ζ ζ sigma /&amp;lsquo;sɪɡmə/ Σ σ ς   eta /&amp;lsquo;i:tə/ Η η tau /tɔ:/ 或 /taʊ/ Τ τ   theta /&amp;lsquo;θi:tə/ Θ θ upsilon /ˈipsilon/或 /ˈʌpsɨlɒn/ Υ υ   iota /aɪ&amp;rsquo;əʊtə/ Ι ι ℩ phi /faɪ/ Φ φ   kappa /&amp;lsquo;kæpə/ Κ κ chi /kaɪ/ Χ χ   lambda /&amp;lsquo;læmdə/ Λ λ psi /psaɪ/ Ψ ψ   mu /mju:/ Μ μ omega /&amp;lsquo;əʊmɪɡə/或 /oʊ&amp;rsquo;meɡə/ Ω ω    </description>
     </item>
     
     <item>
@@ -76,9 +72,9 @@ Scoop试图消除类似的东西：
       <guid>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</guid>
       <description>Markdown转PDF 使用Pandoc Pandoc被誉为“瑞士军刀”，可以实现很多文本格式的转换。
 建议使用方法：先转docx，再用WPS或者Word输出为PDF，只需要Pandoc，不需要任何其他配置。
-pandoc filename.md -o filename.docxPandoc官网，不过下载速度很慢
+pandoc filename.md -o filename.docx Pandoc官网，不过下载速度很慢
 可以使用Python的pip来安装：
-pip install pandoc然后可以在Python中使用Pandoc。
+pip install pandoc 然后可以在Python中使用Pandoc。
 使用VSCode + MarkdownPDF插件 在VSCode的扩展中搜索 MarkdownPDF 下载即可。
 使用方法为在VSCode中打开.md文件，右键，可以输出为PDF还有一些其它格式。</description>
     </item>

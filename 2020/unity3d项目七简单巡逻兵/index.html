@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3d项目七：简单巡逻兵 | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3d项目七：简单巡逻兵 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3d项目七：简单巡逻兵",
+    "headline" : "Unity3d项目七：简单巡逻兵",
+    "description" : "简单巡逻兵 @[toc]\n游戏规则与要求  智能巡逻兵  游戏设计要求：  创建一个地图和若干巡逻兵(使用动画)； 每个巡逻兵走一个3~5个边的凸多边型，位置数据是相对地址。即每次确定下一个目标位置，用自己当前位置为原点计算； 巡逻兵碰撞到障碍物，则会自动选下一个点为目标； 巡逻兵在设定范围内感知到玩家，会自动追击玩家； 失去玩家目标后，继续巡逻； 计分：玩家每次甩掉一个巡逻兵计一分，与巡逻兵碰撞游戏结束；   程序设计要求：  必须使用订阅与发布模式传消息  subject：OnLostGoal Publisher: GameEventManager Subscriber: 场景控制器   工厂模式生产巡逻兵      项目地址与演示视频 项目地址 -\u0026gt; 传送门?\n视频连接 -\u0026gt; 传送门?\nUnity3D小技巧：   窗口是可以锁定的：\n当你制作预制体需要把脚本拖到检查器中时，按一下窗口右上角的锁就可以锁定窗口，选中其他对象检查器也不会变，告别手残·~·\n  去掉轮廓：\n有时布置场景时感觉对象图标和轮廓太碍事，去掉他们！\nGizmos-\u0026gt;调整图标大小，显示轮廓网格选择线。   具体实现 基本逻辑：玩家通过键盘控制人物在地图上移动，地图分为九个部分，有八个巡逻兵在出生点以外的部分巡逻，当玩家进入一个部分时该部分的巡逻兵就会追逐玩家，若玩家甩开巡逻兵则分数加一，若玩家与巡逻兵触碰则游戏结束。\n由于本次项目代码量比较大，框架部分还是重用之前写的代码，在此只叙述重点部分。\n本章标题是动画与模型，于是我将重点放在了人物模型与动画上。\n我所使用的模型素材：?\n人物模型部分： 由于这部分内容比较多放在了另一篇博客中：?\n人物模型如下：\n人物动画器如下，一个Layer五个动作：\n巡逻兵部分： 巡逻兵与玩家使用同一个模型和动画器，不过通过代码控制其只有行走和奔跑两个动作，巡逻时行走，追逐玩家时奔跑。\n巡逻兵的移动策略是参考C486C师兄(师姐？)博客的，不过师兄所有的动作都是使用运动学的函数MoveTowards来实现并且使用Update来更新，而巡逻兵是刚体且没有勾选运动学，我认为使用运动学的函数来移动刚体是不太好的，所以改为物理引擎的移动方式并且使用FixedUpdate来更新；另一点是师兄将本次巡逻兵的两个动作切换写在了动作管理器基类SSActionManager中，我认为应该在巡逻兵的动作管理器中GuardActionManager中实现该功能。\n以下分析部分代码：\n  GuardPatrolAction：\nUpdate只更新平面移动的向量，FixedUpdate使用该向量进行移动，通过修改rigid的velocity来移动。\n\/*变量*\/ private Rigidbody rigid; \/\/刚体组件 private Vector3 planarVec; \/\/ 平面移动向量  \/*更新函数*\/ public override void Update() { \/\/保留供物理引擎调用  planarVec = gameobject.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 00:16:44 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 00:16:44 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5\/",
+    "wordCount" : "320",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3d项目七：简单巡逻兵</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="简单巡逻兵">简单巡逻兵</h1>
+<p>@[toc]</p>
+<h2 id="游戏规则与要求">游戏规则与要求</h2>
+<ul>
+<li>智能巡逻兵
+<ul>
+<li>游戏设计要求：
+<ul>
+<li>创建一个地图和若干巡逻兵(使用动画)；</li>
+<li>每个巡逻兵走一个3~5个边的凸多边型，位置数据是相对地址。即每次确定下一个目标位置，用自己当前位置为原点计算；</li>
+<li>巡逻兵碰撞到障碍物，则会自动选下一个点为目标；</li>
+<li>巡逻兵在设定范围内感知到玩家，会自动追击玩家；</li>
+<li>失去玩家目标后，继续巡逻；</li>
+<li>计分：玩家每次甩掉一个巡逻兵计一分，与巡逻兵碰撞游戏结束；</li>
+</ul>
+</li>
+<li>程序设计要求：
+<ul>
+<li>必须使用订阅与发布模式传消息
+<ul>
+<li>subject：OnLostGoal</li>
+<li>Publisher: GameEventManager</li>
+<li>Subscriber: 场景控制器</li>
+</ul>
+</li>
+<li>工厂模式生产巡逻兵</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="项目地址与演示视频">项目地址与演示视频</h2>
+<p>项目地址 -&gt; <a href="https://github.com/Tifinity/Unity3DStudy-master/tree/master/%E9%A1%B9%E7%9B%AE%E4%B8%83%EF%BC%9A%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5">传送门?</a></p>
+<p>视频连接 -&gt; <a href="https://www.bilibili.com/video/av73465390/">传送门?</a></p>
+<h3 id="unity3d小技巧">Unity3D小技巧：</h3>
+<ul>
+<li>
+<p>窗口是可以锁定的：</p>
+<p>当你制作预制体需要把脚本拖到检查器中时，按一下窗口右上角的锁就可以锁定窗口，选中其他对象检查器也不会变，告别手残·~·</p>
+</li>
+<li>
+<p>去掉轮廓：</p>
+<p>有时布置场景时感觉对象图标和轮廓太碍事，去掉他们！</p>
+<p>Gizmos-&gt;调整图标大小，显示轮廓网格选择线。
+<img src="https://img-blog.csdnimg.cn/20191026160436747.jpg" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<h2 id="具体实现">具体实现</h2>
+<p>基本逻辑：玩家通过键盘控制人物在地图上移动，地图分为九个部分，有八个巡逻兵在出生点以外的部分巡逻，当玩家进入一个部分时该部分的巡逻兵就会追逐玩家，若玩家甩开巡逻兵则分数加一，若玩家与巡逻兵触碰则游戏结束。</p>
+<p>由于本次项目代码量比较大，框架部分还是重用之前写的代码，在此只叙述重点部分。</p>
+<p>本章标题是动画与模型，于是我将重点放在了人物模型与动画上。</p>
+<p>我所使用的模型素材：<a href="https://share.weiyun.com/5vZ22uQ">?</a></p>
+<h3 id="人物模型部分">人物模型部分：</h3>
+<p>由于这部分内容比较多放在了另一篇博客中：<a href="https://blog.csdn.net/Tifinity/article/details/102762493">?</a></p>
+<p>人物模型如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191026154042982.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>人物动画器如下，一个Layer五个动作：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191026154146745.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="巡逻兵部分">巡逻兵部分：</h3>
+<p>巡逻兵与玩家使用同一个模型和动画器，不过通过代码控制其只有行走和奔跑两个动作，巡逻时行走，追逐玩家时奔跑。</p>
+<p><img src="https://img-blog.csdnimg.cn/201910261542005.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>巡逻兵的移动策略是参考<a href="https://blog.csdn.net/c486c/article/details/80153548">C486C师兄(师姐？)博客</a>的，不过师兄所有的动作都是使用运动学的函数MoveTowards来实现并且使用Update来更新，而巡逻兵是刚体且没有勾选运动学，我认为使用运动学的函数来移动刚体是不太好的，所以改为物理引擎的移动方式并且使用FixedUpdate来更新；另一点是师兄将本次巡逻兵的两个动作切换写在了动作管理器基类SSActionManager中，我认为应该在巡逻兵的动作管理器中GuardActionManager中实现该功能。</p>
+<p>以下分析部分代码：</p>
+<ul>
+<li>
+<p>GuardPatrolAction：</p>
+<p>Update只更新平面移动的向量，FixedUpdate使用该向量进行移动，通过修改rigid的velocity来移动。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#75715e">/*变量*/</span>
+<span style="color:#66d9ef">private</span> Rigidbody rigid;    <span style="color:#75715e">//刚体组件
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> Vector3 planarVec;  <span style="color:#75715e">// 平面移动向量
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/*更新函数*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Update() {
+    <span style="color:#75715e">//保留供物理引擎调用
+</span><span style="color:#75715e"></span>    planarVec = gameobject.transform.forward * data.walkSpeed;
+}
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> FixedUpdate() {
+    <span style="color:#75715e">//巡逻
+</span><span style="color:#75715e"></span>    Gopatrol();
+    <span style="color:#75715e">//玩家进入该区域，巡逻结束，开始追逐
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (data.playerSign == data.sign) {
+        <span style="color:#66d9ef">this</span>.destroy = <span style="color:#66d9ef">true</span>;
+        <span style="color:#66d9ef">this</span>.callback.SSActionEvent(<span style="color:#66d9ef">this</span>, SSActionEventType.Competeted, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">this</span>.gameobject);
+    }
+}
+
+<span style="color:#75715e">/*in Gopatrol()*/</span>
+rigid.velocity = <span style="color:#66d9ef">new</span> Vector3(planarVec.x, rigid.velocity.y, planarVec.z);
+</code></pre></div></li>
+<li>
+<p>GuardFollowAction:</p>
+<p>与GuardPatrolAction相同，改为物理引擎的方式。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Update() {
+     <span style="color:#75715e">//保留供物理引擎调用
+</span><span style="color:#75715e"></span>     planarVec = gameobject.transform.forward * speed;
+ }
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> FixedUpdate() {
+    transform.LookAt(player.transform.position);
+    rigid.velocity = <span style="color:#66d9ef">new</span> Vector3(planarVec.x, rigid.velocity.y, planarVec.z);
+
+    <span style="color:#75715e">//如果玩家脱离该区域则继续巡逻
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (data.playerSign != data.sign) {
+        <span style="color:#66d9ef">this</span>.destroy = <span style="color:#66d9ef">true</span>;
+        <span style="color:#66d9ef">this</span>.callback.SSActionEvent(<span style="color:#66d9ef">this</span>, SSActionEventType.Competeted, <span style="color:#ae81ff">1</span>, <span style="color:#66d9ef">this</span>.gameobject);
+    }
+}
+</code></pre></div></li>
+<li>
+<p>GuardActionManager：</p>
+<p>主要实现巡逻兵动作切换的功能，实现回调函数SSActionEvent，当一个动作被销毁时调用另一个动作。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SSActionEvent(
+    SSAction source, SSActionEventType events = SSActionEventType.Competeted,
+    <span style="color:#66d9ef">int</span> intParam = <span style="color:#ae81ff">0</span>, GameObject objectParam = <span style="color:#66d9ef">null</span>) {
+    <span style="color:#66d9ef">if</span> (intParam == <span style="color:#ae81ff">0</span>) {
+        <span style="color:#75715e">//追逐
+</span><span style="color:#75715e"></span>        GuardFollowAction follow = GuardFollowAction.GetSSAction(player);
+        <span style="color:#66d9ef">this</span>.RunAction(objectParam, follow, <span style="color:#66d9ef">this</span>);
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#75715e">//巡逻
+</span><span style="color:#75715e"></span>        GuardPatrolAction move = GuardPatrolAction.GetSSAction(objectParam.gameObject.GetComponent&lt;GuardData&gt;().start_position);
+        <span style="color:#66d9ef">this</span>.RunAction(objectParam, move, <span style="color:#66d9ef">this</span>);
+        Singleton&lt;GameEventManager&gt;.Instance.PlayerEscape();
+    }
+}
+</code></pre></div></li>
+</ul>
+<h3 id="地图部分">地图部分：</h3>
+<p>地图分为九个格子，每个区域有自己的碰撞器，并挂载AreaCollide.cs。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191026154214488.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191026154222336.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RpZmluaXR5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>
+<p>AreaCollide：</p>
+<p>当玩家进入时设置场景控制器中的玩家区域标志，然后场景控制器通知对应的巡逻兵追逐玩家。</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AreaCollide</span> : MonoBehaviour {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> sign = <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">private</span> FirstSceneController sceneController;
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> Start() {
+        sceneController = SSDirector.GetInstance().CurrentScenceController <span style="color:#66d9ef">as</span> FirstSceneController;
+    }
+	
+    <span style="color:#66d9ef">void</span> OnTriggerEnter(Collider collider) {
+        <span style="color:#66d9ef">if</span> (collider.gameObject.tag == <span style="color:#e6db74">&#34;Player&#34;</span>) {
+            sceneController.playerSign = sign;
+        }
+    }
+}
+</code></pre></div><h3 id="观察者模式">观察者模式：</h3>
+<ul>
+<li>
+<p>GameEventManager发布消息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameEventManager</span> : MonoBehaviour {
+    <span style="color:#75715e">//定义回调函数类型和subject
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">delegate</span> <span style="color:#66d9ef">void</span> ScoreEvent();
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">event</span> ScoreEvent ScoreChange;
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">delegate</span> <span style="color:#66d9ef">void</span> GameoverEvent();
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">event</span> GameoverEvent GameoverChange;
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> PlayerEscape() {
+        <span style="color:#66d9ef">if</span> (ScoreChange != <span style="color:#66d9ef">null</span>) {
+            ScoreChange();
+        }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> PlayerGameover(){
+        <span style="color:#66d9ef">if</span> (GameoverChange != <span style="color:#66d9ef">null</span>) {
+            GameoverChange();
+        }
+    }
+}
+</code></pre></div></li>
+<li>
+<p>FirstSenceController类订阅消息：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">void</span> OnEnable() {
+    GameEventManager.ScoreChange += AddScore;
+    GameEventManager.GameoverChange += Gameover;
+}
+<span style="color:#66d9ef">void</span> OnDisable() {
+    GameEventManager.ScoreChange -= AddScore;
+    GameEventManager.GameoverChange -= Gameover;
+}
+
+<span style="color:#66d9ef">void</span> AddScore() {
+    recorder.AddScore();
+}
+
+<span style="color:#66d9ef">void</span> Gameover() {
+    game_over = <span style="color:#66d9ef">true</span>;
+}
+</code></pre></div></li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>本次作业主要是了解了物理引擎在Unity3D中的使用，包括FixedUpdate函数，刚体组件，对游戏对象速度和力的操作，使用物理引擎就不需要模拟运动学的位置变换，使用复杂的公式计算。总的来说过程比较顺利，没有太大的阻碍。</p>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://blog.csdn.net/c486c/article/details/80153548#%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5">优秀博客 C486C</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/" class="prev" rel="prev" title="Unity3D项目七：动画制作过程"><i class="iconfont icon-left"></i>&nbsp;Unity3D项目七：动画制作过程</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/" class="next" rel="next" title="Unity3D项目六：简单打靶">Unity3D项目六：简单打靶&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "服务计算第七周作业：Agenda",
     "headline" : "服务计算第七周作业：Agenda",
-    "description" : "服务计算第七周作业：Agenda 文章目录 @[toc]\n概述   安装Cobra cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。\n首先安装被墙的依赖包。\n在$GOPATH\/src\/golang.org\/x目录下，若没有则自行创建，用git clone下载sys和text项目：\ngit clone https:\/\/github.com\/golang\/sys git clone https:\/\/github.com\/golang\/text 然后执行：\ngo get -v github.com\/spf13\/cobra\/cobra 若成功安装则在 $GOBIN 即 $GOPATH\/bin 下出现cobra可执行程序。 然后在命令行中输入cobra:\n[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cWEKKvcf-1571931179495)(image\\cobra安装.jpg)]\n出现图中提示信息则安装成功。\n创建程序 使用cobra init命令初始化程序框架，但是发现提示错误：\nError: required flag(s) \x26quot;pkg-name\x26quot; not set 在查看[官方文档][cobragithub]后发现Cobra版本更新后需要增加一个必须参数--pkg-name，就是main函数默认import的包。\n Updates to the Cobra generator have now decoupled it from the GOPATH. As such --pkg-name is required.\n 于是我们使用如下命令初始化：\n 先创建目录进入再初始化，此时不需要[name]参数，即目录  mkdir -p newApp cd newApp cobra init --pkg-name github.",
+    "description" : "服务计算第七周作业：Agenda 文章目录 @[toc]\n概述   安装Cobra cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。\n首先安装被墙的依赖包。\n在$GOPATH\/src\/golang.org\/x目录下，若没有则自行创建，用git clone下载sys和text项目：\ngit clone https:\/\/github.com\/golang\/sys git clone https:\/\/github.com\/golang\/text 然后执行：\ngo get -v github.com\/spf13\/cobra\/cobra 若成功安装则在 $GOBIN 即 $GOPATH\/bin 下出现cobra可执行程序。 然后在命令行中输入cobra:\n[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cWEKKvcf-1571931179495)(image\\cobra安装.jpg)]\n出现图中提示信息则安装成功。\n创建程序 使用cobra init命令初始化程序框架，但是发现提示错误：\nError: required flag(s) \u0026quot;pkg-name\u0026quot; not set 在查看[官方文档][cobragithub]后发现Cobra版本更新后需要增加一个必须参数--pkg-name，就是main函数默认import的包。\n Updates to the Cobra generator have now decoupled it from the GOPATH. As such --pkg-name is required.\n 于是我们使用如下命令初始化：\n 先创建目录进入再初始化，此时不需要[name]参数，即目录  mkdir -p newApp cd newApp cobra init --pkg-name github.",
     "inLanguage" : "zh-CN",
     "author" : "Tifinity",
     "creator" : "Tifinity",
@@ -54,16 +54,14 @@
     "accountablePerson" : "Tifinity",
     "copyrightHolder" : "Tifinity",
     "copyrightYear" : "2019",
-    "datePublished": "2019-12-18 11:46:25 \x2b0800 CST",
-    "dateModified" : "2019-12-18 11:46:25 \x2b0800 CST",
+    "datePublished": "2019-12-18 11:46:25 \u002b0800 \u002b0800",
+    "dateModified" : "2019-12-18 11:46:25 \u002b0800 \u002b0800",
     "url" : "http:\/\/tifinity.github.io\/2019\/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda\/",
     "wordCount" : "130",
     "keywords" : [  "Infinit"]
 }
 </script>
 
-  
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 
   
@@ -131,11 +129,6 @@
                         
                 </span>
         </div>
-        
-        <div class="post-total">
-             <h5 id="wc" style="font-size: 1rem;text-align: left;">200 Words|Read in about 1 Min|本文总阅读量<span id="busuanzi_value_page_pv"></span>次</h5>
-        </div>
-       
     </header>
     <div class="post-content">
         
@@ -153,27 +146,27 @@
           
           
 
-          <h1 id="agenda">服务计算第七周作业：Agenda</h1>
-<h2 id="heading">文章目录</h2>
+          <h1 id="服务计算第七周作业agenda">服务计算第七周作业：Agenda</h1>
+<h2 id="文章目录">文章目录</h2>
 <p>@[toc]</p>
-<h2 id="heading1">概述</h2>
+<h2 id="概述">概述</h2>
 <blockquote>
 </blockquote>
-<h2 id="cobra">安装Cobra</h2>
+<h2 id="安装cobra">安装Cobra</h2>
 <p>cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。</p>
 <p>首先安装被墙的依赖包。</p>
 <p>在<code>$GOPATH/src/golang.org/x</code>目录下，若没有则自行创建，用<code>git clone</code>下载sys和text项目：</p>
-<pre><code>git clone https://github.com/golang/sys
+<pre tabindex="0"><code>git clone https://github.com/golang/sys
 git clone https://github.com/golang/text
 </code></pre><p>然后执行：</p>
-<pre><code>go get -v github.com/spf13/cobra/cobra
+<pre tabindex="0"><code>go get -v github.com/spf13/cobra/cobra
 </code></pre><p>若成功安装则在 <code>$GOBIN</code> 即 <code>$GOPATH/bin</code> 下出现cobra可执行程序。
 然后在命令行中输入<code>cobra</code>:</p>
 <p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-cWEKKvcf-1571931179495)(image\cobra安装.jpg)]</p>
 <p>出现图中提示信息则安装成功。</p>
-<h2 id="heading2">创建程序</h2>
+<h2 id="创建程序">创建程序</h2>
 <p>使用<code>cobra init</code>命令初始化程序框架，但是发现提示错误：</p>
-<pre><code>Error: required flag(s) &quot;pkg-name&quot; not set
+<pre tabindex="0"><code>Error: required flag(s) &quot;pkg-name&quot; not set
 </code></pre><p>在查看[官方文档][cobragithub]后发现Cobra版本更新后需要增加一个必须参数<code>--pkg-name</code>，就是main函数默认import的包。</p>
 <blockquote>
 <p>Updates to the Cobra generator have now decoupled it from the GOPATH. As such <code>--pkg-name</code> is required.</p>
@@ -182,22 +175,22 @@ git clone https://github.com/golang/text
 <ol>
 <li>先创建目录进入再初始化，此时不需要[name]参数，即目录</li>
 </ol>
-<pre><code>mkdir -p newApp
+<pre tabindex="0"><code>mkdir -p newApp
 cd newApp
 cobra init --pkg-name github.com/github-user/newApp
 </code></pre><ol start="2">
 <li>直接创建目录新目录</li>
 </ol>
-<pre><code>cobra init --pkg-name github.com/github-user/newApp newApp
+<pre tabindex="0"><code>cobra init --pkg-name github.com/github-user/newApp newApp
 </code></pre><p>初始化成功后出现如下提示信息：</p>
-<pre><code>Your Cobra applicaton is ready at &lt;path&gt;
+<pre tabindex="0"><code>Your Cobra applicaton is ready at &lt;path&gt;
 </code></pre><p>此时项目结构应如下：</p>
-<pre><code>agenda/
+<pre tabindex="0"><code>agenda/
     cmd/
     main.go
     LICENSE
 </code></pre><p>main.go长这个样子：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
 <span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/github-user/agenda/cmd&#34;</span> <span style="color:#75715e">//pkg-name
 </span><span style="color:#75715e"></span>
@@ -206,27 +199,27 @@ cobra init --pkg-name github.com/github-user/newApp
 }
 </code></pre></div><p>cmd文件夹里放的就是我们接下来要添加的命令。</p>
 <p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-lTspuo4l-1571931179497)(image\cobra初始化.jpg)]</p>
-<h2 id="heading3">添加命令</h2>
+<h2 id="添加命令">添加命令</h2>
 <p>cobra添加命令的指令如下：</p>
-<pre><code>cobra add &lt;conmand_name&gt;
+<pre tabindex="0"><code>cobra add &lt;conmand_name&gt;
 
 </code></pre><p>于是我们进入刚创建的目录下，执行：</p>
-<pre><code>cobra add register
+<pre tabindex="0"><code>cobra add register
 cobra add login
 
 </code></pre><p>cmd中会自动添加两个go文件：</p>
-<pre><code>agenda/
+<pre tabindex="0"><code>agenda/
     cmd/
     	register.go
     	login.go
     main.go
     LICENSE
 
-</code></pre><h2 id="heading4">总结</h2>
+</code></pre><h2 id="总结">总结</h2>
 <p>本次作业在难度上比前两次要大很多。本质上来说是实现了一个“翻译”的任务，实现了golang版的selpg。大二操作系统也有写过C语言的命令行程序，所以对CLI也不是一窍不通，不过这一次对管道，重定向有了更深的了解，也简单使用了golang的命令行参数处理包flag和pflag，执行外部指令的exec，还有os和io的一些操作。过程还是比较坎坷，虽然网上参考的博客很多，但是鱼龙混杂，其中很多都有错的或者理解不到位的地方，自己真正会了才可能完整地做出来，否则即使正确的结果也只是简单的摆拍而已。</p>
 <p>github地址 -&gt; <a href="">?</a></p>
 <p>项目中附测试截图</p>
-<h2 id="heading5">参考资料</h2>
+<h2 id="参考资料">参考资料</h2>
 <p><a href="https://shimo.im/sheets/KJXKY9YgchdKJXGx/MODOC/">go语言子进程</a></p>
 <p><a href="https://studygolang.com/articles/14170">go语言创建读取写入文件</a></p>
 <p><a href="https://blog.csdn.net/C486C/article/details/82990187">某博客</a></p>
@@ -280,28 +273,6 @@ cobra add login
                  
           
     </div>
-
-    <div class="post-comment">
-        
-        
-
-<div id="vcomments"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-
-<script type="text/javascript">
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'hlOVLcP9tmEMFre7biIFneMY-gzGzoHsz',
-      appKey: 'QWwfIMjRxi6FIsitKV71ill2',
-      notify: 'false', 
-      verify: 'false', 
-      avatar:'mm', 
-      placeholder: 'どうぞ',
-      visitor: 'true'
-  });
-</script>
-    </div>
 </article>
           </div>
 		   </main>
@@ -309,7 +280,7 @@ cobra add login
     <div class="copyright">
         &copy;
         
-        <span itemprop="copyrightYear">2019 - 2020</span>
+        <span itemprop="copyrightYear">2019 - 2021</span>
         
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
@@ -319,14 +290,7 @@ cobra add login
          
 
          
-		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span>
-        <span id="busuanzi_container_site_pv">
-            本站访问量：<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        &nbsp;
-        <span id="busuanzi_container_site_uv">
-            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
-        </span> 
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
     </div>
 </footer>
 

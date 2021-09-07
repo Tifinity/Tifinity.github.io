@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/" />
+  <link rel="next" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/" />
+  <link rel="canonical" href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Unity3D项目四：牧师与魔鬼（动作分离版） | Infinit
+       
+  </title>
+  <meta name="title" content="Unity3D项目四：牧师与魔鬼（动作分离版） | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "http:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "Unity3D项目四：牧师与魔鬼（动作分离版）",
+    "headline" : "Unity3D项目四：牧师与魔鬼（动作分离版）",
+    "description" : "Unity3D项目四：牧师与魔鬼（动作分离版） 基本介绍 动作管理是游戏的重要内容，全部都放在游戏对象里显得十分笨重，所以本次项目需要将动作从对象中提取出来写成单独的动作控制器。动作控制器来管理控制所有的游戏对象移动，通过场景控制器将需要移动的游戏对象和位置等信息传递给动作控制器，动作控制器负责实现具体的移动。当动作很多或是需要做同样动作的游戏对象很多的时候，使用动作管理器可以让动作很容易管理，也提高了代码复用性。\n具体实现 完成ActionControllor.cs   ISSActionCallback（动作事件接口）\n使用了枚举变量定义动作类型，执行还是完成。\n定义了事件处理接口，动作组合类和动作管理类都需要实现这个接口，来实现接收其子动作的消息以实现动作的调度管理。当动作完成的时候会调用该接口通知管理者该动作完成。\npublic enum SSActionEventType : int { Started, Competeted } public interface ISSActionCallback { void SSActionEvent( SSAction source, SSActionEventType events = SSActionEventType.Competeted, int intParam = 0, string strParam = null, Object objectParam = null ); }   SSAction（动作基类）\n代表一个动作，继承了ScriptableObject，是不需要绑定GameObject的可编程基类，受到Unity管理。\n\/*动作基类*\/ public class SSAction : ScriptableObject { public bool enable = true; \/\/是否进行  public bool destroy = false; \/\/是否删除  public GameObject gameobject; \/\/动作对象  public Transform transform; \/\/动作对象的transform  public ISSActionCallback callback; \/\/回调函数  \/\/防止用户自己new对象  protected SSAction() { } public virtual void Start() { throw new System.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-04-28 00:24:09 \u002b0800 \u002b0800",
+    "dateModified" : "2020-04-28 00:24:09 \u002b0800 \u002b0800",
+    "url" : "http:\/\/tifinity.github.io\/2020\/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88\/",
+    "wordCount" : "697",
+    "keywords" : [ "none", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="http://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Unity3D项目四：牧师与魔鬼（动作分离版）</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="http://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2020-04-28 itemprop="datePublished">April 28, 2020</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="http://tifinity.github.io/categories/unity3d/"> Unity3D </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="unity3d项目四牧师与魔鬼动作分离版">Unity3D项目四：牧师与魔鬼（动作分离版）</h1>
+<h3 id="基本介绍">基本介绍</h3>
+<p>动作管理是游戏的重要内容，全部都放在游戏对象里显得十分笨重，所以本次项目需要将动作从对象中提取出来写成单独的动作控制器。动作控制器来管理控制所有的游戏对象移动，通过场景控制器将需要移动的游戏对象和位置等信息传递给动作控制器，动作控制器负责实现具体的移动。当动作很多或是需要做同样动作的游戏对象很多的时候，使用动作管理器可以让动作很容易管理，也提高了代码复用性。</p>
+<h3 id="具体实现">具体实现</h3>
+<h4 id="完成actioncontrollorcs">完成ActionControllor.cs</h4>
+<ul>
+<li>
+<p>ISSActionCallback（动作事件接口）</p>
+<p>使用了枚举变量定义动作类型，执行还是完成。</p>
+<p>定义了事件处理接口，动作组合类和动作管理类都需要实现这个接口，来实现接收其子动作的消息以实现动作的调度管理。当动作完成的时候会调用该接口通知管理者该动作完成。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> SSActionEventType : <span style="color:#66d9ef">int</span> { Started, Competeted }
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> ISSActionCallback {
+    <span style="color:#66d9ef">void</span> SSActionEvent(
+        SSAction source, SSActionEventType events = SSActionEventType.Competeted,
+        <span style="color:#66d9ef">int</span> intParam = <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">string</span> strParam = <span style="color:#66d9ef">null</span>, Object objectParam = <span style="color:#66d9ef">null</span>
+    );
+}
+</code></pre></div></li>
+<li>
+<p>SSAction（动作基类）</p>
+<p>代表一个动作，继承了ScriptableObject，是不需要绑定GameObject的可编程基类，受到Unity管理。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">/*动作基类*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SSAction</span> : ScriptableObject {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> enable = <span style="color:#66d9ef">true</span>;                      <span style="color:#75715e">//是否进行
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> destroy = <span style="color:#66d9ef">false</span>;                    <span style="color:#75715e">//是否删除
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">public</span> GameObject gameobject;                   <span style="color:#75715e">//动作对象
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> Transform transform;                     <span style="color:#75715e">//动作对象的transform
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> ISSActionCallback callback;              <span style="color:#75715e">//回调函数
+</span><span style="color:#75715e"></span>
+    <span style="color:#75715e">//防止用户自己new对象
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">protected</span> SSAction() { }                      
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Start() {
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> System.NotImplementedException();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Update() {
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> System.NotImplementedException();
+    }
+}
+</code></pre></div></li>
+<li>
+<p>SSMoveToAction（移动位置子类）</p>
+<p>继承动作基类，实现移动到指定位置的子类。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">/*子类 - 移动到指定位置*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SSMoveToAction</span> : SSAction {
+    <span style="color:#66d9ef">public</span> Vector3 target;  
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">float</span> speed;
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> SSMoveToAction GetSSAction(Vector3 <span style="color:#ae81ff">_</span>target, <span style="color:#66d9ef">float</span> <span style="color:#ae81ff">_</span>speed) {
+        <span style="color:#75715e">//让unity自己创建一个SSMoveToAction实例确保内存正确回收
+</span><span style="color:#75715e"></span>        SSMoveToAction action = ScriptableObject.CreateInstance&lt;SSMoveToAction&gt;();
+        action.target = <span style="color:#ae81ff">_</span>target;
+        action.speed = <span style="color:#ae81ff">_</span>speed;
+        <span style="color:#66d9ef">return</span> action;
+    }
+
+    <span style="color:#75715e">//C#必须显示声明重写父类虚函数
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Start() {
+        <span style="color:#75715e">//该动作建立时无需任何操作
+</span><span style="color:#75715e"></span>    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Update() {
+        <span style="color:#66d9ef">this</span>.transform.position = Vector3.MoveTowards(<span style="color:#66d9ef">this</span>.transform.position, target, speed * Time.deltaTime);
+        <span style="color:#75715e">//动作完成，通知动作管理者或动作组合
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.transform.position == target) {
+            <span style="color:#66d9ef">this</span>.destroy = <span style="color:#66d9ef">true</span>;
+            <span style="color:#66d9ef">this</span>.callback.SSActionEvent(<span style="color:#66d9ef">this</span>);      
+        }
+    }
+}
+</code></pre></div></li>
+<li>
+<p>SequenceAction（组合动作类）</p>
+<p>组合类中实现回调函数的接口ISSActionCallback，动作列表中每一个动作完成之后通知组合动作类，并且所有动作完成后也会通知该这个类的上一层组合类，被组合的对象和组合对象属于同一种类型，之后我们的动作也都是通过组合动作实现的，这样的结构稳固而可延展，可以实现我们所需要的绝大部分动作管理。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">/*动作组合*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SequenceAction</span> : SSAction, ISSActionCallback {
+    <span style="color:#66d9ef">public</span> List&lt;SSAction&gt; sequence;    <span style="color:#75715e">//动作的列表
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> repeat = -<span style="color:#ae81ff">1</span>;            <span style="color:#75715e">//-1就是无限循环做组合中的动作
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> start = <span style="color:#ae81ff">0</span>;              <span style="color:#75715e">//当前做的动作的索引
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> SequenceAction GetSSAcition(<span style="color:#66d9ef">int</span> repeat, <span style="color:#66d9ef">int</span> start, List&lt;SSAction&gt; sequence) {
+        <span style="color:#75715e">//让unity自己创建一个SequenceAction实例
+</span><span style="color:#75715e"></span>        SequenceAction action = ScriptableObject.CreateInstance&lt;SequenceAction&gt;();
+        action.sequence = sequence;
+        action.repeat = repeat;
+        action.start = start;
+        <span style="color:#66d9ef">return</span> action;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Start() {
+        <span style="color:#75715e">//对每个动作执行
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach</span> (SSAction action <span style="color:#66d9ef">in</span> sequence) {
+            action.gameobject = <span style="color:#66d9ef">this</span>.gameobject; 
+            action.transform = <span style="color:#66d9ef">this</span>.transform;
+            action.callback = <span style="color:#66d9ef">this</span>;                 <span style="color:#75715e">//每一个动作的回调函数为该动作组合
+</span><span style="color:#75715e"></span>            action.Start();
+        }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Update() {
+        <span style="color:#66d9ef">if</span> (sequence.Count == <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span>;
+        <span style="color:#66d9ef">if</span> (start &lt; sequence.Count) {
+            sequence[start].Update();               <span style="color:#75715e">//start在回调函数中递加
+</span><span style="color:#75715e"></span>        }
+    }
+
+    <span style="color:#75715e">//实现接口ISSActionCallback
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SSActionEvent(
+        SSAction source, SSActionEventType events = SSActionEventType.Competeted,
+        <span style="color:#66d9ef">int</span> intParam = <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">string</span> strParam = <span style="color:#66d9ef">null</span>, Object objectParam = <span style="color:#66d9ef">null</span>
+    ) {
+        source.destroy = <span style="color:#66d9ef">false</span>;                     <span style="color:#75715e">//可能会无限循环所以先不删除
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">this</span>.start++;                               <span style="color:#75715e">//下一个动作
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>.start &gt;= sequence.Count) {
+            <span style="color:#66d9ef">this</span>.start = <span style="color:#ae81ff">0</span>;
+            <span style="color:#66d9ef">if</span> (repeat &gt; <span style="color:#ae81ff">0</span>) repeat--;               <span style="color:#75715e">//repeat&lt;0就不会再减小
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> (repeat == <span style="color:#ae81ff">0</span>) {                      <span style="color:#75715e">//动作组合结束
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">this</span>.destroy = <span style="color:#66d9ef">true</span>;                <span style="color:#75715e">//删除
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">this</span>.callback.SSActionEvent(<span style="color:#66d9ef">this</span>);  <span style="color:#75715e">//通知管理者
+</span><span style="color:#75715e"></span>            }
+        }
+    }
+
+    <span style="color:#66d9ef">void</span> OnDestroy() {
+        <span style="color:#75715e">//如果自己被删除则应该释放自己管理的动作   
+</span><span style="color:#75715e"></span>    }
+}
+</code></pre></div></li>
+<li>
+<p>SSActionManger（动作管理基类）</p>
+<p>负责管理所有的动作或动作组合，给他们绑定游戏对象并且控制动作的执行或者完成后删除，也实现了ISSActionCallback接口，用于接受动作是否完成的消息，不过在我们的游戏之中对象仅有移动位置这个动作，所以回调函数不需要做任何事情。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">/*动作管理基类*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SSActionManager</span> : MonoBehaviour, ISSActionCallback {
+    <span style="color:#66d9ef">private</span> Dictionary&lt;<span style="color:#66d9ef">int</span>, SSAction&gt; actions = <span style="color:#66d9ef">new</span> Dictionary&lt;<span style="color:#66d9ef">int</span>, SSAction&gt;();    <span style="color:#75715e">//动作字典
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> List&lt;SSAction&gt; waitingAdd = <span style="color:#66d9ef">new</span> List&lt;SSAction&gt;();                       <span style="color:#75715e">//等待执行的动作列表
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> List&lt;<span style="color:#66d9ef">int</span>&gt; waitingDelete = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">int</span>&gt;();                              <span style="color:#75715e">//等待删除动作的key的列表                
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> Update() {
+        <span style="color:#75715e">//获取动作实例将等待执行的动作加入字典并清空待执行列表
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach</span> (SSAction ac <span style="color:#66d9ef">in</span> waitingAdd) {
+            actions[ac.GetInstanceID()] = ac;                                       
+        }
+        waitingAdd.Clear();
+
+        <span style="color:#75715e">//对于字典中每一个pair，看是执行还是删除
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach</span> (KeyValuePair&lt;<span style="color:#66d9ef">int</span>, SSAction&gt; kv <span style="color:#66d9ef">in</span> actions) {
+            SSAction ac = kv.Value;
+            <span style="color:#66d9ef">if</span> (ac.destroy) {
+                waitingDelete.Add(ac.GetInstanceID());
+            }
+            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (ac.enable) {
+                ac.Update();
+            }
+        }
+
+        <span style="color:#75715e">//删除所有已完成的动作并清空待删除列表
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">int</span> key <span style="color:#66d9ef">in</span> waitingDelete) {
+            SSAction ac = actions[key];
+            actions.Remove(key);
+            Object.Destroy(ac);
+        }
+        waitingDelete.Clear();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> RunAction(GameObject gameobject, SSAction action, ISSActionCallback manager) {
+        action.gameobject = gameobject;
+        action.transform = gameobject.transform;
+        action.callback = manager;
+        waitingAdd.Add(action);
+        action.Start();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> SSActionEvent(
+        SSAction source, SSActionEventType events = SSActionEventType.Competeted,
+        <span style="color:#66d9ef">int</span> intParam = <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">string</span> strParam = <span style="color:#66d9ef">null</span>, Object objectParam = <span style="color:#66d9ef">null</span>) {
+    }
+}
+</code></pre></div></li>
+<li>
+<p>PADSceneActionManager（牧师与魔鬼场景的动作管理类）</p>
+<p>先与对应的场景控制器绑定，然后实现两个具体动作：</p>
+<ol>
+<li>船移动：一个动作，从当前位置以speed的速率移动到endPos。</li>
+<li>角色移动：两个动作，从当前位置以speed的速率移动到middlePos，再以speed的速率移动到endPos。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">/*本次游戏场景中动作管理类*/</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PADSceneActionManager</span> : SSActionManager {
+    <span style="color:#66d9ef">public</span> FirstControllor sceneController;
+
+    <span style="color:#66d9ef">private</span> SequenceAction boatMove;
+    <span style="color:#66d9ef">private</span> SequenceAction roleMove;
+
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> Start() {
+        sceneController = (FirstControllor)SSDirector.GetInstance().CurrentScenceController;
+        sceneController.actionManager = <span style="color:#66d9ef">this</span>;
+    }
+
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">void</span> Update() {
+        <span style="color:#66d9ef">base</span>.Update();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> moveBoat(GameObject boat, Vector3 endPos, <span style="color:#66d9ef">float</span> speed) {
+        SSAction action1 = SSMoveToAction.GetSSAction(endPos, speed);
+        boatMove = SequenceAction.GetSSAcition(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">new</span> List&lt;SSAction&gt; { action1 });
+        <span style="color:#66d9ef">this</span>.RunAction(boat, boatMove, <span style="color:#66d9ef">this</span>);
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> moveRole(GameObject role, Vector3 middlePos, Vector3 endPos, <span style="color:#66d9ef">float</span> speed) {
+        <span style="color:#75715e">//两段移动
+</span><span style="color:#75715e"></span>        SSAction action1 = SSMoveToAction.GetSSAction(middlePos, speed);
+        SSAction action2 = SSMoveToAction.GetSSAction(endPos, speed);
+        <span style="color:#75715e">//repeat=1，start=0，两个动作
+</span><span style="color:#75715e"></span>        roleMove = SequenceAction.GetSSAcition(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">new</span> List&lt;SSAction&gt; { action1, action2 });
+        <span style="color:#66d9ef">this</span>.RunAction(role, roleMove, <span style="color:#66d9ef">this</span>);
+    }
+}
+</code></pre></div><p>至此动作管理的代码都已实现。</p>
+</li>
+</ul>
+<h4 id="修改已有代码">修改已有代码</h4>
+<ul>
+<li>
+<p>将MoveCortrollor.cs删除，有了动作管理类就不再需要移动控制器了。</p>
+</li>
+<li>
+<p>将BoatModel和RoleModel中的与运动相关的方法删去，添加各自的speed。</p>
+</li>
+<li>
+<p>在FirstCortrollor类中加入动作管理类</p>
+<p><code>public PADSceneActionManager actionManager; //添加动作管理类</code></p>
+<p>并且修改MoveBoat和MoveRole，使用动作管理器来实现，场景控制器只负责传递游戏对象和位置信息。</p>
+</li>
+</ul>
+<h4 id="新增裁判类">新增裁判类</h4>
+<ul>
+<li>
+<p>将原来的check从用户接口中删除，check的实现从FirstCortrollor.cs中删除</p>
+</li>
+<li>
+<p>新增Check.cs</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> UnityEngine;
+
+<span style="color:#66d9ef">namespace</span> CheckApplication {
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Check</span> : MonoBehaviour {
+        <span style="color:#66d9ef">public</span> FirstControllor sceneController;
+
+        <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> Start() {
+            sceneController = (FirstControllor)SSDirector.GetInstance().CurrentScenceController;
+            sceneController.gameStatusManager = <span style="color:#66d9ef">this</span>;
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> CheckGame() {
+            <span style="color:#75715e">//0-游戏继续，1-失败，2-成功
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">int</span> startPriests = (sceneController.startLand.GetRoleNum())[<span style="color:#ae81ff">0</span>];
+            <span style="color:#66d9ef">int</span> startDevils = (sceneController.startLand.GetRoleNum())[<span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">int</span> endPriests = (sceneController.endLand.GetRoleNum())[<span style="color:#ae81ff">0</span>];
+            <span style="color:#66d9ef">int</span> endDevils = (sceneController.endLand.GetRoleNum())[<span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">if</span> (endPriests + endDevils == <span style="color:#ae81ff">6</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>;
+            <span style="color:#66d9ef">int</span>[] boatNum = sceneController.boat.GetRoleNumber();
+            <span style="color:#75715e">//加上船上的人
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> (sceneController.boat.GetBoatSign() == <span style="color:#ae81ff">1</span>) {
+                startPriests += boatNum[<span style="color:#ae81ff">0</span>];
+                startDevils += boatNum[<span style="color:#ae81ff">1</span>];
+            }
+            <span style="color:#66d9ef">else</span> {
+                endPriests += boatNum[<span style="color:#ae81ff">0</span>];
+                endDevils += boatNum[<span style="color:#ae81ff">1</span>];
+            }
+            <span style="color:#66d9ef">if</span> ((endPriests &gt; <span style="color:#ae81ff">0</span> &amp;&amp; endPriests &lt; endDevils) || (startPriests &gt; <span style="color:#ae81ff">0</span> &amp;&amp; startPriests &lt; startDevils)) {
+                <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+            }
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+        }
+    }
+}
+</code></pre></div></li>
+<li>
+<p>在FirstCortrollor中增加裁判：<code> public Check gameStatusManager;</code></p>
+</li>
+</ul>
+<p>github项目地址-&gt;<a href="https://github.com/Tifinity/Unity3DStudy-master/tree/master/%E9%A1%B9%E7%9B%AE%E5%9B%9B%EF%BC%9A%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88">?</a></p>
+<p>演示视频地址-&gt;<a href="https://www.bilibili.com/video/av68513475/">?</a></p>
+<p>视频与原版无任何差别。</p>
+<p>再次感谢师兄的博客供参考学习-&gt;<a href="https://blog.csdn.net/C486C/article/details/79854679">?</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="http://tifinity.github.io/tags/none/">
+                    #none</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="http://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/" class="prev" rel="prev" title="Unity3D作业四：游戏对象与图形基础"><i class="iconfont icon-left"></i>&nbsp;Unity3D作业四：游戏对象与图形基础</a>
+         
+        
+        <a href="http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/" class="next" rel="next" title="Unity3D项目一：IMGUI井字棋">Unity3D项目一：IMGUI井字棋&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="http://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
