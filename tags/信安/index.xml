@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>信安 on Infinit</title>
-    <link>http://tifinity.github.io/tags/%E4%BF%A1%E5%AE%89/</link>
+    <link>https://tifinity.github.io/tags/%E4%BF%A1%E5%AE%89/</link>
     <description>Recent content in 信安 on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Dec 2019 14:29:44 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/%E4%BF%A1%E5%AE%89/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Dec 2019 14:29:44 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/%E4%BF%A1%E5%AE%89/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>信息安全作业5：网络扫描实验</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
       <pubDate>Tue, 24 Dec 2019 14:29:44 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
       <description>信息安全作业5：网络扫描实验 实验目的   掌握网络扫描技术的原理。
   学会使用 Nmap 扫描工具。
   实验环境  实验主机操作系统： IP地址：172.18.61.253 目标机操作系统： IP地址： 网络环境：中山大学东校区有线校园网  实验工具 Nmap (Network Mapper，网络映射器) 是一款开放源代码的网络探测和安全审核的工具。其设计目标是快速地扫描大型网络，也可以扫描单个主机。Nmap以新颖的方式使用原始IP报文来发现网络上的主机及其提供的服务，包括其应用程序名称和版本，这些服务运行的操作系统包括版本信息，它们使用什么类型的报文过滤器/防火墙，以及一些其它功能。虽然Nmap通常用于安全审核，也可以利用来做一些日常管理维护的工作，比如查看整个网络的信息，管理服务升级计划，以及监视主机和服务的运行。

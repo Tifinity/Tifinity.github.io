@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>YAML on Infinit</title>
-    <link>http://tifinity.github.io/tags/yaml/</link>
+    <link>https://tifinity.github.io/tags/yaml/</link>
     <description>Recent content in YAML on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 20 Dec 2019 23:11:18 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Dec 2019 23:11:18 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>YAML学习</title>
-      <link>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Fri, 20 Dec 2019 23:11:18 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
       <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&amp;rsquo;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
 在开发的这种语言时，YAML 的意思其实是：&amp;ldquo;Yet Another Markup Language&amp;rdquo;（仍是一种标记语言）。
 YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它实质上是一种通用的数据串行化格式。

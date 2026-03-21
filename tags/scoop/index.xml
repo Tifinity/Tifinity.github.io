@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scoop on Infinit</title>
-    <link>http://tifinity.github.io/tags/scoop/</link>
+    <link>https://tifinity.github.io/tags/scoop/</link>
     <description>Recent content in Scoop on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 27 Dec 2019 19:43:39 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/scoop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Dec 2019 19:43:39 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/scoop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scoop-为Windows而生的命令行包管理工具</title>
-      <link>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <link>https://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Fri, 27 Dec 2019 19:43:39 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
       <description>Scoop第一次使用过程 为什么要使用包管理工具？ 首先，在Windows下我们一般怎么安装软件？💢
  百度你要安装的软件 找到官网或者一个看起来安全一点的地址 下载一个奇怪的exe 安装到奇怪的地方  仔细想想，我从用Windows开始一直以来都是这样安装软件的，直到开始用Linux的操作系统才对包管理有了模糊的概念，不过也只是停留在“Linux跟Windows安装软件的方法有一点不一样”的阶段。
  包管理器又称软件包管理系统，它是在电脑中自动安装、配制、卸载和升级软件包的工具组合，在各种系统软件和应用软件的安装管理中均有广泛应用。——百度百科

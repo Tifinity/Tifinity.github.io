@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>IPSec on Infinit</title>
-    <link>http://tifinity.github.io/tags/ipsec/</link>
+    <link>https://tifinity.github.io/tags/ipsec/</link>
     <description>Recent content in IPSec on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 16 Dec 2019 19:00:20 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/ipsec/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Dec 2019 19:00:20 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/ipsec/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>信息安全作业4</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
       <description>信息安全作业4：描述IPSec传输模式下 ESP 报文的装包与拆包过程 IPSec   IP 协议的安全性
 传统的 IP 协议诞生于军用计划，设计之初未考虑太多安全问题，存在很多安全隐患。比如数据明文传输，同在一个集线器的通信可以被互相监听，如果获得交换机权限，所有流经交换机的通信也可以被监听。攻击者即便没有交换机权限，也可以通过中间人攻击窃取用户的通信。
   IPsec（互联网安全协定）提供了网络层加密方案

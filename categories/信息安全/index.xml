@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>信息安全 on Infinit</title>
-    <link>http://tifinity.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</link>
+    <link>https://tifinity.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</link>
     <description>Recent content in 信息安全 on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 24 Dec 2019 14:29:44 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Dec 2019 14:29:44 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>信息安全作业5：网络扫描实验</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
       <pubDate>Tue, 24 Dec 2019 14:29:44 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
       <description>信息安全作业5：网络扫描实验 实验目的   掌握网络扫描技术的原理。
   学会使用 Nmap 扫描工具。
   实验环境  实验主机操作系统： IP地址：172.18.61.253 目标机操作系统： IP地址： 网络环境：中山大学东校区有线校园网  实验工具 Nmap (Network Mapper，网络映射器) 是一款开放源代码的网络探测和安全审核的工具。其设计目标是快速地扫描大型网络，也可以扫描单个主机。Nmap以新颖的方式使用原始IP报文来发现网络上的主机及其提供的服务，包括其应用程序名称和版本，这些服务运行的操作系统包括版本信息，它们使用什么类型的报文过滤器/防火墙，以及一些其它功能。虽然Nmap通常用于安全审核，也可以利用来做一些日常管理维护的工作，比如查看整个网络的信息，管理服务升级计划，以及监视主机和服务的运行。
@@ -43,10 +43,10 @@ closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
     
     <item>
       <title>信息安全作业1：DES</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</link>
       <pubDate>Fri, 20 Dec 2019 15:11:35 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</guid>
       <description>信息安全与技术作业一：DES算法 1.1算法原理概述 1.1.1介绍 Data Encryption Standard (DES) 是一种典型的对称密钥算法，采用块加密方法，运行速度较慢，但较安全。DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样 64位长度的密文。DES 使用加密密钥定义变换过程，因此算法认为只有持有加密 所用的密钥的用户才能解密密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可 随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖于密钥。DES 算法的基本过程是换位和置换。
 1.1.2 信息空间 DES的信息空间由 {0, 1} 组成的字符串构成，原始明文消息和经过 DES 加密的密文信息是8个字节 (64位) 的分组，密钥也是64位。 ²
   原始明文消息按 PKCS#5 (RFC 8018) 规范进行字节填充：
@@ -57,10 +57,10 @@ closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
     
     <item>
       <title>信息安全作业4</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
       <description>信息安全作业4：描述IPSec传输模式下 ESP 报文的装包与拆包过程 IPSec   IP 协议的安全性
 传统的 IP 协议诞生于军用计划，设计之初未考虑太多安全问题，存在很多安全隐患。比如数据明文传输，同在一个集线器的通信可以被互相监听，如果获得交换机权限，所有流经交换机的通信也可以被监听。攻击者即便没有交换机权限，也可以通过中间人攻击窃取用户的通信。
   IPsec（互联网安全协定）提供了网络层加密方案

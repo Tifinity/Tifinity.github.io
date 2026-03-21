@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Infinit</title>
-    <link>http://tifinity.github.io/categories/linux/</link>
+    <link>https://tifinity.github.io/categories/linux/</link>
     <description>Recent content in Linux on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Apr 2020 13:02:09 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Apr 2020 13:02:09 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux磁盘空间监控</title>
-      <link>http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</link>
+      <link>https://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</link>
       <pubDate>Fri, 17 Apr 2020 13:02:09 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</guid>
+      <guid>https://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</guid>
       <description>Linux磁盘空间监控  开发当牛 测试做马 测试开发 当牛做马
  我要做的工作基本上都是学习这位天外归云大佬的：天外归云的博客，上面引用的也是大佬首页上的话，觉得很有意思hh。下面正式开始。
 获取磁盘信息 首先Linux查看磁盘空间的命令有两个：
@@ -31,10 +31,10 @@ def get_disk_usage_percent(): statvfs = os.statvfs(&amp;#39;/&amp;#39;) # f_frsi
     
     <item>
       <title>Ubuntu学习</title>
-      <link>http://tifinity.github.io/2019/ubuntu-learning/</link>
+      <link>https://tifinity.github.io/2019/ubuntu-learning/</link>
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/ubuntu-learning/</guid>
+      <guid>https://tifinity.github.io/2019/ubuntu-learning/</guid>
       <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt; apt-get update apt-get upgrade 这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
 如果你想知道apt-get到底是什么；
 install的软件到底安装到哪去了；

@@ -63,4 +63,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: http://tifinity.github.io/sitemap.xml
+Sitemap: https://tifinity.github.io/sitemap.xml

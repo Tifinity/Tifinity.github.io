@@ -2,34 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Infinit</title>
-    <link>http://tifinity.github.io/posts/</link>
+    <link>https://tifinity.github.io/posts/</link>
     <description>Recent content in Posts on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Sep 2021 10:21:24 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Mar 2026 19:07:06 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code 智能编程助手</title>
+      <link>https://tifinity.github.io/2026/claude-code-%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B/</link>
+      <pubDate>Sat, 21 Mar 2026 19:07:06 +0800</pubDate>
+      
+      <guid>https://tifinity.github.io/2026/claude-code-%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B/</guid>
+      <description>我是谁 我是 Claude，由 Anthropic 公司开发的 AI 助手。我的全名是 Claude Code，专门设计用于帮助软件开发人员在工作中提高生产力。
+我的能力 代码相关  代码编写：根据需求编写各种编程语言的代码 代码审查：分析代码质量，发现潜在问题 重构优化：改进代码结构，提高可读性和性能 调试排错：帮助定位并解决 Bug 测试编写：编写单元测试、集成测试  项目管理  代码库探索：快速理解大型代码库的结构 Git 操作：协助提交、分支管理、PR 审查 技术方案设计：参与架构讨论，提供技术建议  其他技能  多语言支持：支持中文、英文等多种语言交流 文档编写：编写 README、技术文档、API 文档 学习辅助：解释技术概念，帮助理解新知识  如何使用我 我在 Claude Code（claude.ai/code）中运行，你可以通过以下方式与我交互：
+ 自然语言对话：直接描述你的需求 文件操作：让我读取、编辑、创建文件 命令执行：我可以运行终端命令 批量处理：使用 Agent 并行处理多个任务  我的特点  上下文感知：理解整个代码库的上下文 安全优先：拒绝执行可能有害的操作 协作友好：尊重现有代码风格，遵循项目规范 持续学习：不断更新知识，提供更好的帮助  示例场景 # 让我分析代码库 分析一下这个项目的架构 # 让我创建新功能 帮我添加一个用户登录功能 # 让我修复 Bug 这个函数有性能问题，帮我优化一下 总结 作为你的编程伙伴，我致力于让开发工作更高效、更愉快。无论是日常编码、项目维护还是技术探索，我都随时准备协助你。
+欢迎与我交流！</description>
+    </item>
+    
     <item>
       <title>Drone如何使用GIT&#43;SSH</title>
-      <link>http://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</link>
+      <link>https://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</link>
       <pubDate>Tue, 07 Sep 2021 10:21:24 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</guid>
+      <guid>https://tifinity.github.io/2021/droner%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8git-ssh/</guid>
       <description>Drone如何使用GIT+SSH  慎终如始，则无败事。 ——《道德经》
  在本文开始之前，我已经按官网的说明将 drone server 和 runner 都成功的部署在自己的服务器上。部署完之后创建了一条更新 github.io 的流水线，然而现在 github 的 https 通道弱不禁风，跑十次“失联”九次，所以需要换成用 ssh 来 git clone 和 push。
 我们都知道 CI 流水线的第一步一般是 在 drone 的官方文档中并没有很直接的说明如何使用 ssh 来连接 git，只说明可以禁用默认的 clone 步骤并自定义 clone 流程，但并没看到有 ssh key 相关的参数或者环境变量之类的，不是很清楚怎么使用。
 随后找到一篇博客，muxueqz 大佬的静态博客持续集成大法，看到他是自己写了 drone 的插件来定义参数和调用命令的，不过该博客写于2019年，于是我坚信这个步骤应该有并且可能两年时间已经优化了 ssh 的更简单的使用方法，于是又去找别的办法。
-在 Drone官方讨论区 搜索了一下 git ssh，找到一些帖子：
-这两个是 19 年的提问以及解决，还有一些更久远的就没看了
-提问1 提问2
+在 Drone官方讨论区 搜索了一下 git ssh，找到一些帖子，这两个是 19 年的提问以及解决，还有一些更久远的就没看了：提问1 提问2
 官方在 github 上给出的脚本:
 # write the ssh key. mkdir /root/.ssh echo -n &amp;#34;$SSH_KEY&amp;#34; &amp;gt; /root/.ssh/id_rsa chmod 600 /root/.</description>
     </item>
     
     <item>
       <title>流水线工具调研</title>
-      <link>http://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</link>
+      <link>https://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</link>
       <pubDate>Sun, 05 Sep 2021 12:44:01 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</guid>
+      <guid>https://tifinity.github.io/2021/%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%B7%A5%E5%85%B7%E8%B0%83%E7%A0%94/</guid>
       <description>流水线工具调研   Drone CI
   Jenkins
   Travis CI
@@ -44,10 +54,10 @@ openssl rand -hex 16 2. 下载 下载 drone 的 docker 镜像
     
     <item>
       <title>MacBook实用操作</title>
-      <link>http://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
+      <link>https://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Wed, 01 Sep 2021 12:44:01 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
+      <guid>https://tifinity.github.io/2021/macbook%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/</guid>
       <description>MacBook实用操作 小技巧 访达显示隐藏文件 # 更改boolean为true或false然后重新打开访达即可 # 显示隐藏文件 defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder # 不显示隐藏文件 defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder 应用安装显示不被信任的开发者 偏好设置，安全性与隐私，通用，打开锁，可以看到刚刚被拦截的应用，选择仍要打开即可安装。
 程序坞移动到其他显示器 鼠标在显示器最下方停留几秒即可
 快捷键 窗口最小化：ctrl+m
@@ -61,10 +71,10 @@ openssl rand -hex 16 2. 下载 下载 drone 的 docker 镜像
     
     <item>
       <title>Unity3D作业五：游戏对象与图形基础</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 28 Apr 2020 01:24:43 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
       <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
 可以创建地形，也可以直接将预制地形拖到场景中。
 在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
@@ -76,10 +86,10 @@ openssl rand -hex 16 2. 下载 下载 drone 的 docker 镜像
     
     <item>
       <title>Unity3D作业四：材料与渲染练习</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</link>
       <pubDate>Tue, 28 Apr 2020 01:23:49 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</guid>
       <description>材料与渲染练习 先在这里推荐一个纹理材质的网站 -&amp;gt; ?
 现在开始我的学习过程ヽ(✿ﾟ▽ﾟ)ノ
 首先在网站上随便找了一块免费的石头
@@ -105,10 +115,10 @@ openssl rand -hex 16 2. 下载 下载 drone 的 docker 镜像
     
     <item>
       <title>Unity3D作业三：空间与运动</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</link>
       <pubDate>Tue, 28 Apr 2020 01:23:11 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</guid>
       <description>Unity3D作业二：空间与运动 作业内容
 1、简答并用程序验证
   游戏对象运动的本质是什么？
@@ -120,10 +130,10 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; p
     
     <item>
       <title>Unity3D项目三：牧师与魔鬼</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</link>
       <pubDate>Tue, 28 Apr 2020 01:22:03 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</guid>
       <description>Unity3D项目三：牧师与魔鬼 基本介绍   列出游戏中提及的事物（Objects）
 牧师，恶魔，船，河流，左侧陆地，右侧陆地
   用表格列出玩家动作表（规则表），注意，动作越少越好
@@ -133,10 +143,10 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; p
     
     <item>
       <title>Unity3D项目二：太阳系仿真</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</link>
       <pubDate>Tue, 28 Apr 2020 01:21:11 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</guid>
       <description>Unity3D项目二：太阳系仿真 先上演示视频：?
 视角移动秘技  飞行模式：按住鼠标右键 + WASD（或方向键）移动，QE可以缩放 聚焦旋转：选中物体按F或者双击聚焦，然后按住ALT + 鼠标左键移动  物体旋转 围绕自身的旋转，参数为旋转轴 * 速度，注意只有一个参数
 this.transform.Rotate (Vector3.up * rotaSpeed);
@@ -152,10 +162,10 @@ this.transform.RotateAround (Vector3.zero, Vector3.up, rotaSpeed);
     
     <item>
       <title>Unity3D作业二：离散仿真引擎基础</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 28 Apr 2020 01:18:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</guid>
       <description>离散仿真引擎基础 简答题 1. 解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。  游戏对象：出现在场景中，一般有人物、道具和风景等等，充当组件的容器，实现真正的功能。游戏对象自己不做任何事。他们需要专有属性，才可以成为一个角色，一个环境，或一个特殊效果。 资源：表示可以在项目中使用的任何素材。可能来自在Unity之外创建的文件，例如3D模型、音频文件，图像，脚本或Unity支持的任何其他类型的文件。还有一些可以在Unity中创建的资源类型，如动画控制器、音频混音器或渲染纹理。  2. 下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构） 游戏对象树的结构主要包括：摄像机，场景，光源，风，开始位置等
 资源目录包括：动画，素材，文本，模型，场景，预设等
 3. 编写一个代码，使用 debug 语句来验证 MonoBehaviour 基本行为或事件触发的条件 public class Test : MonoBehaviour { void Awake() { Debug.Log (&amp;#34;onAwake&amp;#34;); } void Start () { Debug.Log (&amp;#34;onStart&amp;#34;); } void Update () { Debug.Log (&amp;#34;onUpdate&amp;#34;); } void FixedUpdate() { Debug.Log (&amp;#34;onFixedUpdate&amp;#34;); } void LateUpdate() { Debug.Log (&amp;#34;onLateUpdate&amp;#34;); } void OnGUI() { Debug.Log (&amp;#34;onGUI&amp;#34;); } void OnDisable() { Debug.Log (&amp;#34;onDisable&amp;#34;); } void OnEnable() { Debug.</description>
@@ -163,10 +173,10 @@ this.transform.RotateAround (Vector3.zero, Vector3.up, rotaSpeed);
     
     <item>
       <title>Unity3D项目一：IMGUI井字棋</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</link>
       <pubDate>Tue, 28 Apr 2020 00:27:50 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</guid>
       <description>Unity3D游戏一：IMGUI井字棋 要求  游戏内容： 井字棋 技术限制： 仅允许使用 IMGUI 构建 UI 作业目的：  了解 OnGUI() 事件，提升 debug 能力 提升阅读 API 文档能力    实现   完整代码传送门-&amp;gt;?
   视屏演示传送门-&amp;gt;?
   首先使用IMGUI搭建出游戏界面
@@ -182,10 +192,10 @@ int check() { /*横线获胜*/ for (int i = 0; i &amp;lt; 3; i++) { if (board[i]
     
     <item>
       <title>Unity3D项目四：牧师与魔鬼（动作分离版）</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</link>
       <pubDate>Tue, 28 Apr 2020 00:24:09 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</guid>
       <description>Unity3D项目四：牧师与魔鬼（动作分离版） 基本介绍 动作管理是游戏的重要内容，全部都放在游戏对象里显得十分笨重，所以本次项目需要将动作从对象中提取出来写成单独的动作控制器。动作控制器来管理控制所有的游戏对象移动，通过场景控制器将需要移动的游戏对象和位置等信息传递给动作控制器，动作控制器负责实现具体的移动。当动作很多或是需要做同样动作的游戏对象很多的时候，使用动作管理器可以让动作很容易管理，也提高了代码复用性。
 具体实现 完成ActionControllor.cs   ISSActionCallback（动作事件接口）
 使用了枚举变量定义动作类型，执行还是完成。
@@ -197,10 +207,10 @@ public enum SSActionEventType : int { Started, Competeted } public interface ISS
     
     <item>
       <title>Unity3D作业四：游戏对象与图形基础</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 28 Apr 2020 00:23:15 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
       <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
 可以创建地形，也可以直接将预制地形拖到场景中。
 在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
@@ -212,10 +222,10 @@ public enum SSActionEventType : int { Started, Competeted } public interface ISS
     
     <item>
       <title>Unity3D项目五：简单打飞碟</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</link>
       <pubDate>Tue, 28 Apr 2020 00:22:01 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</guid>
       <description>打飞碟 @[toc]
 游戏规则与要求  游戏内容要求：  游戏有 n 个 round，每个 round 都包括10 次 trial； 每个 trial 的飞碟的色彩、大小、发射位置、速度、角度、同时出现的个数都可能不同。它们由该 round 的 ruler 控制； 每个 trial 的飞碟有随机性，总体难度随 round 上升； 鼠标点中得分，得分规则按色彩、大小、速度不同计算，规则可自由设定。   游戏的要求：  使用带缓存的工厂模式管理不同飞碟的生产与回收，该工厂必须是场景单实例的！具体实现见参考资源 Singleton 模板类 近可能使用前面 MVC 结构实现人机交互与游戏模型分离    项目地址与演示视频 项目地址 -&amp;gt;传送门?
 视频连接 -&amp;gt; 传送门?
@@ -227,10 +237,10 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; p
     
     <item>
       <title>Unity3D项目六：简单打飞碟（物理引擎）</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</link>
       <pubDate>Tue, 28 Apr 2020 00:21:16 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</guid>
       <description>简单打飞碟（物理引擎） @[toc]
 游戏规则与要求  游戏内容要求：  按 adapter模式 设计图修改飞碟游戏 使它同时支持物理运动与运动学（变换）运动    附加项目 附加项目简单打靶
 项目地址与演示视频 项目地址 -&amp;gt; 传送门?
@@ -246,10 +256,10 @@ public virtual void Update() { throw new System.</description>
     
     <item>
       <title>Unity3D项目六：简单打靶</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</link>
       <pubDate>Tue, 28 Apr 2020 00:18:23 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</guid>
       <description>简单打靶 @[toc]
 游戏规则与要求    游戏内容要求：  靶对象为 5 环，按环计分； 箭对象，射中后要插在靶上  增强要求：射中后，箭对象产生颤抖效果，到下一次射击 或 1秒以后   游戏仅一轮，无限 trials；  增强要求：添加一个风向和强度标志，提高难度        项目地址与演示视频 项目地址 -&amp;gt; 传送门?
 视频连接 -&amp;gt; 传送门?
@@ -261,10 +271,10 @@ void Update () { if(game_start) { Vector3 mpos = Camera.main.ScreenPointToRay(In
     
     <item>
       <title>Unity3d项目七：简单巡逻兵</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</link>
       <pubDate>Tue, 28 Apr 2020 00:16:44 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</guid>
       <description>简单巡逻兵 @[toc]
 游戏规则与要求  智能巡逻兵  游戏设计要求：  创建一个地图和若干巡逻兵(使用动画)； 每个巡逻兵走一个3~5个边的凸多边型，位置数据是相对地址。即每次确定下一个目标位置，用自己当前位置为原点计算； 巡逻兵碰撞到障碍物，则会自动选下一个点为目标； 巡逻兵在设定范围内感知到玩家，会自动追击玩家； 失去玩家目标后，继续巡逻； 计分：玩家每次甩掉一个巡逻兵计一分，与巡逻兵碰撞游戏结束；   程序设计要求：  必须使用订阅与发布模式传消息  subject：OnLostGoal Publisher: GameEventManager Subscriber: 场景控制器   工厂模式生产巡逻兵      项目地址与演示视频 项目地址 -&amp;gt; 传送门?
 视频连接 -&amp;gt; 传送门?
@@ -289,10 +299,10 @@ Update只更新平面移动的向量，FixedUpdate使用该向量进行移动，
     
     <item>
       <title>Unity3D项目七：动画制作过程</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</link>
       <pubDate>Tue, 28 Apr 2020 00:15:46 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</guid>
       <description>人物模型与动画 @[toc]
 效果展示 作业博客 -&amp;gt; 传送门
 视频连接 -&amp;gt; 传送门
@@ -332,10 +342,10 @@ rollVelocity为Float，表示翻滚的速度。
     
     <item>
       <title>Unity3D项目九：简单的两个血条</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</link>
       <pubDate>Tue, 28 Apr 2020 00:14:10 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</guid>
       <description>简单血条 IMGUI和UGUI @[toc]
 作业要求   分别使用 IMGUI 和 UGUI 实现
   使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机
@@ -360,10 +370,10 @@ Canvas-&amp;gt;Canvas画布-&amp;gt;Render Mode渲染模式，这里有三种渲
     
     <item>
       <title>Unity3D项目十：简单坦克大战</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</link>
       <pubDate>Tue, 28 Apr 2020 00:09:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E7%AE%80%E5%8D%95%E5%9D%A6%E5%85%8B%E5%A4%A7%E6%88%98/</guid>
       <description>简单坦克大战 作业要求 坦克对战游戏 AI 设计 从商店下载游戏：“Kawaii” Tank 或 其他坦克模型，构建 AI 对战坦克。具体要求
  使用“感知-思考-行为”模型，建模 AI 坦克 场景中要放置一些障碍阻挡对手视线 坦克需要放置一个矩阵包围盒触发器，以保证 AI 坦克能使用射线探测对手方位 AI 坦克必须在有目标条件下使用导航，并能绕过障碍。（失去目标时策略自己思考） 实现人机对战  项目地址 github bilibili
 具体实现 参考学姐博客，对一些混乱的地方进行了修改。 关于框架的复用不再赘述，主要包括：
@@ -373,10 +383,10 @@ void FixedUpdate () { if(sceneController.getResult()==0) { target = sceneControl
     
     <item>
       <title>腾讯CSIG测试开发实习生面经</title>
-      <link>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</link>
+      <link>https://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</link>
       <pubDate>Mon, 20 Apr 2020 12:44:01 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</guid>
+      <guid>https://tifinity.github.io/2020/%E8%85%BE%E8%AE%AFcsig%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E7%94%9F%E9%9D%A2%E7%BB%8F/</guid>
       <description>腾讯CSIG 测试开发 一面 本来投的是后台开发，然后不知道为啥被测开捞了，可能是因为提前批实习生的时间快截止了，想着好歹沾点边面面看。
 没自我介绍，直接开始。时间估计1个小时左右。还有些基础问题记不得了。
   关于项目，聊的时间比较长，涉及微服务，Docker，MVC，Python的Django等
@@ -413,10 +423,10 @@ o怪不得写这么简单的东西，原来还有一手。
     
     <item>
       <title>Linux磁盘空间监控</title>
-      <link>http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</link>
+      <link>https://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</link>
       <pubDate>Fri, 17 Apr 2020 13:02:09 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</guid>
+      <guid>https://tifinity.github.io/2020/linux%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E7%9B%91%E6%8E%A7/</guid>
       <description>Linux磁盘空间监控  开发当牛 测试做马 测试开发 当牛做马
  我要做的工作基本上都是学习这位天外归云大佬的：天外归云的博客，上面引用的也是大佬首页上的话，觉得很有意思hh。下面正式开始。
 获取磁盘信息 首先Linux查看磁盘空间的命令有两个：
@@ -435,10 +445,10 @@ def get_disk_usage_percent(): statvfs = os.statvfs(&amp;#39;/&amp;#39;) # f_frsi
     
     <item>
       <title>Python如何发送邮件</title>
-      <link>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <link>https://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
       <pubDate>Thu, 16 Apr 2020 11:02:04 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <guid>https://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
       <description>Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。
  使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。
 提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：
@@ -451,10 +461,10 @@ sender = &amp;#39;XXX@qq.com&amp;#39; # 发送者 receivers = [&amp;#39;XXX@qq.c
     
     <item>
       <title>Scoop-为Windows而生的命令行包管理工具</title>
-      <link>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <link>https://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Fri, 27 Dec 2019 19:43:39 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://tifinity.github.io/2019/scoop-%E4%B8%BAwindows%E8%80%8C%E7%94%9F%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
       <description>Scoop第一次使用过程 为什么要使用包管理工具？ 首先，在Windows下我们一般怎么安装软件？💢
  百度你要安装的软件 找到官网或者一个看起来安全一点的地址 下载一个奇怪的exe 安装到奇怪的地方  仔细想想，我从用Windows开始一直以来都是这样安装软件的，直到开始用Linux的操作系统才对包管理有了模糊的概念，不过也只是停留在“Linux跟Windows安装软件的方法有一点不一样”的阶段。
  包管理器又称软件包管理系统，它是在电脑中自动安装、配制、卸载和升级软件包的工具组合，在各种系统软件和应用软件的安装管理中均有广泛应用。——百度百科
@@ -471,10 +481,10 @@ Scoop试图消除类似的东西：
     
     <item>
       <title>PicGo-图床管理工具</title>
-      <link>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <link>https://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Fri, 27 Dec 2019 17:53:45 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
       <description>PicGo+Github图片管理方案 PicGo使用 PicGo是一个非常好用的开源图床管理工具：Github地址
 我的图床目前是Github，下面就以Github来进行一遍操作。
 在Github上创建一个仓库用来保存图片，然后创建一个token，点击头像-&amp;gt;Setting-&amp;gt;Developer setting-&amp;gt;Personal access tokens-&amp;gt;Generate new token，填写Note，勾选repo，复制保存token，这个 token 只显示一次。
@@ -490,10 +500,10 @@ Scoop试图消除类似的东西：
     
     <item>
       <title>信息安全作业5：网络扫描实验</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</link>
       <pubDate>Tue, 24 Dec 2019 14:29:44 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A5%E7%BD%91%E7%BB%9C%E6%89%AB%E6%8F%8F%E5%AE%9E%E9%AA%8C/</guid>
       <description>信息安全作业5：网络扫描实验 实验目的   掌握网络扫描技术的原理。
   学会使用 Nmap 扫描工具。
   实验环境  实验主机操作系统： IP地址：172.18.61.253 目标机操作系统： IP地址： 网络环境：中山大学东校区有线校园网  实验工具 Nmap (Network Mapper，网络映射器) 是一款开放源代码的网络探测和安全审核的工具。其设计目标是快速地扫描大型网络，也可以扫描单个主机。Nmap以新颖的方式使用原始IP报文来发现网络上的主机及其提供的服务，包括其应用程序名称和版本，这些服务运行的操作系统包括版本信息，它们使用什么类型的报文过滤器/防火墙，以及一些其它功能。虽然Nmap通常用于安全审核，也可以利用来做一些日常管理维护的工作，比如查看整个网络的信息，管理服务升级计划，以及监视主机和服务的运行。
@@ -524,28 +534,28 @@ closed|filtered ：端口是关闭的或被屏蔽，Nmap不能识别。
     
     <item>
       <title>Git快速设置</title>
-      <link>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</link>
+      <link>https://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</link>
       <pubDate>Tue, 24 Dec 2019 14:12:21 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</guid>
+      <guid>https://tifinity.github.io/2019/git%E5%BF%AB%E9%80%9F%E8%AE%BE%E7%BD%AE/</guid>
       <description>Git的一些让人方便的设置 # 用户名和邮箱 git config --global user.name &amp;lt;your name&amp;gt; git config --global user.email &amp;lt;your_email@example.com&amp;gt; # 解决中文在Git Bash里显示诸如“/202/233/233”的转码问题 # core.quotepath 为false的话，就不会对0x80以上的字符进行quote。中文显示正常。 git config --global core.quotepath false # 设置commit的默认编辑器 git config --global core.editor /usr/bin/vim # 避免每次pull和push时输入用户名和密码 git config --global credential.helper store # Windows Git Bash启用http/https协议 git config --global credential.helper wincred # 设置大小写敏感，保持Mac/Win/Linux一致性 git config --global core.ignorecase false # Windows CRLF git config --global core.autocrlf true # Linux，Mac git config --global core.autocrlf input </description>
     </item>
     
     <item>
       <title>希腊字母表</title>
-      <link>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</link>
+      <link>https://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</link>
       <pubDate>Mon, 23 Dec 2019 18:55:09 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</guid>
+      <guid>https://tifinity.github.io/2019/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D%E8%A1%A8/</guid>
       <description>希腊字母表    字母名称 国际音标 大写字母 小写字母 字母名称 国际音标 大写字母 小写字母     alpha /&amp;lsquo;ælfə/ Α α nu /nju:/ Ν ν   beta /&amp;lsquo;bi:tə/或 /&amp;lsquo;beɪtə/ Β β xi 希腊 /ksi/；英美 /ˈzaɪ/ 或 /ˈksaɪ/ Ξ ξ   gamma /&amp;lsquo;gæmə/ Γ γ omicron /əuˈmaikrən/或 /ˈɑmɪˌkrɑn/ Ο ο   delta /&amp;lsquo;deltə/ Δ δ pi /paɪ/ Π π   epsilon /&amp;lsquo;epsɪlɒn/ Ε ε rho /rəʊ/ Ρ ρ   zeta /&amp;lsquo;zi:tə/ Ζ ζ sigma /&amp;lsquo;sɪɡmə/ Σ σ ς   eta /&amp;lsquo;i:tə/ Η η tau /tɔ:/ 或 /taʊ/ Τ τ   theta /&amp;lsquo;θi:tə/ Θ θ upsilon /ˈipsilon/或 /ˈʌpsɨlɒn/ Υ υ   iota /aɪ&amp;rsquo;əʊtə/ Ι ι ℩ phi /faɪ/ Φ φ   kappa /&amp;lsquo;kæpə/ Κ κ chi /kaɪ/ Χ χ   lambda /&amp;lsquo;læmdə/ Λ λ psi /psaɪ/ Ψ ψ   mu /mju:/ Μ μ omega /&amp;lsquo;əʊmɪɡə/或 /oʊ&amp;rsquo;meɡə/ Ω ω    </description>
     </item>
     
     <item>
       <title>Markdown转PDF</title>
-      <link>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</link>
+      <link>https://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</link>
       <pubDate>Sat, 21 Dec 2019 17:39:48 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</guid>
+      <guid>https://tifinity.github.io/2019/markdown%E8%BD%ACpdf/</guid>
       <description>Markdown转PDF 使用Pandoc Pandoc被誉为“瑞士军刀”，可以实现很多文本格式的转换。
 建议使用方法：先转docx，再用WPS或者Word输出为PDF，只需要Pandoc，不需要任何其他配置。
 pandoc filename.md -o filename.docx Pandoc官网，不过下载速度很慢
@@ -557,10 +567,10 @@ pip install pandoc 然后可以在Python中使用Pandoc。
     
     <item>
       <title>YAML学习</title>
-      <link>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Fri, 20 Dec 2019 23:11:18 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://tifinity.github.io/2019/yaml%E5%AD%A6%E4%B9%A0/</guid>
       <description>YAML学习 YAML 是 &amp;ldquo;YAML Ain&amp;rsquo;t a Markup Language&amp;rdquo;（YAML 不是一种标记语言）的递归缩写。
 在开发的这种语言时，YAML 的意思其实是：&amp;ldquo;Yet Another Markup Language&amp;rdquo;（仍是一种标记语言）。
 YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它实质上是一种通用的数据串行化格式。
@@ -572,10 +582,10 @@ YAML 语言（发音 /ˈjæməl/ ）的设计目标是方便人类读写。它�
     
     <item>
       <title>人工智能作业4</title>
-      <link>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</link>
+      <link>https://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</link>
       <pubDate>Fri, 20 Dec 2019 20:56:03 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</guid>
       <description>人工智能第四次作业 17343105 田皓 EM算法实验内容 算法原理 EM **Expectation-maximization algorithm **期望最大化算法
 a.记录了每次选择的是A还是B
 A硬币出现正面的概率为 $P(A) = \frac{24}{24+6}= 0.80$
@@ -606,19 +616,19 @@ b.没有记录每次选择的是A还是B
     
     <item>
       <title>国际语言代码表</title>
-      <link>http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</link>
+      <link>https://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</link>
       <pubDate>Fri, 20 Dec 2019 18:55:09 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</guid>
+      <guid>https://tifinity.github.io/2019/%E5%9B%BD%E9%99%85%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E8%A1%A8/</guid>
       <description>   语言代码 语言名称     af 南非语   af-ZA 南非语   ar 阿拉伯语   ar-AE 阿拉伯语(阿联酋)   ar-BH 阿拉伯语(巴林)   ar-DZ 阿拉伯语(阿尔及利亚)   ar-EG 阿拉伯语(埃及)   ar-IQ 阿拉伯语(伊拉克)   ar-JO 阿拉伯语(约旦)   ar-KW 阿拉伯语(科威特)   ar-LB 阿拉伯语(黎巴嫩)   ar-LY 阿拉伯语(利比亚)   ar-MA 阿拉伯语(摩洛哥)   ar-OM 阿拉伯语(阿曼)   ar-QA 阿拉伯语(卡塔尔)   ar-SA 阿拉伯语(沙特阿拉伯)   ar-SY 阿拉伯语(叙利亚)   ar-TN 阿拉伯语(突尼斯)   ar-YE 阿拉伯语(也门)   az 阿塞拜疆语   az-AZ 阿塞拜疆语(拉丁文)   az-AZ 阿塞拜疆语(西里尔文)   be 比利时语   be-BY 比利时语   bg 保加利亚语   bg-BG 保加利亚语   bs-BA 波斯尼亚语(拉丁文，波斯尼亚和黑塞哥维那)   ca 加泰隆语   ca-ES 加泰隆语   cs 捷克语   cs-CZ 捷克语   cy 威尔士语   cy-GB 威尔士语   da 丹麦语   da-DK 丹麦语   de 德语   de-AT 德语(奥地利)   de-CH 德语(瑞士)   de-DE 德语(德国)   de-LI 德语(列支敦士登)   de-LU 德语(卢森堡)   dv 第维埃语   dv-MV 第维埃语   el 希腊语   el-GR 希腊语   en 英语   en-AU 英语(澳大利亚)   en-BZ 英语(伯利兹)   en-CA 英语(加拿大)   en-CB 英语(加勒比海)   en-GB 英语(英国)   en-IE 英语(爱尔兰)   en-JM 英语(牙买加)   en-NZ 英语(新西兰)   en-PH 英语(菲律宾)   en-TT 英语(特立尼达)   en-US 英语(美国)   en-ZA 英语(南非)   en-ZW 英语(津巴布韦)   eo 世界语   es 西班牙语   es-AR 西班牙语(阿根廷)   es-BO 西班牙语(玻利维亚)   es-CL 西班牙语(智利)   es-CO 西班牙语(哥伦比亚)   es-CR 西班牙语(哥斯达黎加)   es-DO 西班牙语(多米尼加共和国)   es-EC 西班牙语(厄瓜多尔)   es-ES 西班牙语(传统)   es-ES 西班牙语(国际)   es-GT 西班牙语(危地马拉)   es-HN 西班牙语(洪都拉斯)   es-MX 西班牙语(墨西哥)   es-NI 西班牙语(尼加拉瓜)   es-PA 西班牙语(巴拿马)   es-PE 西班牙语(秘鲁)   es-PR 西班牙语(波多黎各(美))   es-PY 西班牙语(巴拉圭)   es-SV 西班牙语(萨尔瓦多)   es-UY 西班牙语(乌拉圭)   es-VE 西班牙语(委内瑞拉)   et 爱沙尼亚语   et-EE 爱沙尼亚语   eu 巴士克语   eu-ES 巴士克语   fa 法斯语   fa-IR 法斯语   fi 芬兰语   fi-FI 芬兰语   fo 法罗语   fo-FO 法罗语   fr 法语   fr-BE 法语(比利时)   fr-CA 法语(加拿大)   fr-CH 法语(瑞士)   fr-FR 法语(法国)   fr-LU 法语(卢森堡)   fr-MC 法语(摩纳哥)   gl 加里西亚语   gl-ES 加里西亚语   gu 古吉拉特语   gu-IN 古吉拉特语   he 希伯来语   he-IL 希伯来语   hi 印地语   hi-IN 印地语   hr 克罗地亚语   hr-BA 克罗地亚语(波斯尼亚和黑塞哥维那)   hr-HR 克罗地亚语   hu 匈牙利语   hu-HU 匈牙利语   hy 亚美尼亚语   hy-AM 亚美尼亚语   id 印度尼西亚语   id-ID 印度尼西亚语   is 冰岛语   is-IS 冰岛语   it 意大利语   it-CH 意大利语(瑞士)   it-IT 意大利语(意大利)   ja 日语   ja-JP 日语   ka 格鲁吉亚语   ka-GE 格鲁吉亚语   kk 哈萨克语   kk-KZ 哈萨克语   kn 卡纳拉语   kn-IN 卡纳拉语   ko 朝鲜语   ko-KR 朝鲜语   kok 孔卡尼语   kok-IN 孔卡尼语   ky 吉尔吉斯语   ky-KG 吉尔吉斯语(西里尔文)   lt 立陶宛语   lt-LT 立陶宛语   lv 拉脱维亚语   lv-LV 拉脱维亚语   mi 毛利语   mi-NZ 毛利语   mk 马其顿语   mk-MK 马其顿语(FYROM)   mn 蒙古语   mn-MN 蒙古语(西里尔文)   mr 马拉地语   mr-IN 马拉地语   ms 马来语   ms-BN 马来语(文莱达鲁萨兰)   ms-MY 马来语(马来西亚)   mt 马耳他语   mt-MT 马耳他语   nb 挪威语(伯克梅尔)   nb-NO 挪威语(伯克梅尔)(挪威)   nl 荷兰语   nl-BE 荷兰语(比利时)   nl-NL 荷兰语(荷兰)   nn-NO 挪威语(尼诺斯克)(挪威)   ns 北梭托语   ns-ZA 北梭托语   pa 旁遮普语   pa-IN 旁遮普语   pl 波兰语   pl-PL 波兰语   pt 葡萄牙语   pt-BR 葡萄牙语(巴西)   pt-PT 葡萄牙语(葡萄牙)   qu 克丘亚语   qu-BO 克丘亚语(玻利维亚)   qu-EC 克丘亚语(厄瓜多尔)   qu-PE 克丘亚语(秘鲁)   ro 罗马尼亚语   ro-RO 罗马尼亚语   ru 俄语   ru-RU 俄语   sa 梵文   sa-IN 梵文   se 北萨摩斯语   se-FI 北萨摩斯语(芬兰)   se-FI 斯科特萨摩斯语(芬兰)   se-FI 伊那里萨摩斯语(芬兰)   se-NO 北萨摩斯语(挪威)   se-NO 律勒欧萨摩斯语(挪威)   se-NO 南萨摩斯语(挪威)   se-SE 北萨摩斯语(瑞典)   se-SE 律勒欧萨摩斯语(瑞典)   se-SE 南萨摩斯语(瑞典)   sk 斯洛伐克语   sk-SK 斯洛伐克语   sl 斯洛文尼亚语   sl-SI 斯洛文尼亚语   sq 阿尔巴尼亚语   sq-AL 阿尔巴尼亚语   sr-BA 塞尔维亚语(拉丁文，波斯尼亚和黑塞哥维那)   sr-BA 塞尔维亚语(西里尔文，波斯尼亚和黑塞哥维那)   sr-SP 塞尔维亚(拉丁)   sr-SP 塞尔维亚(西里尔文)   sv 瑞典语   sv-FI 瑞典语(芬兰)   sv-SE 瑞典语   sw 斯瓦希里语   sw-KE 斯瓦希里语   syr 叙利亚语   syr-SY 叙利亚语   ta 泰米尔语   ta-IN 泰米尔语   te 泰卢固语   te-IN 泰卢固语   th 泰语   th-TH 泰语   tl 塔加路语   tl-PH 塔加路语(菲律宾)   tn 茨瓦纳语   tn-ZA 茨瓦纳语   tr 土耳其语   tr-TR 土耳其语   ts 宗加语   tt 鞑靼语   tt-RU 鞑靼语   uk 乌克兰语   uk-UA 乌克兰语   ur 乌都语   ur-PK 乌都语   uz 乌兹别克语   uz-UZ 乌兹别克语(拉丁文)   uz-UZ 乌兹别克语(西里尔文)   vi 越南语   vi-VN 越南语   xh 班图语   xh-ZA 班图语   zh 中文   zh-CN 中文(简体)   zh-HK 中文(香港)   zh-MO 中文(澳门)   zh-SG 中文(新加坡)   zh-TW 中文(繁体)   zu 祖鲁语   zu-ZA 祖鲁语    </description>
     </item>
     
     <item>
       <title>信息安全作业1：DES</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</link>
       <pubDate>Fri, 20 Dec 2019 15:11:35 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A1des/</guid>
       <description>信息安全与技术作业一：DES算法 1.1算法原理概述 1.1.1介绍 Data Encryption Standard (DES) 是一种典型的对称密钥算法，采用块加密方法，运行速度较慢，但较安全。DES 是一种典型的块加密方法：它以64位为分组长度，64位一组的明文作为算法的输入，通过一系列复杂的操作，输出同样 64位长度的密文。DES 使用加密密钥定义变换过程，因此算法认为只有持有加密 所用的密钥的用户才能解密密文。DES 采用64位密钥，但由于每8位中的最后1位用于奇偶校验，实际有效密钥长度为56位。密钥可以是任意的56位的数，且可 随时改变。其中极少量的数被认为是弱密钥，但能容易地避开它们。所有的保密性依赖于密钥。DES 算法的基本过程是换位和置换。
 1.1.2 信息空间 DES的信息空间由 {0, 1} 组成的字符串构成，原始明文消息和经过 DES 加密的密文信息是8个字节 (64位) 的分组，密钥也是64位。 ²
   原始明文消息按 PKCS#5 (RFC 8018) 规范进行字节填充：
@@ -629,10 +639,10 @@ b.没有记录每次选择的是A还是B
     
     <item>
       <title>Unity3D项目十一：简单AR</title>
-      <link>http://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</link>
+      <link>https://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</link>
       <pubDate>Thu, 19 Dec 2019 13:02:33 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</guid>
+      <guid>https://tifinity.github.io/2019/unity3d%E9%A1%B9%E7%9B%AE%E5%8D%81%E4%B8%80%E7%AE%80%E5%8D%95ar%E6%B8%B8%E6%88%8F/</guid>
       <description>简单AR学习 作业要求 1、 图片识别与建模
 2、 虚拟按键小游戏
 项目地址 Github
@@ -668,10 +678,10 @@ public class ButtonTest : MonoBehaviour, IVirtualButtonEventHandler { private Ga
     
     <item>
       <title>服务计算第九周作业：博客网站API设计</title>
-      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</link>
+      <link>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</link>
       <pubDate>Wed, 18 Dec 2019 11:48:06 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</guid>
+      <guid>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B9%9D%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99api%E8%AE%BE%E8%AE%A1/</guid>
       <description>服务计算第九周作业：博客网站API设计 作业要求 规范：REST API 设计 Github API v3 overview ；微软 作业：模仿 Github，设计一个博客网站的 API
 API设计 查看网站主页 GET &amp;ldquo;https://myblog&amp;rdquo;
   Request
@@ -686,10 +696,10 @@ Authorization: token     Response 200( application/json )
     
     <item>
       <title>服务计算第七周作业：Agenda</title>
-      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</link>
+      <link>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</link>
       <pubDate>Wed, 18 Dec 2019 11:46:25 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</guid>
+      <guid>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%83%E5%91%A8%E4%BD%9C%E4%B8%9Aagenda/</guid>
       <description>服务计算第七周作业：Agenda 文章目录 @[toc]
 概述   安装Cobra cobra既是一个用来创建强大的现代CLI命令行的golang库，也是一个生成程序应用和命令行文件的程序。因为本次项目是一个命令行程序，所以涉及到读写参数问题，之前是使用pflag来实现参数的读入。但是cobra的使用可以快速生成命令行文件程序，构建一个命令行程序的框架。
 首先安装被墙的依赖包。
@@ -707,10 +717,10 @@ Error: required flag(s) &amp;quot;pkg-name&amp;quot; not set 在查看[官方文
     
     <item>
       <title>服务计算第八周作业：cloudgo</title>
-      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</link>
+      <link>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</link>
       <pubDate>Wed, 18 Dec 2019 11:37:14 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</guid>
+      <guid>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%85%AB%E5%91%A8%E4%BD%9C%E4%B8%9Acloudgo/</guid>
       <description>处理 web 程序的输入与输出 文章目录 @[toc]
 概述 设计一个 web 小应用，展示静态文件服务、js 请求支持、模板输出、表单处理、Filter 中间件设计等方面的能力。（不需要数据库支持）
 任务要求 编程 web 应用程序 cloudgo-io。 请在项目 README.MD 给出完成任务的证据！
@@ -726,10 +736,10 @@ go get -u github.com/kataras/iris 但是因为部分依赖包被墙了，是无�
     
     <item>
       <title>服务计算第四周作业：开发简单CLI程序</title>
-      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</link>
+      <link>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</link>
       <pubDate>Wed, 18 Dec 2019 11:16:56 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</guid>
+      <guid>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%BC%80%E5%8F%91%E7%AE%80%E5%8D%95cli%E7%A8%8B%E5%BA%8F/</guid>
       <description>使用Golang开发Linux命令行使用程序selpg 文章目录 @[toc]
 概述  CLI（Command Line Interface）实用程序是Linux下应用开发的基础。正确的编写命令行程序让应用与操作系统融为一体，通过shell或script使得应用获得最大的灵活性与开发效率。Linux提供了cat、ls、copy等命令与操作系统交互；go语言提供一组实用程序完成从编码、编译、库管理、产品发布全过程支持；容器服务如docker、k8s提供了大量实用程序支撑云服务的开发、部署、监控、访问等管理任务；git、npm等都是大家比较熟悉的工具。尽管操作系统与应用系统服务可视化、图形化，但在开发领域，CLI在编程、调试、运维、管理中提供了图形化程序不可替代的灵活性与效率
  原版C语言selpg分析 如何使用  selpg是从文本输入选择页范围的实用程序。该输入可以来自作为最后一个命令行参数指定的文件，在没有给出文件名参数时也可以来自标准输入。selpg 首先处理所有的命令行参数。在扫描了所有的选项参数（也就是那些以连字符为前缀的参数）后，如果 selpg 发现还有一个参数，则它会接受该参数为输入文件的名称并尝试打开它以进行读取。如果没有其它参数，则 selpg 假定输入来自标准输入。
@@ -747,10 +757,10 @@ struct selpg_args { int start_page; int end_page; char in_filename[BUFSIZ]; int 
     
     <item>
       <title>Go语言使用GoConvey框架进行测试</title>
-      <link>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</link>
+      <link>https://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Wed, 18 Dec 2019 11:15:59 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://tifinity.github.io/2019/go%E8%AF%AD%E8%A8%80%E4%BD%BF%E7%94%A8goconvey%E6%A1%86%E6%9E%B6%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95/</guid>
       <description>Go语言使用GoConvey框架进行测试 本周作业为在go-online上完成一个最小堆算法，在完成之后我使用GoConvey进行测试。
 要想写出好的的代码，必须学会测试框架，对于golang，可以使用自带的go test测试，也可以使用其他框架如
 GoConvey，GoStub，GoMock，Monkey，本次我学习使用GoConvey。
@@ -763,10 +773,10 @@ package myheap import ( &amp;#34;testing&amp;#34; . &amp;#34;github.com/smartyst
     
     <item>
       <title>服务计算第二周作业：golang环境配置（CentOS7&#43;VSCode）</title>
-      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</link>
+      <link>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</link>
       <pubDate>Wed, 18 Dec 2019 11:14:56 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</guid>
+      <guid>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9Agolang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AEcentos7-vscode/</guid>
       <description>服务计算实验二：golang环境配置（CentOS7+VSCode） github项目
 Linux文件目录结构 在安装golang之前，为了避免许多不必要的错误，一定要分清root用户和你使用图形界面的用户，即你自己取了个名字的用户，以下为了方便称为非root用户。
 进入root用户的命令为su，退出是按Ctrl + D。
@@ -794,10 +804,10 @@ sudo snap install --classic code
     
     <item>
       <title>服务计算第一周作业：安装配置你的私有云（VMware&#43;CentOS7）</title>
-      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</link>
+      <link>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</link>
       <pubDate>Wed, 18 Dec 2019 11:11:38 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</guid>
+      <guid>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E4%BD%A0%E7%9A%84%E7%A7%81%E6%9C%89%E4%BA%91vmware-centos7/</guid>
       <description>服务计算实验一：安装配置你的私有云（VMware+CentOS7） 实验内容 使用VMware创建虚拟机   下载Linux镜像：从老师给的地址或者其他网址下载Centos操作系统。
   创建虚拟机：基本操作此处不赘述。
   再添加一块虚拟网卡  第一块网卡为NAT模式，用于访问外网，第二块网卡为仅主机模式，用于与主机相连。
@@ -820,10 +830,10 @@ vi ifcfg-en33 ，按 i 进入插入模式，将文件中的 onboot = no 改成 o
     
     <item>
       <title>服务计算第十二周作业：简单 web 服务与客户端开发实战</title>
-      <link>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</link>
+      <link>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</link>
       <pubDate>Wed, 18 Dec 2019 11:11:38 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</guid>
+      <guid>https://tifinity.github.io/2019/%E6%9C%8D%E5%8A%A1%E8%AE%A1%E7%AE%97%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/</guid>
       <description>服务计算作业：简单 web 服务与客户端开发实战 作业要求概述 利用 web 客户端调用远端服务是服务开发本实验的重要内容。其中，要点建立 API First 的开发理念，实现前后端分离，使得团队协作变得更有效率。
 作业要求
 开发过程 本次作业我们选择实现见单个人博客网站：项目地址
@@ -841,10 +851,10 @@ Github API v3 overview
     
     <item>
       <title>Docker学习</title>
-      <link>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 17 Dec 2019 00:01:28 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://tifinity.github.io/2019/docker%E5%AD%A6%E4%B9%A0/</guid>
       <description>Docker学习 准备Docker环境 安装Docker：
   Community Edition CE 社区版
   Enterprise Edition EE 企业版
@@ -862,10 +872,10 @@ docker search &amp;lt;name&amp;gt; 拉取镜像：</description>
     
     <item>
       <title>Ubuntu学习</title>
-      <link>http://tifinity.github.io/2019/ubuntu-learning/</link>
+      <link>https://tifinity.github.io/2019/ubuntu-learning/</link>
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/ubuntu-learning/</guid>
+      <guid>https://tifinity.github.io/2019/ubuntu-learning/</guid>
       <description>Ubuntu学习 1. Ubuntu包管理机制 apt-get install &amp;lt;package&amp;gt; apt-get update apt-get upgrade 这些命令我们都不会陌生，与windows不同，ubuntu的软件安装一般都是借助包管理工具在终端中实现。
 如果你想知道apt-get到底是什么；
 install的软件到底安装到哪去了；
@@ -879,10 +889,10 @@ source.list长这样：
     
     <item>
       <title>信息安全作业4</title>
-      <link>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
+      <link>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</link>
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E4%BD%9C%E4%B8%9A4/</guid>
       <description>信息安全作业4：描述IPSec传输模式下 ESP 报文的装包与拆包过程 IPSec   IP 协议的安全性
 传统的 IP 协议诞生于军用计划，设计之初未考虑太多安全问题，存在很多安全隐患。比如数据明文传输，同在一个集线器的通信可以被互相监听，如果获得交换机权限，所有流经交换机的通信也可以被监听。攻击者即便没有交换机权限，也可以通过中间人攻击窃取用户的通信。
   IPsec（互联网安全协定）提供了网络层加密方案
@@ -900,10 +910,10 @@ source.list长这样：
     
     <item>
       <title></title>
-      <link>http://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://tifinity.github.io/1/ajax%E5%AD%A6%E4%B9%A0/</guid>
       <description>AJAX学习 AJAX == Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。
 AJAX使服务端与客户端交换数据时不必重新加载整个页面而更新网页的某个部分。
 AJAX用于创建快速动态网页。

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>邮件 on Infinit</title>
-    <link>http://tifinity.github.io/tags/%E9%82%AE%E4%BB%B6/</link>
+    <link>https://tifinity.github.io/tags/%E9%82%AE%E4%BB%B6/</link>
     <description>Recent content in 邮件 on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/%E9%82%AE%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Apr 2020 11:02:04 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/%E9%82%AE%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python如何发送邮件</title>
-      <link>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <link>https://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
       <pubDate>Thu, 16 Apr 2020 11:02:04 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <guid>https://tifinity.github.io/2020/python%E5%A6%82%E4%BD%95%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
       <description>Python如何发送邮件  大部分人学习或者使用某样东西，喜欢在直观上看到动手后的结果，才会有继续下去的兴趣。
  使用Python自带的email包和smtplib包就可以实现发送邮件，emil负责构造邮件，smtplib负责发送邮件。
 提醒一下，千万不要把你的文件名设为 email.py 因为这个名字与email包名重合，当前目录的优先级比Python安装目录和环境变量优先级高，可以验证一下：

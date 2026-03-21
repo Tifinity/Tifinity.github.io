@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>none on Infinit</title>
-    <link>http://tifinity.github.io/tags/none/</link>
+    <link>https://tifinity.github.io/tags/none/</link>
     <description>Recent content in none on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 28 Apr 2020 01:24:43 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/none/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Apr 2020 01:24:43 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/none/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unity3D作业五：游戏对象与图形基础</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 28 Apr 2020 01:24:43 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%94%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
       <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
 可以创建地形，也可以直接将预制地形拖到场景中。
 在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
@@ -24,10 +24,10 @@
     
     <item>
       <title>Unity3D作业四：材料与渲染练习</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</link>
       <pubDate>Tue, 28 Apr 2020 01:23:49 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%9D%90%E6%96%99%E4%B8%8E%E6%B8%B2%E6%9F%93%E7%BB%83%E4%B9%A0/</guid>
       <description>材料与渲染练习 先在这里推荐一个纹理材质的网站 -&amp;gt; ?
 现在开始我的学习过程ヽ(✿ﾟ▽ﾟ)ノ
 首先在网站上随便找了一块免费的石头
@@ -53,10 +53,10 @@
     
     <item>
       <title>Unity3D作业三：空间与运动</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</link>
       <pubDate>Tue, 28 Apr 2020 01:23:11 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%B8%89%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%90%E5%8A%A8/</guid>
       <description>Unity3D作业二：空间与运动 作业内容
 1、简答并用程序验证
   游戏对象运动的本质是什么？
@@ -68,10 +68,10 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; p
     
     <item>
       <title>Unity3D项目三：牧师与魔鬼</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</link>
       <pubDate>Tue, 28 Apr 2020 01:22:03 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%89%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC/</guid>
       <description>Unity3D项目三：牧师与魔鬼 基本介绍   列出游戏中提及的事物（Objects）
 牧师，恶魔，船，河流，左侧陆地，右侧陆地
   用表格列出玩家动作表（规则表），注意，动作越少越好
@@ -81,10 +81,10 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; p
     
     <item>
       <title>Unity3D项目二：太阳系仿真</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</link>
       <pubDate>Tue, 28 Apr 2020 01:21:11 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%8C%E5%A4%AA%E9%98%B3%E7%B3%BB%E4%BB%BF%E7%9C%9F/</guid>
       <description>Unity3D项目二：太阳系仿真 先上演示视频：?
 视角移动秘技  飞行模式：按住鼠标右键 + WASD（或方向键）移动，QE可以缩放 聚焦旋转：选中物体按F或者双击聚焦，然后按住ALT + 鼠标左键移动  物体旋转 围绕自身的旋转，参数为旋转轴 * 速度，注意只有一个参数
 this.transform.Rotate (Vector3.up * rotaSpeed);
@@ -100,10 +100,10 @@ this.transform.RotateAround (Vector3.zero, Vector3.up, rotaSpeed);
     
     <item>
       <title>Unity3D作业二：离散仿真引擎基础</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 28 Apr 2020 01:18:20 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E4%BA%8C%E7%A6%BB%E6%95%A3%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E%E5%9F%BA%E7%A1%80/</guid>
       <description>离散仿真引擎基础 简答题 1. 解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系。  游戏对象：出现在场景中，一般有人物、道具和风景等等，充当组件的容器，实现真正的功能。游戏对象自己不做任何事。他们需要专有属性，才可以成为一个角色，一个环境，或一个特殊效果。 资源：表示可以在项目中使用的任何素材。可能来自在Unity之外创建的文件，例如3D模型、音频文件，图像，脚本或Unity支持的任何其他类型的文件。还有一些可以在Unity中创建的资源类型，如动画控制器、音频混音器或渲染纹理。  2. 下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构） 游戏对象树的结构主要包括：摄像机，场景，光源，风，开始位置等
 资源目录包括：动画，素材，文本，模型，场景，预设等
 3. 编写一个代码，使用 debug 语句来验证 MonoBehaviour 基本行为或事件触发的条件 public class Test : MonoBehaviour { void Awake() { Debug.Log (&amp;#34;onAwake&amp;#34;); } void Start () { Debug.Log (&amp;#34;onStart&amp;#34;); } void Update () { Debug.Log (&amp;#34;onUpdate&amp;#34;); } void FixedUpdate() { Debug.Log (&amp;#34;onFixedUpdate&amp;#34;); } void LateUpdate() { Debug.Log (&amp;#34;onLateUpdate&amp;#34;); } void OnGUI() { Debug.Log (&amp;#34;onGUI&amp;#34;); } void OnDisable() { Debug.Log (&amp;#34;onDisable&amp;#34;); } void OnEnable() { Debug.</description>
@@ -111,10 +111,10 @@ this.transform.RotateAround (Vector3.zero, Vector3.up, rotaSpeed);
     
     <item>
       <title>Unity3D项目一：IMGUI井字棋</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</link>
       <pubDate>Tue, 28 Apr 2020 00:27:50 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%80imgui%E4%BA%95%E5%AD%97%E6%A3%8B/</guid>
       <description>Unity3D游戏一：IMGUI井字棋 要求  游戏内容： 井字棋 技术限制： 仅允许使用 IMGUI 构建 UI 作业目的：  了解 OnGUI() 事件，提升 debug 能力 提升阅读 API 文档能力    实现   完整代码传送门-&amp;gt;?
   视屏演示传送门-&amp;gt;?
   首先使用IMGUI搭建出游戏界面
@@ -130,10 +130,10 @@ int check() { /*横线获胜*/ for (int i = 0; i &amp;lt; 3; i++) { if (board[i]
     
     <item>
       <title>Unity3D项目四：牧师与魔鬼（动作分离版）</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</link>
       <pubDate>Tue, 28 Apr 2020 00:24:09 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%9B%9B%E7%89%A7%E5%B8%88%E4%B8%8E%E9%AD%94%E9%AC%BC%E5%8A%A8%E4%BD%9C%E5%88%86%E7%A6%BB%E7%89%88/</guid>
       <description>Unity3D项目四：牧师与魔鬼（动作分离版） 基本介绍 动作管理是游戏的重要内容，全部都放在游戏对象里显得十分笨重，所以本次项目需要将动作从对象中提取出来写成单独的动作控制器。动作控制器来管理控制所有的游戏对象移动，通过场景控制器将需要移动的游戏对象和位置等信息传递给动作控制器，动作控制器负责实现具体的移动。当动作很多或是需要做同样动作的游戏对象很多的时候，使用动作管理器可以让动作很容易管理，也提高了代码复用性。
 具体实现 完成ActionControllor.cs   ISSActionCallback（动作事件接口）
 使用了枚举变量定义动作类型，执行还是完成。
@@ -145,10 +145,10 @@ public enum SSActionEventType : int { Started, Competeted } public interface ISS
     
     <item>
       <title>Unity3D作业四：游戏对象与图形基础</title>
-      <link>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Tue, 28 Apr 2020 00:23:15 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E4%BD%9C%E4%B8%9A%E5%9B%9B%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%9B%BE%E5%BD%A2%E5%9F%BA%E7%A1%80/</guid>
       <description>Unity3D作业四：游戏对象与图形基础 基本操作与演练 先随便看看Fantasy Skybox里有什么，直接进入Demo，在Terrain里可以看到制作好的地形，Prefabs里有许多植物，Mesher是他们的网格，Sprites是按钮，Textures是贴图。
 可以创建地形，也可以直接将预制地形拖到场景中。
 在检查器里选择地形组件的第二个按钮，绘制树，下方点击编辑树-&amp;gt;添加树,将Prefabs中你喜欢的植物拖到新出现窗口的Tree Prefabs中
@@ -160,10 +160,10 @@ public enum SSActionEventType : int { Started, Competeted } public interface ISS
     
     <item>
       <title>Unity3D项目五：简单打飞碟</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</link>
       <pubDate>Tue, 28 Apr 2020 00:22:01 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%BA%94%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F/</guid>
       <description>打飞碟 @[toc]
 游戏规则与要求  游戏内容要求：  游戏有 n 个 round，每个 round 都包括10 次 trial； 每个 trial 的飞碟的色彩、大小、发射位置、速度、角度、同时出现的个数都可能不同。它们由该 round 的 ruler 控制； 每个 trial 的飞碟有随机性，总体难度随 round 上升； 鼠标点中得分，得分规则按色彩、大小、速度不同计算，规则可自由设定。   游戏的要求：  使用带缓存的工厂模式管理不同飞碟的生产与回收，该工厂必须是场景单实例的！具体实现见参考资源 Singleton 模板类 近可能使用前面 MVC 结构实现人机交互与游戏模型分离    项目地址与演示视频 项目地址 -&amp;gt;传送门?
 视频连接 -&amp;gt; 传送门?
@@ -175,10 +175,10 @@ using System.Collections; using System.Collections.Generic; using UnityEngine; p
     
     <item>
       <title>Unity3D项目六：简单打飞碟（物理引擎）</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</link>
       <pubDate>Tue, 28 Apr 2020 00:21:16 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%A3%9E%E7%A2%9F%E7%89%A9%E7%90%86%E5%BC%95%E6%93%8E/</guid>
       <description>简单打飞碟（物理引擎） @[toc]
 游戏规则与要求  游戏内容要求：  按 adapter模式 设计图修改飞碟游戏 使它同时支持物理运动与运动学（变换）运动    附加项目 附加项目简单打靶
 项目地址与演示视频 项目地址 -&amp;gt; 传送门?
@@ -194,10 +194,10 @@ public virtual void Update() { throw new System.</description>
     
     <item>
       <title>Unity3D项目六：简单打靶</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</link>
       <pubDate>Tue, 28 Apr 2020 00:18:23 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E5%85%AD%E7%AE%80%E5%8D%95%E6%89%93%E9%9D%B6/</guid>
       <description>简单打靶 @[toc]
 游戏规则与要求    游戏内容要求：  靶对象为 5 环，按环计分； 箭对象，射中后要插在靶上  增强要求：射中后，箭对象产生颤抖效果，到下一次射击 或 1秒以后   游戏仅一轮，无限 trials；  增强要求：添加一个风向和强度标志，提高难度        项目地址与演示视频 项目地址 -&amp;gt; 传送门?
 视频连接 -&amp;gt; 传送门?
@@ -209,10 +209,10 @@ void Update () { if(game_start) { Vector3 mpos = Camera.main.ScreenPointToRay(In
     
     <item>
       <title>Unity3d项目七：简单巡逻兵</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</link>
       <pubDate>Tue, 28 Apr 2020 00:16:44 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E7%AE%80%E5%8D%95%E5%B7%A1%E9%80%BB%E5%85%B5/</guid>
       <description>简单巡逻兵 @[toc]
 游戏规则与要求  智能巡逻兵  游戏设计要求：  创建一个地图和若干巡逻兵(使用动画)； 每个巡逻兵走一个3~5个边的凸多边型，位置数据是相对地址。即每次确定下一个目标位置，用自己当前位置为原点计算； 巡逻兵碰撞到障碍物，则会自动选下一个点为目标； 巡逻兵在设定范围内感知到玩家，会自动追击玩家； 失去玩家目标后，继续巡逻； 计分：玩家每次甩掉一个巡逻兵计一分，与巡逻兵碰撞游戏结束；   程序设计要求：  必须使用订阅与发布模式传消息  subject：OnLostGoal Publisher: GameEventManager Subscriber: 场景控制器   工厂模式生产巡逻兵      项目地址与演示视频 项目地址 -&amp;gt; 传送门?
 视频连接 -&amp;gt; 传送门?
@@ -237,10 +237,10 @@ Update只更新平面移动的向量，FixedUpdate使用该向量进行移动，
     
     <item>
       <title>Unity3D项目七：动画制作过程</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</link>
       <pubDate>Tue, 28 Apr 2020 00:15:46 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B8%83%E5%8A%A8%E7%94%BB%E5%88%B6%E4%BD%9C%E8%BF%87%E7%A8%8B/</guid>
       <description>人物模型与动画 @[toc]
 效果展示 作业博客 -&amp;gt; 传送门
 视频连接 -&amp;gt; 传送门
@@ -280,10 +280,10 @@ rollVelocity为Float，表示翻滚的速度。
     
     <item>
       <title>Unity3D项目九：简单的两个血条</title>
-      <link>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</link>
+      <link>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</link>
       <pubDate>Tue, 28 Apr 2020 00:14:10 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</guid>
+      <guid>https://tifinity.github.io/2020/unity3d%E9%A1%B9%E7%9B%AE%E4%B9%9D%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%A4%E4%B8%AA%E8%A1%80%E6%9D%A1/</guid>
       <description>简单血条 IMGUI和UGUI @[toc]
 作业要求   分别使用 IMGUI 和 UGUI 实现
   使用 UGUI，血条是游戏对象的一个子元素，任何时候需要面对主摄像机

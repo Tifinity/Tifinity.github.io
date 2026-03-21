@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>人工智能 on Infinit</title>
-    <link>http://tifinity.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</link>
+    <link>https://tifinity.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</link>
     <description>Recent content in 人工智能 on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 20 Dec 2019 20:56:03 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Dec 2019 20:56:03 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>人工智能作业4</title>
-      <link>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</link>
+      <link>https://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</link>
       <pubDate>Fri, 20 Dec 2019 20:56:03 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</guid>
+      <guid>https://tifinity.github.io/2019/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E4%BD%9C%E4%B8%9A4/</guid>
       <description>人工智能第四次作业 17343105 田皓 EM算法实验内容 算法原理 EM **Expectation-maximization algorithm **期望最大化算法
 a.记录了每次选择的是A还是B
 A硬币出现正面的概率为 $P(A) = \frac{24}{24+6}= 0.80$

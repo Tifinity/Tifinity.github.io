@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PicGo on Infinit</title>
-    <link>http://tifinity.github.io/tags/picgo/</link>
+    <link>https://tifinity.github.io/tags/picgo/</link>
     <description>Recent content in PicGo on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 27 Dec 2019 17:53:45 +0800</lastBuildDate><atom:link href="http://tifinity.github.io/tags/picgo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Dec 2019 17:53:45 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/picgo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PicGo-图床管理工具</title>
-      <link>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <link>https://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Fri, 27 Dec 2019 17:53:45 +0800</pubDate>
       
-      <guid>http://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://tifinity.github.io/2019/picgo-%E5%9B%BE%E5%BA%8A%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
       <description>PicGo+Github图片管理方案 PicGo使用 PicGo是一个非常好用的开源图床管理工具：Github地址
 我的图床目前是Github，下面就以Github来进行一遍操作。
 在Github上创建一个仓库用来保存图片，然后创建一个token，点击头像-&amp;gt;Setting-&amp;gt;Developer setting-&amp;gt;Personal access tokens-&amp;gt;Generate new token，填写Note，勾选repo，复制保存token，这个 token 只显示一次。
