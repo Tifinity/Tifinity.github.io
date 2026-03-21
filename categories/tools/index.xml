@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Infinit</title>
+    <link>https://tifinity.github.io/categories/tools/</link>
+    <description>Recent content in Tools on Infinit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 21 Mar 2026 22:30:00 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>博客迁移到 GitHub Actions 实践记录</title>
+      <link>https://tifinity.github.io/2026/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E5%88%B0github-actions%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Sat, 21 Mar 2026 22:30:00 +0800</pubDate>
+      
+      <guid>https://tifinity.github.io/2026/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E5%88%B0github-actions%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/</guid>
+      <description>背景 我的博客一直使用 Drone CI 进行自动化部署，但随着 GitHub Actions 的成熟，决定将 CI/CD 流程迁移到 GitHub Actions。整个过程踩了不少坑，记录如下。
+目标 实现以下工作流：
+ 推送代码到 master 分支 自动触发 Hugo 构建 部署到 Tifinity.github.io 仓库（GitHub Pages）  遇到的坑 1. Hugo 版本不兼容 问题：使用了 Hugo 0.123.0 版本，但 LeaveIt 主题使用了已弃用的 .RSSLink 变量，导致构建失败。
+ERROR render of &amp;quot;404&amp;quot; failed: ... at &amp;lt;.RSSLink&amp;gt;: can&#39;t evaluate field RSSLink in type *hugolib.pageState 解决：降级 Hugo 到 0.87.0（与原 Drone CI 配置一致）
+- name: Setup Hugo uses: peaceiris/actions-hugo@v3 with: hugo-version: &amp;#39;0.87.0&amp;#39; # 不要追求最新版 extended: true 2.</description>
+    </item>
+    
+  </channel>
+</rss>

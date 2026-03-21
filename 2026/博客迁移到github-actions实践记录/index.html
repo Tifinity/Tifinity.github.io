@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Tifinity">
+  
+  
+  
+  <link rel="prev" href="https://tifinity.github.io/2026/claude-code-%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B/" />
+  
+  <link rel="canonical" href="https://tifinity.github.io/2026/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E5%88%B0github-actions%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           博客迁移到 GitHub Actions 实践记录 | Infinit
+       
+  </title>
+  <meta name="title" content="博客迁移到 GitHub Actions 实践记录 | Infinit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/tifinity.github.io\/"
+    },
+    "articleSection" : "posts",
+    "name" : "博客迁移到 GitHub Actions 实践记录",
+    "headline" : "博客迁移到 GitHub Actions 实践记录",
+    "description" : "背景 我的博客一直使用 Drone CI 进行自动化部署，但随着 GitHub Actions 的成熟，决定将 CI\/CD 流程迁移到 GitHub Actions。整个过程踩了不少坑，记录如下。\n目标 实现以下工作流：\n 推送代码到 master 分支 自动触发 Hugo 构建 部署到 Tifinity.github.io 仓库（GitHub Pages）  遇到的坑 1. Hugo 版本不兼容 问题：使用了 Hugo 0.123.0 版本，但 LeaveIt 主题使用了已弃用的 .RSSLink 变量，导致构建失败。\nERROR render of \u0026quot;404\u0026quot; failed: ... at \u0026lt;.RSSLink\u0026gt;: can\u0027t evaluate field RSSLink in type *hugolib.pageState 解决：降级 Hugo 到 0.87.0（与原 Drone CI 配置一致）\n- name: Setup Hugo uses: peaceiris\/actions-hugo@v3 with: hugo-version: \u0026#39;0.87.0\u0026#39; # 不要追求最新版 extended: true 2.",
+    "inLanguage" : "zh-CN",
+    "author" : "Tifinity",
+    "creator" : "Tifinity",
+    "publisher": "Tifinity",
+    "accountablePerson" : "Tifinity",
+    "copyrightHolder" : "Tifinity",
+    "copyrightYear" : "2026",
+    "datePublished": "2026-03-21 22:30:00 \u002b0800 \u002b0800",
+    "dateModified" : "2026-03-21 22:30:00 \u002b0800 \u002b0800",
+    "url" : "https:\/\/tifinity.github.io\/2026\/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E5%88%B0github-actions%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95\/",
+    "wordCount" : "314",
+    "keywords" : [ "GitHub Actions","CI\/CD","Hugo","部署", "Infinit"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://tifinity.github.io/">Infinit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://tifinity.github.io/">Infinit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">博客迁移到 GitHub Actions 实践记录</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://tifinity.github.io/" rel="author">Tifinity</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2026-03-21 itemprop="datePublished">March 21, 2026</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://tifinity.github.io/categories/tools/"> Tools </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="背景">背景</h2>
+<p>我的博客一直使用 Drone CI 进行自动化部署，但随着 GitHub Actions 的成熟，决定将 CI/CD 流程迁移到 GitHub Actions。整个过程踩了不少坑，记录如下。</p>
+<h2 id="目标">目标</h2>
+<p>实现以下工作流：</p>
+<ol>
+<li>推送代码到 <code>master</code> 分支</li>
+<li>自动触发 Hugo 构建</li>
+<li>部署到 <code>Tifinity.github.io</code> 仓库（GitHub Pages）</li>
+</ol>
+<h2 id="遇到的坑">遇到的坑</h2>
+<h3 id="1-hugo-版本不兼容">1. Hugo 版本不兼容</h3>
+<p><strong>问题</strong>：使用了 Hugo 0.123.0 版本，但 LeaveIt 主题使用了已弃用的 <code>.RSSLink</code> 变量，导致构建失败。</p>
+<pre><code>ERROR render of &quot;404&quot; failed: ... at &lt;.RSSLink&gt;: can't evaluate field RSSLink in type *hugolib.pageState
+</code></pre><p><strong>解决</strong>：降级 Hugo 到 0.87.0（与原 Drone CI 配置一致）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span>
+  <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v3</span>
+  <span style="color:#f92672">with</span>:
+    <span style="color:#f92672">hugo-version</span>: <span style="color:#e6db74">&#39;0.87.0&#39;</span>  <span style="color:#75715e"># 不要追求最新版</span>
+    <span style="color:#f92672">extended</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><h3 id="2-hugo-命令参数大小写">2. Hugo 命令参数大小写</h3>
+<p><strong>问题</strong>：<code>--baseUrl</code> 应该是 <code>--baseURL</code>（URL 必须大写）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># 错误</span>
+<span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo --baseUrl=&#34;https://tifinity.github.io/&#34;</span>
+
+<span style="color:#75715e"># 正确</span>
+<span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo --baseURL=&#34;https://tifinity.github.io/&#34;</span>
+</code></pre></div><h3 id="3-github_token-无法推送到外部仓库">3. GITHUB_TOKEN 无法推送到外部仓库</h3>
+<p><strong>问题</strong>：使用 <code>secrets.GITHUB_TOKEN</code> 部署到外部仓库时报错：</p>
+<pre><code>The generated GITHUB_TOKEN (github_token) does not support to push to an external repository.
+</code></pre><p><strong>原因</strong>：GITHUB_TOKEN 的作用域仅限于当前仓库，无法推送到其他仓库，即使是你自己的仓库。</p>
+<p><strong>解决</strong>：使用 SSH Deploy Key</p>
+<h3 id="4-ssh-key-格式问题">4. SSH Key 格式问题</h3>
+<p><strong>问题</strong>：配置了 deploy key 但仍报错：</p>
+<pre><code>Error loading key &quot;/home/runner/.ssh/github&quot;: error in libcrypto
+</code></pre><p><strong>原因</strong>：复制私钥到 GitHub Secrets 时丢失了换行符，导致格式错误。</p>
+<p><strong>正确的 SSH Key 配置步骤</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 1. 生成密钥</span>
+ssh-keygen -t ed25519 -C <span style="color:#e6db74">&#34;blog@github-actions&#34;</span> -f ~/.ssh/blog
+
+<span style="color:#75715e"># 2. 公钥添加到目标仓库（Tifinity.github.io）</span>
+<span style="color:#75715e"># Settings -&gt; Deploy keys -&gt; Add deploy key</span>
+<span style="color:#75715e"># 勾选 &#34;Allow write access&#34;</span>
+
+<span style="color:#75715e"># 3. 私钥添加到源仓库 Secrets（Tifinity-Blog）</span>
+<span style="color:#75715e"># Settings -&gt; Secrets and variables -&gt; Actions -&gt; New repository secret</span>
+<span style="color:#75715e"># Name: blog</span>
+<span style="color:#75715e"># Value: cat ~/.ssh/blog 的完整内容（包含换行符）</span>
+</code></pre></div><h2 id="最终配置">最终配置</h2>
+<p><code>.github/workflows/deploy.yml</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy Hugo Blog</span>
+
+<span style="color:#f92672">on</span>:
+  <span style="color:#f92672">push</span>:
+    <span style="color:#f92672">branches</span>:
+      - <span style="color:#ae81ff">master</span>
+  <span style="color:#f92672">workflow_dispatch</span>:  <span style="color:#75715e"># 支持手动触发</span>
+
+<span style="color:#f92672">jobs</span>:
+  <span style="color:#f92672">deploy</span>:
+    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+    <span style="color:#f92672">steps</span>:
+      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>
+          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v3</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">hugo-version</span>: <span style="color:#e6db74">&#39;0.87.0&#39;</span>
+          <span style="color:#f92672">extended</span>: <span style="color:#66d9ef">true</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo --baseURL=&#34;https://tifinity.github.io/&#34;</span>
+
+      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
+        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-gh-pages@v4</span>
+        <span style="color:#f92672">if</span>: <span style="color:#ae81ff">github.ref == &#39;refs/heads/master&#39;</span>
+        <span style="color:#f92672">with</span>:
+          <span style="color:#f92672">deploy_key</span>: <span style="color:#ae81ff">${{ secrets.blog }}</span>
+          <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public</span>
+          <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">master</span>
+          <span style="color:#f92672">external_repository</span>: <span style="color:#ae81ff">Tifinity/Tifinity.github.io</span>
+</code></pre></div><h2 id="关键概念理解">关键概念理解</h2>
+<h3 id="github_token-vs-ssh-key">GITHUB_TOKEN vs SSH Key</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>GITHUB_TOKEN</th>
+<th>SSH Deploy Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>来源</td>
+<td>GitHub 自动生成</td>
+<td>手动生成配置</td>
+</tr>
+<tr>
+<td>作用域</td>
+<td>当前仓库</td>
+<td>可配置到任意仓库</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>单仓库操作</td>
+<td>跨仓库部署</td>
+</tr>
+</tbody>
+</table>
+<h3 id="什么是外部仓库">什么是&quot;外部仓库&quot;</h3>
+<p>虽然 <code>Tifinity/Tifinity.github.io</code> 也是我的仓库，但对 GitHub Actions 来说：</p>
+<ul>
+<li><strong>当前仓库</strong>：Actions 运行的仓库（Tifinity-Blog）</li>
+<li><strong>外部仓库</strong>：任何其他仓库（包括 Tifinity.github.io）</li>
+</ul>
+<p>GITHUB_TOKEN 被严格限制在当前仓库，这是安全设计。</p>
+<h2 id="验证部署">验证部署</h2>
+<p>合并到 master 后，可以在以下位置查看运行状态：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># CLI 查看</span>
+gh run list --limit <span style="color:#ae81ff">5</span>
+
+<span style="color:#75715e"># 浏览器查看</span>
+open https://github.com/Tifinity/Tifinity-Blog/actions
+</code></pre></div><h2 id="总结">总结</h2>
+<ol>
+<li>Hugo 版本要与主题兼容，不要盲目追求最新版</li>
+<li>注意命令参数的大小写（&ndash;baseURL）</li>
+<li>跨仓库部署需要使用 SSH Key，不能使用 GITHUB_TOKEN</li>
+<li>SSH Key 复制时要保持格式完整（包括换行符）</li>
+<li>添加 <code>workflow_dispatch</code> 支持手动触发，方便调试</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Tifinity </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://tifinity.github.io/2026/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E5%88%B0github-actions%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/>https://tifinity.github.io/2026/%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB%E5%88%B0github-actions%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target = "_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://tifinity.github.io/tags/github-actions/">
+                    #GitHub Actions</a></span>
+            
+            <span class="tag"><a href="https://tifinity.github.io/tags/ci/cd/">
+                    #CI/CD</a></span>
+            
+            <span class="tag"><a href="https://tifinity.github.io/tags/hugo/">
+                    #Hugo</a></span>
+            
+            <span class="tag"><a href="https://tifinity.github.io/tags/%E9%83%A8%E7%BD%B2/">
+                    #部署</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://tifinity.github.io/">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://tifinity.github.io/2026/claude-code-%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B/" class="prev" rel="prev" title="Claude Code 智能编程助手"><i class="iconfont icon-left"></i>&nbsp;Claude Code 智能编程助手</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2026</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://tifinity.github.io/">Tifinity</a> | </span> 
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

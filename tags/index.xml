@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Infinit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 21 Mar 2026 19:07:06 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Mar 2026 22:30:00 +0800</lastBuildDate><atom:link href="https://tifinity.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://tifinity.github.io/tags/github-actions/</link>
+      <pubDate>Sat, 21 Mar 2026 22:30:00 +0800</pubDate>
+      
+      <guid>https://tifinity.github.io/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://tifinity.github.io/tags/hugo/</link>
+      <pubDate>Sat, 21 Mar 2026 22:30:00 +0800</pubDate>
+      
+      <guid>https://tifinity.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>部署</title>
+      <link>https://tifinity.github.io/tags/%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sat, 21 Mar 2026 22:30:00 +0800</pubDate>
+      
+      <guid>https://tifinity.github.io/tags/%E9%83%A8%E7%BD%B2/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>AI</title>
       <link>https://tifinity.github.io/tags/ai/</link>
@@ -292,6 +319,15 @@
       <pubDate>Mon, 16 Dec 2019 19:00:20 +0800</pubDate>
       
       <guid>https://tifinity.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI/CD</title>
+      <link>https://tifinity.github.io/tags/ci/cd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tifinity.github.io/tags/ci/cd/</guid>
       <description></description>
     </item>
     
